@@ -11,7 +11,7 @@ import chickennugget.spaceengineersdata.R;
 
 public class HomeFragment extends Fragment {
 
-    public HomeFragment() {}
+    public HomeFragment() { }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

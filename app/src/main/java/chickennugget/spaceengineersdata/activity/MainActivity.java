@@ -34,26 +34,24 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Set Main View
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-
+        // Setup Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
+        // Setup Navigation Drawer Fragments
         FragmentDrawer drawerFragment = (FragmentDrawer) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
         drawerFragment.setDrawerListener(this);
-
-
+        // Setup View Pager
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
-
+        // Setup Tab Layout
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-        // display the first navigation drawer view on app launch
+        // Display the first navigation drawer view on app launch
         displayView(0);
     }
 
@@ -66,15 +64,11 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Handle action bar item clicks here. The action bar will utomatically handle clicks on
+        // the Home/Up button, so long as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        if(id == R.id.action_search) {
+        if (id == R.id.action_settings) { return true; }
+        if (id == R.id.action_search) {
             Toast.makeText(getApplicationContext(), "Search action is selected!", Toast.LENGTH_SHORT).show();
             return true;
         }
@@ -108,9 +102,9 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         if (fragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//@TODO     fragmentTransaction.replace(R.id.container, fragment);      <--- create new layer
+//@TODO     fragmentTransaction.replace(R.id.container, fragment);      <--- create new layer instead
             fragmentTransaction.commit();
-            // set the toolbar title
+            // Set the toolbar title
             getSupportActionBar().setTitle(title);
         }
     }

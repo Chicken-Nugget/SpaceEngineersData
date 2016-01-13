@@ -11,7 +11,7 @@ import chickennugget.spaceengineersdata.R;
 
 public class MessagesFragment extends Fragment {
 
-    public MessagesFragment() {}
+    public MessagesFragment() { }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

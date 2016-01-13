@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="chickennugget.spaceengineersdata.activity.FriendsFragment">
+    tools:context="chickennugget.spaceengineersdata.activity.FriendsFragment" >
+
     <TextView
         android:id="@+id/label"
         android:layout_alignParentTop="true"
@@ -13,7 +14,8 @@
         android:gravity="center_horizontal"
         android:textSize="45sp"
         android:text="FRIENDS"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
+
     <TextView
         android:layout_below="@id/label"
         android:layout_centerInParent="true"

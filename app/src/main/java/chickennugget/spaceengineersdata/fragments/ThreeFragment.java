@@ -10,7 +10,7 @@ import chickennugget.spaceengineersdata.R;
 
 public class ThreeFragment extends Fragment {
 
-    public ThreeFragment() {}
+    public ThreeFragment() { }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

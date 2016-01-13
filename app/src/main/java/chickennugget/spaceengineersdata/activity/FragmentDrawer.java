@@ -29,15 +29,14 @@ public class FragmentDrawer extends Fragment {
     private static String[] titles = null;
     private FragmentDrawerListener drawerListener;
 
-    public FragmentDrawer() {}
+    public FragmentDrawer() { }
 
     public void setDrawerListener(FragmentDrawerListener listener) {
         this.drawerListener = listener;
     }
 
-    public static List<NavDrawerItem> getData() {
+    private static List<NavDrawerItem> getData() {
         List<NavDrawerItem> data = new ArrayList<>();
-
         // Prepare Nav Drawer items
         for (String title : titles) {
             NavDrawerItem navItem = new NavDrawerItem();
@@ -59,11 +58,11 @@ public class FragmentDrawer extends Fragment {
         // Inflate view layout
         View layout = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
         RecyclerView recyclerView = (RecyclerView) layout.findViewById(R.id.drawerList);
-
         NavigationDrawerAdapter adapter = new NavigationDrawerAdapter(getActivity(), getData());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListener() {
+
             @Override
             public void onClick(View view, int position) {
                 drawerListener.onDrawerItemSelected(view, position);
@@ -71,9 +70,7 @@ public class FragmentDrawer extends Fragment {
             }
 
             @Override
-            public void onLongClick(View view, int position) {
-
-            }
+            public void onLongClick(View view, int position) { }
         }));
         return layout;
     }
@@ -83,6 +80,7 @@ public class FragmentDrawer extends Fragment {
         containerView = getActivity().findViewById(fragmentId);
         mDrawerLayout = drawerLayout;
         mDrawerToggle = new ActionBarDrawerToggle(getActivity(), drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
+
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
@@ -109,7 +107,6 @@ public class FragmentDrawer extends Fragment {
                 mDrawerToggle.syncState();
             }
         });
-
     }
 
     public interface ClickListener {
@@ -118,15 +115,14 @@ public class FragmentDrawer extends Fragment {
     }
 
     static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
-        private GestureDetector gestureDetector;
-        private ClickListener clickListener;
+        private final GestureDetector gestureDetector;
+        private final ClickListener clickListener;
         public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final ClickListener clickListener) {
             this.clickListener = clickListener;
             gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
+
                 @Override
-                public boolean onSingleTapUp(MotionEvent e) {
-                    return true;
-                }
+                public boolean onSingleTapUp(MotionEvent e) { return true; }
 
                 @Override
                 public void onLongPress(MotionEvent e) {
@@ -137,7 +133,6 @@ public class FragmentDrawer extends Fragment {
                 }
             });
         }
-
         @Override
         public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
             View child = rv.findChildViewUnder(e.getX(), e.getY());
@@ -148,16 +143,11 @@ public class FragmentDrawer extends Fragment {
         }
 
         @Override
-        public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-
-        }
+        public void onTouchEvent(RecyclerView rv, MotionEvent e) { }
 
         @Override
-        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-        }
+        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) { }
     }
-
     public interface FragmentDrawerListener {
         void onDrawerItemSelected(View view, int position);
     }

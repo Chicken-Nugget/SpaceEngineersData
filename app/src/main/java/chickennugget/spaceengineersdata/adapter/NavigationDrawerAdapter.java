@@ -14,8 +14,9 @@ import chickennugget.spaceengineersdata.R;
 import chickennugget.spaceengineersdata.model.NavDrawerItem;
 
 public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDrawerAdapter.MyViewHolder> {
-    List<NavDrawerItem> data = Collections.emptyList();
-    private LayoutInflater inflater;
+
+    private List<NavDrawerItem> data = Collections.emptyList();
+    private final LayoutInflater inflater;
 
     public NavigationDrawerAdapter(Context context, List<NavDrawerItem> data) {
         inflater = LayoutInflater.from(context);
@@ -40,7 +41,8 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView title;
+
+        final TextView title;
 
         public MyViewHolder(View itemView) {
             super(itemView);
