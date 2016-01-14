@@ -31,12 +31,21 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <android.support.v4.view.ViewPager
+        <!--android.support.v4.view.ViewPager
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:nestedScrollingEnabled="false" />
+            android:nestedScrollingEnabled="false" /-->
+
+
+
+        <!-- The main content view -->
+        <FrameLayout
+            android:id="@+id/fragment_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
     </android.support.design.widget.CoordinatorLayout>
 
     <fragment

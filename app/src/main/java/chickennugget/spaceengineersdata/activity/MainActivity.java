@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import chickennugget.spaceengineersdata.R;
+import chickennugget.spaceengineersdata.cards.BaseFragment;
+import chickennugget.spaceengineersdata.cards.GridBaseFragment;
 import chickennugget.spaceengineersdata.fragments.EightFragment;
 import chickennugget.spaceengineersdata.fragments.FiveFragment;
 import chickennugget.spaceengineersdata.fragments.FourFragment;
@@ -32,6 +34,7 @@ import chickennugget.spaceengineersdata.fragments.TwoFragment;
 
 public class MainActivity extends AppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
 
+    private int mCurrentTitle=R.string.app_name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Set Main View
@@ -46,13 +49,29 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
         drawerFragment.setDrawerListener(this);
         // Setup View Pager
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
+//      ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager)
+//      setupViewPager(viewPager);
         // Setup Tab Layout
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
+//      TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+//      tabLayout.setupWithViewPager(viewPager);
         // Display the first navigation drawer view on app launch
+
+
+        BaseFragment baseFragment = new GridBaseFragment();
+        openFragment(baseFragment);
         displayView(0);
+
+    }
+
+    private void openFragment(BaseFragment baseFragment) {
+        if (baseFragment != null) {
+            android.app.FragmentManager fragmentManager = getFragmentManager();
+            android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            fragmentTransaction.replace(R.id.fragment_main, baseFragment);
+            //fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
     }
 
     @Override
@@ -72,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
             Toast.makeText(getApplicationContext(), "Search action is selected!", Toast.LENGTH_SHORT).show();
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
