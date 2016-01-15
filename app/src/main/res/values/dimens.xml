@@ -206,4 +206,8 @@
     <dimen name="circle_size">70dp</dimen>
     <dimen name="carddemo_list_padding">8dp</dimen>
 
+    <dimen name="drawer_text">20sp</dimen>
+    <dimen name="title_text">16sp</dimen>
+
+    <dimen name="bt_height">36dp</dimen>
 </resources>
