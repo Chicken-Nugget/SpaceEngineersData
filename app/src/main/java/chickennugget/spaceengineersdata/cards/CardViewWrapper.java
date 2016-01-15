@@ -22,8 +22,6 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 
-import chickennugget.spaceengineersdata.R;
-
 /**
  * Common interface for CardView.
  * <p>

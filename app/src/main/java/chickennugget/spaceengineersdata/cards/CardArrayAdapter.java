@@ -18,15 +18,11 @@
 
 package chickennugget.spaceengineersdata.cards;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.ListView;
 
 import java.util.ArrayList;

@@ -1,9 +1,26 @@
 package chickennugget.spaceengineersdata.cards;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.design.internal.ForegroundLinearLayout;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+
+import java.util.HashMap;
+
+import chickennugget.spaceengineersdata.R;
 
 /**
  * Created by Ian on 1/13/2016.
@@ -25,27 +42,6 @@ import android.view.View;
  *   limitations under the License.
  *  *****************************************************************************
  */
-
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-
-import java.util.HashMap;
-
-import chickennugget.spaceengineersdata.R;
 /**
  * Card view
  * </p>

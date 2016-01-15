@@ -19,6 +19,7 @@
 package chickennugget.spaceengineersdata.cards;
 
 import android.os.Build;
+
 import chickennugget.spaceengineersdata.BuildConfig;
 
 /**

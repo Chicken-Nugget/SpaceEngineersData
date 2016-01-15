@@ -31,9 +31,11 @@ import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
 import android.widget.AbsListView;
 import android.widget.ListView;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import chickennugget.spaceengineersdata.R;
 
 /**

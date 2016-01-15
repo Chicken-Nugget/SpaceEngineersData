@@ -21,7 +21,9 @@ package chickennugget.spaceengineersdata.cards;
 import android.content.Context;
 import android.view.View;
 import android.widget.ArrayAdapter;
+
 import java.util.List;
+
 import chickennugget.spaceengineersdata.R;
 
 /**

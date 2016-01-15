@@ -18,8 +18,6 @@
 
 package chickennugget.spaceengineersdata.cards;
 
-import android.support.v7.app.ActionBarActivity;
-
 /**
  * An abstract interface to use SDK-L and SDK-19
  */

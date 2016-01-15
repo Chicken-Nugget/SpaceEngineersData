@@ -21,6 +21,7 @@ package chickennugget.spaceengineersdata.cards;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+
 import chickennugget.spaceengineersdata.R;
 
 
