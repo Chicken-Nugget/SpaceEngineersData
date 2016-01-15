@@ -809,7 +809,7 @@ public class TimePicker extends View implements ThemeManager.OnThemeChangedListe
          *
          * @param mode The current mode. Can be {@link #MODE_HOUR} or {@link #MODE_MINUTE}.
          */
-        public void onModeChanged(int mode);
+        void onModeChanged(int mode);
 
         /**
          * Called then the selected hour is changed.
@@ -817,7 +817,7 @@ public class TimePicker extends View implements ThemeManager.OnThemeChangedListe
          * @param oldValue The old hour value.
          * @param newValue The new hour value.
          */
-        public void onHourChanged(int oldValue, int newValue);
+        void onHourChanged(int oldValue, int newValue);
 
         /**
          * Called then the selected minute is changed.
@@ -825,7 +825,7 @@ public class TimePicker extends View implements ThemeManager.OnThemeChangedListe
          * @param oldValue The old minute value.
          * @param newValue The new minute value.
          */
-        public void onMinuteChanged(int oldValue, int newValue);
+        void onMinuteChanged(int oldValue, int newValue);
     }
 
     static class SavedState extends BaseSavedState {

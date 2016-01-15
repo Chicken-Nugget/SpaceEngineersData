@@ -370,7 +370,7 @@ public class SimpleDialog extends Dialog {
          * @param index    The index of item.
          * @param selected The checked state.
          */
-        public void onSelectionChanged(int index, boolean selected);
+        void onSelectionChanged(int index, boolean selected);
     }
 
     public static class Builder extends Dialog.Builder implements OnSelectionChangedListener {
@@ -495,7 +495,7 @@ public class SimpleDialog extends Dialog {
             mMode = in.readInt();
             switch (mMode) {
                 case MODE_MESSAGE:
-                    mMessage = (CharSequence) in.readParcelable(null);
+                    mMessage = in.readParcelable(null);
                     break;
                 case MODE_ITEMS: {
                     Parcelable[] values = in.readParcelableArray(null);

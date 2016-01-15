@@ -1225,7 +1225,7 @@ public class Spinner extends FrameLayout implements ThemeManager.OnThemeChangedL
             final int spinnerWidth = Spinner.this.getWidth();
 
             if (mDropDownWidth == WRAP_CONTENT) {
-                int contentWidth = measureContentWidth((SpinnerAdapter) mAdapter, getBackground());
+                int contentWidth = measureContentWidth(mAdapter, getBackground());
                 final int contentWidthLimit = getContext().getResources().getDisplayMetrics().widthPixels - mTempRect.left - mTempRect.right;
                 if (contentWidth > contentWidthLimit)
                     contentWidth = contentWidthLimit;

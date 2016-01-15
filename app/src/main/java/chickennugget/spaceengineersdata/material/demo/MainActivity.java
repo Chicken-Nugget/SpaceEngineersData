@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
         NEATO("Neato");
         private final String name;
 
-        private Tab(String s) {
+        Tab(String s) {
             name = s;
         }
 

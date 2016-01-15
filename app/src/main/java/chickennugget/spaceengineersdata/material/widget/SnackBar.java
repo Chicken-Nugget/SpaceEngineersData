@@ -922,7 +922,7 @@ public class SnackBar extends FrameLayout implements ThemeManager.OnThemeChanged
          * @param sb       The SnackBar fire this event.
          * @param actionId The ActionId of this SnackBar.
          */
-        public void onActionClick(SnackBar sb, int actionId);
+        void onActionClick(SnackBar sb, int actionId);
     }
 
     /**
@@ -937,7 +937,7 @@ public class SnackBar extends FrameLayout implements ThemeManager.OnThemeChanged
          * @param oldState The old state of SnackBar.
          * @param newState The new state of SnackBar.
          */
-        public void onStateChange(SnackBar sb, int oldState, int newState);
+        void onStateChange(SnackBar sb, int oldState, int newState);
     }
 
     private class BackgroundDrawable extends Drawable {

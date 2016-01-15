@@ -319,7 +319,7 @@ public class YearPicker extends ListView {
          * @param oldValue The old year value.
          * @param newValue The new year value.
          */
-        public void onYearChanged(int oldValue, int newValue);
+        void onYearChanged(int oldValue, int newValue);
 
     }
 

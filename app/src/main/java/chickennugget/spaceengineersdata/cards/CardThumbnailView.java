@@ -620,7 +620,7 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
                 addBitmapToMemoryCache(String.valueOf(params[0]), bitmap);
                 return bitmap;
             } else {
-                return (Bitmap) null;
+                return null;
             }
 
         }
@@ -675,7 +675,7 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
                 addBitmapToMemoryCache(String.valueOf(params[0]), bitmap);
                 return bitmap;
             } else
-                return (Bitmap) null;
+                return null;
         }
 
         // Once complete, see if ImageView is still around and set bitmap.
@@ -727,7 +727,7 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
                 addBitmapToMemoryCache(customSource.getTag(), bitmap);
                 return bitmap;
             } else {
-                return (Bitmap) null;
+                return null;
             }
 
         }

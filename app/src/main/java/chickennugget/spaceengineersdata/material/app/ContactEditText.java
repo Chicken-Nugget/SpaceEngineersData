@@ -532,7 +532,7 @@ public class ContactEditText extends EditText {
                 Picasso.with(getContext())
                         .load(Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, recipient.lookupKey))
                         .placeholder(mDefaultAvatarId)
-                        .into((Target) v);
+                        .into(v);
 
             return v;
         }
@@ -648,7 +648,7 @@ public class ContactEditText extends EditText {
                 Picasso.with(getContext())
                         .load(Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, recipient.lookupKey))
                         .placeholder(mDefaultAvatarId)
-                        .into((Target) v);
+                        .into(v);
 
             return v;
         }

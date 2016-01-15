@@ -491,7 +491,7 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
          * @param newMonth The month value of new date.
          * @param newYear  The year value of new date.
          */
-        public void onDateChanged(int oldDay, int oldMonth, int oldYear, int newDay, int newMonth, int newYear);
+        void onDateChanged(int oldDay, int oldMonth, int oldYear, int newDay, int newMonth, int newYear);
     }
 
     private class ScrollStateRunnable implements Runnable {

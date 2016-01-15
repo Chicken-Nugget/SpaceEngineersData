@@ -1145,10 +1145,10 @@ public class Dialog extends android.app.Dialog {
         protected Builder(Parcel in) {
             mStyleId = in.readInt();
             mContentViewId = in.readInt();
-            mTitle = (CharSequence) in.readParcelable(null);
-            mPositive = (CharSequence) in.readParcelable(null);
-            mNegative = (CharSequence) in.readParcelable(null);
-            mNeutral = (CharSequence) in.readParcelable(null);
+            mTitle = in.readParcelable(null);
+            mPositive = in.readParcelable(null);
+            mNegative = in.readParcelable(null);
+            mNeutral = in.readParcelable(null);
 
             onReadFromParcel(in);
         }

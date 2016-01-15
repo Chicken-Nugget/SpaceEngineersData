@@ -308,7 +308,7 @@ public class ToolbarManager {
          * @param oldGroupId The id of old group.
          * @param groupId    The id of new group.
          */
-        public void onToolbarGroupChanged(int oldGroupId, int groupId);
+        void onToolbarGroupChanged(int oldGroupId, int groupId);
 
     }
 
@@ -324,7 +324,7 @@ public class ToolbarManager {
          * @param position The position of item.
          * @return
          */
-        public Animation getOutAnimation(View v, int position);
+        Animation getOutAnimation(View v, int position);
 
         /**
          * Get the animation of the menu item view will be added.
@@ -333,7 +333,7 @@ public class ToolbarManager {
          * @param position The position of item.
          * @return
          */
-        public Animation getInAnimation(View v, int position);
+        Animation getInAnimation(View v, int position);
     }
 
     private static class SimpleAnimator implements Animator {
@@ -480,10 +480,8 @@ public class ToolbarManager {
          * Check if should sync progress of drawer sliding animation with navigation state changing animation.
          */
         protected boolean shouldSyncDrawerSlidingProgress() {
-            if (mFragmentManager.getBackStackEntryCount() > 1)
-                return false;
+            return mFragmentManager.getBackStackEntryCount() <= 1;
 
-            return true;
         }
 
         protected void onFragmentChanged() {

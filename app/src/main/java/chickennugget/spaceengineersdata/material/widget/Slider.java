@@ -947,12 +947,12 @@ public class Slider extends View implements ThemeManager.OnThemeChangedListener 
          * @param oldValue The old value.
          * @param newValue The new value.
          */
-        public void onPositionChanged(Slider view, boolean fromUser, float oldPos, float newPos, int oldValue, int newValue);
+        void onPositionChanged(Slider view, boolean fromUser, float oldPos, float newPos, int oldValue, int newValue);
     }
 
     public interface ValueDescriptionProvider {
 
-        public String getDescription(int value);
+        String getDescription(int value);
 
     }
 

@@ -140,7 +140,7 @@ public class TimePickerDialog extends Dialog {
          * @param newHour   The hour value of new time.
          * @param newMinute The minute value of new time.
          */
-        public void onTimeChanged(int oldHour, int oldMinute, int newHour, int newMinute);
+        void onTimeChanged(int oldHour, int oldMinute, int newHour, int newMinute);
 
     }
 

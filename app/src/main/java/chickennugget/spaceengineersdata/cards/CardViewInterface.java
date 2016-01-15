@@ -37,7 +37,7 @@ public interface CardViewInterface {
      *
      * @return outer view
      */
-    public View getInternalOuterView();
+    View getInternalOuterView();
 
 
 }

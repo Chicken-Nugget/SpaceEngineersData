@@ -291,7 +291,7 @@ public class WeekView extends FrameLayout {
     }
 
     public interface OnDaySelectionChangedListener {
-        public void onDaySelectionChanged(int dayOfWeek, boolean selected);
+        void onDaySelectionChanged(int dayOfWeek, boolean selected);
     }
 
     static class SavedState extends BaseSavedState {

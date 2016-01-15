@@ -81,11 +81,7 @@ public abstract class CardGridCursorAdapter extends BaseCardCursorAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //Check for recycle
-        if (convertView == null) {
-            recycle = false;
-        } else {
-            recycle = true;
-        }
+        recycle = convertView != null;
         return super.getView(position, convertView, parent);
     }
 
@@ -102,7 +98,7 @@ public abstract class CardGridCursorAdapter extends BaseCardCursorAdapter {
         CardViewWrapper mCardView;
         Card mCard;
 
-        mCard = (Card) getCardFromCursor(cursor);
+        mCard = getCardFromCursor(cursor);
         if (mCard != null) {
             mCardView = (CardViewWrapper) view.findViewById(R.id.list_cardId);
             if (mCardView != null) {

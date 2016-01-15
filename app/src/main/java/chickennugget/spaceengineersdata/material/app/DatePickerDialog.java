@@ -200,7 +200,7 @@ public class DatePickerDialog extends Dialog {
          * @param newMonth The month value of new date.
          * @param newYear  The year value of new date.
          */
-        public void onDateChanged(int oldDay, int oldMonth, int oldYear, int newDay, int newMonth, int newYear);
+        void onDateChanged(int oldDay, int oldMonth, int oldYear, int newDay, int newMonth, int newYear);
     }
 
     public static class Builder extends Dialog.Builder implements OnDateChangedListener {

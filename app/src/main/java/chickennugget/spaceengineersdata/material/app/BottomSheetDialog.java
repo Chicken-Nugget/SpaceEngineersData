@@ -466,10 +466,8 @@ public class BottomSheetDialog extends android.app.Dialog {
                 return true;
 
             View child = getChildAt(0);
-            if (child != null && y > mChildTop + child.getMeasuredHeight())
-                return true;
+            return child != null && y > mChildTop + child.getMeasuredHeight();
 
-            return false;
         }
 
         @Override
