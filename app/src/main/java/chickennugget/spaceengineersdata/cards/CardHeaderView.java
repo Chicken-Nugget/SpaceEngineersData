@@ -144,7 +144,7 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
     //--------------------------------------------------------------------------
 
     public CardHeaderView(Context context) {
-       this(context, null, 0);
+        this(context, null, 0);
     }
 
     public CardHeaderView(Context context, AttributeSet attrs) {
@@ -259,7 +259,7 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
             visibilityButtonHelper(VISIBLE, GONE, GONE);
 
             addPopup();
-            if (mPopupMenu==null && mCardHeader.getCustomOverflowAnimation() != null) {
+            if (mPopupMenu == null && mCardHeader.getCustomOverflowAnimation() != null) {
                 addCustomOverflowAnimation();
             }
 
@@ -274,7 +274,7 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
                     //Check if button is not null
                     if (mImageButtonOther != null) {
                         if (mCardHeader.getOtherButtonDrawable() > 0) {
-                            mHelperImpl.setButtonBackground(mImageButtonOther, mCardHeader.getOtherButtonDrawable() );
+                            mHelperImpl.setButtonBackground(mImageButtonOther, mCardHeader.getOtherButtonDrawable());
                         }
                         addOtherListener();
                     }
@@ -401,7 +401,7 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
                 prepareMenu = mCardHeader.getPopupMenuPrepareListener().onPreparePopupMenu(mCardHeader.getParentCard(), mPopupMenu);
 
                 //Check if the menu has visible items
-                if (mPopupMenu.getMenu()==null || !mPopupMenu.getMenu().hasVisibleItems())
+                if (mPopupMenu.getMenu() == null || !mPopupMenu.getMenu().hasVisibleItems())
                     prepareMenu = false;
             }
 
@@ -410,19 +410,19 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
                 mImageButtonOverflow.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (mPopupMenu==null){
+                        if (mPopupMenu == null) {
                             //It is null if the PopupMenuPrepareListener is null
                             //PopupMenu is built inside onClick() method to avoid building the menu when it is not necessary
                             mPopupMenu = _buildPopupMenu();
                         }
-                        if (mPopupMenu!=null) {
+                        if (mPopupMenu != null) {
                             mPopupMenu.show();
                             mImageButtonOverflow.setSelected(true);
                         }
                     }
                 });
             } else {
-                if (mCardHeader.getCustomOverflowAnimation()==null) {
+                if (mCardHeader.getCustomOverflowAnimation() == null) {
                     mImageButtonOverflow.setVisibility(GONE);
                 }
             }
@@ -436,12 +436,13 @@ public class CardHeaderView extends FrameLayout implements CardViewInterface {
 
     /**
      * Build the menu
+     *
      * @return
      */
-    private PopupMenu _buildPopupMenu(){
+    private PopupMenu _buildPopupMenu() {
 
         PopupMenu popup = new PopupMenu(getContext(), mImageButtonOverflow);
-        if (mCardHeader.getPopupMenu()> CardHeader.NO_POPUP_MENU){
+        if (mCardHeader.getPopupMenu() > CardHeader.NO_POPUP_MENU) {
             MenuInflater inflater = popup.getMenuInflater();
             inflater.inflate(mCardHeader.getPopupMenu(), popup.getMenu());
         }

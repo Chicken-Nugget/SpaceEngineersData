@@ -100,7 +100,7 @@ public class NativeGridCursorCardFragment extends BaseNativeListFragment impleme
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         Loader<Cursor> loader = null;
-        loader = new CursorLoader(getActivity(), null, CardCursorContract.CardCursor.ALL_PROJECTION, null , null, CardCursorContract.CardCursor.DEFAULT_SORT);
+        loader = new CursorLoader(getActivity(), null, CardCursorContract.CardCursor.ALL_PROJECTION, null, null, CardCursorContract.CardCursor.DEFAULT_SORT);
         return loader;
     }
 
@@ -119,6 +119,14 @@ public class NativeGridCursorCardFragment extends BaseNativeListFragment impleme
         mAdapter.swapCursor(null);
     }
 
+    private void removeCard(Card card) {
+
+        //Use this code to delete items on DB
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        //mAdapter.notifyDataSetChanged();
+
+    }
 
     public class MyCursorCardAdapter extends CardGridCursorAdapter {
 
@@ -129,10 +137,10 @@ public class NativeGridCursorCardFragment extends BaseNativeListFragment impleme
         @Override
         protected Card getCardFromCursor(Cursor cursor) {
             MyCursorCard card = new MyCursorCard(super.getContext());
-            setCardFromCursor(card,cursor);
+            setCardFromCursor(card, cursor);
 
             //Create a CardHeader
-            CardHeader header = new CardHeader(getActivity(),R.layout.native_inner_gplay2_header);
+            CardHeader header = new CardHeader(getActivity(), R.layout.native_inner_gplay2_header);
             //Set the header title
 
             header.setTitle(card.mainHeader);
@@ -145,7 +153,6 @@ public class NativeGridCursorCardFragment extends BaseNativeListFragment impleme
 
             //Add Header to card
             card.addCardHeader(header);
-
 
 
             CardThumbnail thumb = new CardThumbnail(getActivity());
@@ -163,42 +170,33 @@ public class NativeGridCursorCardFragment extends BaseNativeListFragment impleme
             return card;
         }
 
-        private void setCardFromCursor(MyCursorCard card,Cursor cursor) {
+        private void setCardFromCursor(MyCursorCard card, Cursor cursor) {
 
-            card.mainTitle=cursor.getString(CardCursorContract.CardCursor.IndexColumns.TITLE_COLUMN);
-            card.secondaryTitle=cursor.getString(CardCursorContract.CardCursor.IndexColumns.SUBTITLE_COLUMN);
-            card.mainHeader=cursor.getString(CardCursorContract.CardCursor.IndexColumns.HEADER_COLUMN);
-            card.setId(""+cursor.getInt(CardCursorContract.CardCursor.IndexColumns.ID_COLUMN));
+            card.mainTitle = cursor.getString(CardCursorContract.CardCursor.IndexColumns.TITLE_COLUMN);
+            card.secondaryTitle = cursor.getString(CardCursorContract.CardCursor.IndexColumns.SUBTITLE_COLUMN);
+            card.mainHeader = cursor.getString(CardCursorContract.CardCursor.IndexColumns.HEADER_COLUMN);
+            card.setId("" + cursor.getInt(CardCursorContract.CardCursor.IndexColumns.ID_COLUMN));
 
             int thumb = cursor.getInt(CardCursorContract.CardCursor.IndexColumns.THUMBNAIL_COLUMN);
-            switch (thumb){
+            switch (thumb) {
                 case 0:
-                    card.resourceIdThumb=R.drawable.ic_ic_launcher_web;
+                    card.resourceIdThumb = R.drawable.ic_ic_launcher_web;
                     break;
                 case 1:
-                    card.resourceIdThumb=R.drawable.ic_ic_dh_net;
+                    card.resourceIdThumb = R.drawable.ic_ic_dh_net;
                     break;
                 case 2:
-                    card.resourceIdThumb=R.drawable.ic_tris;
+                    card.resourceIdThumb = R.drawable.ic_tris;
                     break;
                 case 3:
-                    card.resourceIdThumb=R.drawable.ic_info;
+                    card.resourceIdThumb = R.drawable.ic_info;
                     break;
                 case 4:
-                    card.resourceIdThumb=R.drawable.ic_smile;
+                    card.resourceIdThumb = R.drawable.ic_smile;
                     break;
             }
 
         }
-    }
-
-    private void removeCard(Card card) {
-
-        //Use this code to delete items on DB
-        ContentResolver resolver = getActivity().getContentResolver();
-
-        //mAdapter.notifyDataSetChanged();
-
     }
 
     public class MyCursorCard extends Card {

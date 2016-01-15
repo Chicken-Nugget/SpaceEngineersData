@@ -12,80 +12,80 @@ import chickennugget.spaceengineersdata.R;
 import chickennugget.spaceengineersdata.material.widget.Button;
 import chickennugget.spaceengineersdata.material.widget.SnackBar;
 
-public class SnackbarFragment extends Fragment{
+public class SnackbarFragment extends Fragment {
 
-	SnackBar mSnackBar;
+    SnackBar mSnackBar;
 
-	public static SnackbarFragment newInstance(){
-		SnackbarFragment fragment = new SnackbarFragment();
+    public static SnackbarFragment newInstance() {
+        SnackbarFragment fragment = new SnackbarFragment();
 
-		return fragment;
-	}
+        return fragment;
+    }
 
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_snackbar, container, false);
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_snackbar, container, false);
 
-		Button bt_mobile_single = (Button)v.findViewById(R.id.snackbar_bt_mobile_single);
-		Button bt_mobile_multi = (Button)v.findViewById(R.id.snackbar_bt_mobile_multi);
-		Button bt_tablet_single = (Button)v.findViewById(R.id.snackbar_bt_tablet_single);
-		Button bt_tablet_multi = (Button)v.findViewById(R.id.snackbar_bt_tablet_multi);
+        Button bt_mobile_single = (Button) v.findViewById(R.id.snackbar_bt_mobile_single);
+        Button bt_mobile_multi = (Button) v.findViewById(R.id.snackbar_bt_mobile_multi);
+        Button bt_tablet_single = (Button) v.findViewById(R.id.snackbar_bt_tablet_single);
+        Button bt_tablet_multi = (Button) v.findViewById(R.id.snackbar_bt_tablet_multi);
 
-		View.OnClickListener listener = new View.OnClickListener() {
+        View.OnClickListener listener = new View.OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
-				if(mSnackBar.getState() == SnackBar.STATE_SHOWN)
-					mSnackBar.dismiss();
-				else{
-					switch (v.getId()) {
-						case R.id.snackbar_bt_mobile_single:
-							mSnackBar.applyStyle(R.style.SnackBarSingleLine);
-							mSnackBar.show();
-							break;
-						case R.id.snackbar_bt_mobile_multi:
-							mSnackBar.applyStyle(R.style.SnackBarMultiLine);
-							mSnackBar.show();
-							break;
-						case R.id.snackbar_bt_tablet_single:
-							mSnackBar.applyStyle(R.style.Material_Widget_SnackBar_Tablet);
-							mSnackBar.text("This is single-line snackbar.")
-									.actionText("CLOSE")
+            @Override
+            public void onClick(View v) {
+                if (mSnackBar.getState() == SnackBar.STATE_SHOWN)
+                    mSnackBar.dismiss();
+                else {
+                    switch (v.getId()) {
+                        case R.id.snackbar_bt_mobile_single:
+                            mSnackBar.applyStyle(R.style.SnackBarSingleLine);
+                            mSnackBar.show();
+                            break;
+                        case R.id.snackbar_bt_mobile_multi:
+                            mSnackBar.applyStyle(R.style.SnackBarMultiLine);
+                            mSnackBar.show();
+                            break;
+                        case R.id.snackbar_bt_tablet_single:
+                            mSnackBar.applyStyle(R.style.Material_Widget_SnackBar_Tablet);
+                            mSnackBar.text("This is single-line snackbar.")
+                                    .actionText("CLOSE")
                                     .duration(0)
-									.show();
-							break;
-						case R.id.snackbar_bt_tablet_multi:
-							mSnackBar.applyStyle(R.style.Material_Widget_SnackBar_Tablet_MultiLine);
-							mSnackBar.text("This is multi-line snackbar.\nIt will auto-close after 5s.")
+                                    .show();
+                            break;
+                        case R.id.snackbar_bt_tablet_multi:
+                            mSnackBar.applyStyle(R.style.Material_Widget_SnackBar_Tablet_MultiLine);
+                            mSnackBar.text("This is multi-line snackbar.\nIt will auto-close after 5s.")
                                     .actionText(null)
-									.duration(5000)
-									.show();
-							break;
-					}
-				}
-			}
-		};
+                                    .duration(5000)
+                                    .show();
+                            break;
+                    }
+                }
+            }
+        };
 
 
-		bt_mobile_single.setOnClickListener(listener);
-		bt_mobile_multi.setOnClickListener(listener);
-		bt_tablet_single.setOnClickListener(listener);
-		bt_tablet_multi.setOnClickListener(listener);
+        bt_mobile_single.setOnClickListener(listener);
+        bt_mobile_multi.setOnClickListener(listener);
+        bt_tablet_single.setOnClickListener(listener);
+        bt_tablet_multi.setOnClickListener(listener);
 
-		mSnackBar = ((MainActivity)getActivity()).getSnackBar();
+        mSnackBar = ((MainActivity) getActivity()).getSnackBar();
 
-		return v;
-	}
+        return v;
+    }
 
-	@Override
-	public void onPause() {
-		super.onPause();
-	}
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
 
-	@Override
-	public void onResume() {
-		super.onResume();
-	}
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 
 }

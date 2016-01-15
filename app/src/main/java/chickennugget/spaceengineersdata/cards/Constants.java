@@ -30,7 +30,7 @@ public class Constants {
 
     public static int API_L = Build.VERSION_CODES.LOLLIPOP;
 
-    public static class IntentManager{
+    public static class IntentManager {
 
         /**
          * Intent Action for downloaded images
@@ -40,17 +40,17 @@ public class Constants {
         /**
          * Extra for download result
          */
-        public static final String INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT  = "ExtraResult";
+        public static final String INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_RESULT = "ExtraResult";
 
         /**
          * Extra for download process
          */
-        public static final String INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_ERROR_LOADING  = "ExtraErrorLoading";
+        public static final String INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_ERROR_LOADING = "ExtraErrorLoading";
 
         /**
          * Extra for {@link chickennugget.spaceengineersdata.cards.Card} id
          */
-        public static final String INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_CARD_ID  = "ExtraCardId";
+        public static final String INTENT_ACTION_IMAGE_DOWNLOADED_EXTRA_CARD_ID = "ExtraCardId";
 
         public static final String AUTHORITY_CARDDEMO = buildAuthority();
 

@@ -15,8 +15,8 @@ import chickennugget.spaceengineersdata.model.NavDrawerItem;
 
 public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDrawerAdapter.MyViewHolder> {
 
-    private List<NavDrawerItem> data = Collections.emptyList();
     private final LayoutInflater inflater;
+    private List<NavDrawerItem> data = Collections.emptyList();
 
     public NavigationDrawerAdapter(Context context, List<NavDrawerItem> data) {
         inflater = LayoutInflater.from(context);

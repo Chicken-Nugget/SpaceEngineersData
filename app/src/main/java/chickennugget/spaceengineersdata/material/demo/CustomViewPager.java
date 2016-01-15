@@ -11,7 +11,7 @@ import chickennugget.spaceengineersdata.material.widget.Switch;
 /**
  * Created by Rey on 3/18/2015.
  */
-public class CustomViewPager extends ViewPager{
+public class CustomViewPager extends ViewPager {
 
     public CustomViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);

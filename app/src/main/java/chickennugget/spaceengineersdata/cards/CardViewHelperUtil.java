@@ -27,7 +27,7 @@ import android.os.Build;
 public class CardViewHelperUtil {
 
 
-    public static CardViewHelper getInstance(Context context){
+    public static CardViewHelper getInstance(Context context) {
 
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
             return new CardViewHelperImplL(context);

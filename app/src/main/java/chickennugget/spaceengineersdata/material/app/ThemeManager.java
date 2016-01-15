@@ -21,28 +21,26 @@ import chickennugget.spaceengineersdata.R;
  */
 public class ThemeManager {
 
+    public static final int THEME_UNDEFINED = Integer.MIN_VALUE;
+    private static final String PREF = "theme.pref";
+    private static final String KEY_THEME = "theme";
     private volatile static ThemeManager mInstance;
-
     private Context mContext;
-    private SparseArray<int[]> mStyles =  new SparseArray<>();
+    private SparseArray<int[]> mStyles = new SparseArray<>();
     private int mCurrentTheme;
     private int mThemeCount;
     private EventDispatcher mDispatcher;
 
-    private static final String PREF = "theme.pref";
-    private static final String KEY_THEME = "theme";
-
-    public static final int THEME_UNDEFINED = Integer.MIN_VALUE;
-
     /**
      * Get the styleId from attributes.
+     *
      * @param context
      * @param attrs
      * @param defStyleAttr
      * @param defStyleRes
      * @return The styleId.
      */
-    public static int getStyleId(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
+    public static int getStyleId(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ThemableView, defStyleAttr, defStyleRes);
         int styleId = a.getResourceId(R.styleable.ThemableView_v_styleId, 0);
         a.recycle();
@@ -52,23 +50,25 @@ public class ThemeManager {
 
     /**
      * Init ThemeManager. Should be call in {@link Application#onCreate()}.
-     * @param context The context object. Should be {#link Application} object.
-     * @param totalTheme The total theme.
+     *
+     * @param context      The context object. Should be {#link Application} object.
+     * @param totalTheme   The total theme.
      * @param defaultTheme The default theme if current theme isn't set.
-     * @param dispatcher The {@link EventDispatcher} will be used to dispatch {@link OnThemeChangedEvent}. If null, then use {@link SimpleDispatcher}.
+     * @param dispatcher   The {@link EventDispatcher} will be used to dispatch {@link OnThemeChangedEvent}. If null, then use {@link SimpleDispatcher}.
      */
-    public static void init(Context context, int totalTheme, int defaultTheme, @Nullable EventDispatcher dispatcher){
+    public static void init(Context context, int totalTheme, int defaultTheme, @Nullable EventDispatcher dispatcher) {
         getInstance().setup(context, totalTheme, defaultTheme, dispatcher);
     }
 
     /**
      * Get the singleton instance of ThemeManager.
+     *
      * @return The singleton instance of ThemeManager.
      */
-    public static ThemeManager getInstance(){
-        if(mInstance == null){
-            synchronized (ThemeManager.class){
-                if(mInstance == null)
+    public static ThemeManager getInstance() {
+        if (mInstance == null) {
+            synchronized (ThemeManager.class) {
+                if (mInstance == null)
                     mInstance = new ThemeManager();
             }
         }
@@ -76,38 +76,38 @@ public class ThemeManager {
         return mInstance;
     }
 
-    protected void setup(Context context, int totalTheme, int defaultTheme, @Nullable EventDispatcher dispatcher){
+    protected void setup(Context context, int totalTheme, int defaultTheme, @Nullable EventDispatcher dispatcher) {
         mContext = context;
         mDispatcher = dispatcher != null ? dispatcher : new SimpleDispatcher();
         mThemeCount = totalTheme;
         SharedPreferences pref = getSharedPreferences(mContext);
-        if(pref != null)
+        if (pref != null)
             mCurrentTheme = pref.getInt(KEY_THEME, defaultTheme);
         else
             mCurrentTheme = defaultTheme;
-        if(mCurrentTheme >= mThemeCount)
+        if (mCurrentTheme >= mThemeCount)
             setCurrentTheme(defaultTheme);
     }
 
-    private int[] loadStyleList(Context context, int resId){
-        if(context == null)
+    private int[] loadStyleList(Context context, int resId) {
+        if (context == null)
             return null;
 
         TypedArray array = context.getResources().obtainTypedArray(resId);
         int[] result = new int[array.length()];
-        for(int i = 0; i < result.length; i++)
+        for (int i = 0; i < result.length; i++)
             result[i] = array.getResourceId(i, 0);
         array.recycle();
 
         return result;
     }
 
-    private int[] getStyleList(int styleId){
-        if(mStyles == null)
+    private int[] getStyleList(int styleId) {
+        if (mStyles == null)
             return null;
 
         int[] list = mStyles.get(styleId);
-        if(list == null){
+        if (list == null) {
             list = loadStyleList(mContext, styleId);
             mStyles.put(styleId, list);
         }
@@ -115,41 +115,43 @@ public class ThemeManager {
         return list;
     }
 
-    private SharedPreferences getSharedPreferences(Context context){
+    private SharedPreferences getSharedPreferences(Context context) {
         return context == null ? null : context.getSharedPreferences(PREF, Context.MODE_PRIVATE);
     }
 
-    private void dispatchThemeChanged(int theme){
-        if(mDispatcher != null)
+    private void dispatchThemeChanged(int theme) {
+        if (mDispatcher != null)
             mDispatcher.dispatchThemeChanged(theme);
     }
 
-    public Context getContext(){
+    public Context getContext() {
         return mContext;
     }
 
     /**
      * Get the current theme.
+     *
      * @return The current theme.
      */
     @UiThread
-    public int getCurrentTheme(){
+    public int getCurrentTheme() {
         return mCurrentTheme;
     }
 
     /**
      * Set the current theme. Should be called in main thread (UI thread).
+     *
      * @param theme The current theme.
      * @return True if set theme successfully, False if method's called on main thread or theme already set.
      */
-    public boolean setCurrentTheme(int theme){
+    public boolean setCurrentTheme(int theme) {
         if (Looper.getMainLooper().getThread() != Thread.currentThread())
             return false;
 
-        if(mCurrentTheme != theme){
+        if (mCurrentTheme != theme) {
             mCurrentTheme = theme;
             SharedPreferences pref = getSharedPreferences(mContext);
-            if(pref != null)
+            if (pref != null)
                 pref.edit().putInt(KEY_THEME, mCurrentTheme).apply();
             dispatchThemeChanged(mCurrentTheme);
             return true;
@@ -160,51 +162,56 @@ public class ThemeManager {
 
     /**
      * Get the total theme.
+     *
      * @return The total theme.
      */
-    public int getThemeCount(){
+    public int getThemeCount() {
         return mThemeCount;
     }
 
     /**
      * Get current style of a styleId.
+     *
      * @param styleId The styleId.
      * @return The current style.
      */
-    public int getCurrentStyle(int styleId){
+    public int getCurrentStyle(int styleId) {
         return getStyle(styleId, mCurrentTheme);
     }
 
     /**
      * Get a specific style of a styleId.
+     *
      * @param styleId The styleId.
-     * @param theme The theme.
+     * @param theme   The theme.
      * @return The specific style.
      */
-    public int getStyle(int styleId, int theme){
+    public int getStyle(int styleId, int theme) {
         int[] styles = getStyleList(styleId);
         return styles == null ? 0 : styles[theme];
     }
 
     /**
      * Register a listener will be called when current theme changed.
+     *
      * @param listener A {@link OnThemeChangedListener} will be registered.
      */
-    public void registerOnThemeChangedListener(@NonNull OnThemeChangedListener listener){
-        if(mDispatcher != null)
+    public void registerOnThemeChangedListener(@NonNull OnThemeChangedListener listener) {
+        if (mDispatcher != null)
             mDispatcher.registerListener(listener);
     }
 
     /**
      * Unregister a listener from be called when current theme changed.
+     *
      * @param listener A {@link OnThemeChangedListener} will be unregistered.
      */
-    public void unregisterOnThemeChangedListener(@NonNull OnThemeChangedListener listener){
-        if(mDispatcher != null)
+    public void unregisterOnThemeChangedListener(@NonNull OnThemeChangedListener listener) {
+        if (mDispatcher != null)
             mDispatcher.unregisterListener(listener);
     }
 
-    public interface EventDispatcher{
+    public interface EventDispatcher {
 
         void registerListener(OnThemeChangedListener listener);
 
@@ -213,30 +220,36 @@ public class ThemeManager {
         void dispatchThemeChanged(int theme);
     }
 
-    public static class SimpleDispatcher implements EventDispatcher{
+    public interface OnThemeChangedListener {
+
+        void onThemeChanged(@Nullable OnThemeChangedEvent event);
+
+    }
+
+    public static class SimpleDispatcher implements EventDispatcher {
 
         ArrayList<WeakReference<OnThemeChangedListener>> mListeners = new ArrayList<>();
 
         @Override
         public void registerListener(OnThemeChangedListener listener) {
             boolean exist = false;
-            for(int i = mListeners.size() - 1; i >= 0; i--){
+            for (int i = mListeners.size() - 1; i >= 0; i--) {
                 WeakReference<OnThemeChangedListener> ref = mListeners.get(i);
-                if(ref.get() == null)
+                if (ref.get() == null)
                     mListeners.remove(i);
-                else if(ref.get() == listener)
+                else if (ref.get() == listener)
                     exist = true;
             }
 
-            if(!exist)
+            if (!exist)
                 mListeners.add(new WeakReference<>(listener));
         }
 
         @Override
         public void unregisterListener(OnThemeChangedListener listener) {
-            for(int i = mListeners.size() - 1; i >= 0; i--){
+            for (int i = mListeners.size() - 1; i >= 0; i--) {
                 WeakReference<OnThemeChangedListener> ref = mListeners.get(i);
-                if(ref.get() == null || ref.get() == listener)
+                if (ref.get() == null || ref.get() == listener)
                     mListeners.remove(i);
             }
         }
@@ -245,9 +258,9 @@ public class ThemeManager {
         public void dispatchThemeChanged(int theme) {
             OnThemeChangedEvent event = new OnThemeChangedEvent(theme);
 
-            for(int i = mListeners.size() - 1; i >= 0; i--){
+            for (int i = mListeners.size() - 1; i >= 0; i--) {
                 WeakReference<OnThemeChangedListener> ref = mListeners.get(i);
-                if(ref.get() == null)
+                if (ref.get() == null)
                     mListeners.remove(i);
                 else
                     ref.get().onThemeChanged(event);
@@ -255,16 +268,10 @@ public class ThemeManager {
         }
     }
 
-    public interface OnThemeChangedListener{
-
-        void onThemeChanged(@Nullable OnThemeChangedEvent event);
-
-    }
-
-    public static class OnThemeChangedEvent{
+    public static class OnThemeChangedEvent {
         public final int theme;
 
-        public OnThemeChangedEvent(int theme){
+        public OnThemeChangedEvent(int theme) {
             this.theme = theme;
         }
     }

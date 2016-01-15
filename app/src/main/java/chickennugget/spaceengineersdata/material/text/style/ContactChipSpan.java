@@ -68,15 +68,15 @@ public class ContactChipSpan extends ReplacementSpan {
         mBoringLayout = BoringLayout.make(mContactName, mTextPaint, outerWidth, Layout.Alignment.ALIGN_NORMAL, 1f, 1f, mMetrics, true, TextUtils.TruncateAt.END, outerWidth);
     }
 
-    public void setImage(Bitmap bm){
-        if(mBitmap != bm){
+    public void setImage(Bitmap bm) {
+        if (mBitmap != bm) {
             mBitmap = bm;
-            if(mBitmap != null) {
+            if (mBitmap != null) {
                 mBitmapShader = new BitmapShader(mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
                 mMatrix.reset();
-                float scale = mHeight / (float)Math.min(mBitmap.getWidth(), mBitmap.getHeight());
+                float scale = mHeight / (float) Math.min(mBitmap.getWidth(), mBitmap.getHeight());
                 mMatrix.setScale(scale, scale, 0, 0);
-                mMatrix.postTranslate((mHeight  - mBitmap.getWidth() * scale) / 2, (mHeight - mBitmap.getHeight() * scale) / 2);
+                mMatrix.postTranslate((mHeight - mBitmap.getWidth() * scale) / 2, (mHeight - mBitmap.getHeight() * scale) / 2);
 
                 mBitmapShader.setLocalMatrix(mMatrix);
             }
@@ -112,12 +112,12 @@ public class ContactChipSpan extends ReplacementSpan {
         mRect.set(halfHeight, 0, mWidth - halfHeight, mHeight);
         canvas.drawRect(mRect, mPaint);
 
-        if(mBitmap != null){
+        if (mBitmap != null) {
             mPaint.setShader(mBitmapShader);
             canvas.drawCircle(halfHeight, halfHeight, halfHeight, mPaint);
         }
 
-        if(mContactName != null && mBoringLayout != null) {
+        if (mContactName != null && mBoringLayout != null) {
             canvas.translate(mHeight + mPaddingLeft, (mHeight - mBoringLayout.getHeight()) / 2f);
             mBoringLayout.draw(canvas);
         }

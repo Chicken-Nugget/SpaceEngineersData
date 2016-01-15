@@ -12,71 +12,71 @@ import chickennugget.spaceengineersdata.R;
 import chickennugget.spaceengineersdata.material.widget.Button;
 import chickennugget.spaceengineersdata.material.widget.FloatingActionButton;
 
-public class ButtonFragment extends Fragment{
+public class ButtonFragment extends Fragment {
 
-	public static ButtonFragment newInstance(){
-		ButtonFragment fragment = new ButtonFragment();
+    public static ButtonFragment newInstance() {
+        ButtonFragment fragment = new ButtonFragment();
 
-		return fragment;
-	}
+        return fragment;
+    }
 
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_button, container, false);
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_button, container, false);
 
-		Button bt_flat = (Button)v.findViewById(R.id.button_bt_flat);
-		Button bt_flat_color = (Button)v.findViewById(R.id.button_bt_flat_color);
-		Button bt_flat_wave = (Button)v.findViewById(R.id.button_bt_flat_wave);
-		Button bt_flat_wave_color = (Button)v.findViewById(R.id.button_bt_flat_wave_color);
-		Button bt_raise = (Button)v.findViewById(R.id.button_bt_raise);
-		Button bt_raise_color = (Button)v.findViewById(R.id.button_bt_raise_color);
-		Button bt_raise_wave = (Button)v.findViewById(R.id.button_bt_raise_wave);
-		Button bt_raise_wave_color = (Button)v.findViewById(R.id.button_bt_raise_wave_color);
-		FloatingActionButton bt_float = (FloatingActionButton)v.findViewById(R.id.button_bt_float);
-        FloatingActionButton bt_float_color = (FloatingActionButton)v.findViewById(R.id.button_bt_float_color);
-        FloatingActionButton bt_float_wave = (FloatingActionButton)v.findViewById(R.id.button_bt_float_wave);
-        FloatingActionButton bt_float_wave_color = (FloatingActionButton)v.findViewById(R.id.button_bt_float_wave_color);
+        Button bt_flat = (Button) v.findViewById(R.id.button_bt_flat);
+        Button bt_flat_color = (Button) v.findViewById(R.id.button_bt_flat_color);
+        Button bt_flat_wave = (Button) v.findViewById(R.id.button_bt_flat_wave);
+        Button bt_flat_wave_color = (Button) v.findViewById(R.id.button_bt_flat_wave_color);
+        Button bt_raise = (Button) v.findViewById(R.id.button_bt_raise);
+        Button bt_raise_color = (Button) v.findViewById(R.id.button_bt_raise_color);
+        Button bt_raise_wave = (Button) v.findViewById(R.id.button_bt_raise_wave);
+        Button bt_raise_wave_color = (Button) v.findViewById(R.id.button_bt_raise_wave_color);
+        FloatingActionButton bt_float = (FloatingActionButton) v.findViewById(R.id.button_bt_float);
+        FloatingActionButton bt_float_color = (FloatingActionButton) v.findViewById(R.id.button_bt_float_color);
+        FloatingActionButton bt_float_wave = (FloatingActionButton) v.findViewById(R.id.button_bt_float_wave);
+        FloatingActionButton bt_float_wave_color = (FloatingActionButton) v.findViewById(R.id.button_bt_float_wave_color);
 
-		View.OnClickListener listener = new View.OnClickListener() {
+        View.OnClickListener listener = new View.OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
-                if(v instanceof  FloatingActionButton){
-                    FloatingActionButton bt = (FloatingActionButton)v;
+            @Override
+            public void onClick(View v) {
+                if (v instanceof FloatingActionButton) {
+                    FloatingActionButton bt = (FloatingActionButton) v;
                     bt.setLineMorphingState((bt.getLineMorphingState() + 1) % 2, true);
                 }
 
 //                System.out.println(v + " " + ((RippleDrawable)v.getBackground()).getDelayClickType());
-			}
-		};
+            }
+        };
 
-		View.OnClickListener listener_delay = new View.OnClickListener() {
+        View.OnClickListener listener_delay = new View.OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
-                if(v instanceof  FloatingActionButton){
-                    FloatingActionButton bt = (FloatingActionButton)v;
+            @Override
+            public void onClick(View v) {
+                if (v instanceof FloatingActionButton) {
+                    FloatingActionButton bt = (FloatingActionButton) v;
                     bt.setLineMorphingState((bt.getLineMorphingState() + 1) % 2, true);
                 }
 
 //                System.out.println(v + " " + ((RippleDrawable)v.getBackground()).getDelayClickType());
-			}
-		};
+            }
+        };
 
-		bt_flat.setOnClickListener(listener);
-		bt_flat_wave.setOnClickListener(listener);
-		bt_raise.setOnClickListener(listener);
-		bt_raise_wave.setOnClickListener(listener);
-		bt_float.setOnClickListener(listener);
-		bt_float_wave.setOnClickListener(listener);
+        bt_flat.setOnClickListener(listener);
+        bt_flat_wave.setOnClickListener(listener);
+        bt_raise.setOnClickListener(listener);
+        bt_raise_wave.setOnClickListener(listener);
+        bt_float.setOnClickListener(listener);
+        bt_float_wave.setOnClickListener(listener);
 
-		bt_flat_color.setOnClickListener(listener_delay);
-		bt_flat_wave_color.setOnClickListener(listener_delay);
-		bt_raise_color.setOnClickListener(listener_delay);
-		bt_raise_wave_color.setOnClickListener(listener_delay);
-		bt_float_color.setOnClickListener(listener_delay);
-		bt_float_wave_color.setOnClickListener(listener_delay);
+        bt_flat_color.setOnClickListener(listener_delay);
+        bt_flat_wave_color.setOnClickListener(listener_delay);
+        bt_raise_color.setOnClickListener(listener_delay);
+        bt_raise_wave_color.setOnClickListener(listener_delay);
+        bt_float_color.setOnClickListener(listener_delay);
+        bt_float_wave_color.setOnClickListener(listener_delay);
 
 //        bt_flat.setOnClickListener(new View.OnClickListener(){
 //            @Override
@@ -110,17 +110,17 @@ public class ButtonFragment extends Fragment{
 //            }
 //        });
 
-		return v;
-	}
+        return v;
+    }
 
-	@Override
-	public void onPause() {
-		super.onPause();
-	}
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
 
-	@Override
-	public void onResume() {
-		super.onResume();
-	}
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 
 }

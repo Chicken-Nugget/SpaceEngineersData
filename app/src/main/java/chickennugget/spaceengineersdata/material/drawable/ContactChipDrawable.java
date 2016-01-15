@@ -20,7 +20,7 @@ import android.text.TextUtils;
 /**
  * Created by Rey on 1/21/2015.
  */
-public class ContactChipDrawable extends Drawable{
+public class ContactChipDrawable extends Drawable {
 
     private Paint mPaint;
     private int mPaddingLeft;
@@ -62,16 +62,16 @@ public class ContactChipDrawable extends Drawable{
         mBackgroundColor = backgroundColor;
     }
 
-    public void setContactName(CharSequence name){
+    public void setContactName(CharSequence name) {
         mContactName = name;
         updateLayout();
         invalidateSelf();
     }
 
-    public void setImage(Bitmap bm){
-        if(mBitmap != bm){
+    public void setImage(Bitmap bm) {
+        if (mBitmap != bm) {
             mBitmap = bm;
-            if(mBitmap != null) {
+            if (mBitmap != null) {
                 mBitmapShader = new BitmapShader(mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
                 updateMatrix();
             }
@@ -79,35 +79,35 @@ public class ContactChipDrawable extends Drawable{
         }
     }
 
-    private void updateLayout(){
-        if(mContactName == null)
+    private void updateLayout() {
+        if (mContactName == null)
             return;
 
         Rect bounds = getBounds();
-        if(bounds.width() == 0 || bounds.height() == 0)
+        if (bounds.width() == 0 || bounds.height() == 0)
             return;
 
         int outerWidth = Math.max(0, bounds.width() - bounds.height() - mPaddingLeft - mPaddingRight);
         mMetrics.width = Math.round(mTextPaint.measureText(mContactName, 0, mContactName.length()) + 0.5f);
 
-        if(mBoringLayout == null)
+        if (mBoringLayout == null)
             mBoringLayout = BoringLayout.make(mContactName, mTextPaint, outerWidth, Layout.Alignment.ALIGN_NORMAL, 1f, 1f, mMetrics, true, TextUtils.TruncateAt.END, outerWidth);
         else
             mBoringLayout = mBoringLayout.replaceOrMake(mContactName, mTextPaint, outerWidth, Layout.Alignment.ALIGN_NORMAL, 1f, 1f, mMetrics, true, TextUtils.TruncateAt.END, outerWidth);
     }
 
-    private void updateMatrix(){
-        if(mBitmap == null)
+    private void updateMatrix() {
+        if (mBitmap == null)
             return;
 
         Rect bounds = getBounds();
-        if(bounds.width() == 0 || bounds.height() == 0)
+        if (bounds.width() == 0 || bounds.height() == 0)
             return;
 
         mMatrix.reset();
-        float scale = bounds.height() / (float)Math.min(mBitmap.getWidth(), mBitmap.getHeight());
+        float scale = bounds.height() / (float) Math.min(mBitmap.getWidth(), mBitmap.getHeight());
         mMatrix.setScale(scale, scale, 0, 0);
-        mMatrix.postTranslate((bounds.height()  - mBitmap.getWidth() * scale) / 2, (bounds.height() - mBitmap.getHeight() * scale) / 2);
+        mMatrix.postTranslate((bounds.height() - mBitmap.getWidth() * scale) / 2, (bounds.height() - mBitmap.getHeight() * scale) / 2);
 
         mBitmapShader.setLocalMatrix(mMatrix);
     }
@@ -133,12 +133,12 @@ public class ContactChipDrawable extends Drawable{
         mRect.set(halfHeight, 0, bounds.width() - halfHeight, bounds.height());
         canvas.drawRect(mRect, mPaint);
 
-        if(mBitmap != null){
+        if (mBitmap != null) {
             mPaint.setShader(mBitmapShader);
             canvas.drawCircle(halfHeight, halfHeight, halfHeight, mPaint);
         }
 
-        if(mContactName != null && mBoringLayout != null) {
+        if (mContactName != null && mBoringLayout != null) {
             canvas.translate(bounds.height() + mPaddingLeft, (bounds.height() - mBoringLayout.getHeight()) / 2f);
             mBoringLayout.draw(canvas);
         }

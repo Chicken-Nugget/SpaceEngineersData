@@ -50,7 +50,7 @@ public class LPreviewUtilsBase {
     }
 
     public boolean hasL() {
-        return  Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
 
     //----------------------------------------------------------------------------
@@ -66,26 +66,26 @@ public class LPreviewUtilsBase {
     //----------------------------------------------------------------------------
 
     public void setupCircleButton(ImageButton sourceButton) {
-       if (hasL()){
-           if (sourceButton != null){
-               final int size = mActivity.getResources().getDimensionPixelSize(R.dimen.hd_fab_size);
-               sourceButton.setOutlineProvider(
-               new ViewOutlineProvider(){
-                   @Override
-                   public void getOutline(View view, Outline outline) {
-                       outline.setOval(0, 0, size, size);
-                   }
-               });
-               sourceButton.setClipToOutline(true);
-           }
-       }
+        if (hasL()) {
+            if (sourceButton != null) {
+                final int size = mActivity.getResources().getDimensionPixelSize(R.dimen.hd_fab_size);
+                sourceButton.setOutlineProvider(
+                        new ViewOutlineProvider() {
+                            @Override
+                            public void getOutline(View view, Outline outline) {
+                                outline.setOval(0, 0, size, size);
+                            }
+                        });
+                sourceButton.setClipToOutline(true);
+            }
+        }
     }
     //----------------------------------------------------------------------------
     // Navigation Drawer
     //----------------------------------------------------------------------------
 
     public ActionBarDrawerToggle setupDrawerToggle(DrawerLayout drawerLayout,
-                                                   final DrawerLayout.DrawerListener drawerListener){
+                                                   final DrawerLayout.DrawerListener drawerListener) {
         mDrawerToggle = new ActionBarDrawerToggle(
                 mActivity,                  /* host Activity */
                 drawerLayout,          /* DrawerLayout object */

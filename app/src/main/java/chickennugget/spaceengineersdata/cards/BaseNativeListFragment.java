@@ -39,6 +39,7 @@ public abstract class BaseNativeListFragment extends BaseMaterialFragment {
         super.onViewCreated(view, savedInstanceState);
         setupListFragment(view);
     }
+
     /**
      * Setup the list fragment
      *
@@ -51,7 +52,7 @@ public abstract class BaseNativeListFragment extends BaseMaterialFragment {
         mListShown = true;
     }
 
-    protected void displayList(){
+    protected void displayList() {
         if (isResumed()) {
             setListShown(true);
         } else {
@@ -59,8 +60,8 @@ public abstract class BaseNativeListFragment extends BaseMaterialFragment {
         }
     }
 
-    protected void hideList(boolean animate){
-        setListShown(false,animate);
+    protected void hideList(boolean animate) {
+        setListShown(false, animate);
     }
 
     /**

@@ -1,4 +1,3 @@
-
 /*
  * ******************************************************************************
  *   Copyright (c) 2013 Roman Nurik,2013-2014 Gabriele Mariotti.
@@ -34,12 +33,13 @@ import chickennugget.spaceengineersdata.R;
 /**
  * It is based on Roman Nurik code.
  * See this link for original code https://github.com/romannurik/Android-SwipeToDismiss
- *
+ * <p>
  * </p>
  * It provides a SwipeDismissViewTouchListener for a single Card.
  * </p>
  * If you are using a list, see {@link SwipeDismissListViewTouchListener}
  * </p>
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class SwipeDismissViewTouchListener implements View.OnTouchListener {
@@ -68,25 +68,6 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
     private int swipeDistanceDivisor = 2;
 
     /**
-     * The callback interface used by {@link SwipeDismissViewTouchListener}
-     * to inform its client about a successful dismissal of the view for which it was created.
-     */
-    public interface DismissCallbacks {
-        /**
-         * Called to determine whether the given position can be dismissed.
-         */
-        boolean canDismiss(Card card);
-
-        /**
-         * Called when the user has indicated they she would like to dismiss the view.
-         *
-         * @param cardView               The originating {@link chickennugget.spaceengineersdata.cards.CardView}.
-         * @parma card                   Card
-         */
-        void onDismiss(CardViewWrapper cardView, Card card);
-    }
-
-    /**
      * Constructs a new swipe-to-dismiss touch listener for the given view.
      *
      * @param cardView  The card view which should be dismissable.
@@ -102,9 +83,9 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
         mAnimationTime = cardView.getContext().getResources()
                 .getInteger(android.R.integer.config_shortAnimTime);
         mCardView = cardView;
-        mToken= card;
+        mToken = card;
         mCallbacks = callbacks;
-        swipeDistanceDivisor =  cardView.getContext().getResources().getInteger(R.integer.list_card_swipe_distance_divisor);
+        swipeDistanceDivisor = cardView.getContext().getResources().getInteger(R.integer.list_card_swipe_distance_divisor);
     }
 
     /**
@@ -117,14 +98,13 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
         mPaused = !enabled;
     }
 
-
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         // offset because the view is translated during swipe
         motionEvent.offsetLocation(mTranslationX, 0);
 
         if (mViewWidth < 2) {
-            mViewWidth = ((View)mCardView).getWidth();
+            mViewWidth = ((View) mCardView).getWidth();
         }
 
         switch (motionEvent.getActionMasked()) {
@@ -172,7 +152,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
                 if (dismiss) {
                     // dismiss
 
-                    ((View)mCardView).animate()
+                    ((View) mCardView).animate()
                             .translationX(dismissRight ? mViewWidth : -mViewWidth)
                             .alpha(0).setDuration(mAnimationTime)
                             .setListener(new AnimatorListenerAdapter() {
@@ -183,7 +163,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
                             });
                 } else if (mSwiping) {
                     // cancel
-                    ((View)mCardView).animate().translationX(0).alpha(1)
+                    ((View) mCardView).animate().translationX(0).alpha(1)
                             .setDuration(mAnimationTime).setListener(null);
                 }
                 mVelocityTracker.recycle();
@@ -200,7 +180,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
                     break;
                 }
 
-                ((View)mCardView).animate()
+                ((View) mCardView).animate()
                         .translationX(0)
                         .alpha(1)
                         .setDuration(mAnimationTime)
@@ -224,7 +204,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
                 float deltaY = motionEvent.getRawY() - mDownY;
                 if (Math.abs(deltaX) > mSlop && Math.abs(deltaY) < Math.abs(deltaX) / 2) {
                     mSwiping = true;
-                    ((View)mCardView).getParent().requestDisallowInterceptTouchEvent(true);
+                    ((View) mCardView).getParent().requestDisallowInterceptTouchEvent(true);
                     mSwipingSlop = (deltaX > 0 ? mSlop : -mSlop);
 
                     // Cancel ListView's touch (un-highlighting the item)
@@ -232,15 +212,15 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
                     cancelEvent
                             .setAction(MotionEvent.ACTION_CANCEL
                                     | (motionEvent.getActionIndex() << MotionEvent.ACTION_POINTER_INDEX_SHIFT));
-                    ((View)mCardView).onTouchEvent(cancelEvent);
+                    ((View) mCardView).onTouchEvent(cancelEvent);
                     cancelEvent.recycle();
                 }
 
                 if (mSwiping) {
                     mTranslationX = deltaX;
                     //((View)mCardView).setTranslationX(deltaX);
-                    ((View)mCardView).setTranslationX(deltaX  - mSwipingSlop);
-                    ((View)mCardView).setAlpha(Math.max(0f,
+                    ((View) mCardView).setTranslationX(deltaX - mSwipingSlop);
+                    ((View) mCardView).setAlpha(Math.max(0f,
                             Math.min(1f, 1f - 2f * Math.abs(deltaX) / mViewWidth)));
                     return true;
                 }
@@ -250,14 +230,13 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
         return false;
     }
 
-
     private void performDismiss() {
         // Animate the dismissed view to zero-height and then fire the dismiss callback.
         // This triggers layout on each animation frame; in the future we may want to do something
         // smarter and more performant.
 
-        final ViewGroup.LayoutParams lp = ((View)mCardView).getLayoutParams();
-        final int originalHeight = ((View)mCardView).getHeight();
+        final ViewGroup.LayoutParams lp = ((View) mCardView).getLayoutParams();
+        final int originalHeight = ((View) mCardView).getHeight();
 
         ValueAnimator animator = ValueAnimator.ofInt(originalHeight, 1)
                 .setDuration(mAnimationTime);
@@ -266,10 +245,10 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
             @Override
             public void onAnimationEnd(Animator animation) {
 
-                mCallbacks.onDismiss(mCardView,mToken);
+                mCallbacks.onDismiss(mCardView, mToken);
                 // Reset view presentation
-                ((View)mCardView).setAlpha(1f);
-                ((View)mCardView).setTranslationX(0);
+                ((View) mCardView).setAlpha(1f);
+                ((View) mCardView).setTranslationX(0);
                 //ViewGroup.LayoutParams lp = mCardView.getLayoutParams();
                 lp.height = originalHeight;
                 ((View) mCardView).setLayoutParams(lp);
@@ -280,10 +259,30 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 lp.height = (Integer) valueAnimator.getAnimatedValue();
-                ((View)mCardView).setLayoutParams(lp);
+                ((View) mCardView).setLayoutParams(lp);
             }
         });
 
         animator.start();
+    }
+
+
+    /**
+     * The callback interface used by {@link SwipeDismissViewTouchListener}
+     * to inform its client about a successful dismissal of the view for which it was created.
+     */
+    public interface DismissCallbacks {
+        /**
+         * Called to determine whether the given position can be dismissed.
+         */
+        boolean canDismiss(Card card);
+
+        /**
+         * Called when the user has indicated they she would like to dismiss the view.
+         *
+         * @param cardView The originating {@link chickennugget.spaceengineersdata.cards.CardView}.
+         * @parma card                   Card
+         */
+        void onDismiss(CardViewWrapper cardView, Card card);
     }
 }

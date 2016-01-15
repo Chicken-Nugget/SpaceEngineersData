@@ -27,6 +27,7 @@ import android.widget.GridView;
 import android.widget.ListAdapter;
 
 import chickennugget.spaceengineersdata.R;
+
 /**
  * Card Grid View.
  * It uses an {@link chickennugget.spaceengineersdata.cards.CardGridArrayAdapter} to populate items.
@@ -56,6 +57,7 @@ import chickennugget.spaceengineersdata.R;
  * </p>
  * Currently you have to use the same inner layout for each card in gridView.
  * </p>
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class CardGridView extends GridView implements CardViewWrapper.OnExpandListAnimatorListener {
@@ -63,7 +65,7 @@ public class CardGridView extends GridView implements CardViewWrapper.OnExpandLi
     protected static String TAG = "CardGridView";
 
     /**
-     *  Card Grid Array Adapter
+     * Card Grid Array Adapter
      */
     protected CardGridArrayAdapter mAdapter;
 
@@ -111,10 +113,10 @@ public class CardGridView extends GridView implements CardViewWrapper.OnExpandLi
      * @param attrs
      * @param defStyle
      */
-    protected void init(AttributeSet attrs, int defStyle){
+    protected void init(AttributeSet attrs, int defStyle) {
 
         //Init attrs
-        initAttrs(attrs,defStyle);
+        initAttrs(attrs, defStyle);
 
     }
 
@@ -150,12 +152,12 @@ public class CardGridView extends GridView implements CardViewWrapper.OnExpandLi
      */
     @Override
     public void setAdapter(ListAdapter adapter) {
-        if (adapter instanceof CardGridArrayAdapter){
-            setAdapter((CardGridArrayAdapter)adapter);
-        }else if (adapter instanceof CardGridCursorAdapter){
-            setAdapter((CardGridCursorAdapter)adapter);
-        }else{
-            Log.w(TAG,"You are using a generic adapter. Pay attention: your adapter has to call cardGridArrayAdapter#getView method." );
+        if (adapter instanceof CardGridArrayAdapter) {
+            setAdapter((CardGridArrayAdapter) adapter);
+        } else if (adapter instanceof CardGridCursorAdapter) {
+            setAdapter((CardGridCursorAdapter) adapter);
+        } else {
+            Log.w(TAG, "You are using a generic adapter. Pay attention: your adapter has to call cardGridArrayAdapter#getView method.");
             super.setAdapter(adapter);
         }
     }
@@ -172,7 +174,7 @@ public class CardGridView extends GridView implements CardViewWrapper.OnExpandLi
         adapter.setRowLayoutId(list_card_layout_resourceID);
 
         adapter.setCardGridView(this);
-        mAdapter=adapter;
+        mAdapter = adapter;
     }
 
     /**
@@ -187,21 +189,21 @@ public class CardGridView extends GridView implements CardViewWrapper.OnExpandLi
         adapter.setRowLayoutId(list_card_layout_resourceID);
 
         adapter.setCardGridView(this);
-        mCursorAdapter=adapter;
+        mCursorAdapter = adapter;
     }
 
     /**
      * You can use this method, if you are using external adapters.
      * Pay attention. The generic adapter#getView() method has to call the cardArrayAdapter#getView() method to work.
      *
-     * @param adapter {@link ListAdapter} generic adapter
-     * @param cardGridArrayAdapter    {@link chickennugget.spaceengineersdata.cards.CardGridArrayAdapter} cardGridArrayAdapter
+     * @param adapter              {@link ListAdapter} generic adapter
+     * @param cardGridArrayAdapter {@link chickennugget.spaceengineersdata.cards.CardGridArrayAdapter} cardGridArrayAdapter
      */
     public void setExternalAdapter(ListAdapter adapter, CardGridArrayAdapter cardGridArrayAdapter) {
 
         setAdapter(adapter);
 
-        mAdapter=cardGridArrayAdapter;
+        mAdapter = cardGridArrayAdapter;
         mAdapter.setCardGridView(this);
         mAdapter.setRowLayoutId(list_card_layout_resourceID);
     }
@@ -210,14 +212,14 @@ public class CardGridView extends GridView implements CardViewWrapper.OnExpandLi
      * You can use this method, if you are using external adapters.
      * Pay attention. The generic adapter#getView() method has to call the cardCursorAdapter#getView() method to work.
      *
-     * @param adapter {@link ListAdapter} generic adapter
-     * @param cardCursorAdapter    {@link chickennugget.spaceengineersdata.cards.CardCursorAdapter} cardArrayAdapter
+     * @param adapter           {@link ListAdapter} generic adapter
+     * @param cardCursorAdapter {@link chickennugget.spaceengineersdata.cards.CardCursorAdapter} cardArrayAdapter
      */
     public void setExternalAdapter(ListAdapter adapter, CardGridCursorAdapter cardCursorAdapter) {
 
         setAdapter(adapter);
 
-        mCursorAdapter=cardCursorAdapter;
+        mCursorAdapter = cardCursorAdapter;
         mCursorAdapter.setCardGridView(this);
         mCursorAdapter.setRowLayoutId(list_card_layout_resourceID);
     }
@@ -229,15 +231,15 @@ public class CardGridView extends GridView implements CardViewWrapper.OnExpandLi
     //--------------------------------------------------------------------------
 
     @Override
-    public void onExpandStart(CardViewWrapper viewCard,View expandingLayout) {
+    public void onExpandStart(CardViewWrapper viewCard, View expandingLayout) {
         //do nothing. Don't use this kind of animation in a grid
-        Log.w(TAG,"Don't use this kind of animation in a grid");
+        Log.w(TAG, "Don't use this kind of animation in a grid");
     }
 
     @Override
-    public void onCollapseStart(CardViewWrapper viewCard,View expandingLayout) {
+    public void onCollapseStart(CardViewWrapper viewCard, View expandingLayout) {
         //do nothing. Don't use this kind of animation in a grid
-        Log.w(TAG,"Don't use this kind of animation in a grid");
+        Log.w(TAG, "Don't use this kind of animation in a grid");
     }
 
 }

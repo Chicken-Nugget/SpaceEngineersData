@@ -33,7 +33,8 @@ import chickennugget.spaceengineersdata.fragments.TwoFragment;
 
 public class MainActivity extends AppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
 
-    private int mCurrentTitle=R.string.app_name;
+    private int mCurrentTitle = R.string.app_name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Set Main View
@@ -85,7 +86,9 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         // Handle action bar item clicks here. The action bar will utomatically handle clicks on
         // the Home/Up button, so long as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) { return true; }
+        if (id == R.id.action_settings) {
+            return true;
+        }
         if (id == R.id.action_search) {
             Toast.makeText(getApplicationContext(), "Search action is selected!", Toast.LENGTH_SHORT).show();
             return true;

@@ -67,7 +67,9 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
      */
     protected int card_thumbnail_layout_resourceID = R.layout.base_thumbnail_layout;
 
-    /** Global View for this Component */
+    /**
+     * Global View for this Component
+     */
     protected View mInternalOuterView;
 
     /**
@@ -83,12 +85,12 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
     /**
      * Used to recycle ui elements.
      */
-    protected boolean mIsRecycle=false;
+    protected boolean mIsRecycle = false;
 
     /**
      * Used to replace inner layout elements.
      */
-    protected boolean mForceReplaceInnerLayout =false;
+    protected boolean mForceReplaceInnerLayout = false;
 
 
     protected boolean mLoadingErrorResource = false;
@@ -96,233 +98,33 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
     //--------------------------------------------------------------------------
     // Constructors
     //--------------------------------------------------------------------------
+    /**
+     * ImageView inside CardThumbnail
+     */
+    protected ImageView mImageView;
 
     public CardThumbnailView(Context context) {
         super(context);
-        init(null,0);
+        init(null, 0);
     }
 
     public CardThumbnailView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(attrs,0);
-    }
-
-    public CardThumbnailView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        init(attrs,defStyle);
+        init(attrs, 0);
     }
 
     //--------------------------------------------------------------------------
     // View
     //--------------------------------------------------------------------------
 
-    /**
-     * ImageView inside CardThumbnail
-     */
-    protected ImageView mImageView;
+    public CardThumbnailView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        init(attrs, defStyle);
+    }
 
     //--------------------------------------------------------------------------
     // Init
     //--------------------------------------------------------------------------
-
-
-    /**
-     * Initialize
-     *
-     * @param attrs
-     * @param defStyle
-     */
-    protected void init(AttributeSet attrs, int defStyle){
-        //Init attrs
-        initAttrs(attrs,defStyle);
-
-        //Init View
-        if(!isInEditMode())
-            initView();
-    }
-    /**
-     * Init custom attrs.
-     *
-     * @param attrs
-     * @param defStyle
-     */
-    protected void initAttrs(AttributeSet attrs, int defStyle) {
-
-        TypedArray a = getContext().getTheme().obtainStyledAttributes(
-                attrs, R.styleable.card_options, defStyle, defStyle);
-
-        try {
-            card_thumbnail_layout_resourceID= a.getResourceId(R.styleable.card_options_card_thumbnail_layout_resourceID, card_thumbnail_layout_resourceID);
-        } finally {
-            a.recycle();
-        }
-    }
-
-    /**
-     * Init view
-     */
-    protected void initView() {
-
-        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mInternalOuterView = inflater.inflate(card_thumbnail_layout_resourceID,this,true);
-
-        //Get ImageVIew
-        mImageView= (ImageView) findViewById(R.id.card_thumbnail_image);
-
-
-        // Get max available VM memory, exceeding this amount will throw an
-        // OutOfMemory exception. Stored in kilobytes as LruCache takes an
-        // int in its constructor.
-        final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-
-        // Use 1/8th of the available memory for this memory cache.
-        final int cacheSize = maxMemory / 8;
-
-        mMemoryCache = CacheUtil.getMemoryCache();
-        if (mMemoryCache==null){
-            mMemoryCache = new LruCache<String, Bitmap>(cacheSize) {
-
-                @Override
-                protected int sizeOf(String key, Bitmap bitmap) {
-                    // The cache size will be measured in kilobytes rather than
-                    // number of items.
-                    if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB_MR1) {
-                        return bitmap.getByteCount() / 1024;
-                    } else {
-                        return bitmap.getRowBytes() * bitmap.getHeight() / 1024;
-                    }
-                }
-            };
-            CacheUtil.putMemoryCache(mMemoryCache);
-        }
-    }
-
-    //--------------------------------------------------------------------------
-    // Add Thumbnail
-    //--------------------------------------------------------------------------
-
-    /**
-     * Adds a {@link chickennugget.spaceengineersdata.cards.CardThumbnail}.
-     * It is important to set all thumbnail values before launch this method.
-     *
-     * @param cardThumbail thumbnail model
-     */
-    public void addCardThumbnail(chickennugget.spaceengineersdata.cards.CardThumbnail cardThumbail ){
-        mCardThumbnail=cardThumbail;
-        buildUI();
-    }
-
-    /**
-     * Refresh UI
-     */
-    protected void buildUI() {
-        if (mCardThumbnail==null) return;
-
-        if (mIsRecycle)
-            mLoadingErrorResource=false;
-
-        //Setup InnerView
-        setupInnerView();
-    }
-
-
-    /**
-     * Sets the inner view.
-     *
-     */
-    protected void setupInnerView(){
-
-        //Setup Elements before load image
-        if (mInternalOuterView!=null)
-            mCardThumbnail.setupInnerViewElements((ViewGroup)mInternalOuterView,mImageView);
-
-        //Load bitmap
-        if (!mCardThumbnail.isExternalUsage()){
-            if (mCardThumbnail.getCustomSource() != null)
-                loadBitmap(mCardThumbnail.getCustomSource(), mImageView);
-            else if(mCardThumbnail.getDrawableResource()>0)
-                loadBitmap(mCardThumbnail.getDrawableResource(), mImageView);
-            else
-                loadBitmap(mCardThumbnail.getUrlResource(), mImageView);
-        }
-    }
-
-
-    //--------------------------------------------------------------------------
-    // Load Bitmap and cache manage
-    //--------------------------------------------------------------------------
-
-    public void loadBitmap(int resId, ImageView imageView) {
-        final String imageKey = String.valueOf(resId);
-        final Bitmap bitmap = getBitmapFromMemCache(imageKey);
-
-        if (bitmap != null) {
-            if (!mCardThumbnail.applyBitmap(imageView,bitmap))
-                imageView.setImageBitmap(bitmap);
-            sendBroadcast();
-        } else {
-            if (cancelPotentialWork(resId, imageView)) {
-                final BitmapWorkerTask task = new BitmapWorkerTask(imageView);
-                final AsyncDrawable asyncDrawable =
-                        new AsyncDrawable(getResources(), null, task);
-                imageView.setImageDrawable(asyncDrawable);
-                task.execute(resId);
-            }
-        }
-    }
-
-    public void loadBitmap(String url, ImageView imageView) {
-        final String imageKey = url;
-        final Bitmap bitmap = getBitmapFromMemCache(imageKey);
-
-        if (bitmap != null){
-            if (!mCardThumbnail.applyBitmap(imageView,bitmap))
-                imageView.setImageBitmap(bitmap);
-            sendBroadcast();
-        }else{
-            if (cancelPotentialWork(url, imageView)) {
-                final BitmapWorkerUrlTask task = new BitmapWorkerUrlTask(imageView);
-                final AsyncDrawableUrl asyncDrawable =
-                        new AsyncDrawableUrl(getResources(), null, task);
-                imageView.setImageDrawable(asyncDrawable);
-                task.execute(url);
-            }
-        }
-    }
-
-    public void loadBitmap(chickennugget.spaceengineersdata.cards.CardThumbnail.CustomSource customSource, ImageView imageView) {
-        final String imageKey = customSource.getTag();
-        final Bitmap bitmap = getBitmapFromMemCache(imageKey);
-
-        if (bitmap != null){
-            if (!mCardThumbnail.applyBitmap(imageView,bitmap))
-                imageView.setImageBitmap(bitmap);
-            sendBroadcast();
-        }else{
-            if (cancelPotentialWork(customSource, imageView)) {
-                final BitmapWorkerCustomSourceTask task = new BitmapWorkerCustomSourceTask(imageView);
-                final AsyncDrawableCustomSource asyncDrawable =
-                        new AsyncDrawableCustomSource(getResources(), null, task);
-                imageView.setImageDrawable(asyncDrawable);
-                task.execute(customSource);
-            }
-        }
-    }
-
-    protected void addBitmapToMemoryCache(String key, Bitmap bitmap) {
-        if (!mLoadingErrorResource && getBitmapFromMemCache(key) == null) {
-            if (key!=null && bitmap!=null){
-                mMemoryCache.put(key, bitmap);
-            }
-        }
-    }
-
-    protected Bitmap getBitmapFromMemCache(String key) {
-        if (key==null) return null;
-        return mMemoryCache.get(key);
-    }
-
-
 
     public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId,
                                                          int reqWidth, int reqHeight) {
@@ -357,7 +159,7 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
             options.inJustDecodeBounds = false;
             return BitmapFactory.decodeStream(new URL(resUrl).openStream());
 
-        }catch (IOException ioe){
+        } catch (IOException ioe) {
             //Url not available
             //ioe.printStackTrace();
             Log.w("CardThumbnailView", "Error while retrieving image", ioe);
@@ -390,7 +192,7 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
     }
 
     //--------------------------------------------------------------------------
-    // Worker
+    // Add Thumbnail
     //--------------------------------------------------------------------------
 
     public static boolean cancelPotentialWork(int resId, ImageView imageView) {
@@ -446,6 +248,11 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
         return true;
     }
 
+
+    //--------------------------------------------------------------------------
+    // Load Bitmap and cache manage
+    //--------------------------------------------------------------------------
+
     protected static BitmapWorkerTask getBitmapWorkerTask(ImageView imageView) {
         if (imageView != null) {
             final Drawable drawable = imageView.getDrawable();
@@ -479,221 +286,200 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
         return null;
     }
 
-    class BitmapWorkerTask extends AsyncTask<Integer, Void, Bitmap> {
-        private final WeakReference<ImageView> imageViewReference;
-        private int resId = 0;
+    /**
+     * Initialize
+     *
+     * @param attrs
+     * @param defStyle
+     */
+    protected void init(AttributeSet attrs, int defStyle) {
+        //Init attrs
+        initAttrs(attrs, defStyle);
 
-        public BitmapWorkerTask(ImageView imageView) {
-            // Use a WeakReference to ensure the ImageView can be garbage collected
-            imageViewReference = new WeakReference<ImageView>(imageView);
+        //Init View
+        if (!isInEditMode())
+            initView();
+    }
+
+    /**
+     * Init custom attrs.
+     *
+     * @param attrs
+     * @param defStyle
+     */
+    protected void initAttrs(AttributeSet attrs, int defStyle) {
+
+        TypedArray a = getContext().getTheme().obtainStyledAttributes(
+                attrs, R.styleable.card_options, defStyle, defStyle);
+
+        try {
+            card_thumbnail_layout_resourceID = a.getResourceId(R.styleable.card_options_card_thumbnail_layout_resourceID, card_thumbnail_layout_resourceID);
+        } finally {
+            a.recycle();
         }
+    }
 
-        // Decode image in background.
-        @Override
-        protected Bitmap doInBackground(Integer... params) {
-            resId = params[0];
-            ImageView thumbnail = imageViewReference.get();
-            Bitmap bitmap = decodeSampledBitmapFromResource(getResources(), resId, thumbnail.getWidth(), thumbnail.getHeight());
-            if (bitmap!=null){
-                addBitmapToMemoryCache(String.valueOf(params[0]), bitmap);
-                return bitmap;
-            }else{
-                return (Bitmap)null;
-            }
+    /**
+     * Init view
+     */
+    protected void initView() {
 
-        }
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mInternalOuterView = inflater.inflate(card_thumbnail_layout_resourceID, this, true);
 
-        // Once complete, see if ImageView is still around and set bitmap.
-        @Override
-        protected void onPostExecute(Bitmap bitmap) {
-            if (isCancelled()) {
-                bitmap = null;
-            }
+        //Get ImageVIew
+        mImageView = (ImageView) findViewById(R.id.card_thumbnail_image);
 
-            if (imageViewReference != null && bitmap != null) {
-                final ImageView imageView = imageViewReference.get();
-                final BitmapWorkerTask bitmapWorkerTask =
-                        getBitmapWorkerTask(imageView);
-                if (this == bitmapWorkerTask && imageView != null) {
-                    if (!mCardThumbnail.applyBitmap(imageView,bitmap))
-                        imageView.setImageBitmap(bitmap);
-                    sendBroadcast();
-                    mLoadingErrorResource=false;
-                }
-            }else{
-                sendBroadcast(false);
-                if (mCardThumbnail!=null && mCardThumbnail.getErrorResourceId()!=0){
-                    if (!mLoadingErrorResource){
-                        //To avoid a loop
-                        loadBitmap(mCardThumbnail.getErrorResourceId(), mImageView);
+
+        // Get max available VM memory, exceeding this amount will throw an
+        // OutOfMemory exception. Stored in kilobytes as LruCache takes an
+        // int in its constructor.
+        final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
+
+        // Use 1/8th of the available memory for this memory cache.
+        final int cacheSize = maxMemory / 8;
+
+        mMemoryCache = CacheUtil.getMemoryCache();
+        if (mMemoryCache == null) {
+            mMemoryCache = new LruCache<String, Bitmap>(cacheSize) {
+
+                @Override
+                protected int sizeOf(String key, Bitmap bitmap) {
+                    // The cache size will be measured in kilobytes rather than
+                    // number of items.
+                    if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB_MR1) {
+                        return bitmap.getByteCount() / 1024;
+                    } else {
+                        return bitmap.getRowBytes() * bitmap.getHeight() / 1024;
                     }
-                    mLoadingErrorResource=true;
                 }
-            }
+            };
+            CacheUtil.putMemoryCache(mMemoryCache);
         }
     }
 
-    class BitmapWorkerUrlTask extends AsyncTask<String, Void, Bitmap> {
-        private final WeakReference<ImageView> imageViewReference;
-        private String resUrl = "";
-
-        public BitmapWorkerUrlTask(ImageView imageView) {
-            // Use a WeakReference to ensure the ImageView can be garbage collected
-            imageViewReference = new WeakReference<ImageView>(imageView);
-        }
-
-        // Decode image in background.
-        @Override
-        protected Bitmap doInBackground(String... params) {
-            resUrl = params[0];
-            ImageView thumbnail = imageViewReference.get();
-            Bitmap bitmap = decodeSampledBitmapFromResource(getResources(), resUrl, thumbnail.getWidth(),
-                    thumbnail.getHeight());
-            if (bitmap!=null){
-                addBitmapToMemoryCache(String.valueOf(params[0]), bitmap);
-                return bitmap;
-            }else
-                return (Bitmap) null;
-        }
-
-        // Once complete, see if ImageView is still around and set bitmap.
-        @Override
-        protected void onPostExecute(Bitmap bitmap) {
-            if (isCancelled()) {
-                bitmap = null;
-            }
-
-            if (imageViewReference != null && bitmap != null) {
-                final ImageView imageView = imageViewReference.get();
-                final BitmapWorkerUrlTask bitmapWorkerTask =
-                        getBitmapWorkerUrlTask(imageView);
-                if (this == bitmapWorkerTask && imageView != null) {
-                    if (!mCardThumbnail.applyBitmap(imageView,bitmap))
-                        imageView.setImageBitmap(bitmap);
-                    sendBroadcast();
-                    mLoadingErrorResource=false;
-                }
-            }else{
-                sendBroadcast(false);
-                if (mCardThumbnail!=null && mCardThumbnail.getErrorResourceId()!=0){
-                    if (!mLoadingErrorResource){
-                        //To avoid a loop
-                        loadBitmap(mCardThumbnail.getErrorResourceId(), mImageView);
-                    }
-                    mLoadingErrorResource=true;
-                }
-            }
-        }
+    /**
+     * Adds a {@link chickennugget.spaceengineersdata.cards.CardThumbnail}.
+     * It is important to set all thumbnail values before launch this method.
+     *
+     * @param cardThumbail thumbnail model
+     */
+    public void addCardThumbnail(chickennugget.spaceengineersdata.cards.CardThumbnail cardThumbail) {
+        mCardThumbnail = cardThumbail;
+        buildUI();
     }
 
-    class BitmapWorkerCustomSourceTask extends AsyncTask<chickennugget.spaceengineersdata.cards.CardThumbnail.CustomSource, Void, Bitmap> {
-        private final WeakReference<ImageView> imageViewReference;
-        private CardThumbnail.CustomSource customSource = null;
+    /**
+     * Refresh UI
+     */
+    protected void buildUI() {
+        if (mCardThumbnail == null) return;
 
-        public BitmapWorkerCustomSourceTask(ImageView imageView) {
-            // Use a WeakReference to ensure the ImageView can be garbage collected
-            imageViewReference = new WeakReference<ImageView>(imageView);
-        }
+        if (mIsRecycle)
+            mLoadingErrorResource = false;
 
-        // Decode image in background.
-        @Override
-        protected Bitmap doInBackground(chickennugget.spaceengineersdata.cards.CardThumbnail.CustomSource... params) {
-            customSource = params[0];
-            ImageView thumbnail = imageViewReference.get();
-            Bitmap bitmap = customSource.getBitmap();
-            if (bitmap!=null){
-                addBitmapToMemoryCache(customSource.getTag(), bitmap);
-                return bitmap;
-            }else{
-                return (Bitmap)null;
-            }
-
-        }
-
-        // Once complete, see if ImageView is still around and set bitmap.
-        @Override
-        protected void onPostExecute(Bitmap bitmap) {
-            if (isCancelled()) {
-                bitmap = null;
-            }
-
-            if (imageViewReference != null && bitmap != null) {
-                final ImageView imageView = imageViewReference.get();
-                final BitmapWorkerCustomSourceTask bitmapWorkerTask =
-                        getBitmapWorkerCustomSourceTask(imageView);
-                if (this == bitmapWorkerTask && imageView != null) {
-                    if (!mCardThumbnail.applyBitmap(imageView,bitmap))
-                        imageView.setImageBitmap(bitmap);
-                    sendBroadcast();
-                    mLoadingErrorResource=false;
-                }
-            }else{
-                sendBroadcast(false);
-                if (mCardThumbnail!=null && mCardThumbnail.getErrorResourceId()!=0){
-                    if (!mLoadingErrorResource){
-                        //To avoid a loop
-                        loadBitmap(mCardThumbnail.getErrorResourceId(), mImageView);
-                    }
-                    mLoadingErrorResource=true;
-                }
-            }
-        }
-    }
-
-
-    static class AsyncDrawable extends BitmapDrawable {
-        private final WeakReference<BitmapWorkerTask> bitmapWorkerTaskReference;
-
-        public AsyncDrawable(Resources res, Bitmap bitmap,
-                             BitmapWorkerTask bitmapWorkerTask) {
-            super(res, bitmap);
-            bitmapWorkerTaskReference =
-                    new WeakReference<BitmapWorkerTask>(bitmapWorkerTask);
-        }
-
-        public BitmapWorkerTask getBitmapWorkerTask() {
-            return bitmapWorkerTaskReference.get();
-        }
-    }
-
-    static class AsyncDrawableUrl extends BitmapDrawable {
-        private final WeakReference<BitmapWorkerUrlTask> bitmapWorkerTaskReference;
-
-        public AsyncDrawableUrl(Resources res, Bitmap bitmap,
-                             BitmapWorkerUrlTask bitmapWorkerTask) {
-            super(res, bitmap);
-            bitmapWorkerTaskReference =
-                    new WeakReference<BitmapWorkerUrlTask>(bitmapWorkerTask);
-        }
-
-        public BitmapWorkerUrlTask getBitmapWorkerUrlTask() {
-            return bitmapWorkerTaskReference.get();
-        }
-    }
-
-    static class AsyncDrawableCustomSource extends BitmapDrawable {
-        private final WeakReference<BitmapWorkerCustomSourceTask> bitmapWorkerTaskReference;
-
-        public AsyncDrawableCustomSource(Resources res, Bitmap bitmap,
-                                BitmapWorkerCustomSourceTask bitmapWorkerTask) {
-            super(res, bitmap);
-            bitmapWorkerTaskReference =
-                    new WeakReference<BitmapWorkerCustomSourceTask>(bitmapWorkerTask);
-        }
-
-        public BitmapWorkerCustomSourceTask getBitmapWorkerCustomSourceTask() {
-            return bitmapWorkerTaskReference.get();
-        }
+        //Setup InnerView
+        setupInnerView();
     }
 
     //--------------------------------------------------------------------------
-    // Broadcast
+    // Worker
     //--------------------------------------------------------------------------
+
+    /**
+     * Sets the inner view.
+     */
+    protected void setupInnerView() {
+
+        //Setup Elements before load image
+        if (mInternalOuterView != null)
+            mCardThumbnail.setupInnerViewElements((ViewGroup) mInternalOuterView, mImageView);
+
+        //Load bitmap
+        if (!mCardThumbnail.isExternalUsage()) {
+            if (mCardThumbnail.getCustomSource() != null)
+                loadBitmap(mCardThumbnail.getCustomSource(), mImageView);
+            else if (mCardThumbnail.getDrawableResource() > 0)
+                loadBitmap(mCardThumbnail.getDrawableResource(), mImageView);
+            else
+                loadBitmap(mCardThumbnail.getUrlResource(), mImageView);
+        }
+    }
+
+    public void loadBitmap(int resId, ImageView imageView) {
+        final String imageKey = String.valueOf(resId);
+        final Bitmap bitmap = getBitmapFromMemCache(imageKey);
+
+        if (bitmap != null) {
+            if (!mCardThumbnail.applyBitmap(imageView, bitmap))
+                imageView.setImageBitmap(bitmap);
+            sendBroadcast();
+        } else {
+            if (cancelPotentialWork(resId, imageView)) {
+                final BitmapWorkerTask task = new BitmapWorkerTask(imageView);
+                final AsyncDrawable asyncDrawable =
+                        new AsyncDrawable(getResources(), null, task);
+                imageView.setImageDrawable(asyncDrawable);
+                task.execute(resId);
+            }
+        }
+    }
+
+    public void loadBitmap(String url, ImageView imageView) {
+        final String imageKey = url;
+        final Bitmap bitmap = getBitmapFromMemCache(imageKey);
+
+        if (bitmap != null) {
+            if (!mCardThumbnail.applyBitmap(imageView, bitmap))
+                imageView.setImageBitmap(bitmap);
+            sendBroadcast();
+        } else {
+            if (cancelPotentialWork(url, imageView)) {
+                final BitmapWorkerUrlTask task = new BitmapWorkerUrlTask(imageView);
+                final AsyncDrawableUrl asyncDrawable =
+                        new AsyncDrawableUrl(getResources(), null, task);
+                imageView.setImageDrawable(asyncDrawable);
+                task.execute(url);
+            }
+        }
+    }
+
+    public void loadBitmap(chickennugget.spaceengineersdata.cards.CardThumbnail.CustomSource customSource, ImageView imageView) {
+        final String imageKey = customSource.getTag();
+        final Bitmap bitmap = getBitmapFromMemCache(imageKey);
+
+        if (bitmap != null) {
+            if (!mCardThumbnail.applyBitmap(imageView, bitmap))
+                imageView.setImageBitmap(bitmap);
+            sendBroadcast();
+        } else {
+            if (cancelPotentialWork(customSource, imageView)) {
+                final BitmapWorkerCustomSourceTask task = new BitmapWorkerCustomSourceTask(imageView);
+                final AsyncDrawableCustomSource asyncDrawable =
+                        new AsyncDrawableCustomSource(getResources(), null, task);
+                imageView.setImageDrawable(asyncDrawable);
+                task.execute(customSource);
+            }
+        }
+    }
+
+    protected void addBitmapToMemoryCache(String key, Bitmap bitmap) {
+        if (!mLoadingErrorResource && getBitmapFromMemCache(key) == null) {
+            if (key != null && bitmap != null) {
+                mMemoryCache.put(key, bitmap);
+            }
+        }
+    }
+
+    protected Bitmap getBitmapFromMemCache(String key) {
+        if (key == null) return null;
+        return mMemoryCache.get(key);
+    }
 
     /**
      * Send a successful broadcast when image is downloaded
      */
-    protected void sendBroadcast(){
+    protected void sendBroadcast() {
         sendBroadcast(true);
     }
 
@@ -721,10 +507,6 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
 
     }
 
-    //--------------------------------------------------------------------------
-    // Getters and Setters
-    //--------------------------------------------------------------------------
-
     @Override
     public View getInternalOuterView() {
         return null;
@@ -742,7 +524,7 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
     /**
      * Sets if view can recycle ui elements
      *
-     * @param isRecycle  <code>true</code> to recycle
+     * @param isRecycle <code>true</code> to recycle
      */
     public void setRecycle(boolean isRecycle) {
         this.mIsRecycle = isRecycle;
@@ -757,13 +539,227 @@ public class CardThumbnailView extends FrameLayout implements CardViewInterface 
         return mForceReplaceInnerLayout;
     }
 
+    //--------------------------------------------------------------------------
+    // Broadcast
+    //--------------------------------------------------------------------------
+
     /**
      * Sets if inner layout have to be replaced
      *
-     * @param forceReplaceInnerLayout  <code>true</code> to recycle
+     * @param forceReplaceInnerLayout <code>true</code> to recycle
      */
     public void setForceReplaceInnerLayout(boolean forceReplaceInnerLayout) {
         this.mForceReplaceInnerLayout = forceReplaceInnerLayout;
+    }
+
+    static class AsyncDrawable extends BitmapDrawable {
+        private final WeakReference<BitmapWorkerTask> bitmapWorkerTaskReference;
+
+        public AsyncDrawable(Resources res, Bitmap bitmap,
+                             BitmapWorkerTask bitmapWorkerTask) {
+            super(res, bitmap);
+            bitmapWorkerTaskReference =
+                    new WeakReference<BitmapWorkerTask>(bitmapWorkerTask);
+        }
+
+        public BitmapWorkerTask getBitmapWorkerTask() {
+            return bitmapWorkerTaskReference.get();
+        }
+    }
+
+    //--------------------------------------------------------------------------
+    // Getters and Setters
+    //--------------------------------------------------------------------------
+
+    static class AsyncDrawableUrl extends BitmapDrawable {
+        private final WeakReference<BitmapWorkerUrlTask> bitmapWorkerTaskReference;
+
+        public AsyncDrawableUrl(Resources res, Bitmap bitmap,
+                                BitmapWorkerUrlTask bitmapWorkerTask) {
+            super(res, bitmap);
+            bitmapWorkerTaskReference =
+                    new WeakReference<BitmapWorkerUrlTask>(bitmapWorkerTask);
+        }
+
+        public BitmapWorkerUrlTask getBitmapWorkerUrlTask() {
+            return bitmapWorkerTaskReference.get();
+        }
+    }
+
+    static class AsyncDrawableCustomSource extends BitmapDrawable {
+        private final WeakReference<BitmapWorkerCustomSourceTask> bitmapWorkerTaskReference;
+
+        public AsyncDrawableCustomSource(Resources res, Bitmap bitmap,
+                                         BitmapWorkerCustomSourceTask bitmapWorkerTask) {
+            super(res, bitmap);
+            bitmapWorkerTaskReference =
+                    new WeakReference<BitmapWorkerCustomSourceTask>(bitmapWorkerTask);
+        }
+
+        public BitmapWorkerCustomSourceTask getBitmapWorkerCustomSourceTask() {
+            return bitmapWorkerTaskReference.get();
+        }
+    }
+
+    class BitmapWorkerTask extends AsyncTask<Integer, Void, Bitmap> {
+        private final WeakReference<ImageView> imageViewReference;
+        private int resId = 0;
+
+        public BitmapWorkerTask(ImageView imageView) {
+            // Use a WeakReference to ensure the ImageView can be garbage collected
+            imageViewReference = new WeakReference<ImageView>(imageView);
+        }
+
+        // Decode image in background.
+        @Override
+        protected Bitmap doInBackground(Integer... params) {
+            resId = params[0];
+            ImageView thumbnail = imageViewReference.get();
+            Bitmap bitmap = decodeSampledBitmapFromResource(getResources(), resId, thumbnail.getWidth(), thumbnail.getHeight());
+            if (bitmap != null) {
+                addBitmapToMemoryCache(String.valueOf(params[0]), bitmap);
+                return bitmap;
+            } else {
+                return (Bitmap) null;
+            }
+
+        }
+
+        // Once complete, see if ImageView is still around and set bitmap.
+        @Override
+        protected void onPostExecute(Bitmap bitmap) {
+            if (isCancelled()) {
+                bitmap = null;
+            }
+
+            if (imageViewReference != null && bitmap != null) {
+                final ImageView imageView = imageViewReference.get();
+                final BitmapWorkerTask bitmapWorkerTask =
+                        getBitmapWorkerTask(imageView);
+                if (this == bitmapWorkerTask && imageView != null) {
+                    if (!mCardThumbnail.applyBitmap(imageView, bitmap))
+                        imageView.setImageBitmap(bitmap);
+                    sendBroadcast();
+                    mLoadingErrorResource = false;
+                }
+            } else {
+                sendBroadcast(false);
+                if (mCardThumbnail != null && mCardThumbnail.getErrorResourceId() != 0) {
+                    if (!mLoadingErrorResource) {
+                        //To avoid a loop
+                        loadBitmap(mCardThumbnail.getErrorResourceId(), mImageView);
+                    }
+                    mLoadingErrorResource = true;
+                }
+            }
+        }
+    }
+
+    class BitmapWorkerUrlTask extends AsyncTask<String, Void, Bitmap> {
+        private final WeakReference<ImageView> imageViewReference;
+        private String resUrl = "";
+
+        public BitmapWorkerUrlTask(ImageView imageView) {
+            // Use a WeakReference to ensure the ImageView can be garbage collected
+            imageViewReference = new WeakReference<ImageView>(imageView);
+        }
+
+        // Decode image in background.
+        @Override
+        protected Bitmap doInBackground(String... params) {
+            resUrl = params[0];
+            ImageView thumbnail = imageViewReference.get();
+            Bitmap bitmap = decodeSampledBitmapFromResource(getResources(), resUrl, thumbnail.getWidth(),
+                    thumbnail.getHeight());
+            if (bitmap != null) {
+                addBitmapToMemoryCache(String.valueOf(params[0]), bitmap);
+                return bitmap;
+            } else
+                return (Bitmap) null;
+        }
+
+        // Once complete, see if ImageView is still around and set bitmap.
+        @Override
+        protected void onPostExecute(Bitmap bitmap) {
+            if (isCancelled()) {
+                bitmap = null;
+            }
+
+            if (imageViewReference != null && bitmap != null) {
+                final ImageView imageView = imageViewReference.get();
+                final BitmapWorkerUrlTask bitmapWorkerTask =
+                        getBitmapWorkerUrlTask(imageView);
+                if (this == bitmapWorkerTask && imageView != null) {
+                    if (!mCardThumbnail.applyBitmap(imageView, bitmap))
+                        imageView.setImageBitmap(bitmap);
+                    sendBroadcast();
+                    mLoadingErrorResource = false;
+                }
+            } else {
+                sendBroadcast(false);
+                if (mCardThumbnail != null && mCardThumbnail.getErrorResourceId() != 0) {
+                    if (!mLoadingErrorResource) {
+                        //To avoid a loop
+                        loadBitmap(mCardThumbnail.getErrorResourceId(), mImageView);
+                    }
+                    mLoadingErrorResource = true;
+                }
+            }
+        }
+    }
+
+    class BitmapWorkerCustomSourceTask extends AsyncTask<chickennugget.spaceengineersdata.cards.CardThumbnail.CustomSource, Void, Bitmap> {
+        private final WeakReference<ImageView> imageViewReference;
+        private CardThumbnail.CustomSource customSource = null;
+
+        public BitmapWorkerCustomSourceTask(ImageView imageView) {
+            // Use a WeakReference to ensure the ImageView can be garbage collected
+            imageViewReference = new WeakReference<ImageView>(imageView);
+        }
+
+        // Decode image in background.
+        @Override
+        protected Bitmap doInBackground(chickennugget.spaceengineersdata.cards.CardThumbnail.CustomSource... params) {
+            customSource = params[0];
+            ImageView thumbnail = imageViewReference.get();
+            Bitmap bitmap = customSource.getBitmap();
+            if (bitmap != null) {
+                addBitmapToMemoryCache(customSource.getTag(), bitmap);
+                return bitmap;
+            } else {
+                return (Bitmap) null;
+            }
+
+        }
+
+        // Once complete, see if ImageView is still around and set bitmap.
+        @Override
+        protected void onPostExecute(Bitmap bitmap) {
+            if (isCancelled()) {
+                bitmap = null;
+            }
+
+            if (imageViewReference != null && bitmap != null) {
+                final ImageView imageView = imageViewReference.get();
+                final BitmapWorkerCustomSourceTask bitmapWorkerTask =
+                        getBitmapWorkerCustomSourceTask(imageView);
+                if (this == bitmapWorkerTask && imageView != null) {
+                    if (!mCardThumbnail.applyBitmap(imageView, bitmap))
+                        imageView.setImageBitmap(bitmap);
+                    sendBroadcast();
+                    mLoadingErrorResource = false;
+                }
+            } else {
+                sendBroadcast(false);
+                if (mCardThumbnail != null && mCardThumbnail.getErrorResourceId() != 0) {
+                    if (!mLoadingErrorResource) {
+                        //To avoid a loop
+                        loadBitmap(mCardThumbnail.getErrorResourceId(), mImageView);
+                    }
+                    mLoadingErrorResource = true;
+                }
+            }
+        }
     }
 
 

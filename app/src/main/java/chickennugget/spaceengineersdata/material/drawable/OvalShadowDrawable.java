@@ -21,38 +21,38 @@ import chickennugget.spaceengineersdata.material.util.ViewUtil;
  */
 public class OvalShadowDrawable extends Drawable implements Animatable {
 
+    private static final int COLOR_SHADOW_START = 0x4C000000;
+    private static final int COLOR_SHADOW_END = 0x00000000;
     private boolean mRunning = false;
     private long mStartTime;
     private float mAnimProgress;
     private int mAnimDuration;
+    private final Runnable mUpdater = new Runnable() {
 
+        @Override
+        public void run() {
+            update();
+        }
+
+    };
     private boolean mEnable = true;
     private boolean mInEditMode = false;
     private boolean mAnimEnable = true;
-
     private Paint mShadowPaint;
     private Paint mGlowPaint;
     private Paint mPaint;
-
     private int mRadius;
     private float mShadowSize;
     private float mShadowOffset;
-
     private Path mShadowPath;
     private Path mGlowPath;
-
     private RectF mTempRect = new RectF();
-
     private ColorStateList mColorStateList;
     private int mPrevColor;
     private int mCurColor;
-
     private boolean mNeedBuildShadow = true;
 
-    private static final int COLOR_SHADOW_START = 0x4C000000;
-    private static final int COLOR_SHADOW_END = 0x00000000;
-
-    public OvalShadowDrawable(int radius, ColorStateList colorStateList, float shadowSize, float shadowOffset, int animDuration){
+    public OvalShadowDrawable(int radius, ColorStateList colorStateList, float shadowSize, float shadowOffset, int animDuration) {
         mAnimDuration = animDuration;
 
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
@@ -63,8 +63,8 @@ public class OvalShadowDrawable extends Drawable implements Animatable {
         setShadow(shadowSize, shadowOffset);
     }
 
-    public boolean setRadius(int radius){
-        if(mRadius != radius){
+    public boolean setRadius(int radius) {
+        if (mRadius != radius) {
             mRadius = radius;
             mNeedBuildShadow = true;
             invalidateSelf();
@@ -75,8 +75,8 @@ public class OvalShadowDrawable extends Drawable implements Animatable {
         return false;
     }
 
-    public boolean setShadow(float size, float offset){
-        if(mShadowSize != size || mShadowOffset != offset){
+    public boolean setShadow(float size, float offset) {
+        if (mShadowSize != size || mShadowOffset != offset) {
             mShadowSize = size;
             mShadowOffset = offset;
             mNeedBuildShadow = true;
@@ -88,8 +88,8 @@ public class OvalShadowDrawable extends Drawable implements Animatable {
         return false;
     }
 
-    public boolean setAnimationDuration(int duration){
-        if(mAnimDuration != duration){
+    public boolean setAnimationDuration(int duration) {
+        if (mAnimDuration != duration) {
             mAnimDuration = duration;
             return true;
         }
@@ -97,100 +97,99 @@ public class OvalShadowDrawable extends Drawable implements Animatable {
         return false;
     }
 
-    public void setColor(ColorStateList colorStateList){
+    public void setColor(ColorStateList colorStateList) {
         mColorStateList = colorStateList;
         onStateChange(getState());
     }
 
-    public void setColor(int color){
+    public ColorStateList getColor() {
+        return mColorStateList;
+    }
+
+    public void setColor(int color) {
         mColorStateList = ColorStateList.valueOf(color);
         onStateChange(getState());
     }
 
-    public ColorStateList getColor(){
-        return mColorStateList;
-    }
-
-    public void setInEditMode(boolean b){
+    public void setInEditMode(boolean b) {
         mInEditMode = b;
     }
 
-    public void setAnimEnable(boolean b){
+    public void setAnimEnable(boolean b) {
         mAnimEnable = b;
     }
 
-    public int getRadius(){
+    public int getRadius() {
         return mRadius;
     }
 
-    public float getShadowSize(){
+    public float getShadowSize() {
         return mShadowSize;
     }
 
-    public float getShadowOffset(){
+    public float getShadowOffset() {
         return mShadowOffset;
     }
 
-    public float getPaddingLeft(){
+    public float getPaddingLeft() {
         return mShadowSize;
     }
 
-    public float getPaddingTop(){
+    public float getPaddingTop() {
         return mShadowSize;
     }
 
-    public float getPaddingRight(){
+    public float getPaddingRight() {
         return mShadowSize;
     }
 
-    public float getPaddingBottom(){
+    public float getPaddingBottom() {
         return mShadowSize + mShadowOffset;
     }
 
-    public float getCenterX(){
+    public float getCenterX() {
         return mRadius + mShadowSize;
     }
 
-    public float getCenterY(){
+    public float getCenterY() {
         return mRadius + mShadowSize;
     }
 
-    public boolean isPointerOver(float x, float y){
-        float distance = (float)Math.sqrt(Math.pow(x - getCenterX(), 2) + Math.pow(y - getCenterY(), 2));
+    public boolean isPointerOver(float x, float y) {
+        float distance = (float) Math.sqrt(Math.pow(x - getCenterX(), 2) + Math.pow(y - getCenterY(), 2));
 
         return distance < mRadius;
     }
 
     @Override
     public int getIntrinsicWidth() {
-        return (int)((mRadius + mShadowSize) * 2 + 0.5f);
+        return (int) ((mRadius + mShadowSize) * 2 + 0.5f);
     }
 
     @Override
     public int getIntrinsicHeight() {
-        return (int)((mRadius + mShadowSize) * 2 + mShadowOffset + 0.5f);
+        return (int) ((mRadius + mShadowSize) * 2 + mShadowOffset + 0.5f);
     }
 
-    private void buildShadow(){
-        if(mShadowSize <= 0)
+    private void buildShadow() {
+        if (mShadowSize <= 0)
             return;
 
-        if(mShadowPaint == null){
+        if (mShadowPaint == null) {
             mShadowPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
             mShadowPaint.setStyle(Paint.Style.FILL);
             mShadowPaint.setDither(true);
         }
-        float startRatio = (float)mRadius / (mRadius + mShadowSize + mShadowOffset);
+        float startRatio = (float) mRadius / (mRadius + mShadowSize + mShadowOffset);
         mShadowPaint.setShader(new RadialGradient(0, 0, mRadius + mShadowSize,
                 new int[]{COLOR_SHADOW_START, COLOR_SHADOW_START, COLOR_SHADOW_END},
                 new float[]{0f, startRatio, 1f}
                 , Shader.TileMode.CLAMP));
 
-        if(mShadowPath == null){
+        if (mShadowPath == null) {
             mShadowPath = new Path();
             mShadowPath.setFillType(Path.FillType.EVEN_ODD);
-        }
-        else
+        } else
             mShadowPath.reset();
         float radius = mRadius + mShadowSize;
         mTempRect.set(-radius, -radius, radius, radius);
@@ -199,7 +198,7 @@ public class OvalShadowDrawable extends Drawable implements Animatable {
         mTempRect.set(-radius, -radius - mShadowOffset, radius, radius - mShadowOffset);
         mShadowPath.addOval(mTempRect, Path.Direction.CW);
 
-        if(mGlowPaint == null){
+        if (mGlowPaint == null) {
             mGlowPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
             mGlowPaint.setStyle(Paint.Style.FILL);
             mGlowPaint.setDither(true);
@@ -210,11 +209,10 @@ public class OvalShadowDrawable extends Drawable implements Animatable {
                 new float[]{0f, startRatio, 1f}
                 , Shader.TileMode.CLAMP));
 
-        if(mGlowPath == null){
+        if (mGlowPath == null) {
             mGlowPath = new Path();
             mGlowPath.setFillType(Path.FillType.EVEN_ODD);
-        }
-        else
+        } else
             mGlowPath.reset();
 
         radius = mRadius + mShadowSize / 2f;
@@ -227,25 +225,25 @@ public class OvalShadowDrawable extends Drawable implements Animatable {
 
     @Override
     public void draw(Canvas canvas) {
-        if(mNeedBuildShadow){
+        if (mNeedBuildShadow) {
             buildShadow();
             mNeedBuildShadow = false;
         }
         int saveCount;
 
-        if(mShadowSize > 0){
+        if (mShadowSize > 0) {
             saveCount = canvas.save();
-            canvas.translate(mShadowSize + mRadius,  mShadowSize + mRadius + mShadowOffset);
+            canvas.translate(mShadowSize + mRadius, mShadowSize + mRadius + mShadowOffset);
             canvas.drawPath(mShadowPath, mShadowPaint);
             canvas.restoreToCount(saveCount);
         }
 
         saveCount = canvas.save();
         canvas.translate(mShadowSize + mRadius, mShadowSize + mRadius);
-        if(mShadowSize > 0)
+        if (mShadowSize > 0)
             canvas.drawPath(mGlowPath, mGlowPaint);
         mTempRect.set(-mRadius, -mRadius, mRadius, mRadius);
-        if(!isRunning())
+        if (!isRunning())
             mPaint.setColor(mCurColor);
         else
             mPaint.setColor(ColorUtil.getMiddleColor(mPrevColor, mCurColor, mAnimProgress));
@@ -280,20 +278,18 @@ public class OvalShadowDrawable extends Drawable implements Animatable {
         mEnable = ViewUtil.hasState(state, android.R.attr.state_enabled);
         int color = mColorStateList.getColorForState(state, mCurColor);
 
-        if(mCurColor != color){
-            if(!mInEditMode && mAnimEnable && mEnable && mAnimDuration > 0){
+        if (mCurColor != color) {
+            if (!mInEditMode && mAnimEnable && mEnable && mAnimDuration > 0) {
                 mPrevColor = isRunning() ? mPrevColor : mCurColor;
                 mCurColor = color;
                 start();
-            }
-            else{
+            } else {
                 mPrevColor = color;
                 mCurColor = color;
                 invalidateSelf();
             }
             return true;
-        }
-        else if(!isRunning())
+        } else if (!isRunning())
             mPrevColor = color;
 
         return false;
@@ -305,7 +301,7 @@ public class OvalShadowDrawable extends Drawable implements Animatable {
         stop();
     }
 
-    private void resetAnimation(){
+    private void resetAnimation() {
         mStartTime = SystemClock.uptimeMillis();
         mAnimProgress = 0f;
     }
@@ -335,23 +331,14 @@ public class OvalShadowDrawable extends Drawable implements Animatable {
         super.scheduleSelf(what, when);
     }
 
-    private final Runnable mUpdater = new Runnable() {
-
-        @Override
-        public void run() {
-            update();
-        }
-
-    };
-
-    private void update(){
+    private void update() {
         long curTime = SystemClock.uptimeMillis();
-        mAnimProgress = Math.min(1f, (float)(curTime - mStartTime) / mAnimDuration);
+        mAnimProgress = Math.min(1f, (float) (curTime - mStartTime) / mAnimDuration);
 
-        if(mAnimProgress == 1f)
+        if (mAnimProgress == 1f)
             mRunning = false;
 
-        if(isRunning())
+        if (isRunning())
             scheduleSelf(mUpdater, SystemClock.uptimeMillis() + ViewUtil.FRAME_DURATION);
 
         invalidateSelf();

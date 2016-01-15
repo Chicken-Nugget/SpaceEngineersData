@@ -20,14 +20,14 @@ import chickennugget.spaceengineersdata.R;
 
 public class ViewUtil {
 
-	public static final long FRAME_DURATION = 1000 / 60;
+    public static final long FRAME_DURATION = 1000 / 60;
 
-	private static final AtomicInteger sNextGeneratedId = new AtomicInteger(1);
+    private static final AtomicInteger sNextGeneratedId = new AtomicInteger(1);
 
     @SuppressLint("NewApi")
     public static int generateViewId() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            for (;;) {
+            for (; ; ) {
                 final int result = sNextGeneratedId.get();
                 // aapt-generated IDs have the high byte nonzero; clamp to the range under that.
                 int newValue = result + 1;
@@ -36,24 +36,23 @@ public class ViewUtil {
                 if (sNextGeneratedId.compareAndSet(result, newValue))
                     return result;
             }
-        }
-        else
+        } else
             return View.generateViewId();
     }
 
-    public static boolean hasState(int[] states, int state){
-		if(states == null)
-			return false;
+    public static boolean hasState(int[] states, int state) {
+        if (states == null)
+            return false;
 
         for (int state1 : states)
             if (state1 == state)
                 return true;
 
-		return false;
-	}
+        return false;
+    }
 
-    public static void setBackground(View v, Drawable drawable){
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+    public static void setBackground(View v, Drawable drawable) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
             v.setBackground(drawable);
         else
             v.setBackgroundDrawable(drawable);
@@ -61,21 +60,23 @@ public class ViewUtil {
 
     /**
      * Apply any View style attributes to a view.
-     * @param v The view is applied.
+     *
+     * @param v     The view is applied.
      * @param resId The style resourceId.
      */
-    public static void applyStyle(View v, int resId){
+    public static void applyStyle(View v, int resId) {
         applyStyle(v, null, 0, resId);
     }
 
     /**
      * Apply any View style attributes to a view.
-     * @param v The view is applied.
+     *
+     * @param v            The view is applied.
      * @param attrs
      * @param defStyleAttr
      * @param defStyleRes
      */
-    public static void applyStyle(View v, AttributeSet attrs, int defStyleAttr, int defStyleRes){
+    public static void applyStyle(View v, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         TypedArray a = v.getContext().obtainStyledAttributes(attrs, R.styleable.View, defStyleAttr, defStyleRes);
 
         int leftPadding = -1;
@@ -91,20 +92,18 @@ public class ViewUtil {
         boolean leftPaddingDefined = false;
         boolean rightPaddingDefined = false;
 
-        for(int i = 0, count = a.getIndexCount(); i < count; i++){
+        for (int i = 0, count = a.getIndexCount(); i < count; i++) {
             int attr = a.getIndex(i);
-            if(attr == R.styleable.View_android_background) {
+            if (attr == R.styleable.View_android_background) {
                 Drawable bg = a.getDrawable(attr);
                 ViewUtil.setBackground(v, bg);
-            }
-            else if(attr == R.styleable.View_android_backgroundTint){
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            } else if (attr == R.styleable.View_android_backgroundTint) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
                     v.setBackgroundTintList(a.getColorStateList(attr));
-            }
-            else if(attr == R.styleable.View_android_backgroundTintMode){
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            } else if (attr == R.styleable.View_android_backgroundTintMode) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     int value = a.getInt(attr, 3);
-                    switch (value){
+                    switch (value) {
                         case 3:
                             v.setBackgroundTintMode(PorterDuff.Mode.SRC_OVER);
                             break;
@@ -125,65 +124,55 @@ public class ViewUtil {
                             break;
                     }
                 }
-            }
-            else if(attr == R.styleable.View_android_elevation){
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            } else if (attr == R.styleable.View_android_elevation) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
                     v.setElevation(a.getDimensionPixelOffset(attr, 0));
-            }
-            else if(attr == R.styleable.View_android_padding) {
+            } else if (attr == R.styleable.View_android_padding) {
                 padding = a.getDimensionPixelSize(attr, -1);
                 leftPaddingDefined = true;
                 rightPaddingDefined = true;
-            }
-            else if(attr == R.styleable.View_android_paddingLeft) {
+            } else if (attr == R.styleable.View_android_paddingLeft) {
                 leftPadding = a.getDimensionPixelSize(attr, -1);
                 leftPaddingDefined = true;
-            }
-            else if(attr == R.styleable.View_android_paddingTop)
+            } else if (attr == R.styleable.View_android_paddingTop)
                 topPadding = a.getDimensionPixelSize(attr, -1);
-            else if(attr == R.styleable.View_android_paddingRight) {
+            else if (attr == R.styleable.View_android_paddingRight) {
                 rightPadding = a.getDimensionPixelSize(attr, -1);
                 rightPaddingDefined = true;
-            }
-            else if(attr == R.styleable.View_android_paddingBottom)
+            } else if (attr == R.styleable.View_android_paddingBottom)
                 bottomPadding = a.getDimensionPixelSize(attr, -1);
-            else if(attr == R.styleable.View_android_paddingStart) {
+            else if (attr == R.styleable.View_android_paddingStart) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                     startPadding = a.getDimensionPixelSize(attr, Integer.MIN_VALUE);
                     startPaddingDefined = (startPadding != Integer.MIN_VALUE);
                 }
-            }
-            else if(attr == R.styleable.View_android_paddingEnd) {
+            } else if (attr == R.styleable.View_android_paddingEnd) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                     endPadding = a.getDimensionPixelSize(attr, Integer.MIN_VALUE);
                     endPaddingDefined = (endPadding != Integer.MIN_VALUE);
                 }
-            }
-            else if(attr == R.styleable.View_android_fadeScrollbars)
+            } else if (attr == R.styleable.View_android_fadeScrollbars)
                 v.setScrollbarFadingEnabled(a.getBoolean(attr, true));
-            else if(attr == R.styleable.View_android_fadingEdgeLength)
+            else if (attr == R.styleable.View_android_fadingEdgeLength)
                 v.setFadingEdgeLength(a.getDimensionPixelOffset(attr, 0));
-            else if(attr == R.styleable.View_android_minHeight)
+            else if (attr == R.styleable.View_android_minHeight)
                 v.setMinimumHeight(a.getDimensionPixelSize(attr, 0));
-            else if(attr == R.styleable.View_android_minWidth)
+            else if (attr == R.styleable.View_android_minWidth)
                 v.setMinimumWidth(a.getDimensionPixelSize(attr, 0));
-            else if(attr == R.styleable.View_android_requiresFadingEdge)
+            else if (attr == R.styleable.View_android_requiresFadingEdge)
                 v.setVerticalFadingEdgeEnabled(a.getBoolean(attr, true));
-            else if(attr == R.styleable.View_android_scrollbarDefaultDelayBeforeFade) {
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+            else if (attr == R.styleable.View_android_scrollbarDefaultDelayBeforeFade) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
                     v.setScrollBarDefaultDelayBeforeFade(a.getInteger(attr, 0));
-            }
-            else if(attr == R.styleable.View_android_scrollbarFadeDuration) {
+            } else if (attr == R.styleable.View_android_scrollbarFadeDuration) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
                     v.setScrollBarFadeDuration(a.getInteger(attr, 0));
-            }
-            else if(attr == R.styleable.View_android_scrollbarSize) {
+            } else if (attr == R.styleable.View_android_scrollbarSize) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
                     v.setScrollBarSize(a.getDimensionPixelSize(attr, 0));
-            }
-            else if(attr == R.styleable.View_android_scrollbarStyle) {
+            } else if (attr == R.styleable.View_android_scrollbarStyle) {
                 int value = a.getInteger(attr, 0);
-                switch (value){
+                switch (value) {
                     case 0x0:
                         v.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
                         break;
@@ -197,13 +186,12 @@ public class ViewUtil {
                         v.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_INSET);
                         break;
                 }
-            }
-            else if(attr == R.styleable.View_android_soundEffectsEnabled)
+            } else if (attr == R.styleable.View_android_soundEffectsEnabled)
                 v.setSoundEffectsEnabled(a.getBoolean(attr, true));
-            else if(attr == R.styleable.View_android_textAlignment){
+            else if (attr == R.styleable.View_android_textAlignment) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                     int value = a.getInteger(attr, 0);
-                    switch (value){
+                    switch (value) {
                         case 0:
                             v.setTextAlignment(View.TEXT_ALIGNMENT_INHERIT);
                             break;
@@ -227,11 +215,10 @@ public class ViewUtil {
                             break;
                     }
                 }
-            }
-            else if(attr == R.styleable.View_android_textDirection){
+            } else if (attr == R.styleable.View_android_textDirection) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                     int value = a.getInteger(attr, 0);
-                    switch (value){
+                    switch (value) {
                         case 0:
                             v.setTextDirection(View.TEXT_DIRECTION_INHERIT);
                             break;
@@ -252,10 +239,9 @@ public class ViewUtil {
                             break;
                     }
                 }
-            }
-            else if(attr == R.styleable.View_android_visibility){
+            } else if (attr == R.styleable.View_android_visibility) {
                 int value = a.getInteger(attr, 0);
-                switch (value){
+                switch (value) {
                     case 0:
                         v.setVisibility(View.VISIBLE);
                         break;
@@ -266,11 +252,10 @@ public class ViewUtil {
                         v.setVisibility(View.GONE);
                         break;
                 }
-            }
-            else if(attr == R.styleable.View_android_layoutDirection){
+            } else if (attr == R.styleable.View_android_layoutDirection) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                     int value = a.getInteger(attr, 0);
-                    switch (value){
+                    switch (value) {
                         case 0:
                             v.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
                             break;
@@ -285,36 +270,34 @@ public class ViewUtil {
                             break;
                     }
                 }
-            }
-            else if(attr == R.styleable.View_android_src){
-                if(v instanceof ImageView){
+            } else if (attr == R.styleable.View_android_src) {
+                if (v instanceof ImageView) {
                     int resId = a.getResourceId(attr, 0);
-                    ((ImageView)v).setImageResource(resId);
+                    ((ImageView) v).setImageResource(resId);
                 }
             }
         }
 
         if (padding >= 0)
             v.setPadding(padding, padding, padding, padding);
-        else if(Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1){
-            if(startPaddingDefined)
+        else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            if (startPaddingDefined)
                 leftPadding = startPadding;
-            if(endPaddingDefined)
+            if (endPaddingDefined)
                 rightPadding = endPadding;
 
             v.setPadding(leftPadding >= 0 ? leftPadding : v.getPaddingLeft(),
                     topPadding >= 0 ? topPadding : v.getPaddingTop(),
                     rightPadding >= 0 ? rightPadding : v.getPaddingRight(),
                     bottomPadding >= 0 ? bottomPadding : v.getPaddingBottom());
-        }
-        else{
-            if(leftPaddingDefined || rightPaddingDefined)
+        } else {
+            if (leftPaddingDefined || rightPaddingDefined)
                 v.setPadding(leftPaddingDefined ? leftPadding : v.getPaddingLeft(),
                         topPadding >= 0 ? topPadding : v.getPaddingTop(),
                         rightPaddingDefined ? rightPadding : v.getPaddingRight(),
                         bottomPadding >= 0 ? bottomPadding : v.getPaddingBottom());
 
-            if(startPaddingDefined || endPaddingDefined)
+            if (startPaddingDefined || endPaddingDefined)
                 v.setPaddingRelative(startPaddingDefined ? startPadding : v.getPaddingStart(),
                         topPadding >= 0 ? topPadding : v.getPaddingTop(),
                         endPaddingDefined ? endPadding : v.getPaddingEnd(),
@@ -323,15 +306,15 @@ public class ViewUtil {
 
         a.recycle();
 
-        if(v instanceof TextView)
-            applyStyle((TextView)v, attrs, defStyleAttr, defStyleRes);
+        if (v instanceof TextView)
+            applyStyle((TextView) v, attrs, defStyleAttr, defStyleRes);
     }
 
-    public static void applyFont(TextView v, AttributeSet attrs, int defStyleAttr, int defStyleRes){
+    public static void applyFont(TextView v, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         TypedArray a = v.getContext().obtainStyledAttributes(attrs, new int[]{R.attr.tv_fontFamily}, defStyleAttr, defStyleRes);
         String fontFamily = a.getString(0);
 
-        if(fontFamily != null){
+        if (fontFamily != null) {
             Typeface typeface = TypefaceUtil.load(v.getContext(), fontFamily, 0);
             v.setTypeface(typeface);
         }
@@ -339,8 +322,8 @@ public class ViewUtil {
         a.recycle();
     }
 
-    public static void applyTextAppearance(TextView v, int resId){
-        if(resId == 0)
+    public static void applyTextAppearance(TextView v, int resId) {
+        if (resId == 0)
             return;
 
         String fontFamily = null;
@@ -425,7 +408,7 @@ public class ViewUtil {
             if (tf != null)
                 v.setTypeface(tf);
         }
-        if(tf != null) {
+        if (tf != null) {
             switch (typefaceIndex) {
                 case 1:
                     tf = Typeface.SANS_SERIF;
@@ -443,12 +426,13 @@ public class ViewUtil {
 
     /**
      * Apply any TextView style attributes to a view.
+     *
      * @param v
      * @param attrs
      * @param defStyleAttr
      * @param defStyleRes
      */
-    private static void applyStyle(TextView v, AttributeSet attrs, int defStyleAttr, int defStyleRes){
+    private static void applyStyle(TextView v, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         String fontFamily = null;
         int typefaceIndex = -1;
         int styleIndex = -1;
@@ -686,7 +670,7 @@ public class ViewUtil {
         if (shadowColor != 0)
             v.setShadowLayer(r, dx, dy, shadowColor);
 
-        if(drawableDefined) {
+        if (drawableDefined) {
             Drawable[] drawables = v.getCompoundDrawables();
             if (drawableStart != null)
                 drawables[0] = drawableStart;
@@ -703,7 +687,7 @@ public class ViewUtil {
             v.setCompoundDrawablesWithIntrinsicBounds(drawables[0], drawables[1], drawables[2], drawables[3]);
         }
 
-        if(drawableRelativeDefined && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
+        if (drawableRelativeDefined && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             Drawable[] drawables = v.getCompoundDrawablesRelative();
             if (drawableStart != null)
                 drawables[0] = drawableStart;
@@ -718,7 +702,7 @@ public class ViewUtil {
             if (tf != null)
                 v.setTypeface(tf);
         }
-        if(tf != null) {
+        if (tf != null) {
             switch (typefaceIndex) {
                 case 1:
                     tf = Typeface.SANS_SERIF;
@@ -733,39 +717,40 @@ public class ViewUtil {
             v.setTypeface(tf, styleIndex);
         }
 
-        if(v instanceof AutoCompleteTextView)
-            applyStyle((AutoCompleteTextView)v, attrs, defStyleAttr, defStyleRes);
+        if (v instanceof AutoCompleteTextView)
+            applyStyle((AutoCompleteTextView) v, attrs, defStyleAttr, defStyleRes);
     }
 
     /**
      * Apply any AutoCompleteTextView style attributes to a view.
+     *
      * @param v
      * @param attrs
      * @param defStyleAttr
      * @param defStyleRes
      */
-    private static void applyStyle(AutoCompleteTextView v,  AttributeSet attrs, int defStyleAttr, int defStyleRes){
+    private static void applyStyle(AutoCompleteTextView v, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         TypedArray a = v.getContext().obtainStyledAttributes(attrs, R.styleable.AutoCompleteTextView, defStyleAttr, defStyleRes);
 
         int n = a.getIndexCount();
         for (int i = 0; i < n; i++) {
             int attr = a.getIndex(i);
 
-            if(attr == R.styleable.AutoCompleteTextView_android_completionHint)
+            if (attr == R.styleable.AutoCompleteTextView_android_completionHint)
                 v.setCompletionHint(a.getString(attr));
-            else if(attr == R.styleable.AutoCompleteTextView_android_completionThreshold)
+            else if (attr == R.styleable.AutoCompleteTextView_android_completionThreshold)
                 v.setThreshold(a.getInteger(attr, 0));
-            else if(attr == R.styleable.AutoCompleteTextView_android_dropDownAnchor)
+            else if (attr == R.styleable.AutoCompleteTextView_android_dropDownAnchor)
                 v.setDropDownAnchor(a.getResourceId(attr, 0));
-            else if(attr == R.styleable.AutoCompleteTextView_android_dropDownHeight)
+            else if (attr == R.styleable.AutoCompleteTextView_android_dropDownHeight)
                 v.setDropDownHeight(a.getLayoutDimension(attr, ViewGroup.LayoutParams.WRAP_CONTENT));
-            else if(attr == R.styleable.AutoCompleteTextView_android_dropDownWidth)
+            else if (attr == R.styleable.AutoCompleteTextView_android_dropDownWidth)
                 v.setDropDownWidth(a.getLayoutDimension(attr, ViewGroup.LayoutParams.WRAP_CONTENT));
-            else if(attr == R.styleable.AutoCompleteTextView_android_dropDownHorizontalOffset)
+            else if (attr == R.styleable.AutoCompleteTextView_android_dropDownHorizontalOffset)
                 v.setDropDownHorizontalOffset(a.getDimensionPixelSize(attr, 0));
-            else if(attr == R.styleable.AutoCompleteTextView_android_dropDownVerticalOffset)
+            else if (attr == R.styleable.AutoCompleteTextView_android_dropDownVerticalOffset)
                 v.setDropDownVerticalOffset(a.getDimensionPixelSize(attr, 0));
-            else if(attr == R.styleable.AutoCompleteTextView_android_popupBackground)
+            else if (attr == R.styleable.AutoCompleteTextView_android_popupBackground)
                 v.setDropDownBackgroundDrawable(a.getDrawable(attr));
         }
         a.recycle();

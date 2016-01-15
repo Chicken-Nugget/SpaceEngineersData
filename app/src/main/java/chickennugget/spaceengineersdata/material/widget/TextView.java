@@ -13,16 +13,11 @@ import chickennugget.spaceengineersdata.material.app.ThemeManager;
 import chickennugget.spaceengineersdata.material.drawable.RippleDrawable;
 import chickennugget.spaceengineersdata.material.util.ViewUtil;
 
-public class TextView extends android.widget.TextView implements ThemeManager.OnThemeChangedListener{
+public class TextView extends android.widget.TextView implements ThemeManager.OnThemeChangedListener {
 
-	private RippleManager mRippleManager;
     protected int mStyleId;
     protected int mCurrentStyle = ThemeManager.THEME_UNDEFINED;
-
-    public interface OnSelectionChangedListener{
-        void onSelectionChanged(View v, int selStart, int selEnd);
-    }
-
+    private RippleManager mRippleManager;
     private OnSelectionChangedListener mOnSelectionChangedListener;
 
     public TextView(Context context) {
@@ -37,11 +32,11 @@ public class TextView extends android.widget.TextView implements ThemeManager.On
         init(context, attrs, 0, 0);
     }
 
-	public TextView(Context context, AttributeSet attrs, int defStyleAttr) {
-		super(context, attrs, defStyleAttr);
+    public TextView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
 
-		init(context, attrs, defStyleAttr, 0);
-	}
+        init(context, attrs, defStyleAttr, 0);
+    }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
@@ -50,19 +45,19 @@ public class TextView extends android.widget.TextView implements ThemeManager.On
         init(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
+    protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         ViewUtil.applyFont(this, attrs, defStyleAttr, defStyleRes);
         applyStyle(context, attrs, defStyleAttr, defStyleRes);
-        if(!isInEditMode())
+        if (!isInEditMode())
             mStyleId = ThemeManager.getStyleId(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    public void applyStyle(int resId){
+    public void applyStyle(int resId) {
         ViewUtil.applyStyle(this, resId);
         applyStyle(getContext(), null, 0, resId);
     }
 
-    protected void applyStyle(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
+    protected void applyStyle(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         getRippleManager().onCreate(this, context, attrs, defStyleAttr, defStyleRes);
     }
 
@@ -79,7 +74,7 @@ public class TextView extends android.widget.TextView implements ThemeManager.On
     @Override
     public void onThemeChanged(ThemeManager.OnThemeChangedEvent event) {
         int style = ThemeManager.getInstance().getCurrentStyle(mStyleId);
-        if(mCurrentStyle != style){
+        if (mCurrentStyle != style) {
             mCurrentStyle = style;
             applyStyle(mCurrentStyle);
         }
@@ -88,7 +83,7 @@ public class TextView extends android.widget.TextView implements ThemeManager.On
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if(mStyleId != 0) {
+        if (mStyleId != 0) {
             ThemeManager.getInstance().registerOnThemeChangedListener(this);
             onThemeChanged(null);
         }
@@ -98,23 +93,23 @@ public class TextView extends android.widget.TextView implements ThemeManager.On
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         RippleManager.cancelRipple(this);
-        if(mStyleId != 0)
+        if (mStyleId != 0)
             ThemeManager.getInstance().unregisterOnThemeChangedListener(this);
     }
 
     @Override
     public void setBackgroundDrawable(Drawable drawable) {
         Drawable background = getBackground();
-        if(background instanceof RippleDrawable && !(drawable instanceof RippleDrawable))
+        if (background instanceof RippleDrawable && !(drawable instanceof RippleDrawable))
             ((RippleDrawable) background).setBackgroundDrawable(drawable);
         else
             super.setBackgroundDrawable(drawable);
     }
 
-    protected RippleManager getRippleManager(){
-        if(mRippleManager == null){
-            synchronized (RippleManager.class){
-                if(mRippleManager == null)
+    protected RippleManager getRippleManager() {
+        if (mRippleManager == null) {
+            synchronized (RippleManager.class) {
+                if (mRippleManager == null)
                     mRippleManager = new RippleManager();
             }
         }
@@ -136,10 +131,10 @@ public class TextView extends android.widget.TextView implements ThemeManager.On
     @Override
     public boolean onTouchEvent(@NonNull MotionEvent event) {
         boolean result = super.onTouchEvent(event);
-        return  getRippleManager().onTouchEvent(this, event) || result;
+        return getRippleManager().onTouchEvent(this, event) || result;
     }
 
-    public void setOnSelectionChangedListener(OnSelectionChangedListener listener){
+    public void setOnSelectionChangedListener(OnSelectionChangedListener listener) {
         mOnSelectionChangedListener = listener;
     }
 
@@ -147,7 +142,11 @@ public class TextView extends android.widget.TextView implements ThemeManager.On
     protected void onSelectionChanged(int selStart, int selEnd) {
         super.onSelectionChanged(selStart, selEnd);
 
-        if(mOnSelectionChangedListener != null)
+        if (mOnSelectionChangedListener != null)
             mOnSelectionChangedListener.onSelectionChanged(this, selStart, selEnd);
+    }
+
+    public interface OnSelectionChangedListener {
+        void onSelectionChanged(View v, int selStart, int selEnd);
     }
 }

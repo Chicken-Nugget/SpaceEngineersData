@@ -21,156 +21,157 @@ import chickennugget.spaceengineersdata.material.util.ViewUtil;
 
 public class RevealDrawable extends Drawable implements Animatable {
 
-	private boolean mRunning = false;
-	private long mStartTime;
-	private float mAnimProgress;
+    private static final float[] GRADIENT_STOPS = new float[]{0f, 0.99f, 1f};
+    private static final float GRADIENT_RADIUS = 16;
+    private boolean mRunning = false;
+    private long mStartTime;
+    private float mAnimProgress;
+    private Paint mShaderPaint;
+    private Paint mFillPaint;
+    private int mCurColor;
+    private RadialGradient mShader;
+    private Matrix mMatrix;
+    private RectF mRect;
+    private float mMaxRadius;
+    private ColorChangeTask[] mTasks;
+    private int mCurTask;
+    private boolean mCurColorTransparent;
+    private boolean mNextColorTransparent;
+    private final Runnable mUpdater = new Runnable() {
 
-	private Paint mShaderPaint;
-	private Paint mFillPaint;
-	private int mCurColor;
-	private RadialGradient mShader;
-	private Matrix mMatrix;
-	private RectF mRect;
-	private float mMaxRadius;
+        @Override
+        public void run() {
+            update();
+        }
 
-	private ColorChangeTask[] mTasks;
-	private int mCurTask;
+    };
 
-	private boolean mCurColorTransparent;
-	private boolean mNextColorTransparent;
+    public RevealDrawable(int color) {
+        mShaderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mShaderPaint.setStyle(Paint.Style.FILL);
 
-	private static final float[] GRADIENT_STOPS = new float[]{0f, 0.99f, 1f};
-	private static final float GRADIENT_RADIUS = 16;
+        mFillPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mFillPaint.setStyle(Paint.Style.FILL);
 
-	public RevealDrawable(int color){
-		mShaderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		mShaderPaint.setStyle(Paint.Style.FILL);
+        mCurColor = color;
 
-		mFillPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		mFillPaint.setStyle(Paint.Style.FILL);
+        mRect = new RectF();
 
-		mCurColor = color;
+        mMatrix = new Matrix();
+    }
 
-		mRect = new RectF();
+    public int getCurColor() {
+        return mCurColor;
+    }
 
-		mMatrix = new Matrix();
-	}
+    public void setCurColor(int color) {
+        if (mCurColor != color) {
+            mCurColor = color;
+            mCurColorTransparent = Color.alpha(mCurColor) == 0;
+            invalidateSelf();
+        }
+    }
 
-	public int getCurColor(){
-		return mCurColor;
-	}
+    private float getMaxRadius(float x, float y, Rect bounds) {
+        float x1 = x < bounds.centerX() ? bounds.right : bounds.left;
+        float y1 = y < bounds.centerY() ? bounds.bottom : bounds.top;
 
-	public void setCurColor(int color){
-		if(mCurColor != color){
-			mCurColor = color;
-			mCurColorTransparent = Color.alpha(mCurColor) == 0;
-			invalidateSelf();
-		}
-	}
+        return (float) Math.sqrt(Math.pow(x1 - x, 2) + Math.pow(y1 - y, 2));
+    }
 
-	private float getMaxRadius(float x, float y, Rect bounds){
-		float x1 = x < bounds.centerX() ? bounds.right : bounds.left;
-		float y1 = y < bounds.centerY() ? bounds.bottom : bounds.top;
+    private RadialGradient getShader(ColorChangeTask task) {
+        if (mShader == null) {
+            if (task.isOut) {
+                int color_middle = ColorUtil.getColor(mCurColor, 0f);
+                mShader = new RadialGradient(task.x, task.y, GRADIENT_RADIUS, new int[]{0, color_middle, mCurColor}, GRADIENT_STOPS, Shader.TileMode.CLAMP);
+            } else {
+                int color_middle = ColorUtil.getColor(task.color, 0f);
+                mShader = new RadialGradient(task.x, task.y, GRADIENT_RADIUS, new int[]{0, color_middle, task.color}, GRADIENT_STOPS, Shader.TileMode.CLAMP);
+            }
+        }
 
-		return (float)Math.sqrt(Math.pow(x1 - x, 2) + Math.pow(y1 - y, 2));
-	}
+        return mShader;
+    }
 
-	private RadialGradient getShader(ColorChangeTask task){
-		if(mShader == null){
-			if(task.isOut){
-				int color_middle = ColorUtil.getColor(mCurColor, 0f);
-				mShader = new RadialGradient(task.x, task.y, GRADIENT_RADIUS, new int[]{0, color_middle, mCurColor}, GRADIENT_STOPS, Shader.TileMode.CLAMP);
-			}
-			else{
-				int color_middle = ColorUtil.getColor(task.color, 0f);
-				mShader = new RadialGradient(task.x, task.y, GRADIENT_RADIUS, new int[]{0, color_middle, task.color}, GRADIENT_STOPS, Shader.TileMode.CLAMP);
-			}
-		}
+    private void fillCanvas(Canvas canvas, int color, boolean transparent) {
+        if (transparent)
+            return;
 
-		return mShader;
-	}
+        mFillPaint.setColor(color);
+        canvas.drawRect(getBounds(), mFillPaint);
+    }
 
-	private void fillCanvas(Canvas canvas, int color, boolean transparent){
-		if(transparent)
-			return;
+    private void fillCanvasWithHole(Canvas canvas, ColorChangeTask task, float radius, boolean transparent) {
+        if (transparent)
+            return;
 
-		mFillPaint.setColor(color);
-		canvas.drawRect(getBounds(), mFillPaint);
-	}
+        float scale = radius / GRADIENT_RADIUS;
 
-	private void fillCanvasWithHole(Canvas canvas, ColorChangeTask task, float radius, boolean transparent){
-		if(transparent)
-			return;
+        mMatrix.reset();
+        mMatrix.postScale(scale, scale, task.x, task.y);
+        RadialGradient shader = getShader(task);
+        shader.setLocalMatrix(mMatrix);
+        mShaderPaint.setShader(shader);
+        canvas.drawRect(getBounds(), mShaderPaint);
+    }
 
-		float scale = radius / GRADIENT_RADIUS;
+    private void fillCircle(Canvas canvas, float x, float y, float radius, int color, boolean transparent) {
+        if (transparent)
+            return;
 
-		mMatrix.reset();
-		mMatrix.postScale(scale, scale, task.x, task.y);
-		RadialGradient shader = getShader(task);
-		shader.setLocalMatrix(mMatrix);
-		mShaderPaint.setShader(shader);
-		canvas.drawRect(getBounds(), mShaderPaint);
-	}
+        mFillPaint.setColor(color);
+        mRect.set(x - radius, y - radius, x + radius, y + radius);
+        canvas.drawOval(mRect, mFillPaint);
+    }
 
-	private void fillCircle(Canvas canvas, float x, float y, float radius, int color, boolean transparent){
-		if(transparent)
-			return;
+    @Override
+    public void draw(Canvas canvas) {
+        if (!isRunning())
+            fillCanvas(canvas, mCurColor, mCurColorTransparent);
+        else {
+            ColorChangeTask task = mTasks[mCurTask];
 
-		mFillPaint.setColor(color);
-		mRect.set(x - radius, y - radius, x + radius, y + radius);
-		canvas.drawOval(mRect, mFillPaint);
-	}
+            if (mAnimProgress == 0f)
+                fillCanvas(canvas, mCurColor, mCurColorTransparent);
+            else if (mAnimProgress == 1f)
+                fillCanvas(canvas, task.color, mNextColorTransparent);
+            else if (task.isOut) {
+                float radius = mMaxRadius * task.interpolator.getInterpolation(mAnimProgress);
 
-	@Override
-	public void draw(Canvas canvas) {
-		if(!isRunning())
-			fillCanvas(canvas, mCurColor, mCurColorTransparent);
-		else{
-			ColorChangeTask task = mTasks[mCurTask];
+                if (Color.alpha(task.color) == 255)
+                    fillCanvas(canvas, mCurColor, mCurColorTransparent);
+                else
+                    fillCanvasWithHole(canvas, task, radius, mCurColorTransparent);
 
-			if(mAnimProgress == 0f)
-				fillCanvas(canvas, mCurColor, mCurColorTransparent);
-			else if(mAnimProgress == 1f)
-				fillCanvas(canvas, task.color, mNextColorTransparent);
-			else if(task.isOut){
-				float radius = mMaxRadius * task.interpolator.getInterpolation(mAnimProgress);
+                fillCircle(canvas, task.x, task.y, radius, task.color, mNextColorTransparent);
+            } else {
+                float radius = mMaxRadius * task.interpolator.getInterpolation(mAnimProgress);
 
-				if(Color.alpha(task.color) == 255)
-					fillCanvas(canvas, mCurColor, mCurColorTransparent);
-				else
-					fillCanvasWithHole(canvas, task, radius, mCurColorTransparent);
+                if (Color.alpha(mCurColor) == 255)
+                    fillCanvas(canvas, task.color, mNextColorTransparent);
+                else
+                    fillCanvasWithHole(canvas, task, radius, mNextColorTransparent);
 
-				fillCircle(canvas, task.x, task.y, radius, task.color, mNextColorTransparent);
-			}
-			else{
-				float radius = mMaxRadius * task.interpolator.getInterpolation(mAnimProgress);
+                fillCircle(canvas, task.x, task.y, radius, mCurColor, mCurColorTransparent);
+            }
+        }
+    }
 
-				if(Color.alpha(mCurColor) == 255)
-					fillCanvas(canvas, task.color, mNextColorTransparent);
-				else
-					fillCanvasWithHole(canvas, task, radius, mNextColorTransparent);
+    public void changeColor(int color, int duration, Interpolator interpolator, float x, float y, boolean out) {
+        changeColor(new ColorChangeTask(color, duration, interpolator, x, y, out));
+    }
 
-				fillCircle(canvas, task.x, task.y, radius, mCurColor, mCurColorTransparent);
-			}
-		}
-	}
-
-	public void changeColor(int color, int duration, Interpolator interpolator, float x, float y, boolean out){
-		changeColor(new ColorChangeTask(color, duration, interpolator, x, y, out));
-	}
-
-	public void changeColor(ColorChangeTask... tasks){
-        synchronized (RevealDrawable.class){
-            if(!isRunning()){
-                for(int i = 0; i < tasks.length; i++)
-                    if(tasks[i].color != mCurColor){
+    public void changeColor(ColorChangeTask... tasks) {
+        synchronized (RevealDrawable.class) {
+            if (!isRunning()) {
+                for (int i = 0; i < tasks.length; i++)
+                    if (tasks[i].color != mCurColor) {
                         mCurTask = i;
                         mTasks = tasks;
                         start();
                         break;
                     }
-            }
-            else{
+            } else {
                 int curLength = mTasks.length - mCurTask;
                 ColorChangeTask[] newTasks = new ColorChangeTask[curLength + tasks.length];
                 System.arraycopy(mTasks, mCurTask, newTasks, 0, curLength);
@@ -179,78 +180,69 @@ public class RevealDrawable extends Drawable implements Animatable {
                 mCurTask = 0;
             }
         }
-	}
+    }
 
-	@Override
-	public void setAlpha(int alpha) {
-		mShaderPaint.setAlpha(alpha);
-		mFillPaint.setAlpha(alpha);
-	}
+    @Override
+    public void setAlpha(int alpha) {
+        mShaderPaint.setAlpha(alpha);
+        mFillPaint.setAlpha(alpha);
+    }
 
-	@Override
-	public void setColorFilter(ColorFilter cf) {
-		mShaderPaint.setColorFilter(cf);
-		mFillPaint.setColorFilter(cf);
-	}
+    @Override
+    public void setColorFilter(ColorFilter cf) {
+        mShaderPaint.setColorFilter(cf);
+        mFillPaint.setColorFilter(cf);
+    }
 
-	@Override
-	public int getOpacity() {
-		return PixelFormat.TRANSLUCENT;
-	}
+    @Override
+    public int getOpacity() {
+        return PixelFormat.TRANSLUCENT;
+    }
 
-	private void resetAnimation(){
-		mStartTime = SystemClock.uptimeMillis();
-		mAnimProgress = 0f;
-		mCurColorTransparent = Color.alpha(mCurColor) == 0;
-		mNextColorTransparent = Color.alpha(mTasks[mCurTask].color) == 0;
-		mMaxRadius = getMaxRadius(mTasks[mCurTask].x, mTasks[mCurTask].y, getBounds());
-		mShader = null;
-	}
+    private void resetAnimation() {
+        mStartTime = SystemClock.uptimeMillis();
+        mAnimProgress = 0f;
+        mCurColorTransparent = Color.alpha(mCurColor) == 0;
+        mNextColorTransparent = Color.alpha(mTasks[mCurTask].color) == 0;
+        mMaxRadius = getMaxRadius(mTasks[mCurTask].x, mTasks[mCurTask].y, getBounds());
+        mShader = null;
+    }
 
-	@Override
-	public void start() {
-		if(isRunning())
-			return;
+    @Override
+    public void start() {
+        if (isRunning())
+            return;
 
-		resetAnimation();
+        resetAnimation();
 
-		scheduleSelf(mUpdater, SystemClock.uptimeMillis() + ViewUtil.FRAME_DURATION);
-	    invalidateSelf();
-	}
+        scheduleSelf(mUpdater, SystemClock.uptimeMillis() + ViewUtil.FRAME_DURATION);
+        invalidateSelf();
+    }
 
-	@Override
-	public void stop() {
-		if(!isRunning())
-			return;
+    @Override
+    public void stop() {
+        if (!isRunning())
+            return;
 
-		mTasks = null;
-		mRunning = false;
-		unscheduleSelf(mUpdater);
-		invalidateSelf();
-	}
+        mTasks = null;
+        mRunning = false;
+        unscheduleSelf(mUpdater);
+        invalidateSelf();
+    }
 
-	@Override
-	public boolean isRunning() {
-		return mRunning;
-	}
+    @Override
+    public boolean isRunning() {
+        return mRunning;
+    }
 
-	@Override
-	public void scheduleSelf(Runnable what, long when) {
-		mRunning = true;
-	    super.scheduleSelf(what, when);
-	}
+    @Override
+    public void scheduleSelf(Runnable what, long when) {
+        mRunning = true;
+        super.scheduleSelf(what, when);
+    }
 
-	private final Runnable mUpdater = new Runnable() {
-
-	    @Override
-	    public void run() {
-	    	update();
-	    }
-
-	};
-
-	private void update(){
-		long curTime = SystemClock.uptimeMillis();
+    private void update() {
+        long curTime = SystemClock.uptimeMillis();
         synchronized (RevealDrawable.class) {
             mAnimProgress = Math.min(1f, (float) (curTime - mStartTime) / mTasks[mCurTask].duration);
 
@@ -267,28 +259,28 @@ public class RevealDrawable extends Drawable implements Animatable {
             }
         }
 
-		invalidateSelf();
+        invalidateSelf();
 
-    	if(isRunning())
-    		scheduleSelf(mUpdater, SystemClock.uptimeMillis() + ViewUtil.FRAME_DURATION);
-	}
+        if (isRunning())
+            scheduleSelf(mUpdater, SystemClock.uptimeMillis() + ViewUtil.FRAME_DURATION);
+    }
 
-	public static class ColorChangeTask{
-		public final int color;
-		public final int duration;
-		public final Interpolator interpolator;
-		public final float x;
-		public final float y;
-		public final boolean isOut;
+    public static class ColorChangeTask {
+        public final int color;
+        public final int duration;
+        public final Interpolator interpolator;
+        public final float x;
+        public final float y;
+        public final boolean isOut;
 
-		public ColorChangeTask(int color, int duration, Interpolator interpolator, float x, float y, boolean out){
-			this.color = color;
-			this.duration = duration;
-			this.interpolator = interpolator == null ? new DecelerateInterpolator() : interpolator;
-			this.x = x;
-			this.y = y;
-			this.isOut = out;
-		}
-	}
+        public ColorChangeTask(int color, int duration, Interpolator interpolator, float x, float y, boolean out) {
+            this.color = color;
+            this.duration = duration;
+            this.interpolator = interpolator == null ? new DecelerateInterpolator() : interpolator;
+            this.x = x;
+            this.y = y;
+            this.isOut = out;
+        }
+    }
 
 }

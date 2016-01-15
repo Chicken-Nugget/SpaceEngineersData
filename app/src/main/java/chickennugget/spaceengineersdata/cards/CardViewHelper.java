@@ -30,6 +30,7 @@ public interface CardViewHelper {
 
     /**
      * Sets the background of the wiew
+     *
      * @param view
      * @param drawable
      */
@@ -37,6 +38,7 @@ public interface CardViewHelper {
 
     /**
      * This method sets the button background for android api <L, while set the image source for android api >= L
+     *
      * @param imageButton
      * @param buttonDrawableResource
      */

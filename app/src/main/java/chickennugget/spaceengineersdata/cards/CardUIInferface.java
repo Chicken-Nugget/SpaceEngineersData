@@ -33,9 +33,9 @@ public interface CardUIInferface {
      * Implement this method to draw or inflate the Layout View of a Card or a Component Card.
      * This method will be called runtime by UI components.
      *
-     * @param context  context
-     * @param parent parent view
-     * @return   layout view
+     * @param context context
+     * @param parent  parent view
+     * @return layout view
      */
     public View getInnerView(Context context, ViewGroup parent);
 
@@ -43,8 +43,8 @@ public interface CardUIInferface {
     /**
      * Implement this method to setup all view elements
      *
-     * @param parent  parent view
-     * @param view  view
+     * @param parent parent view
+     * @param view   view
      */
     public void setupInnerViewElements(ViewGroup parent, View view);
 

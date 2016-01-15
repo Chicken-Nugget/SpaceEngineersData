@@ -96,7 +96,7 @@ public class ContactEditText extends EditText {
     }
 
     @Override
-    protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
+    protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         mRecipientMap = new HashMap<>();
         mAutoCompleteMode = AUTOCOMPLETE_MODE_MULTI;
 
@@ -124,51 +124,50 @@ public class ContactEditText extends EditText {
         int textStyle = 0;
         boolean typefaceDefined = false;
 
-        for(int i = 0, count = a.getIndexCount(); i < count; i++){
+        for (int i = 0, count = a.getIndexCount(); i < count; i++) {
             int attr = a.getIndex(i);
-            if(attr == R.styleable.ContactEditText_cet_spanHeight)
+            if (attr == R.styleable.ContactEditText_cet_spanHeight)
                 mSpanHeight = a.getDimensionPixelSize(attr, 0);
-            else if(attr == R.styleable.ContactEditText_cet_spanMaxWidth)
+            else if (attr == R.styleable.ContactEditText_cet_spanMaxWidth)
                 mSpanMaxWidth = a.getDimensionPixelSize(attr, 0);
-            else if(attr == R.styleable.ContactEditText_cet_spanPaddingLeft)
+            else if (attr == R.styleable.ContactEditText_cet_spanPaddingLeft)
                 mSpanPaddingLeft = a.getDimensionPixelOffset(attr, 0);
-            else if(attr == R.styleable.ContactEditText_cet_spanPaddingRight)
+            else if (attr == R.styleable.ContactEditText_cet_spanPaddingRight)
                 mSpanPaddingRight = a.getDimensionPixelOffset(attr, 0);
-            else if(attr == R.styleable.ContactEditText_cet_spanTextSize)
+            else if (attr == R.styleable.ContactEditText_cet_spanTextSize)
                 mSpanTextSize = a.getDimensionPixelSize(attr, 0);
-            else if(attr == R.styleable.ContactEditText_cet_spanTextColor)
+            else if (attr == R.styleable.ContactEditText_cet_spanTextColor)
                 mSpanTextColor = a.getColor(attr, 0);
-            else if(attr == R.styleable.ContactEditText_cet_spanBackgroundColor)
+            else if (attr == R.styleable.ContactEditText_cet_spanBackgroundColor)
                 mSpanBackgroundColor = a.getColor(attr, 0);
-            else if(attr == R.styleable.ContactEditText_cet_spanSpacing)
+            else if (attr == R.styleable.ContactEditText_cet_spanSpacing)
                 mSpanSpacing = a.getDimensionPixelOffset(attr, 0);
-            else if(attr == R.styleable.ContactEditText_cet_spanFontFamily) {
+            else if (attr == R.styleable.ContactEditText_cet_spanFontFamily) {
                 familyName = a.getString(attr);
                 typefaceDefined = true;
-            }
-            else if(attr == R.styleable.ContactEditText_cet_spanTextStyle) {
+            } else if (attr == R.styleable.ContactEditText_cet_spanTextStyle) {
                 textStyle = a.getInteger(attr, 0);
                 typefaceDefined = true;
             }
 
         }
 
-        if(typefaceDefined)
+        if (typefaceDefined)
             mSpanTypeface = TypefaceUtil.load(context, familyName, textStyle);
 
         a.recycle();
 
         setLineSpacing(mSpanSpacing, 1);
 
-        if(mSuggestionAdapter == null){
+        if (mSuggestionAdapter == null) {
             mSuggestionAdapter = new ContactSuggestionAdapter();
             setAdapter(mSuggestionAdapter);
         }
 
-        if(mTokenizer == null)
+        if (mTokenizer == null)
             setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
 
-        if(mTextWatcher == null){
+        if (mTextWatcher == null) {
             mTextWatcher = new ContactTextWatcher();
             addTextChangedListener(mTextWatcher);
         }
@@ -176,30 +175,30 @@ public class ContactEditText extends EditText {
         updateSpanStyle();
     }
 
-    public Recipient[] getRecipients(){
+    public Recipient[] getRecipients() {
         RecipientSpan[] spans = getText().getSpans(0, getText().length(), RecipientSpan.class);
 
-        if(spans == null || spans.length == 0)
+        if (spans == null || spans.length == 0)
             return null;
 
         Recipient[] recipients = new Recipient[spans.length];
-        for(int i = 0; i < spans.length; i++)
+        for (int i = 0; i < spans.length; i++)
             recipients[i] = spans[i].getRecipient();
 
         return recipients;
     }
 
-    public void setRecipients(Recipient[] recipients){
+    public void setRecipients(Recipient[] recipients) {
         mRecipientMap.clear();
 
-        if(recipients == null){
+        if (recipients == null) {
             setText(null);
             return;
         }
 
         SpannableStringBuilder ssb = new SpannableStringBuilder();
         String separator = ", ";
-        for(Recipient recipient : recipients){
+        for (Recipient recipient : recipients) {
             int start = ssb.length();
             ssb.append(recipient.number)
                     .append(separator);
@@ -215,15 +214,15 @@ public class ContactEditText extends EditText {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        switch (event.getAction()){
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mTouchedSpan = getTouchedSpan(event);
                 if (mTouchedSpan != null)
                     return true;
                 break;
             case MotionEvent.ACTION_MOVE:
-                if(mTouchedSpan != null){
-                    if(mTouchedSpan != getTouchedSpan(event))
+                if (mTouchedSpan != null) {
+                    if (mTouchedSpan != getTouchedSpan(event))
                         mTouchedSpan = null;
                     return true;
                 }
@@ -252,8 +251,8 @@ public class ContactEditText extends EditText {
 
         if (spans.length > 0) {
             float x = convertToLocalHorizontalCoordinate(event.getX());
-            for(int i = 0; i < spans.length; i++)
-                if(spans[i].mX <= x && spans[i].mX + spans[i].mWidth >= x)
+            for (int i = 0; i < spans.length; i++)
+                if (spans[i].mX <= x && spans[i].mX + spans[i].mWidth >= x)
                     return spans[i];
         }
 
@@ -279,11 +278,11 @@ public class ContactEditText extends EditText {
         getText().setSpan(new RecipientSpan(recipient), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
 
-    private void onSpanClick(RecipientSpan span){
-        if(span != mSelectedSpan) {
+    private void onSpanClick(RecipientSpan span) {
+        if (span != mSelectedSpan) {
             dismissReplacementPopup();
             mSelectedSpan = span;
-            if(mReplacementAdapter == null)
+            if (mReplacementAdapter == null)
                 mReplacementAdapter = new ContactReplaceAdapter(mSelectedSpan.getRecipient());
             else
                 mReplacementAdapter.setRecipient(mSelectedSpan.getRecipient());
@@ -307,7 +306,7 @@ public class ContactEditText extends EditText {
                 public void onGlobalLayout() {
                     ListView lv = mReplacementPopup.getListView();
                     ViewTreeObserver observer = lv.getViewTreeObserver();
-                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
                         observer.removeOnGlobalLayoutListener(this);
                     else
                         observer.removeGlobalOnLayoutListener(this);
@@ -326,12 +325,12 @@ public class ContactEditText extends EditText {
                     Drawable background = mReplacementPopup.getPopup().getBackground();
                     Rect backgroundPadding = new Rect();
                     int verticalOffset;
-                    int horizontalOffset = inputLocation[0] + (int)mSelectedSpan.mX - (popupLocation[0] + backgroundPadding.left);
+                    int horizontalOffset = inputLocation[0] + (int) mSelectedSpan.mX - (popupLocation[0] + backgroundPadding.left);
 
-                    if(background != null)
+                    if (background != null)
                         background.getPadding(backgroundPadding);
 
-                    if(inputLocation[1] < popupLocation[1]) //popup show at bottom
+                    if (inputLocation[1] < popupLocation[1]) //popup show at bottom
                         verticalOffset = inputLocation[1] + mSelectedSpan.mY - (popupLocation[1] + backgroundPadding.top);
                     else
                         verticalOffset = inputLocation[1] + mSelectedSpan.mY + mSpanHeight - (popupLocation[1] + lv.getHeight() - backgroundPadding.bottom);
@@ -344,15 +343,15 @@ public class ContactEditText extends EditText {
         }
     }
 
-    private void updateSpanStyle(){
+    private void updateSpanStyle() {
         Recipient[] recipients = getRecipients();
-        if(recipients == null || recipients.length == 0)
+        if (recipients == null || recipients.length == 0)
             return;
 
         setRecipients(recipients);
     }
 
-    private void removeSpan(RecipientSpan span){
+    private void removeSpan(RecipientSpan span) {
         Editable text = getText();
         int start = text.getSpanStart(span);
         int end = text.getSpanEnd(span);
@@ -360,7 +359,7 @@ public class ContactEditText extends EditText {
         text.removeSpan(span);
     }
 
-    private void replaceSpan(RecipientSpan span, Recipient newRecipient){
+    private void replaceSpan(RecipientSpan span, Recipient newRecipient) {
         Editable text = getText();
         int start = text.getSpanStart(span);
         int end = text.getSpanEnd(span);
@@ -370,8 +369,8 @@ public class ContactEditText extends EditText {
         text.setSpan(span, start, start + replace.length() + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
 
-    private void dismissReplacementPopup(){
-        if(mReplacementPopup != null && mReplacementPopup.isShowing()){
+    private void dismissReplacementPopup() {
+        if (mReplacementPopup != null && mReplacementPopup.isShowing()) {
             mReplacementPopup.dismiss();
             mReplacementPopup = null;
         }
@@ -399,6 +398,16 @@ public class ContactEditText extends EditText {
     }
 
     static class SavedState extends BaseSavedState {
+        public static final Creator<SavedState> CREATOR
+                = new Creator<SavedState>() {
+            public SavedState createFromParcel(Parcel in) {
+                return new SavedState(in);
+            }
+
+            public SavedState[] newArray(int size) {
+                return new SavedState[size];
+            }
+        };
         Recipient[] recipients;
 
         /**
@@ -414,7 +423,7 @@ public class ContactEditText extends EditText {
         private SavedState(Parcel in) {
             super(in);
             int length = in.readInt();
-            if(length > 0){
+            if (length > 0) {
                 recipients = new Recipient[length];
                 in.readTypedArray(recipients, Recipient.CREATOR);
             }
@@ -425,7 +434,7 @@ public class ContactEditText extends EditText {
             super.writeToParcel(out, flags);
             int length = recipients == null ? 0 : recipients.length;
             out.writeInt(length);
-            if(length > 0)
+            if (length > 0)
                 out.writeTypedArray(recipients, flags);
         }
 
@@ -435,17 +444,6 @@ public class ContactEditText extends EditText {
                     + Integer.toHexString(System.identityHashCode(this))
                     + "}";
         }
-
-        public static final Creator<SavedState> CREATOR
-                = new Creator<SavedState>() {
-            public SavedState createFromParcel(Parcel in) {
-                return new SavedState(in);
-            }
-
-            public SavedState[] newArray(int size) {
-                return new SavedState[size];
-            }
-        };
     }
 
     class ContactSuggestionAdapter extends BaseAdapter implements Filterable {
@@ -457,50 +455,6 @@ public class ContactEditText extends EditText {
         };
 
         private ArrayList<Recipient> mItems;
-
-        public ContactSuggestionAdapter() {}
-
-        @Override
-        public int getCount() {
-            return mItems == null ? 0 : mItems.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return mItems == null ? null : mItems.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ContactView v = (ContactView)convertView;
-            if (v == null)
-                v = new ContactView(getContext(), null, 0, R.style.ContactView);
-
-            Recipient recipient = (Recipient) getItem(position);
-            v.setNameText(recipient.name);
-            v.setAddressText(recipient.number);
-
-            if(TextUtils.isEmpty(recipient.lookupKey))
-                v.setAvatarResource(mDefaultAvatarId);
-            else
-                Picasso.with(getContext())
-                        .load(Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, recipient.lookupKey))
-                        .placeholder(mDefaultAvatarId)
-                        .into((Target) v);
-
-            return v;
-        }
-
-        @Override
-        public Filter getFilter() {
-            return contactFilter;
-        }
-
         Filter contactFilter = new Filter() {
             @Override
             public CharSequence convertResultToString(Object resultValue) {
@@ -543,25 +497,68 @@ public class ContactEditText extends EditText {
                 notifyDataSetChanged();
             }
         };
+
+        public ContactSuggestionAdapter() {
+        }
+
+        @Override
+        public int getCount() {
+            return mItems == null ? 0 : mItems.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return mItems == null ? null : mItems.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ContactView v = (ContactView) convertView;
+            if (v == null)
+                v = new ContactView(getContext(), null, 0, R.style.ContactView);
+
+            Recipient recipient = (Recipient) getItem(position);
+            v.setNameText(recipient.name);
+            v.setAddressText(recipient.number);
+
+            if (TextUtils.isEmpty(recipient.lookupKey))
+                v.setAvatarResource(mDefaultAvatarId);
+            else
+                Picasso.with(getContext())
+                        .load(Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, recipient.lookupKey))
+                        .placeholder(mDefaultAvatarId)
+                        .into((Target) v);
+
+            return v;
+        }
+
+        @Override
+        public Filter getFilter() {
+            return contactFilter;
+        }
     }
 
     class ContactReplaceAdapter extends BaseAdapter implements OnClickListener {
 
-        Recipient[] mItems;
-
         private final String COLS[] = new String[]{
                 ContactsContract.CommonDataKinds.Phone.NUMBER,
         };
+        Recipient[] mItems;
 
-        public ContactReplaceAdapter(Recipient recipient){
+        public ContactReplaceAdapter(Recipient recipient) {
             queryNumber(recipient);
         }
 
-        public void setRecipient(Recipient recipient){
+        public void setRecipient(Recipient recipient) {
             queryNumber(recipient);
         }
 
-        private void queryNumber(Recipient recipient){
+        private void queryNumber(Recipient recipient) {
             String selection = ContactsContract.CommonDataKinds.Phone.LOOKUP_KEY + "=?";
             String[] selectionArgs = new String[]{recipient.lookupKey};
             Cursor cursor = getContext().getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, COLS, selection, selectionArgs, null);
@@ -572,12 +569,12 @@ public class ContactEditText extends EditText {
                 while (cursor.moveToNext()) {
                     String number = cursor.getString(0);
 
-                    if(!number.equals(recipient.number)){
+                    if (!number.equals(recipient.number)) {
                         Recipient newRecipient = new Recipient();
                         newRecipient.lookupKey = recipient.lookupKey;
                         newRecipient.name = recipient.name;
                         newRecipient.number = number;
-                        if(index == mItems.length){
+                        if (index == mItems.length) {
                             Recipient[] newItems = new Recipient[mItems.length + 1];
                             System.arraycopy(mItems, 0, newItems, 0, mItems.length);
                             mItems = newItems;
@@ -586,8 +583,7 @@ public class ContactEditText extends EditText {
                         index++;
                     }
                 }
-            }
-            else
+            } else
                 mItems = new Recipient[]{recipient};
 
             cursor.close();
@@ -596,11 +592,11 @@ public class ContactEditText extends EditText {
 
         @Override
         public void onClick(View v) {
-            int position = (Integer)v.getTag();
-            if(position == 0)
+            int position = (Integer) v.getTag();
+            if (position == 0)
                 removeSpan(mSelectedSpan);
             else
-                replaceSpan(mSelectedSpan, (Recipient)mReplacementAdapter.getItem(position));
+                replaceSpan(mSelectedSpan, (Recipient) mReplacementAdapter.getItem(position));
 
             Selection.setSelection(getText(), getText().length());
 
@@ -634,19 +630,19 @@ public class ContactEditText extends EditText {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            ContactView v = (ContactView)convertView;
-            if(v == null) {
-                v = (ContactView)LayoutInflater.from(parent.getContext()).inflate(position == 0 ? R.layout.row_contact_selected : R.layout.row_contact_replace, parent, false);
+            ContactView v = (ContactView) convertView;
+            if (v == null) {
+                v = (ContactView) LayoutInflater.from(parent.getContext()).inflate(position == 0 ? R.layout.row_contact_selected : R.layout.row_contact_replace, parent, false);
                 v.setOnClickListener(this);
             }
 
             v.setTag(position);
 
-            Recipient recipient = (Recipient)getItem(position);
+            Recipient recipient = (Recipient) getItem(position);
             v.setNameText(position == 0 ? recipient.name : null);
             v.setAddressText(recipient.number);
 
-            if(TextUtils.isEmpty(recipient.lookupKey))
+            if (TextUtils.isEmpty(recipient.lookupKey))
                 v.setAvatarResource(mDefaultAvatarId);
             else
                 Picasso.with(getContext())
@@ -658,19 +654,19 @@ public class ContactEditText extends EditText {
         }
     }
 
-    class RecipientSpan extends ContactChipSpan implements Target{
+    class RecipientSpan extends ContactChipSpan implements Target {
 
-        private Recipient mRecipient;
         int mWidth;
         float mX;
         int mY;
+        private Recipient mRecipient;
 
         public RecipientSpan(Recipient recipient) {
             super(TextUtils.isEmpty(recipient.name) ? recipient.number : recipient.name,
                     mSpanHeight, mSpanMaxWidth, mSpanPaddingLeft, mSpanPaddingRight, mSpanTypeface, mSpanTextColor, mSpanTextSize, mSpanBackgroundColor);
             mRecipient = recipient;
 
-            if(TextUtils.isEmpty(recipient.lookupKey))
+            if (TextUtils.isEmpty(recipient.lookupKey))
                 setImageResource(mDefaultAvatarId);
             else
                 Picasso.with(getContext())
@@ -679,16 +675,16 @@ public class ContactEditText extends EditText {
                         .into(this);
         }
 
-        public void setRecipient(Recipient recipient){
-            mRecipient = recipient;
-        }
-
-        public Recipient getRecipient(){
+        public Recipient getRecipient() {
             return mRecipient;
         }
 
-        public void setImageResource(int id){
-            if(id == 0)
+        public void setRecipient(Recipient recipient) {
+            mRecipient = recipient;
+        }
+
+        public void setImageResource(int id) {
+            if (id == 0)
                 return;
 
             Bitmap bm = BitmapFactory.decodeResource(getContext().getResources(), id);
@@ -696,12 +692,12 @@ public class ContactEditText extends EditText {
         }
 
         public void setImageDrawable(Drawable drawable) {
-            if(drawable == null)
+            if (drawable == null)
                 return;
 
             if (drawable instanceof BitmapDrawable)
                 setImage(((BitmapDrawable) drawable).getBitmap());
-            else{
+            else {
                 Bitmap bm = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
                 Canvas canvas = new Canvas(bm);
                 drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -740,13 +736,15 @@ public class ContactEditText extends EditText {
         }
     }
 
-    class ContactTextWatcher implements TextWatcher{
+    class ContactTextWatcher implements TextWatcher {
 
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {}
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+        }
 
         @Override
         public void afterTextChanged(Editable s) {

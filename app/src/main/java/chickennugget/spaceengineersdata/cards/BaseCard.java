@@ -36,9 +36,9 @@ public abstract class BaseCard implements CardUIInferface {
     protected Context mContext;
 
     /**
-     *  The layout resource ID to use for the Inner View inside component
+     * The layout resource ID to use for the Inner View inside component
      */
-    protected int mInnerLayout=-1;
+    protected int mInnerLayout = -1;
 
     /**
      * Outer View
@@ -63,20 +63,20 @@ public abstract class BaseCard implements CardUIInferface {
     /**
      * Id Card
      */
-    protected String mId=null;
+    protected String mId = null;
 
     /**
      * Type card.
      * You can use this value in yourAdapter
      */
-    protected int type=0;
+    protected int type = 0;
 
     // -------------------------------------------------------------
     //  Constructors
     // -------------------------------------------------------------
 
-    public BaseCard(Context context){
-        mContext=context;
+    public BaseCard(Context context) {
+        mContext = context;
     }
 
     // -------------------------------------------------------------
@@ -94,22 +94,12 @@ public abstract class BaseCard implements CardUIInferface {
     }
 
     /**
-     * This method returns the View used inside the component.
-     * This method will be called runtime by UI components.
+     * Set the linked {@link chickennugget.spaceengineersdata.cards.CardViewWrapper}
      *
-     * @param context context
-     * @param parent Inner Frame
-     * @return the Inner View inside component
+     * @param cardView {@link chickennugget.spaceengineersdata.cards.CardViewWrapper}
      */
-    @Override
-    public View getInnerView(Context context,ViewGroup parent) {
-
-        if (mInnerLayout>-1){
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            mInnerView= inflater.inflate(mInnerLayout,parent,false);
-            return mInnerView;
-        }
-        return null;
+    public void setCardView(CardViewWrapper cardView) {
+        mCardView = cardView;
     }
 
 
@@ -118,7 +108,27 @@ public abstract class BaseCard implements CardUIInferface {
     // -------------------------------------------------------------
 
     /**
+     * This method returns the View used inside the component.
+     * This method will be called runtime by UI components.
+     *
+     * @param context context
+     * @param parent  Inner Frame
+     * @return the Inner View inside component
+     */
+    @Override
+    public View getInnerView(Context context, ViewGroup parent) {
+
+        if (mInnerLayout > -1) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            mInnerView = inflater.inflate(mInnerLayout, parent, false);
+            return mInnerView;
+        }
+        return null;
+    }
+
+    /**
      * Set Context
+     *
      * @return the context
      */
     public Context getContext() {
@@ -126,7 +136,6 @@ public abstract class BaseCard implements CardUIInferface {
     }
 
     /**
-     *
      * @param context Context
      */
     public void setContext(Context context) {
@@ -134,8 +143,7 @@ public abstract class BaseCard implements CardUIInferface {
     }
 
     /**
-     *
-     * @return  The layout resource ID to use for the Inner View inside component
+     * @return The layout resource ID to use for the Inner View inside component
      */
     public int getInnerLayout() {
         return mInnerLayout;
@@ -145,7 +153,7 @@ public abstract class BaseCard implements CardUIInferface {
      * Setup a layout resource for inner View
      * Setting the layout resource to -1 to bypass InnerView
      *
-     * @param innerLayout  The layout resource ID to use for the Inner View inside component
+     * @param innerLayout The layout resource ID to use for the Inner View inside component
      */
     public void setInnerLayout(int innerLayout) {
         mInnerLayout = innerLayout;
@@ -160,6 +168,7 @@ public abstract class BaseCard implements CardUIInferface {
 
     /**
      * Sets the title card
+     *
      * @param title
      */
     public void setTitle(String title) {
@@ -167,15 +176,8 @@ public abstract class BaseCard implements CardUIInferface {
     }
 
     /**
-     * Set the linked {@link chickennugget.spaceengineersdata.cards.CardViewWrapper}
-     * @param cardView {@link chickennugget.spaceengineersdata.cards.CardViewWrapper}
-     */
-    public void setCardView(CardViewWrapper cardView) {
-        mCardView = cardView;
-    }
-
-    /**
      * Returns the parent Card of each component
+     *
      * @return
      */
     public chickennugget.spaceengineersdata.cards.Card getParentCard() {
@@ -184,6 +186,7 @@ public abstract class BaseCard implements CardUIInferface {
 
     /**
      * Set the parent Card
+     *
      * @param parentCard
      */
     public void setParentCard(chickennugget.spaceengineersdata.cards.Card parentCard) {
@@ -210,6 +213,7 @@ public abstract class BaseCard implements CardUIInferface {
 
     /**
      * Return type card
+     *
      * @return
      */
     public int getType() {

@@ -75,12 +75,12 @@ public class BaseCardView extends LinearLayout implements CardViewInterface {
     /**
      * Used to recycle ui elements.
      */
-    protected boolean mIsRecycle=false;
+    protected boolean mIsRecycle = false;
 
     /**
      * Used to replace inner layout elements.
      */
-    protected boolean mForceReplaceInnerLayout =false;
+    protected boolean mForceReplaceInnerLayout = false;
 
     protected CardViewHelper mHelperImpl;
 
@@ -93,7 +93,7 @@ public class BaseCardView extends LinearLayout implements CardViewInterface {
     }
 
     public BaseCardView(Context context, AttributeSet attrs) {
-       this(context, attrs, 0);
+        this(context, attrs, 0);
     }
 
     public BaseCardView(Context context, AttributeSet attrs, int defStyle) {
@@ -156,19 +156,7 @@ public class BaseCardView extends LinearLayout implements CardViewInterface {
     //--------------------------------------------------------------------------
 
     /**
-     * Sets Card Model
-     * </p>
-     * It is important to set all card values and all card components before launch this method.
-     *
-     * @param card {@link Card} model
-     */
-    public void setCard(Card card) {
-        mCard = card;
-    }
-
-    /**
      * Builds UI
-     *
      */
     protected void buildUI() {
 
@@ -206,22 +194,33 @@ public class BaseCardView extends LinearLayout implements CardViewInterface {
         mInternalShadowLayout = (CardShadowView) findViewById(R.id.card_shadow_layout);
     }
 
-    //--------------------------------------------------------------------------
-    // Getters and Setters
-    //--------------------------------------------------------------------------
-
     @Override
     public View getInternalOuterView() {
         return mInternalOuterView;
     }
 
+    //--------------------------------------------------------------------------
+    // Getters and Setters
+    //--------------------------------------------------------------------------
+
     /**
      * Returns {@link Card} model
      *
-     * @return  {@link Card} model
+     * @return {@link Card} model
      */
     public Card getCard() {
         return mCard;
+    }
+
+    /**
+     * Sets Card Model
+     * </p>
+     * It is important to set all card values and all card components before launch this method.
+     *
+     * @param card {@link Card} model
+     */
+    public void setCard(Card card) {
+        mCard = card;
     }
 
     /**
@@ -263,7 +262,7 @@ public class BaseCardView extends LinearLayout implements CardViewInterface {
     /**
      * Sets if view can recycle ui elements
      *
-     * @param isRecycle  <code>true</code> to recycle
+     * @param isRecycle <code>true</code> to recycle
      */
     public void setRecycle(boolean isRecycle) {
         this.mIsRecycle = isRecycle;
@@ -281,7 +280,7 @@ public class BaseCardView extends LinearLayout implements CardViewInterface {
     /**
      * Sets if inner layout have to be replaced
      *
-     * @param forceReplaceInnerLayout  <code>true</code> to recycle
+     * @param forceReplaceInnerLayout <code>true</code> to recycle
      */
     public void setForceReplaceInnerLayout(boolean forceReplaceInnerLayout) {
         this.mForceReplaceInnerLayout = forceReplaceInnerLayout;

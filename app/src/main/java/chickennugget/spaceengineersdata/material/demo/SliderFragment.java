@@ -12,22 +12,22 @@ import android.widget.TextView;
 import chickennugget.spaceengineersdata.R;
 import chickennugget.spaceengineersdata.material.widget.Slider;
 
-public class SliderFragment extends Fragment{
+public class SliderFragment extends Fragment {
 
 
-	public static SliderFragment newInstance(){
-		SliderFragment fragment = new SliderFragment();
+    public static SliderFragment newInstance() {
+        SliderFragment fragment = new SliderFragment();
 
-		return fragment;
-	}
+        return fragment;
+    }
 
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_slider, container, false);
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_slider, container, false);
 
-        Slider sl_continuous = (Slider)v.findViewById(R.id.slider_sl_continuous);
-        final TextView tv_continuous = (TextView)v.findViewById(R.id.slider_tv_continuous);
+        Slider sl_continuous = (Slider) v.findViewById(R.id.slider_sl_continuous);
+        final TextView tv_continuous = (TextView) v.findViewById(R.id.slider_tv_continuous);
         tv_continuous.setText(String.format("pos=%.1f value=%d", sl_continuous.getPosition(), sl_continuous.getValue()));
         sl_continuous.setOnPositionChangeListener(new Slider.OnPositionChangeListener() {
             @Override
@@ -36,8 +36,8 @@ public class SliderFragment extends Fragment{
             }
         });
 
-        Slider sl_discrete = (Slider)v.findViewById(R.id.slider_sl_discrete);
-        final TextView tv_discrete = (TextView)v.findViewById(R.id.slider_tv_discrete);
+        Slider sl_discrete = (Slider) v.findViewById(R.id.slider_sl_discrete);
+        final TextView tv_discrete = (TextView) v.findViewById(R.id.slider_tv_discrete);
         tv_discrete.setText(String.format("pos=%.1f value=%d", sl_discrete.getPosition(), sl_discrete.getValue()));
         sl_discrete.setOnPositionChangeListener(new Slider.OnPositionChangeListener() {
             @Override
@@ -46,17 +46,17 @@ public class SliderFragment extends Fragment{
             }
         });
 
-		return v;
-	}
+        return v;
+    }
 
-	@Override
-	public void onPause() {
-		super.onPause();
-	}
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
 
-	@Override
-	public void onResume() {
-		super.onResume();
-	}
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 
 }

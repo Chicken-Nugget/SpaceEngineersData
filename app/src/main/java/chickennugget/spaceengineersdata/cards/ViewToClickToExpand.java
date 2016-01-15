@@ -24,10 +24,10 @@ import android.view.View;
 /**
  * Use this class to enable the expand/collapse action anywhere in your card.
  * <code>
- *     ViewToClickToExpand.builder()
- *        .setupView(myView)      //view to click
- *        .highlightView(true);   //highlight this view
- *
+ * ViewToClickToExpand.builder()
+ * .setupView(myView)      //view to click
+ * .highlightView(true);   //highlight this view
+ * <p>
  * </code>
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
@@ -35,19 +35,19 @@ import android.view.View;
 public class ViewToClickToExpand {
 
     /**
-     *  View to Click to enable the expand/collapse action.
-     *  It has a higher priority than cardElementUIToClick.
+     * View to Click to enable the expand/collapse action.
+     * It has a higher priority than cardElementUIToClick.
      */
     protected View viewToClick;
 
     /**
-     *  Indicates if the view will be selected
+     * Indicates if the view will be selected
      */
-    protected boolean viewToSelect=false;
+    protected boolean viewToSelect = false;
 
     /**
-     *  Card element UI to click to enable the expand/collapse action
-     *  It has a lower priority than cardElementUIToClick.
+     * Card element UI to click to enable the expand/collapse action
+     * It has a lower priority than cardElementUIToClick.
      */
     protected CardElementUI cardElementUIToClick;
 
@@ -65,14 +65,15 @@ public class ViewToClickToExpand {
     //  Constructors
     // -------------------------------------------------------------
 
-    protected ViewToClickToExpand(){}
+    protected ViewToClickToExpand() {
+    }
 
     /**
      * Builder
      *
      * @return
      */
-    public static ViewToClickToExpand builder(){
+    public static ViewToClickToExpand builder() {
         return new ViewToClickToExpand();
     }
 
@@ -80,19 +81,15 @@ public class ViewToClickToExpand {
     //  Enum
     // -------------------------------------------------------------
 
-    public enum CardElementUI{
-
-        CARD(0),
-        HEADER(1),
-        THUMBNAIL(2),
-        MAIN_CONTENT(3);
-
-        int mElement;
-
-        CardElementUI(int element){
-            mElement = element;
-        }
-
+    /**
+     * Sets the view to click to enable the expand/collapse action
+     *
+     * @param viewToClick view to click
+     * @return
+     */
+    public ViewToClickToExpand setupView(View viewToClick) {
+        this.viewToClick = viewToClick;
+        return this;
     }
 
     // -------------------------------------------------------------
@@ -100,28 +97,17 @@ public class ViewToClickToExpand {
     // -------------------------------------------------------------
 
     /**
-     * Sets the view to click to enable the expand/collapse action
-     *
-     * @param viewToClick  view to click
-     * @return
-     */
-    public ViewToClickToExpand setupView(View viewToClick){
-        this.viewToClick=viewToClick;
-        return this;
-    }
-
-    /**
      * Indicates if the view clicked will be highlight as selected
      *
      * @param highlight
      * @return
      */
-    public ViewToClickToExpand highlightView(boolean highlight){
-        this.viewToSelect=highlight;
+    public ViewToClickToExpand highlightView(boolean highlight) {
+        this.viewToSelect = highlight;
         return this;
     }
 
-    public ViewToClickToExpand setupCardElement(CardElementUI cardElementUIToClick){
+    public ViewToClickToExpand setupCardElement(CardElementUI cardElementUIToClick) {
         this.cardElementUIToClick = cardElementUIToClick;
         return this;
     }
@@ -146,21 +132,23 @@ public class ViewToClickToExpand {
         return this;
     }
 
-
-    // -------------------------------------------------------------
-    //  Getters
-    // -------------------------------------------------------------
-
     /**
      * Returns the view to Click to enable the expand action
+     *
      * @return
      */
     public View getViewToClick() {
         return viewToClick;
     }
 
+
+    // -------------------------------------------------------------
+    //  Getters
+    // -------------------------------------------------------------
+
     /**
      * Indicates if the view clicked will be highlight as selected
+     *
      * @return
      */
     public boolean isViewToSelect() {
@@ -169,6 +157,7 @@ public class ViewToClickToExpand {
 
     /**
      * Returns the card element to click to enable the expand/collapse action
+     *
      * @return
      */
     public CardElementUI getCardElementUIToClick() {
@@ -177,17 +166,33 @@ public class ViewToClickToExpand {
 
     /**
      * Indicates if the expand action will be enabled in a programmatic way
+     *
      * @return
      */
     public boolean isEnableForCode() {
         return enableForCode;
     }
 
-
     /**
      * Indicates if the expand action will be enabled with a long click
      */
     public boolean isUseLongClick() {
         return useLongClick;
+    }
+
+
+    public enum CardElementUI {
+
+        CARD(0),
+        HEADER(1),
+        THUMBNAIL(2),
+        MAIN_CONTENT(3);
+
+        int mElement;
+
+        CardElementUI(int element) {
+            mElement = element;
+        }
+
     }
 }

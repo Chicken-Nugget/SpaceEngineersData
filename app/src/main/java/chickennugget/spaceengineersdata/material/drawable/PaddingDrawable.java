@@ -26,45 +26,39 @@ public class PaddingDrawable extends Drawable implements Drawable.Callback {
         setWrappedDrawable(drawable);
     }
 
-    public void setPadding(int paddingLeft, int paddingTop, int paddingRight, int paddingBottom){
+    public void setPadding(int paddingLeft, int paddingTop, int paddingRight, int paddingBottom) {
         mPaddingLeft = paddingLeft;
         mPaddingTop = paddingTop;
         mPaddingRight = paddingRight;
         mPaddingBottom = paddingBottom;
     }
 
-    public int getPaddingLeft(){
+    public int getPaddingLeft() {
         return mPaddingLeft;
     }
 
-    public int getPaddingTop(){
+    public int getPaddingTop() {
         return mPaddingTop;
     }
 
-    public int getPaddingRight(){
+    public int getPaddingRight() {
         return mPaddingRight;
     }
 
-    public int getPaddingBottom(){
+    public int getPaddingBottom() {
         return mPaddingBottom;
     }
 
     @Override
     public void draw(Canvas canvas) {
-        if(mDrawable != null)
+        if (mDrawable != null)
             mDrawable.draw(canvas);
     }
 
     @Override
     protected void onBoundsChange(Rect bounds) {
-        if(mDrawable != null)
+        if (mDrawable != null)
             mDrawable.setBounds(bounds.left + mPaddingLeft, bounds.top + mPaddingTop, bounds.right - mPaddingRight, bounds.bottom - mPaddingBottom);
-    }
-
-    @Override
-    public void setChangingConfigurations(int configs) {
-        if(mDrawable != null)
-            mDrawable.setChangingConfigurations(configs);
     }
 
     @Override
@@ -73,26 +67,32 @@ public class PaddingDrawable extends Drawable implements Drawable.Callback {
     }
 
     @Override
+    public void setChangingConfigurations(int configs) {
+        if (mDrawable != null)
+            mDrawable.setChangingConfigurations(configs);
+    }
+
+    @Override
     public void setDither(boolean dither) {
-        if(mDrawable != null)
+        if (mDrawable != null)
             mDrawable.setDither(dither);
     }
 
     @Override
     public void setFilterBitmap(boolean filter) {
-        if(mDrawable != null)
+        if (mDrawable != null)
             mDrawable.setFilterBitmap(filter);
     }
 
     @Override
     public void setAlpha(int alpha) {
-        if(mDrawable != null)
+        if (mDrawable != null)
             mDrawable.setAlpha(alpha);
     }
 
     @Override
     public void setColorFilter(ColorFilter cf) {
-        if(mDrawable != null)
+        if (mDrawable != null)
             mDrawable.setColorFilter(cf);
     }
 
@@ -112,7 +112,7 @@ public class PaddingDrawable extends Drawable implements Drawable.Callback {
     }
 
     public void jumpToCurrentState() {
-        if(mDrawable != null)
+        if (mDrawable != null)
             DrawableCompat.jumpToCurrentState(mDrawable);
     }
 
@@ -159,13 +159,12 @@ public class PaddingDrawable extends Drawable implements Drawable.Callback {
     @Override
     public boolean getPadding(Rect padding) {
         boolean hasPadding = mDrawable != null && mDrawable.getPadding(padding);
-        if(hasPadding){
+        if (hasPadding) {
             padding.left += mPaddingLeft;
             padding.top += mPaddingTop;
             padding.right += mPaddingRight;
             padding.bottom += mPaddingBottom;
-        }
-        else{
+        } else {
             padding.set(mPaddingLeft, mPaddingTop, mPaddingRight, mPaddingBottom);
             hasPadding = mPaddingLeft != 0 || mPaddingTop != 0 || mPaddingRight != 0 || mPaddingBottom != 0;
         }
@@ -200,43 +199,43 @@ public class PaddingDrawable extends Drawable implements Drawable.Callback {
     }
 
     @Override
-    public void setAutoMirrored(boolean mirrored) {
-        if(mDrawable != null)
-            DrawableCompat.setAutoMirrored(mDrawable, mirrored);
-    }
-
-    @Override
     public boolean isAutoMirrored() {
         return mDrawable != null && DrawableCompat.isAutoMirrored(mDrawable);
     }
 
     @Override
+    public void setAutoMirrored(boolean mirrored) {
+        if (mDrawable != null)
+            DrawableCompat.setAutoMirrored(mDrawable, mirrored);
+    }
+
+    @Override
     public void setTint(int tint) {
-        if(mDrawable != null)
+        if (mDrawable != null)
             DrawableCompat.setTint(mDrawable, tint);
     }
 
     @Override
     public void setTintList(ColorStateList tint) {
-        if(mDrawable != null)
+        if (mDrawable != null)
             DrawableCompat.setTintList(mDrawable, tint);
     }
 
     @Override
     public void setTintMode(PorterDuff.Mode tintMode) {
-        if(mDrawable != null)
+        if (mDrawable != null)
             DrawableCompat.setTintMode(mDrawable, tintMode);
     }
 
     @Override
     public void setHotspot(float x, float y) {
-        if(mDrawable != null)
+        if (mDrawable != null)
             DrawableCompat.setHotspot(mDrawable, x, y);
     }
 
     @Override
     public void setHotspotBounds(int left, int top, int right, int bottom) {
-        if(mDrawable != null)
+        if (mDrawable != null)
             DrawableCompat.setHotspotBounds(mDrawable, left, top, right, bottom);
     }
 

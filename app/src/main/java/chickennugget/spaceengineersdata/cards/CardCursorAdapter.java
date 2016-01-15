@@ -34,32 +34,28 @@ import chickennugget.spaceengineersdata.R;
 
 /**
  * Cursor Adapter for {@link chickennugget.spaceengineersdata.cards.Card} model
- *
- *
+ * <p>
+ * <p>
  * </p>
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
+public abstract class CardCursorAdapter extends BaseCardCursorAdapter {
 
     protected static String TAG = "CardCursorAdapter";
-
-    /**
-     * {@link chickennugget.spaceengineersdata.cards.CardListView}
-     */
-    protected CardListView mCardListView;
-
-    /**
-     * Internal Map with all Cards.
-     * It uses the card id value as key.
-     */
-    protected HashMap<String /* id */,Card> mInternalObjects;
-
-
     /**
      * All ids expanded
      */
     protected final List<String> mExpandedIds;
-
+    /**
+     * {@link chickennugget.spaceengineersdata.cards.CardListView}
+     */
+    protected CardListView mCardListView;
+    /**
+     * Internal Map with all Cards.
+     * It uses the card id value as key.
+     */
+    protected HashMap<String /* id */, Card> mInternalObjects;
     /**
      * Recycle
      */
@@ -117,7 +113,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
             mCardView = (CardViewWrapper) view.findViewById(R.id.list_cardId);
             if (mCardView != null) {
                 //It is important to set recycle value for inner layout elements
-                mCardView.setForceReplaceInnerLayout(Card.equalsInnerLayout(mCardView.getCard(),mCard));
+                mCardView.setForceReplaceInnerLayout(Card.equalsInnerLayout(mCardView.getCard(), mCard));
 
                 //It is important to set recycle value for performance issue
                 mCardView.setRecycle(recycle);
@@ -136,7 +132,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
                     Log.d(TAG, "Swipe action not enabled in this type of view");
 
                 //If card has an expandable button override animation
-                if ((mCard.getCardHeader() != null && mCard.getCardHeader().isButtonExpandVisible()) || mCard.getViewToClickToExpand()!=null ){
+                if ((mCard.getCardHeader() != null && mCard.getCardHeader().isButtonExpandVisible()) || mCard.getViewToClickToExpand() != null) {
                     setupExpandCollapseListAnimation(mCardView);
                 }
 
@@ -144,7 +140,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
                 setupSwipeableAnimation(mCard, mCardView);
 
                 //setupMultiChoice
-                setupMultichoice(view,mCard,mCardView,cursor.getPosition());
+                setupMultichoice(view, mCard, mCardView, cursor.getPosition());
             }
         }
     }
@@ -153,7 +149,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
     /**
      * Sets SwipeAnimation on List
      *
-     * @param card {@link chickennugget.spaceengineersdata.cards.Card}
+     * @param card     {@link chickennugget.spaceengineersdata.cards.Card}
      * @param cardView {@link chickennugget.spaceengineersdata.cards.CardView}
      */
     protected void setupSwipeableAnimation(final Card card, CardViewWrapper cardView) {
@@ -178,18 +174,18 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
     // -------------------------------------------------------------
 
     /**
-     *  Set the card as Expanded.
+     * Set the card as Expanded.
      */
     public void setExpanded(Card card) {
-        if (card!=null)
+        if (card != null)
             setExpanded(card.getId());
     }
 
     /**
-     *  Set the card as Expanded using its id
+     * Set the card as Expanded using its id
      */
     public void setExpanded(final String id) {
-        if (mExpandedIds!=null){
+        if (mExpandedIds != null) {
             if (mExpandedIds.contains(id)) {
                 return;
             }
@@ -199,18 +195,18 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
 
 
     /**
-     *  Set the card as collapsed
+     * Set the card as collapsed
      */
     public void setCollapsed(Card card) {
-        if (card!=null)
+        if (card != null)
             setCollapsed(card.getId());
     }
 
     /**
-     *  Set the card as collapsed using its id
+     * Set the card as collapsed using its id
      */
     public void setCollapsed(final String id) {
-        if (mExpandedIds!=null){
+        if (mExpandedIds != null) {
             if (!mExpandedIds.contains(id)) {
                 return;
             }
@@ -238,7 +234,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
      */
     public boolean onExpandStart(CardViewWrapper viewCard) {
         Card card = viewCard.getCard();
-        if (card!=null){
+        if (card != null) {
             String itemId = card.getId();
             if (!mExpandedIds.contains(itemId)) {
                 return true;
@@ -255,7 +251,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
      */
     public boolean onCollapseStart(CardViewWrapper viewCard) {
         Card card = viewCard.getCard();
-        if (card!=null){
+        if (card != null) {
             String itemId = card.getId();
             if (mExpandedIds.contains(itemId)) {
                 return true;
@@ -271,7 +267,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
      */
     public void onExpandEnd(CardViewWrapper viewCard) {
         Card card = viewCard.getCard();
-        if (card!=null){
+        if (card != null) {
             setExpanded(card);
         }
     }
@@ -283,7 +279,7 @@ public abstract class CardCursorAdapter extends BaseCardCursorAdapter  {
      */
     public void onCollapseEnd(CardViewWrapper viewCard) {
         Card card = viewCard.getCard();
-        if (card!=null){
+        if (card != null) {
             setCollapsed(card);
         }
     }

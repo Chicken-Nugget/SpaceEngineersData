@@ -14,17 +14,17 @@ public class ThemeDrawable extends LevelListDrawable implements ThemeManager.OnT
     public ThemeDrawable(int styleId) {
         mStyleId = styleId;
 
-        if(mStyleId != 0) {
+        if (mStyleId != 0) {
             ThemeManager.getInstance().registerOnThemeChangedListener(this);
             initDrawables();
         }
     }
 
-    private void initDrawables(){
+    private void initDrawables() {
         ThemeManager themeManager = ThemeManager.getInstance();
         int count = themeManager.getThemeCount();
 
-        for(int i = 0; i < count; i++){
+        for (int i = 0; i < count; i++) {
             Drawable drawable = themeManager.getContext().getResources().getDrawable(themeManager.getStyle(mStyleId, i));
             addLevel(i, i, drawable);
         }
@@ -34,7 +34,7 @@ public class ThemeDrawable extends LevelListDrawable implements ThemeManager.OnT
 
     @Override
     public void onThemeChanged(ThemeManager.OnThemeChangedEvent event) {
-        if(getLevel() != event.theme)
+        if (getLevel() != event.theme)
             setLevel(event.theme);
     }
 

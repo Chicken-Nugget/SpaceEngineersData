@@ -11,7 +11,8 @@ import chickennugget.spaceengineersdata.R;
 
 public class FriendsFragment extends Fragment {
 
-    public FriendsFragment() { }
+    public FriendsFragment() {
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

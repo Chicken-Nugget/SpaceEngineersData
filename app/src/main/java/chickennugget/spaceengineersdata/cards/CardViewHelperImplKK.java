@@ -26,7 +26,7 @@ import android.os.Build;
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 @TargetApi(Build.VERSION_CODES.KITKAT)
-public class CardViewHelperImplKK extends CardViewHelperImplJB{
+public class CardViewHelperImplKK extends CardViewHelperImplJB {
 
     public CardViewHelperImplKK(Context context) {
         super(context);

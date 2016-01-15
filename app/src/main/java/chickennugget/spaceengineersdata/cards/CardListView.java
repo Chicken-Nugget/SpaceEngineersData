@@ -56,6 +56,7 @@ import chickennugget.spaceengineersdata.R;
  * </p>
  * Currently you have to use the same inner layout for each card in listView.
  * </p>
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class CardListView extends ListView implements CardViewWrapper.OnExpandListAnimatorListener {
@@ -63,7 +64,7 @@ public class CardListView extends ListView implements CardViewWrapper.OnExpandLi
     protected static String TAG = "CardListView";
 
     /**
-     *  Card Array Adapter
+     * Card Array Adapter
      */
     protected CardArrayAdapter mAdapter;
 
@@ -117,10 +118,10 @@ public class CardListView extends ListView implements CardViewWrapper.OnExpandLi
      * @param attrs
      * @param defStyle
      */
-    protected void init(AttributeSet attrs, int defStyle){
+    protected void init(AttributeSet attrs, int defStyle) {
 
         //Init attrs
-        initAttrs(attrs,defStyle);
+        initAttrs(attrs, defStyle);
 
         //Set divider to 0dp
         setDividerHeight(0);
@@ -161,11 +162,11 @@ public class CardListView extends ListView implements CardViewWrapper.OnExpandLi
      */
     @Override
     public void setAdapter(ListAdapter adapter) {
-        if (adapter instanceof CardArrayAdapter){
-            setAdapter((CardArrayAdapter)adapter);
-        }else if (adapter instanceof CardCursorAdapter){
-            setAdapter((CardCursorAdapter)adapter);
-        }else {
+        if (adapter instanceof CardArrayAdapter) {
+            setAdapter((CardArrayAdapter) adapter);
+        } else if (adapter instanceof CardCursorAdapter) {
+            setAdapter((CardCursorAdapter) adapter);
+        } else {
             Log.w(TAG, "You are using a generic adapter. Pay attention: your adapter has to call cardArrayAdapter#getView method");
             super.setAdapter(adapter);
         }
@@ -183,7 +184,7 @@ public class CardListView extends ListView implements CardViewWrapper.OnExpandLi
         adapter.setRowLayoutId(list_card_layout_resourceID);
 
         adapter.setCardListView(this);
-        mAdapter=adapter;
+        mAdapter = adapter;
     }
 
     /**
@@ -198,21 +199,21 @@ public class CardListView extends ListView implements CardViewWrapper.OnExpandLi
         adapter.setRowLayoutId(list_card_layout_resourceID);
 
         adapter.setCardListView(this);
-        mCursorAdapter=adapter;
+        mCursorAdapter = adapter;
     }
 
     /**
      * You can use this method, if you are using external adapters.
      * Pay attention. The generic adapter#getView() method has to call the cardArrayAdapter#getView() method to work.
      *
-     * @param adapter {@link ListAdapter} generic adapter
-     * @param cardArrayAdapter    {@link CardArrayAdapter} cardArrayAdapter
+     * @param adapter          {@link ListAdapter} generic adapter
+     * @param cardArrayAdapter {@link CardArrayAdapter} cardArrayAdapter
      */
     public void setExternalAdapter(ListAdapter adapter, CardArrayAdapter cardArrayAdapter) {
 
         setAdapter(adapter);
 
-        mAdapter=cardArrayAdapter;
+        mAdapter = cardArrayAdapter;
         mAdapter.setCardListView(this);
         mAdapter.setRowLayoutId(list_card_layout_resourceID);
     }
@@ -221,14 +222,14 @@ public class CardListView extends ListView implements CardViewWrapper.OnExpandLi
      * You can use this method, if you are using external adapters.
      * Pay attention. The generic adapter#getView() method has to call the cardCursorAdapter#getView() method to work.
      *
-     * @param adapter {@link ListAdapter} generic adapter
-     * @param cardCursorAdapter    {@link CardCursorAdapter} cardArrayAdapter
+     * @param adapter           {@link ListAdapter} generic adapter
+     * @param cardCursorAdapter {@link CardCursorAdapter} cardArrayAdapter
      */
     public void setExternalAdapter(ListAdapter adapter, CardCursorAdapter cardCursorAdapter) {
 
         setAdapter(adapter);
 
-        mCursorAdapter=cardCursorAdapter;
+        mCursorAdapter = cardCursorAdapter;
         mCursorAdapter.setCardListView(this);
         mCursorAdapter.setRowLayoutId(list_card_layout_resourceID);
     }
@@ -236,7 +237,7 @@ public class CardListView extends ListView implements CardViewWrapper.OnExpandLi
     /**
      * Returns local scroll event listener
      */
-    public OnScrollListener getOnScrollListener( ) {
+    public OnScrollListener getOnScrollListener() {
         return this.mOnScrollListener;
     }
 
@@ -244,10 +245,10 @@ public class CardListView extends ListView implements CardViewWrapper.OnExpandLi
      * Overrides the set on scroll listener method and registers local reference
      */
     @Override
-    public void setOnScrollListener( OnScrollListener mOnScrollListener ) {
-        super.setOnScrollListener( mOnScrollListener );
+    public void setOnScrollListener(OnScrollListener mOnScrollListener) {
+        super.setOnScrollListener(mOnScrollListener);
         if (mOnScrollListener instanceof SwipeOnScrollListener)
-            this.mOnScrollListener = (SwipeOnScrollListener)mOnScrollListener;
+            this.mOnScrollListener = (SwipeOnScrollListener) mOnScrollListener;
     }
 
     //--------------------------------------------------------------------------
@@ -255,33 +256,33 @@ public class CardListView extends ListView implements CardViewWrapper.OnExpandLi
     //--------------------------------------------------------------------------
 
     @Override
-    public void onExpandStart(CardViewWrapper viewCard,View expandingLayout) {
+    public void onExpandStart(CardViewWrapper viewCard, View expandingLayout) {
 
         boolean expandable = true;
-        if (mCursorAdapter!=null){
+        if (mCursorAdapter != null) {
             expandable = mCursorAdapter.onExpandStart(viewCard);
         }
 
         if (expandable)
             ExpandCollapseHelper.animateExpanding(expandingLayout, viewCard, this);
 
-        if (mCursorAdapter!=null){
+        if (mCursorAdapter != null) {
             mCursorAdapter.onExpandEnd(viewCard);
         }
 
     }
 
     @Override
-    public void onCollapseStart(CardViewWrapper viewCard,View expandingLayout) {
+    public void onCollapseStart(CardViewWrapper viewCard, View expandingLayout) {
         boolean collapsible = true;
-        if (mCursorAdapter!=null){
+        if (mCursorAdapter != null) {
             collapsible = mCursorAdapter.onCollapseStart(viewCard);
         }
 
         if (collapsible)
             ExpandCollapseHelper.animateCollapsing(expandingLayout, viewCard, this);
 
-        if (mCursorAdapter!=null){
+        if (mCursorAdapter != null) {
             mCursorAdapter.onCollapseEnd(viewCard);
         }
     }
@@ -294,11 +295,11 @@ public class CardListView extends ListView implements CardViewWrapper.OnExpandLi
         /**
          * This method expandes the view that was clicked.
          *
-         * @param expandingLayout  layout to expand
-         * @param cardView         cardView
-         * @param listView         listView
+         * @param expandingLayout layout to expand
+         * @param cardView        cardView
+         * @param listView        listView
          */
-        public static void animateCollapsing(final View expandingLayout, final CardViewWrapper cardView,final AbsListView listView) {
+        public static void animateCollapsing(final View expandingLayout, final CardViewWrapper cardView, final AbsListView listView) {
             int origHeight = expandingLayout.getHeight();
 
             ValueAnimator animator = createHeightAnimator(expandingLayout, origHeight, 0);
@@ -313,7 +314,7 @@ public class CardListView extends ListView implements CardViewWrapper.OnExpandLi
                     notifyAdapter(listView);
 
                     Card card = cardView.getCard();
-                    if (card.getOnCollapseAnimatorEndListener()!=null)
+                    if (card.getOnCollapseAnimatorEndListener() != null)
                         card.getOnCollapseAnimatorEndListener().onCollapseEnd(card);
                 }
             });
@@ -323,11 +324,11 @@ public class CardListView extends ListView implements CardViewWrapper.OnExpandLi
         /**
          * This method collapse the view that was clicked.
          *
-         * @param expandingLayout  layout to collapse
-         * @param cardView         cardView
-         * @param listView         listView
+         * @param expandingLayout layout to collapse
+         * @param cardView        cardView
+         * @param listView        listView
          */
-        public static void animateExpanding(final View expandingLayout, final CardViewWrapper cardView,final AbsListView listView) {
+        public static void animateExpanding(final View expandingLayout, final CardViewWrapper cardView, final AbsListView listView) {
             /* Update the layout so the extra content becomes visible.*/
             expandingLayout.setVisibility(View.VISIBLE);
 
@@ -362,7 +363,7 @@ public class CardListView extends ListView implements CardViewWrapper.OnExpandLi
                     notifyAdapter(listView);
 
                     Card card = cardView.getCard();
-                    if (card.getOnExpandAnimatorEndListener()!=null)
+                    if (card.getOnExpandAnimatorEndListener() != null)
                         card.getOnExpandAnimatorEndListener().onExpandEnd(card);
 
                 }
@@ -401,14 +402,14 @@ public class CardListView extends ListView implements CardViewWrapper.OnExpandLi
          *
          * @param listView
          */
-        public static void notifyAdapter(AbsListView listView){
+        public static void notifyAdapter(AbsListView listView) {
 
-            if (listView instanceof CardListView){
+            if (listView instanceof CardListView) {
 
                 CardListView cardListView = (CardListView) listView;
-                if (cardListView.mAdapter!=null){
+                if (cardListView.mAdapter != null) {
                     cardListView.mAdapter.notifyDataSetChanged();
-                } else if (cardListView.mCursorAdapter!=null){
+                } else if (cardListView.mCursorAdapter != null) {
                     //cardListView.mCursorAdapter.notifyDataSetChanged();
                 }
             }

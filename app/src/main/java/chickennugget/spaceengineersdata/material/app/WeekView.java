@@ -22,40 +22,30 @@ import chickennugget.spaceengineersdata.material.widget.CircleCheckedTextView;
 /**
  * Created by Rey on 2/6/2015.
  */
-public class WeekView extends FrameLayout{
+public class WeekView extends FrameLayout {
 
+    private static final String BASE_TEXT = "WWW";
     private ColorStateList mBackgroundColors;
     private int mCurrentBackgroundColor;
     private int mVerticalPadding;
     private int mHorizontalPadding;
-
     private int mFirstDayOfWeek;
-
     private float mOriginalTextSize;
-
     private Paint mPaint;
-    private static final String BASE_TEXT = "WWW";
-
-    private CircleCheckedTextView.OnCheckedChangeListener mCheckListener = new CircleCheckedTextView.OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(CircleCheckedTextView view, boolean checked) {
-            onDaySelectionChanged((Integer)view.getTag(), checked);
-        }
-    };
-
-    private OnClickListener mClickListener = new OnClickListener(){
+    private OnClickListener mClickListener = new OnClickListener() {
         @Override
         public void onClick(View v) {
-            CircleCheckedTextView child = (CircleCheckedTextView)v;
+            CircleCheckedTextView child = (CircleCheckedTextView) v;
             child.setChecked(!child.isChecked());
         }
     };
-
-    public interface OnDaySelectionChangedListener{
-        public void onDaySelectionChanged(int dayOfWeek, boolean selected);
-    }
-
     private OnDaySelectionChangedListener mOnDaySelectionChangedListener;
+    private CircleCheckedTextView.OnCheckedChangeListener mCheckListener = new CircleCheckedTextView.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CircleCheckedTextView view, boolean checked) {
+            onDaySelectionChanged((Integer) view.getTag(), checked);
+        }
+    };
 
     public WeekView(Context context) {
         super(context);
@@ -81,7 +71,7 @@ public class WeekView extends FrameLayout{
         init(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    private void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
+    private void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
         TypedArray a = context.obtainStyledAttributes(attrs, chickennugget.spaceengineersdata.R.styleable.WeekView, defStyleAttr, defStyleRes);
@@ -93,7 +83,7 @@ public class WeekView extends FrameLayout{
 
         a.recycle();
 
-        if(mBackgroundColors == null){
+        if (mBackgroundColors == null) {
             int[][] states = new int[][]{
                     new int[]{-android.R.attr.state_enabled},
                     new int[]{android.R.attr.state_enabled},
@@ -142,7 +132,7 @@ public class WeekView extends FrameLayout{
     public void setEnabled(boolean enabled) {
         super.setEnabled(enabled);
 
-        for(int i = 0; i < getChildCount(); i++)
+        for (int i = 0; i < getChildCount(); i++)
             getChildAt(i).setEnabled(enabled);
     }
 
@@ -159,12 +149,12 @@ public class WeekView extends FrameLayout{
         super.refreshDrawableState();
     }
 
-    private void updateBackgroundColor(int[] state){
+    private void updateBackgroundColor(int[] state) {
         int color = mBackgroundColors.getColorForState(state, mBackgroundColors.getDefaultColor());
-        if(mCurrentBackgroundColor != color){
+        if (mCurrentBackgroundColor != color) {
             mCurrentBackgroundColor = color;
-            for(int i = 0; i < getChildCount(); i++){
-                CircleCheckedTextView child = (CircleCheckedTextView)getChildAt(i);
+            for (int i = 0; i < getChildCount(); i++) {
+                CircleCheckedTextView child = (CircleCheckedTextView) getChildAt(i);
                 child.setBackgroundColor(color);
             }
             invalidate();
@@ -184,12 +174,11 @@ public class WeekView extends FrameLayout{
         int height;
         int childSize;
 
-        if(isPortrait){
+        if (isPortrait) {
             childSize = (widthSize - getPaddingLeft() - getPaddingRight() - mHorizontalPadding * 3) / 4;
             width = widthSize;
             height = childSize * 2 + mVerticalPadding + getPaddingTop() + getPaddingBottom();
-        }
-        else{
+        } else {
             childSize = (widthSize - getPaddingLeft() - getPaddingRight() - mHorizontalPadding * 6) / 7;
             width = widthSize;
             height = childSize + getPaddingTop() + getPaddingBottom();
@@ -197,7 +186,7 @@ public class WeekView extends FrameLayout{
 
         int spec = MeasureSpec.makeMeasureSpec(childSize, MeasureSpec.EXACTLY);
 
-        for(int i = 0; i < getChildCount(); i++)
+        for (int i = 0; i < getChildCount(); i++)
             getChildAt(i).measure(spec, spec);
 
         setMeasuredDimension(width, height);
@@ -210,10 +199,10 @@ public class WeekView extends FrameLayout{
 
         float realWidth = getChildAt(0).getMeasuredWidth() - mHorizontalPadding;
 
-        if(realWidth < baseWidth){
+        if (realWidth < baseWidth) {
             float textSize = mOriginalTextSize * realWidth / baseWidth;
-            for(int i = 0; i < getChildCount(); i++)
-                ((CircleCheckedTextView)getChildAt(i)).setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+            for (int i = 0; i < getChildCount(); i++)
+                ((CircleCheckedTextView) getChildAt(i)).setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
         }
     }
 
@@ -224,50 +213,49 @@ public class WeekView extends FrameLayout{
         int childLeft = getPaddingLeft();
         int childTop = getPaddingTop();
 
-        for(int i = 0; i < 7; i++){
+        for (int i = 0; i < 7; i++) {
             View v = getChildAt(i);
             v.layout(childLeft, childTop, childLeft + v.getMeasuredWidth(), childTop + v.getMeasuredHeight());
 
-            if(i == 3 && isPortrait){
+            if (i == 3 && isPortrait) {
                 childLeft = getPaddingLeft();
                 childTop = getPaddingTop() + v.getMeasuredHeight() + mVerticalPadding;
-            }
-            else
+            } else
                 childLeft += v.getMeasuredWidth() + mHorizontalPadding;
         }
     }
 
-    public void clearSelection(boolean immediately){
-        for(int i = 0; i < getChildCount(); i++)
-            if(immediately)
-                ((CircleCheckedTextView)getChildAt(i)).setCheckedImmediately(false);
+    public void clearSelection(boolean immediately) {
+        for (int i = 0; i < getChildCount(); i++)
+            if (immediately)
+                ((CircleCheckedTextView) getChildAt(i)).setCheckedImmediately(false);
             else
-                ((CircleCheckedTextView)getChildAt(i)).setChecked(false);
+                ((CircleCheckedTextView) getChildAt(i)).setChecked(false);
     }
 
-    public void setSelected(int dayOfWeek, boolean selected, boolean immediately){
+    public void setSelected(int dayOfWeek, boolean selected, boolean immediately) {
         int index = dayOfWeek >= mFirstDayOfWeek ? (dayOfWeek - mFirstDayOfWeek) : (dayOfWeek + 7 - mFirstDayOfWeek);
-        CircleCheckedTextView view = (CircleCheckedTextView)getChildAt(index);
+        CircleCheckedTextView view = (CircleCheckedTextView) getChildAt(index);
 
-        if(immediately)
+        if (immediately)
             view.setCheckedImmediately(selected);
         else
             view.setChecked(selected);
     }
 
-    public boolean isSelected(int dayOfWeek){
+    public boolean isSelected(int dayOfWeek) {
         int index = dayOfWeek >= mFirstDayOfWeek ? (dayOfWeek - mFirstDayOfWeek) : (dayOfWeek + 7 - mFirstDayOfWeek);
-        CircleCheckedTextView view = (CircleCheckedTextView)getChildAt(index);
+        CircleCheckedTextView view = (CircleCheckedTextView) getChildAt(index);
 
         return view.isChecked();
     }
 
-    public void setOnDaySelectionChangedListener(OnDaySelectionChangedListener listener){
+    public void setOnDaySelectionChangedListener(OnDaySelectionChangedListener listener) {
         mOnDaySelectionChangedListener = listener;
     }
 
-    private void onDaySelectionChanged(int dayOfWeek, boolean selected){
-        if(mOnDaySelectionChangedListener != null)
+    private void onDaySelectionChanged(int dayOfWeek, boolean selected) {
+        if (mOnDaySelectionChangedListener != null)
             mOnDaySelectionChangedListener.onDaySelectionChanged(dayOfWeek, selected);
     }
 
@@ -278,8 +266,8 @@ public class WeekView extends FrameLayout{
         SavedState ss = new SavedState(superState);
         ss.selected = 0;
         int mask = 1;
-        for(int i = Calendar.SUNDAY; i <= Calendar.SATURDAY; i++) {
-            if(isSelected(i))
+        for (int i = Calendar.SUNDAY; i <= Calendar.SATURDAY; i++) {
+            if (isSelected(i))
                 ss.selected += mask;
             mask <<= 1;
         }
@@ -294,7 +282,7 @@ public class WeekView extends FrameLayout{
         super.onRestoreInstanceState(ss.getSuperState());
 
         int val = ss.selected;
-        for(int i = 0; i < 7; i++){
+        for (int i = 0; i < 7; i++) {
             setSelected(i + 1, val % 2 == 1, true);
             val >>= 1;
         }
@@ -302,7 +290,21 @@ public class WeekView extends FrameLayout{
         requestLayout();
     }
 
+    public interface OnDaySelectionChangedListener {
+        public void onDaySelectionChanged(int dayOfWeek, boolean selected);
+    }
+
     static class SavedState extends BaseSavedState {
+        public static final Creator<SavedState> CREATOR
+                = new Creator<SavedState>() {
+            public SavedState createFromParcel(Parcel in) {
+                return new SavedState(in);
+            }
+
+            public SavedState[] newArray(int size) {
+                return new SavedState[size];
+            }
+        };
         int selected;
 
         /**
@@ -333,16 +335,5 @@ public class WeekView extends FrameLayout{
                     + ";selected=" + selected
                     + "}";
         }
-
-        public static final Creator<SavedState> CREATOR
-                = new Creator<SavedState>() {
-            public SavedState createFromParcel(Parcel in) {
-                return new SavedState(in);
-            }
-
-            public SavedState[] newArray(int size) {
-                return new SavedState[size];
-            }
-        };
     }
 }

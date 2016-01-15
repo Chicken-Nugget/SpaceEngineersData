@@ -43,7 +43,7 @@ public abstract class BaseFragment extends Fragment {
         //setTitle();
     }
 
-    protected void setTitle(){
+    protected void setTitle() {
         int titleResId = getTitleResourceId();
         if (titleResId != TITLE_NONE)
             getActivity().setTitle(getTitleResourceId());

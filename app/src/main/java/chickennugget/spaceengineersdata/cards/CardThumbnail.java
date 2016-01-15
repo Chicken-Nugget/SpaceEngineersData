@@ -35,10 +35,10 @@ import android.view.ViewGroup;
  * <pre><code>
  *        //Create thumbnail
  *        CardThumbnail thumb = new CardThumbnail(getActivity().getApplicationContext());
- *
+ * <p>
  *        //Set resource
  *        thumb.setDrawableResource(R.drawable.carddemo_ic_gmaps_large);
- *
+ * <p>
  *        //Add thumbnail to a card
  *        card.addCardThumbnail(thumb);
  * </code></pre>
@@ -47,17 +47,17 @@ import android.view.ViewGroup;
  *        //Set resource
  *        thumb.setUrlResource("https://mydomain.com/photo.jpg");
  * </code></pre>
- *
+ * <p>
  * You can easily extend and customize this class providing your inner layout and
  * setting your values with {@link #setupInnerViewElements(android.view.ViewGroup, android.view.View)} method.
  * <pre><code>
- *
+ * <p>
  *     public class CustomThumbCard extends CardThumbnail {
- *
+ * <p>
  *         public CustomThumbCard(Context context) {
  *           super(context);
  *         }
- *
+ * <p>
  *         @Override
  *         public void setupInnerViewElements(ViewGroup parent, View viewImage) {
  *            if (viewImage!=null){
@@ -68,12 +68,13 @@ import android.view.ViewGroup;
  *    }
  * </code></pre>
  * </p>
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class CardThumbnail extends BaseCard {
 
     /**
-     *  Resource Drawable ID
+     * Resource Drawable ID
      */
     protected int drawableResource;
 
@@ -83,9 +84,9 @@ public class CardThumbnail extends BaseCard {
     protected String urlResource;
 
     /**
-     *  Uses an external library to load image
+     * Uses an external library to load image
      */
-    protected boolean mExternalUsage=false;
+    protected boolean mExternalUsage = false;
 
     /**
      * Placeholder
@@ -95,83 +96,65 @@ public class CardThumbnail extends BaseCard {
     /**
      * errorResourceId: image used if an error occurs while downloading file
      */
-    protected int errorResourceId=0;
-
-    /**
-     * Interface for custom source Thumbnail
-     */
-    public interface CustomSource {
-        /**
-         * @return a string tag to identify the image
-         */
-        String getTag();
-
-        /**
-         * @return the bitmap from custom source
-         */
-        Bitmap getBitmap();
-    }
-
+    protected int errorResourceId = 0;
     protected CustomSource customSource = null;
-
     /**
      * Flag to send a broadcast after the bitmap is attached to imageView
      */
     protected boolean sendBroadcastAfterAttach = true;
+
+    /**
+     * Constructor
+     *
+     * @param context context
+     */
+    public CardThumbnail(Context context) {
+        super(context);
+    }
 
     // -------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------
 
     /**
-     * Constructor
-     *
-     * @param context  context
-     */
-    public CardThumbnail(Context context) {
-        super(context);
-    }
-
-    /**
      * ThumbnailCard doesn't provide a Thumbnail Inner Layout.
      * Don't use it!
      *
-     * @param context   context
+     * @param context     context
      * @param innerLayout layout resource ID
      */
-    public CardThumbnail(Context context,int innerLayout) {
+    public CardThumbnail(Context context, int innerLayout) {
         super(context);
     }
 
     /**
      * This method sets values to header elements and customizes view.
-     *
+     * <p>
      * Override this method to set your elements inside InnerView.
      *
-     * @param parent  parent view (Inner Frame)
-     * @param imageView   ImageView
+     * @param parent    parent view (Inner Frame)
+     * @param imageView ImageView
      */
     @Override
     public void setupInnerViewElements(ViewGroup parent, View imageView) {
         return;
     }
 
-
     /**
      * You can override this method to transform the bitmap before
      * is attached to ImageView.
      *
-     *
-     * @param imageView  imageView
-     * @param bitmap     bitmap
+     * @param imageView imageView
+     * @param bitmap    bitmap
      * @return true if the callback has already been attached the bitmap to imageView , false otherwise.
      */
-    public boolean applyBitmap(View imageView, Bitmap bitmap){
+    public boolean applyBitmap(View imageView, Bitmap bitmap) {
         return false;
     }
 
     /**
      * Returns the resource ID for Thumbnail
+     *
      * @return resource ID
      */
     public int getDrawableResource() {
@@ -210,12 +193,16 @@ public class CardThumbnail extends BaseCard {
      *
      * @return the listener
      */
-    public CustomSource getCustomSource() { return customSource; }
+    public CustomSource getCustomSource() {
+        return customSource;
+    }
 
     /**
      * Sets the listener for a custom source Thumbnail
      */
-    public void setCustomSource(CustomSource customSource) { this.customSource = customSource; }
+    public void setCustomSource(CustomSource customSource) {
+        this.customSource = customSource;
+    }
 
     /**
      * Indicates if CardThumbnail will use an external library to load image
@@ -273,6 +260,7 @@ public class CardThumbnail extends BaseCard {
 
     /**
      * Return the CardThumbnailCardView
+     *
      * @return
      */
     public CardThumbnailView getCardThumbnailView() {
@@ -281,5 +269,20 @@ public class CardThumbnail extends BaseCard {
             return getParentCard().getCardView().getInternalThumbnailLayout();
 
         return null;
+    }
+
+    /**
+     * Interface for custom source Thumbnail
+     */
+    public interface CustomSource {
+        /**
+         * @return a string tag to identify the image
+         */
+        String getTag();
+
+        /**
+         * @return the bitmap from custom source
+         */
+        Bitmap getBitmap();
     }
 }

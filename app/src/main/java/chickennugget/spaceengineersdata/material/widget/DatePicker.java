@@ -35,8 +35,20 @@ import chickennugget.spaceengineersdata.material.util.ViewUtil;
 /**
  * Created by Rey on 12/31/2014.
  */
-public class DatePicker extends ListView implements AbsListView.OnScrollListener{
+public class DatePicker extends ListView implements AbsListView.OnScrollListener {
 
+    protected static final int SCROLL_DURATION = 250;
+    protected static final int SCROLL_CHANGE_DELAY = 40;
+    protected static final int LIST_TOP_OFFSET = -1;
+    private static final String DAY_FORMAT = "%2d";
+    private static final String YEAR_FORMAT = "%4d";
+    private static String[] mDayTexts;
+    protected Handler mHandler = new Handler();
+    protected int mCurrentScrollState = 0;
+    protected long mPreviousScrollPosition;
+    protected int mPreviousScrollState = 0;
+    protected float mFriction = 1.0F;
+    protected ScrollStateRunnable mScrollStateChangedRunnable = new ScrollStateRunnable();
     private Typeface mTypeface;
     private int mTextSize;
     private int mTextColor;
@@ -47,7 +59,6 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
     private int mAnimDuration;
     private Interpolator mInInterpolator;
     private Interpolator mOutInterpolator;
-
     private Paint mPaint;
     private float mDayBaseWidth;
     private float mDayBaseHeight;
@@ -57,53 +68,15 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
     private float mSelectionRadius;
     private int mMonthRealWidth;
     private int mMonthRealHeight;
-
     private Calendar mCalendar;
     private int mFirstDayOfWeek;
     private String[] mLabels;
-    private static String[] mDayTexts;
-
     private MonthAdapter mAdapter;
-
-    /**
-     * Interface definition for a callback to be invoked when the selected date is changed.
-     */
-    public interface OnDateChangedListener {
-
-        /**
-         * Called when the selected date is changed.
-         * @param oldDay The day value of old date.
-         * @param oldMonth The month value of old date.
-         * @param oldYear The year value of old date.
-         * @param newDay The day value of new date.
-         * @param newMonth The month value of new date.
-         * @param newYear The year value of new date.
-         */
-        public void onDateChanged(int oldDay, int oldMonth, int oldYear, int newDay, int newMonth, int newYear);
-    }
-
     private OnDateChangedListener mOnDateChangedListener;
-
-    protected static final int SCROLL_DURATION = 250;
-    protected static final int SCROLL_CHANGE_DELAY = 40;
-    protected static final int LIST_TOP_OFFSET = -1;
-
-    protected Handler mHandler = new Handler();
-
-    protected int mCurrentScrollState = 0;
-    protected long mPreviousScrollPosition;
-    protected int mPreviousScrollState = 0;
-    protected float mFriction = 1.0F;
-    protected ScrollStateRunnable mScrollStateChangedRunnable = new ScrollStateRunnable();
-
     private int mPaddingLeft;
     private int mPaddingTop;
     private int mPaddingRight;
     private int mPaddingBottom;
-
-    private static final String DAY_FORMAT = "%2d";
-    private static final String YEAR_FORMAT = "%4d";
-
     public DatePicker(Context context) {
         super(context);
 
@@ -129,7 +102,7 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
     }
 
     @Override
-    protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
+    protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         mTypeface = Typeface.DEFAULT;
         mTextSize = -1;
         mTextColor = 0xFF000000;
@@ -163,7 +136,7 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
 
         int index = mCalendar.get(Calendar.DAY_OF_WEEK) - 1;
         DateFormat format = new SimpleDateFormat(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2 ? "EEEEE" : "E");
-        for(int i = 0; i < 7; i++){
+        for (int i = 0; i < 7; i++) {
             mLabels[index] = format.format(mCalendar.getTime());
             index = (index + 1) % 7;
             mCalendar.add(Calendar.DAY_OF_MONTH, 1);
@@ -176,7 +149,7 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
     }
 
     @Override
-    protected void applyStyle(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
+    protected void applyStyle(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super.applyStyle(context, attrs, defStyleAttr, defStyleRes);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.DatePicker, defStyleAttr, defStyleRes);
@@ -191,84 +164,80 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
         int paddingBottom = -1;
         boolean paddingDefined = false;
 
-        for(int i = 0, count = a.getIndexCount(); i < count; i++){
+        for (int i = 0, count = a.getIndexCount(); i < count; i++) {
             int attr = a.getIndex(i);
 
-            if(attr == R.styleable.DatePicker_dp_dayTextSize)
+            if (attr == R.styleable.DatePicker_dp_dayTextSize)
                 mTextSize = a.getDimensionPixelSize(attr, 0);
-            else if(attr == R.styleable.DatePicker_dp_textColor)
+            else if (attr == R.styleable.DatePicker_dp_textColor)
                 mTextColor = a.getColor(attr, 0);
-            else if(attr == R.styleable.DatePicker_dp_textHighlightColor)
+            else if (attr == R.styleable.DatePicker_dp_textHighlightColor)
                 mTextHighlightColor = a.getColor(attr, 0);
-            else if(attr == R.styleable.DatePicker_dp_textLabelColor)
+            else if (attr == R.styleable.DatePicker_dp_textLabelColor)
                 mTextLabelColor = a.getColor(attr, 0);
-            else if(attr == R.styleable.DatePicker_dp_textDisableColor)
+            else if (attr == R.styleable.DatePicker_dp_textDisableColor)
                 mTextDisableColor = a.getColor(attr, 0);
-            else if(attr == R.styleable.DatePicker_dp_selectionColor)
+            else if (attr == R.styleable.DatePicker_dp_selectionColor)
                 mSelectionColor = a.getColor(attr, 0);
-            else if(attr == R.styleable.DatePicker_dp_animDuration)
+            else if (attr == R.styleable.DatePicker_dp_animDuration)
                 mAnimDuration = a.getInteger(attr, 0);
-            else if(attr == R.styleable.DatePicker_dp_inInterpolator)
+            else if (attr == R.styleable.DatePicker_dp_inInterpolator)
                 mInInterpolator = AnimationUtils.loadInterpolator(context, a.getResourceId(attr, 0));
-            else if(attr == R.styleable.DatePicker_dp_outInterpolator)
+            else if (attr == R.styleable.DatePicker_dp_outInterpolator)
                 mOutInterpolator = AnimationUtils.loadInterpolator(context, a.getResourceId(attr, 0));
-            else if(attr == R.styleable.DatePicker_dp_fontFamily)
+            else if (attr == R.styleable.DatePicker_dp_fontFamily)
                 familyName = a.getString(attr);
-            else if(attr == R.styleable.DatePicker_dp_textStyle)
+            else if (attr == R.styleable.DatePicker_dp_textStyle)
                 style = a.getInteger(attr, 0);
-            else if(attr == R.styleable.DatePicker_android_padding) {
+            else if (attr == R.styleable.DatePicker_android_padding) {
                 padding = a.getDimensionPixelSize(attr, 0);
                 paddingDefined = true;
-            }
-            else if(attr == R.styleable.DatePicker_android_paddingLeft) {
+            } else if (attr == R.styleable.DatePicker_android_paddingLeft) {
                 paddingLeft = a.getDimensionPixelSize(attr, 0);
                 paddingDefined = true;
-            }
-            else if(attr == R.styleable.DatePicker_android_paddingTop) {
+            } else if (attr == R.styleable.DatePicker_android_paddingTop) {
                 paddingTop = a.getDimensionPixelSize(attr, 0);
                 paddingDefined = true;
-            }
-            else if(attr == R.styleable.DatePicker_android_paddingRight) {
+            } else if (attr == R.styleable.DatePicker_android_paddingRight) {
                 paddingRight = a.getDimensionPixelSize(attr, 0);
                 paddingDefined = true;
-            }
-            else if(attr == R.styleable.DatePicker_android_paddingBottom) {
+            } else if (attr == R.styleable.DatePicker_android_paddingBottom) {
                 paddingBottom = a.getDimensionPixelSize(attr, 0);
                 paddingDefined = true;
             }
         }
 
-        if(mTextSize < 0)
+        if (mTextSize < 0)
             mTextSize = context.getResources().getDimensionPixelOffset(R.dimen.abc_text_size_caption_material);
 
-        if(mAnimDuration < 0)
-             mAnimDuration = context.getResources().getInteger(android.R.integer.config_mediumAnimTime);
+        if (mAnimDuration < 0)
+            mAnimDuration = context.getResources().getInteger(android.R.integer.config_mediumAnimTime);
 
-        if(mInInterpolator == null)
+        if (mInInterpolator == null)
             mInInterpolator = new DecelerateInterpolator();
 
-        if(mOutInterpolator == null)
+        if (mOutInterpolator == null)
             mOutInterpolator = new DecelerateInterpolator();
 
-        if(familyName != null || style >= 0)
+        if (familyName != null || style >= 0)
             mTypeface = TypefaceUtil.load(context, familyName, style);
 
         a.recycle();
 
-        if(paddingDefined){
-            if(padding >= 0)
+        if (paddingDefined) {
+            if (padding >= 0)
                 setContentPadding(padding, padding, padding, padding);
 
-            if(paddingLeft >= 0)
+            if (paddingLeft >= 0)
                 mPaddingLeft = paddingLeft;
 
-            if(paddingTop >= 0)
+            if (paddingTop >= 0)
                 mPaddingTop = paddingTop;
 
-            if(paddingRight >= 0)
+            if (paddingRight >= 0)
                 mPaddingRight = paddingRight;
 
-            if(paddingBottom >= 0)
+            if (paddingBottom >= 0)
                 mPaddingBottom = paddingBottom;
         }
 
@@ -278,7 +247,7 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void setFrictionIfSupported(float friction) {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
             setFriction(friction);
     }
 
@@ -298,13 +267,13 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
         mScrollStateChangedRunnable.doScrollStateChange(absListView, scroll);
     }
 
-    private void measureBaseSize(){
+    private void measureBaseSize() {
         mPaint.setTextSize(mTextSize);
         mPaint.setTypeface(mTypeface);
         mDayBaseWidth = mPaint.measureText("88", 0, 2) + mDayPadding * 2;
 
         Rect bounds = new Rect();
-        mPaint.getTextBounds("88", 0, 2 ,bounds);
+        mPaint.getTextBounds("88", 0, 2, bounds);
         mDayBaseHeight = bounds.height();
     }
 
@@ -321,7 +290,7 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
         int width = size * 7 + mPaddingLeft + mPaddingRight;
         int height = Math.round(size * 7 + mDayBaseHeight + mDayPadding * 2 + mPaddingTop + mPaddingBottom);
 
-        switch (widthMode){
+        switch (widthMode) {
             case View.MeasureSpec.AT_MOST:
                 width = Math.min(width, widthSize);
                 break;
@@ -330,7 +299,7 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
                 break;
         }
 
-        switch (heightMode){
+        switch (heightMode) {
             case View.MeasureSpec.AT_MOST:
                 height = Math.min(height, heightSize);
                 break;
@@ -361,22 +330,22 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
         super.setPadding(0, 0, 0, 0);
     }
 
-    public void setContentPadding(int left, int top, int right, int bottom){
+    public void setContentPadding(int left, int top, int right, int bottom) {
         mPaddingLeft = left;
         mPaddingTop = top;
         mPaddingRight = right;
         mPaddingBottom = bottom;
     }
 
-    private String getDayText(int day){
-        if(mDayTexts == null){
-            synchronized (DatePicker.class){
-                if(mDayTexts == null)
+    private String getDayText(int day) {
+        if (mDayTexts == null) {
+            synchronized (DatePicker.class) {
+                if (mDayTexts == null)
                     mDayTexts = new String[31];
             }
         }
 
-        if(mDayTexts[day - 1] == null)
+        if (mDayTexts[day - 1] == null)
             mDayTexts[day - 1] = String.format(DAY_FORMAT, day);
 
         return mDayTexts[day - 1];
@@ -384,23 +353,25 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
 
     /**
      * Set the range of selectable dates.
-     * @param minDay The day value of minimum date.
+     *
+     * @param minDay   The day value of minimum date.
      * @param minMonth The month value of minimum date.
-     * @param minYear The year value of minimum date.
-     * @param maxDay The day value of maximum date.
+     * @param minYear  The year value of minimum date.
+     * @param maxDay   The day value of maximum date.
      * @param maxMonth The month value of maximum date.
-     * @param maxYear The year value of maximum date.
+     * @param maxYear  The year value of maximum date.
      */
-    public void setDateRange(int minDay, int minMonth, int minYear, int maxDay, int maxMonth, int maxYear){
+    public void setDateRange(int minDay, int minMonth, int minYear, int maxDay, int maxMonth, int maxYear) {
         mAdapter.setDateRange(minDay, minMonth, minYear, maxDay, maxMonth, maxYear);
     }
 
     /**
      * Jump to the view of a specific month.
+     *
      * @param month
      * @param year
      */
-    public void goTo(int month, int year){
+    public void goTo(int month, int year) {
         int position = mAdapter.positionOfMonth(month, year);
         postSetSelectionFromTop(position, 0);
     }
@@ -417,12 +388,13 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
 
     /**
      * Set the selected date of this DatePicker.
-     * @param day The day value of selected date.
+     *
+     * @param day   The day value of selected date.
      * @param month The month value of selected date.
-     * @param year The year value of selected date.
+     * @param year  The year value of selected date.
      */
-    public void setDate(int day, int month, int year){
-        if(mAdapter.getYear() == year && mAdapter.getMonth() == month && mAdapter.getDay() == day)
+    public void setDate(int day, int month, int year) {
+        if (mAdapter.getYear() == year && mAdapter.getMonth() == month && mAdapter.getDay() == day)
             return;
 
         mAdapter.setDate(day, month, year, false);
@@ -431,75 +403,95 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
 
     /**
      * Set the listener will be called when the selected date is changed.
+     *
      * @param listener The {@link OnDateChangedListener} will be called.
      */
-    public void setOnDateChangedListener(OnDateChangedListener listener){
+    public void setOnDateChangedListener(OnDateChangedListener listener) {
         mOnDateChangedListener = listener;
     }
 
     /**
      * @return The day value of selected date.
      */
-    public int getDay(){
+    public int getDay() {
         return mAdapter.getDay();
     }
 
     /**
      * @return The month value of selected date.
      */
-    public int getMonth(){
+    public int getMonth() {
         return mAdapter.getMonth();
     }
 
     /**
      * @return The year value of selected date.
      */
-    public int getYear(){
+    public int getYear() {
         return mAdapter.getYear();
     }
 
     /**
      * Get the formatted string of selected date.
+     *
      * @param formatter The DateFormat used to format the date.
      * @return
      */
-    public String getFormattedDate(DateFormat formatter){
+    public String getFormattedDate(DateFormat formatter) {
         mCalendar.set(Calendar.YEAR, mAdapter.getYear());
         mCalendar.set(Calendar.MONTH, mAdapter.getMonth());
         mCalendar.set(Calendar.DAY_OF_MONTH, mAdapter.getDay());
         return formatter.format(mCalendar.getTime());
     }
 
-    public int getSelectionColor(){
+    public int getSelectionColor() {
         return mSelectionColor;
     }
 
-    public int getTextSize(){
+    public int getTextSize() {
         return mTextSize;
     }
 
-    public Typeface getTypeface(){
+    public Typeface getTypeface() {
         return mTypeface;
     }
 
-    public int getTextColor(){
+    public int getTextColor() {
         return mTextColor;
     }
 
-    public int getTextLabelColor(){
+    public int getTextLabelColor() {
         return mTextLabelColor;
     }
 
-    public int getTextHighlightColor(){
+    public int getTextHighlightColor() {
         return mTextHighlightColor;
     }
 
-    public int getTextDisableColor(){
+    public int getTextDisableColor() {
         return mTextDisableColor;
     }
 
-    public Calendar getCalendar(){
+    public Calendar getCalendar() {
         return mCalendar;
+    }
+
+    /**
+     * Interface definition for a callback to be invoked when the selected date is changed.
+     */
+    public interface OnDateChangedListener {
+
+        /**
+         * Called when the selected date is changed.
+         *
+         * @param oldDay   The day value of old date.
+         * @param oldMonth The month value of old date.
+         * @param oldYear  The year value of old date.
+         * @param newDay   The day value of new date.
+         * @param newMonth The month value of new date.
+         * @param newYear  The year value of new date.
+         */
+        public void onDateChanged(int oldDay, int oldMonth, int oldYear, int newDay, int newMonth, int newYear);
     }
 
     private class ScrollStateRunnable implements Runnable {
@@ -509,7 +501,7 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
          * Sets up the runnable with a short delay in case the scroll state
          * immediately changes again.
          *
-         * @param view The list view that changed state
+         * @param view        The list view that changed state
          * @param scrollState The new state it changed to
          */
         public void doScrollStateChange(AbsListView view, int scrollState) {
@@ -527,7 +519,7 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
 
                 int i = 0;
                 View child = getChildAt(i);
-                while(child != null && child.getBottom() <= 0)
+                while (child != null && child.getBottom() <= 0)
                     child = getChildAt(++i);
                 if (child == null)
                     return;
@@ -544,8 +536,7 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
                     else
                         smoothScrollBy(bottom, SCROLL_DURATION);
                 }
-            }
-            else
+            } else
                 mPreviousScrollState = mNewState;
         }
     }
@@ -555,9 +546,15 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
         private long mStartTime;
         private float mAnimProgress;
         private boolean mRunning;
+        private final Runnable mUpdater = new Runnable() {
 
+            @Override
+            public void run() {
+                update();
+            }
+
+        };
         private int mTouchedDay = -1;
-
         private int mMonth;
         private int mYear;
         private int mMaxDay;
@@ -575,8 +572,8 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
             setWillNotDraw(false);
         }
 
-        public void setMonth(int month, int year){
-            if(mMonth != month || mYear != year){
+        public void setMonth(int month, int year) {
+            if (mMonth != month || mYear != year) {
                 mMonth = month;
                 mYear = year;
                 calculateMonthView();
@@ -584,34 +581,34 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
             }
         }
 
-        public void setSelectedDay(int day, boolean animation){
-            if(mSelectedDay != day){
+        public void setSelectedDay(int day, boolean animation) {
+            if (mSelectedDay != day) {
                 mPreviousSelectedDay = mSelectedDay;
                 mSelectedDay = day;
 
-                if(animation)
+                if (animation)
                     startAnimation();
                 else
                     invalidate();
             }
         }
 
-        public void setToday(int day){
-            if(mToday != day){
+        public void setToday(int day) {
+            if (mToday != day) {
                 mToday = day;
                 invalidate();
             }
         }
 
-        public void setAvailableDay(int min, int max){
-            if(mMinAvailDay != min || mMaxAvailDay != max){
+        public void setAvailableDay(int min, int max) {
+            if (mMinAvailDay != min || mMaxAvailDay != max) {
                 mMinAvailDay = min;
                 mMaxAvailDay = max;
                 invalidate();
             }
         }
 
-        private void calculateMonthView(){
+        private void calculateMonthView() {
             mCalendar.set(Calendar.DAY_OF_MONTH, 1);
             mCalendar.set(Calendar.MONTH, mMonth);
             mCalendar.set(Calendar.YEAR, mYear);
@@ -641,7 +638,7 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
             //draw selection
             float paddingLeft = getPaddingLeft();
             float paddingTop = mDayPadding * 2 + mDayBaseHeight + getPaddingTop();
-            if(mSelectedDay > 0){
+            if (mSelectedDay > 0) {
                 int col = (mFirstDayCol + mSelectedDay - 1) % 7;
                 int row = (mFirstDayCol + mSelectedDay - 1) / 7 + 1;
 
@@ -652,7 +649,7 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
                 canvas.drawCircle(x, y, radius, mPaint);
             }
 
-            if(mRunning && mPreviousSelectedDay > 0){
+            if (mRunning && mPreviousSelectedDay > 0) {
                 int col = (mFirstDayCol + mPreviousSelectedDay - 1) % 7;
                 int row = (mFirstDayCol + mPreviousSelectedDay - 1) / 7 + 1;
 
@@ -667,7 +664,7 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
             mPaint.setFakeBoldText(false);
             mPaint.setColor(mTextLabelColor);
             paddingTop += (mDayHeight + mDayBaseHeight) / 2f;
-            for(int i = 0; i < 7; i++){
+            for (int i = 0; i < 7; i++) {
                 x = (i + 0.5f) * mDayWidth + paddingLeft;
                 y = paddingTop;
                 int index = (i + mFirstDayOfWeek - 1) % 7;
@@ -678,12 +675,12 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
             int col = mFirstDayCol;
             int row = 1;
             int maxDay = mMaxAvailDay > 0 ? Math.min(mMaxAvailDay, mMaxDay) : mMaxDay;
-            for(int day = 1; day <= mMaxDay; day++){
-                if(day == mSelectedDay)
+            for (int day = 1; day <= mMaxDay; day++) {
+                if (day == mSelectedDay)
                     mPaint.setColor(mTextHighlightColor);
-                else if(day < mMinAvailDay || day > maxDay)
+                else if (day < mMinAvailDay || day > maxDay)
                     mPaint.setColor(mTextDisableColor);
-                else if(day == mToday)
+                else if (day == mToday)
                     mPaint.setColor(mSelectionColor);
                 else
                     mPaint.setColor(mTextColor);
@@ -693,24 +690,24 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
 
                 canvas.drawText(getDayText(day), x, y, mPaint);
                 col++;
-                if(col == 7) {
+                if (col == 7) {
                     col = 0;
                     row++;
                 }
             }
         }
 
-        private int getTouchedDay(float x, float y){
+        private int getTouchedDay(float x, float y) {
             float paddingTop = mDayPadding * 2 + mDayBaseHeight + getPaddingTop() + mDayHeight;
-            if(x < getPaddingLeft() || x > getWidth() - getPaddingRight() || y < paddingTop || y > getHeight() - getPaddingBottom())
+            if (x < getPaddingLeft() || x > getWidth() - getPaddingRight() || y < paddingTop || y > getHeight() - getPaddingBottom())
                 return -1;
 
-            int col = (int)Math.floor((x - getPaddingLeft()) / mDayWidth);
-            int row = (int)Math.floor((y - paddingTop) / mDayHeight);
+            int col = (int) Math.floor((x - getPaddingLeft()) / mDayWidth);
+            int row = (int) Math.floor((y - paddingTop) / mDayHeight);
             int maxDay = mMaxAvailDay > 0 ? Math.min(mMaxAvailDay, mMaxDay) : mMaxDay;
 
             int day = row * 7 + col - mFirstDayCol + 1;
-            if(day < 0 || day < mMinAvailDay || day > maxDay)
+            if (day < 0 || day < mMinAvailDay || day > maxDay)
                 return -1;
 
             return day;
@@ -718,12 +715,12 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
 
         @Override
         public boolean onTouchEvent(MotionEvent event) {
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     mTouchedDay = getTouchedDay(event.getX(), event.getY());
                     return true;
                 case MotionEvent.ACTION_UP:
-                    if(getTouchedDay(event.getX(), event.getY()) == mTouchedDay && mTouchedDay > 0) {
+                    if (getTouchedDay(event.getX(), event.getY()) == mTouchedDay && mTouchedDay > 0) {
                         mAdapter.setDate(mTouchedDay, mMonth, mYear, true);
                         mTouchedDay = -1;
                     }
@@ -735,13 +732,13 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
             return true;
         }
 
-        private void resetAnimation(){
+        private void resetAnimation() {
             mStartTime = SystemClock.uptimeMillis();
             mAnimProgress = 0f;
         }
 
         private void startAnimation() {
-            if(getHandler() != null){
+            if (getHandler() != null) {
                 resetAnimation();
                 mRunning = true;
                 getHandler().postAtTime(mUpdater, SystemClock.uptimeMillis() + ViewUtil.FRAME_DURATION);
@@ -753,29 +750,20 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
         private void stopAnimation() {
             mRunning = false;
             mAnimProgress = 1f;
-            if(getHandler() != null)
+            if (getHandler() != null)
                 getHandler().removeCallbacks(mUpdater);
             invalidate();
         }
 
-        private final Runnable mUpdater = new Runnable() {
-
-            @Override
-            public void run() {
-                update();
-            }
-
-        };
-
-        private void update(){
+        private void update() {
             long curTime = SystemClock.uptimeMillis();
-            mAnimProgress = Math.min(1f, (float)(curTime - mStartTime) / mAnimDuration);
+            mAnimProgress = Math.min(1f, (float) (curTime - mStartTime) / mAnimDuration);
 
-            if(mAnimProgress == 1f)
+            if (mAnimProgress == 1f)
                 stopAnimation();
 
-            if(mRunning) {
-                if(getHandler() != null)
+            if (mRunning) {
+                if (getHandler() != null)
                     getHandler().postAtTime(mUpdater, SystemClock.uptimeMillis() + ViewUtil.FRAME_DURATION);
                 else
                     stopAnimation();
@@ -786,7 +774,7 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
 
     }
 
-    private class MonthAdapter extends BaseAdapter{
+    private class MonthAdapter extends BaseAdapter {
         private int mDay = -1;
         private int mMonth = -1;
         private int mYear = -1;
@@ -802,11 +790,11 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
         private int mMinMonthValue;
         private int mMaxMonthValue;
 
-        public void setDateRange(int minDay, int minMonth, int minYear, int maxDay, int maxMonth, int maxYear){
+        public void setDateRange(int minDay, int minMonth, int minYear, int maxDay, int maxMonth, int maxYear) {
             int minMonthValue = minDay < 0 || minMonth < 0 || minYear < 0 ? 0 : minYear * 12 + minMonth;
-            int maxMonthValue = maxDay < 0 || maxMonth < 0 || maxYear < 0 ? Integer.MAX_VALUE - 1: maxYear * 12 + maxMonth;
+            int maxMonthValue = maxDay < 0 || maxMonth < 0 || maxYear < 0 ? Integer.MAX_VALUE - 1 : maxYear * 12 + maxMonth;
 
-            if(minDay != mMinDay || mMinMonthValue != minMonthValue || maxDay != mMaxDay || mMaxMonthValue != maxMonthValue){
+            if (minDay != mMinDay || mMinMonthValue != minMonthValue || maxDay != mMaxDay || mMaxMonthValue != maxMonthValue) {
                 mMinDay = minDay;
                 mMinMonth = minMonth;
                 mMinYear = minYear;
@@ -821,9 +809,9 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
             }
         }
 
-        public void setDate(int day, int month, int year, boolean animation){
-            if(mMonth != month || mYear != year) {
-                MonthView v = (MonthView)getChildAt(positionOfMonth(mMonth, mYear) - getFirstVisiblePosition());
+        public void setDate(int day, int month, int year, boolean animation) {
+            if (mMonth != month || mYear != year) {
+                MonthView v = (MonthView) getChildAt(positionOfMonth(mMonth, mYear) - getFirstVisiblePosition());
                 if (v != null)
                     v.setSelectedDay(-1, false);
 
@@ -835,44 +823,43 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
                 mMonth = month;
                 mYear = year;
 
-                v = (MonthView)getChildAt(positionOfMonth(mMonth, mYear) - getFirstVisiblePosition());
-                if(v != null)
+                v = (MonthView) getChildAt(positionOfMonth(mMonth, mYear) - getFirstVisiblePosition());
+                if (v != null)
                     v.setSelectedDay(mDay, animation);
 
-                if(mOnDateChangedListener != null)
+                if (mOnDateChangedListener != null)
                     mOnDateChangedListener.onDateChanged(oldDay, oldMonth, oldYear, mDay, mMonth, mYear);
-            }
-            else if(day != mDay){
+            } else if (day != mDay) {
                 int oldDay = mDay;
 
                 mDay = day;
 
-                MonthView v = (MonthView)getChildAt(positionOfMonth(mMonth, mYear) - getFirstVisiblePosition());
-                if(v != null)
+                MonthView v = (MonthView) getChildAt(positionOfMonth(mMonth, mYear) - getFirstVisiblePosition());
+                if (v != null)
                     v.setSelectedDay(mDay, animation);
 
-                if(mOnDateChangedListener != null)
+                if (mOnDateChangedListener != null)
                     mOnDateChangedListener.onDateChanged(oldDay, mMonth, mYear, mDay, mMonth, mYear);
             }
         }
 
-        public int positionOfMonth(int month, int year){
+        public int positionOfMonth(int month, int year) {
             return year * 12 + month - mMinMonthValue;
         }
 
-        public int getDay(){
+        public int getDay() {
             return mDay;
         }
 
-        public int getMonth(){
+        public int getMonth() {
             return mMonth;
         }
 
-        public int getYear(){
+        public int getYear() {
             return mYear;
         }
 
-        private void calToday(){
+        private void calToday() {
             mCalendar.setTimeInMillis(System.currentTimeMillis());
             mToday = mCalendar.get(Calendar.DAY_OF_MONTH);
             mTodayMonth = mCalendar.get(Calendar.MONTH);
@@ -896,19 +883,19 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            MonthView v = (MonthView)convertView;
-            if(v == null){
+            MonthView v = (MonthView) convertView;
+            if (v == null) {
                 v = new MonthView(parent.getContext());
                 v.setPadding(mPaddingLeft, mPaddingTop, mPaddingRight, mPaddingBottom);
             }
 
             calToday();
-            int monthValue = (Integer)getItem(position);
+            int monthValue = (Integer) getItem(position);
             int year = monthValue / 12;
             int month = monthValue % 12;
             int minDay = month == mMinMonth && year == mMinYear ? mMinDay : -1;
             int maxDay = month == mMaxMonth && year == mMaxYear ? mMaxDay : -1;
-            int today = mTodayMonth == month && mTodayYear == year ?  mToday : -1;
+            int today = mTodayMonth == month && mTodayYear == year ? mToday : -1;
             int day = month == mMonth && year == mYear ? mDay : -1;
 
             v.setMonth(month, year);

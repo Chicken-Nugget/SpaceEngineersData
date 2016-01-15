@@ -42,9 +42,9 @@ import chickennugget.spaceengineersdata.R;
  *     CardExample card = new CardExample(getActivity(),"My title "+i,"Inner text "+i);
  *     cards.add(card);
  * }
- *
+ * <p>
  * CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
- *
+ * <p>
  * CardListView listView = (CardListView) getActivity().findViewById(R.id.listId);
  * listView.setAdapter(mCardArrayAdapter); *
  * </code></pre>
@@ -62,6 +62,7 @@ import chickennugget.spaceengineersdata.R;
  * adapter.setRowLayoutId(list_card_layout_resourceID);
  * </code></pre>
  * </p>
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class CardArrayAdapter extends BaseCardArrayAdapter {
@@ -81,13 +82,13 @@ public class CardArrayAdapter extends BaseCardArrayAdapter {
     /**
      * Used to enable an undo message after a swipe action
      */
-    protected boolean mEnableUndo=false;
+    protected boolean mEnableUndo = false;
 
     /**
      * Internal Map with all Cards.
      * It uses the card id value as key.
      */
-    protected HashMap<String /* id */,Card> mInternalObjects;
+    protected HashMap<String /* id */, Card> mInternalObjects;
 
     /**
      * Dismissable Manager
@@ -96,105 +97,6 @@ public class CardArrayAdapter extends BaseCardArrayAdapter {
 
     // -------------------------------------------------------------
     // Constructors
-    // -------------------------------------------------------------
-
-    /**
-     * Constructor
-     *
-     * @param context The current context.
-     * @param cards   The cards to represent in the ListView.
-     */
-    public CardArrayAdapter(Context context, List<Card> cards) {
-        super(context, cards);
-    }
-
-    // -------------------------------------------------------------
-    // Views
-    // -------------------------------------------------------------
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        View view = convertView;
-        CardViewWrapper mCardView;
-        Card mCard;
-
-        LayoutInflater mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        //Retrieve card from items
-        mCard = (Card) getItem(position);
-        if (mCard != null) {
-
-            int layout = mRowLayoutId;
-            boolean recycle = false;
-
-            //Inflate layout
-            if (view == null) {
-                recycle = false;
-                view = mInflater.inflate(layout, parent, false);
-            } else {
-                recycle = true;
-            }
-
-            //Setup card
-            mCardView = (CardViewWrapper) view.findViewById(R.id.list_cardId);
-            if (mCardView != null) {
-                //It is important to set recycle value for inner layout elements
-                mCardView.setForceReplaceInnerLayout(Card.equalsInnerLayout(mCardView.getCard(),mCard));
-
-                //It is important to set recycle value for performance issue
-                mCardView.setRecycle(recycle);
-
-                //Save original swipeable to prevent cardSwipeListener (listView requires another cardSwipeListener)
-                boolean origianlSwipeable = mCard.isSwipeable();
-                mCard.setSwipeable(false);
-
-                mCardView.setCard(mCard);
-
-                //Set originalValue
-                mCard.setSwipeable(origianlSwipeable);
-
-                //If card has an expandable button override animation
-                if ((mCard.getCardHeader() != null && mCard.getCardHeader().isButtonExpandVisible()) || mCard.getViewToClickToExpand()!=null ){
-                    setupExpandCollapseListAnimation(mCardView);
-                }
-
-                //Setup swipeable animation
-                setupSwipeableAnimation(mCard, mCardView);
-
-                //setupMultiChoice
-                setupMultichoice(view,mCard,mCardView,position);
-            }
-        }
-
-        return view;
-    }
-
-
-
-    /**
-     * Sets SwipeAnimation on List
-     *
-     * @param card {@link Card}
-     * @param cardView {@link chickennugget.spaceengineersdata.cards.CardViewWrapper}
-     */
-    protected void setupSwipeableAnimation(final Card card, CardViewWrapper cardView) {
-        cardView.setOnTouchListener(null);
-    }
-
-    /**
-     * Overrides the default collapse/expand animation in a List
-     *
-     * @param cardView {@link chickennugget.spaceengineersdata.cards.CardViewWrapper}
-     */
-    protected void setupExpandCollapseListAnimation(CardViewWrapper cardView) {
-
-        if (cardView == null) return;
-        cardView.setOnExpandListAnimatorListener(mCardListView);
-    }
-
-    // -------------------------------------------------------------
-    //  SwipeListener and undo action
     // -------------------------------------------------------------
     /**
      * Listener invoked when a card is swiped
@@ -209,9 +111,9 @@ public class CardArrayAdapter extends BaseCardArrayAdapter {
         @Override
         public void onDismiss(ListView listView, int[] reverseSortedPositions) {
 
-            int[] itemPositions=new int[reverseSortedPositions.length];
-            String[] itemIds=new String[reverseSortedPositions.length];
-            int i=0;
+            int[] itemPositions = new int[reverseSortedPositions.length];
+            String[] itemIds = new String[reverseSortedPositions.length];
+            int i = 0;
 
             // Keep track of the cards that will be removed
             final ArrayList<Card> removedCards = new ArrayList<Card>();
@@ -241,13 +143,110 @@ public class CardArrayAdapter extends BaseCardArrayAdapter {
                     if (card.getOnSwipeListener() != null) {
                         card.getOnSwipeListener().onSwipe(card);
                     }
-                }else{
+                } else {
                     Log.e(TAG, "Error on swipe action. Impossible to retrieve the card from position");
                 }
             }
             notifyDataSetChanged();
         }
     };
+
+    // -------------------------------------------------------------
+    // Views
+    // -------------------------------------------------------------
+
+    /**
+     * Constructor
+     *
+     * @param context The current context.
+     * @param cards   The cards to represent in the ListView.
+     */
+    public CardArrayAdapter(Context context, List<Card> cards) {
+        super(context, cards);
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        View view = convertView;
+        CardViewWrapper mCardView;
+        Card mCard;
+
+        LayoutInflater mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        //Retrieve card from items
+        mCard = (Card) getItem(position);
+        if (mCard != null) {
+
+            int layout = mRowLayoutId;
+            boolean recycle = false;
+
+            //Inflate layout
+            if (view == null) {
+                recycle = false;
+                view = mInflater.inflate(layout, parent, false);
+            } else {
+                recycle = true;
+            }
+
+            //Setup card
+            mCardView = (CardViewWrapper) view.findViewById(R.id.list_cardId);
+            if (mCardView != null) {
+                //It is important to set recycle value for inner layout elements
+                mCardView.setForceReplaceInnerLayout(Card.equalsInnerLayout(mCardView.getCard(), mCard));
+
+                //It is important to set recycle value for performance issue
+                mCardView.setRecycle(recycle);
+
+                //Save original swipeable to prevent cardSwipeListener (listView requires another cardSwipeListener)
+                boolean origianlSwipeable = mCard.isSwipeable();
+                mCard.setSwipeable(false);
+
+                mCardView.setCard(mCard);
+
+                //Set originalValue
+                mCard.setSwipeable(origianlSwipeable);
+
+                //If card has an expandable button override animation
+                if ((mCard.getCardHeader() != null && mCard.getCardHeader().isButtonExpandVisible()) || mCard.getViewToClickToExpand() != null) {
+                    setupExpandCollapseListAnimation(mCardView);
+                }
+
+                //Setup swipeable animation
+                setupSwipeableAnimation(mCard, mCardView);
+
+                //setupMultiChoice
+                setupMultichoice(view, mCard, mCardView, position);
+            }
+        }
+
+        return view;
+    }
+
+    /**
+     * Sets SwipeAnimation on List
+     *
+     * @param card     {@link Card}
+     * @param cardView {@link chickennugget.spaceengineersdata.cards.CardViewWrapper}
+     */
+    protected void setupSwipeableAnimation(final Card card, CardViewWrapper cardView) {
+        cardView.setOnTouchListener(null);
+    }
+
+    // -------------------------------------------------------------
+    //  SwipeListener and undo action
+    // -------------------------------------------------------------
+
+    /**
+     * Overrides the default collapse/expand animation in a List
+     *
+     * @param cardView {@link chickennugget.spaceengineersdata.cards.CardViewWrapper}
+     */
+    protected void setupExpandCollapseListAnimation(CardViewWrapper cardView) {
+
+        if (cardView == null) return;
+        cardView.setOnExpandListAnimatorListener(mCardListView);
+    }
 
     /**
      * Indicates if the undo message is enabled after a swipe action
@@ -285,7 +284,7 @@ public class CardArrayAdapter extends BaseCardArrayAdapter {
     }
 
     @Override
-    public void addAll(Card...cards) {
+    public void addAll(Card... cards) {
         super.addAll(cards);
         if (mEnableUndo) {
             for (Card card : cards) {

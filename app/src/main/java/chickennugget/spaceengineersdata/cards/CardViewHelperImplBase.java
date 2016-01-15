@@ -32,13 +32,13 @@ public class CardViewHelperImplBase implements CardViewHelper {
 
     protected Context mContext;
 
-    public CardViewHelperImplBase(Context context){
+    public CardViewHelperImplBase(Context context) {
         mContext = context;
     }
 
     @Override
     public void setBackground(View view, Drawable drawable) {
-       if (view != null)
+        if (view != null)
             view.setBackgroundDrawable(drawable);
     }
 
@@ -58,10 +58,10 @@ public class CardViewHelperImplBase implements CardViewHelper {
     }
 
     @Override
-    public Drawable getResourceFromAttrs(Context themedContext, int attr){
+    public Drawable getResourceFromAttrs(Context themedContext, int attr) {
         // Create an array of the attributes we want to resolve
         // using values from a theme
-        int[] attrs = new int[] { attr /* index 0 */};
+        int[] attrs = new int[]{attr /* index 0 */};
 
         // Obtain the styled attributes. 'themedContext' is a context with a
         // theme, typically the current Activity (i.e. 'this')

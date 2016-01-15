@@ -21,7 +21,7 @@ public class TypefaceUtil {
      * @return
      */
     public static Typeface load(Context context, String familyName, int style) {
-        if(familyName != null && familyName.startsWith(PREFIX_ASSET))
+        if (familyName != null && familyName.startsWith(PREFIX_ASSET))
             synchronized (sCachedFonts) {
                 try {
                     if (!sCachedFonts.containsKey(familyName)) {

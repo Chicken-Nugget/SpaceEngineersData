@@ -28,69 +28,63 @@ import chickennugget.spaceengineersdata.material.util.ThemeUtil;
 import chickennugget.spaceengineersdata.material.util.ViewUtil;
 
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-public class TabPageIndicator extends HorizontalScrollView implements ViewPager.OnPageChangeListener, View.OnClickListener, ThemeManager.OnThemeChangedListener{
+public class TabPageIndicator extends HorizontalScrollView implements ViewPager.OnPageChangeListener, View.OnClickListener, ThemeManager.OnThemeChangedListener {
 
+    public static final int MODE_SCROLL = 0;
+    public static final int MODE_FIXED = 1;
     protected int mStyleId;
     protected int mCurrentStyle = ThemeManager.THEME_UNDEFINED;
-
-	private TabContainerLayout mTabContainer;
-	private ViewPager mViewPager;
-
-	private int mMode;
-	private int mTabPadding;
-	private int mTabRippleStyle;
-	private int mTextAppearance;
+    private TabContainerLayout mTabContainer;
+    private ViewPager mViewPager;
+    private int mMode;
+    private int mTabPadding;
+    private int mTabRippleStyle;
+    private int mTextAppearance;
     private boolean mTabSingleLine;
-
-	private int mIndicatorOffset;
-	private int mIndicatorWidth;
-	private int mIndicatorHeight;
+    private int mIndicatorOffset;
+    private int mIndicatorWidth;
+    private int mIndicatorHeight;
     private boolean mIndicatorAtTop;
-
-	private Paint mPaint;
-
-	public static final int MODE_SCROLL = 0;
-	public static final int MODE_FIXED = 1;
-
-	private int mSelectedPosition;
-	private boolean mScrolling;
+    private Paint mPaint;
+    private int mSelectedPosition;
+    private boolean mScrolling;
     private boolean mIsRtl;
 
-	private Runnable mTabAnimSelector;
+    private Runnable mTabAnimSelector;
 
-	private ViewPager.OnPageChangeListener mListener;
+    private ViewPager.OnPageChangeListener mListener;
 
-	private DataSetObserver mObserver = new DataSetObserver(){
+    private DataSetObserver mObserver = new DataSetObserver() {
 
-		@Override
-		public void onChanged() {
-			notifyDataSetChanged();
-		}
+        @Override
+        public void onChanged() {
+            notifyDataSetChanged();
+        }
 
-		@Override
-		public void onInvalidated() {
-			notifyDataSetInvalidated();
-		}
+        @Override
+        public void onInvalidated() {
+            notifyDataSetInvalidated();
+        }
 
-	};
+    };
 
-	public TabPageIndicator(Context context) {
-		super(context);
+    public TabPageIndicator(Context context) {
+        super(context);
 
-		init(context, null, 0, 0);
-	}
+        init(context, null, 0, 0);
+    }
 
-	public TabPageIndicator(Context context, AttributeSet attrs) {
-		super(context, attrs);
+    public TabPageIndicator(Context context, AttributeSet attrs) {
+        super(context, attrs);
 
-		init(context, attrs, 0, 0);
-	}
+        init(context, attrs, 0, 0);
+    }
 
-	public TabPageIndicator(Context context, AttributeSet attrs, int defStyleAttr) {
-		super(context, attrs, defStyleAttr);
+    public TabPageIndicator(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
 
-		init(context, attrs, defStyleAttr, 0);
-	}
+        init(context, attrs, defStyleAttr, 0);
+    }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TabPageIndicator(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
@@ -99,8 +93,8 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
         init(context, attrs, defStyleAttr, defStyleRes);
     }
 
-	protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
-		setHorizontalScrollBarEnabled(false);
+    protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        setHorizontalScrollBarEnabled(false);
 
         mTabPadding = -1;
         mTabSingleLine = true;
@@ -117,83 +111,82 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
 
         applyStyle(context, attrs, defStyleAttr, defStyleRes);
 
-		if(isInEditMode())
-			addTemporaryTab();
+        if (isInEditMode())
+            addTemporaryTab();
 
-        if(!isInEditMode())
+        if (!isInEditMode())
             mStyleId = ThemeManager.getStyleId(context, attrs, defStyleAttr, defStyleRes);
-	}
+    }
 
-    public void applyStyle(int resId){
+    public void applyStyle(int resId) {
         ViewUtil.applyStyle(this, resId);
         applyStyle(getContext(), null, 0, resId);
     }
 
-    protected void applyStyle(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
+    protected void applyStyle(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TabPageIndicator, defStyleAttr, defStyleRes);
 
         int textAppearance = 0;
         int mode = -1;
         int rippleStyle = 0;
 
-        for(int i = 0, count = a.getIndexCount(); i < count; i++){
+        for (int i = 0, count = a.getIndexCount(); i < count; i++) {
             int attr = a.getIndex(i);
-            if(attr == R.styleable.TabPageIndicator_tpi_tabPadding)
+            if (attr == R.styleable.TabPageIndicator_tpi_tabPadding)
                 mTabPadding = a.getDimensionPixelSize(attr, 0);
-            else if(attr == R.styleable.TabPageIndicator_tpi_tabRipple)
+            else if (attr == R.styleable.TabPageIndicator_tpi_tabRipple)
                 rippleStyle = a.getResourceId(attr, 0);
-            else if(attr == R.styleable.TabPageIndicator_tpi_indicatorColor)
+            else if (attr == R.styleable.TabPageIndicator_tpi_indicatorColor)
                 mPaint.setColor(a.getColor(attr, 0));
-            else if(attr == R.styleable.TabPageIndicator_tpi_indicatorHeight)
+            else if (attr == R.styleable.TabPageIndicator_tpi_indicatorHeight)
                 mIndicatorHeight = a.getDimensionPixelSize(attr, 0);
-            else if(attr == R.styleable.TabPageIndicator_tpi_indicatorAtTop)
+            else if (attr == R.styleable.TabPageIndicator_tpi_indicatorAtTop)
                 mIndicatorAtTop = a.getBoolean(attr, true);
-            else if(attr == R.styleable.TabPageIndicator_tpi_tabSingleLine)
+            else if (attr == R.styleable.TabPageIndicator_tpi_tabSingleLine)
                 mTabSingleLine = a.getBoolean(attr, true);
-            else if(attr == R.styleable.TabPageIndicator_android_textAppearance)
+            else if (attr == R.styleable.TabPageIndicator_android_textAppearance)
                 textAppearance = a.getResourceId(attr, 0);
-            else if(attr == R.styleable.TabPageIndicator_tpi_mode)
+            else if (attr == R.styleable.TabPageIndicator_tpi_mode)
                 mode = a.getInteger(attr, 0);
         }
 
         a.recycle();
 
-        if(mTabPadding < 0)
+        if (mTabPadding < 0)
             mTabPadding = ThemeUtil.dpToPx(context, 12);
 
-        if(mIndicatorHeight < 0)
+        if (mIndicatorHeight < 0)
             mIndicatorHeight = ThemeUtil.dpToPx(context, 2);
 
-        if(mode >= 0){
-            if(mMode != mode || getChildCount() == 0){
+        if (mode >= 0) {
+            if (mMode != mode || getChildCount() == 0) {
                 mMode = mode;
                 removeAllViews();
-                if(mMode == MODE_SCROLL) {
+                if (mMode == MODE_SCROLL) {
                     addView(mTabContainer, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
                     setFillViewport(false);
-                }
-                else if(mMode == MODE_FIXED){
+                } else if (mMode == MODE_FIXED) {
                     addView(mTabContainer, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                     setFillViewport(true);
                 }
             }
         }
 
-        if(textAppearance != 0 && mTextAppearance != textAppearance){
+        if (textAppearance != 0 && mTextAppearance != textAppearance) {
             mTextAppearance = textAppearance;
-            for(int i = 0, count = mTabContainer.getChildCount(); i < count; i++){
-                CheckedTextView tv = (CheckedTextView)mTabContainer.getChildAt(i);
+            for (int i = 0, count = mTabContainer.getChildCount(); i < count; i++) {
+                CheckedTextView tv = (CheckedTextView) mTabContainer.getChildAt(i);
                 tv.setTextAppearance(context, mTextAppearance);
             }
         }
 
-        if(rippleStyle != 0 && rippleStyle != mTabRippleStyle){
+        if (rippleStyle != 0 && rippleStyle != mTabRippleStyle) {
             mTabRippleStyle = rippleStyle;
-            for(int i = 0, count = mTabContainer.getChildCount(); i < count; i++)
+            for (int i = 0, count = mTabContainer.getChildCount(); i < count; i++)
                 ViewUtil.setBackground(mTabContainer.getChildAt(i), new RippleDrawable.Builder(getContext(), mTabRippleStyle).build());
         }
 
-        if(mViewPager != null)
+        if (mViewPager != null)
             notifyDataSetChanged();
         requestLayout();
     }
@@ -201,7 +194,7 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
     @Override
     public void onThemeChanged(ThemeManager.OnThemeChangedEvent event) {
         int style = ThemeManager.getInstance().getCurrentStyle(mStyleId);
-        if(mCurrentStyle != style){
+        if (mCurrentStyle != style) {
             mCurrentStyle = style;
             applyStyle(mCurrentStyle);
         }
@@ -214,7 +207,7 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
         if (mTabAnimSelector != null)
             post(mTabAnimSelector);
 
-        if(mStyleId != 0) {
+        if (mStyleId != 0) {
             ThemeManager.getInstance().registerOnThemeChangedListener(this);
             onThemeChanged(null);
         }
@@ -226,14 +219,14 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
         if (mTabAnimSelector != null)
             removeCallbacks(mTabAnimSelector);
 
-        if(mStyleId != 0)
+        if (mStyleId != 0)
             ThemeManager.getInstance().unregisterOnThemeChangedListener(this);
     }
 
     @Override
     public void onRtlPropertiesChanged(int layoutDirection) {
         boolean rtl = layoutDirection == LAYOUT_DIRECTION_RTL;
-        if(mIsRtl != rtl) {
+        if (mIsRtl != rtl) {
             mIsRtl = rtl;
             invalidate();
         }
@@ -247,17 +240,17 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
 
         int ws = widthMeasureSpec;
-        if(ws != MeasureSpec.UNSPECIFIED)
+        if (ws != MeasureSpec.UNSPECIFIED)
             ws = MeasureSpec.makeMeasureSpec(widthSize - getPaddingLeft() - getPaddingRight(), widthMode);
 
         int hs = heightMeasureSpec;
-        if(heightMode != MeasureSpec.UNSPECIFIED)
+        if (heightMode != MeasureSpec.UNSPECIFIED)
             hs = MeasureSpec.makeMeasureSpec(heightSize - getPaddingTop() - getPaddingBottom(), heightMode);
 
         mTabContainer.measure(ws, hs);
 
         int width = 0;
-        switch (widthMode){
+        switch (widthMode) {
             case MeasureSpec.UNSPECIFIED:
                 width = mTabContainer.getMeasuredWidth() + getPaddingLeft() + getPaddingRight();
                 break;
@@ -270,7 +263,7 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
         }
 
         int height = 0;
-        switch (heightMode){
+        switch (heightMode) {
             case MeasureSpec.UNSPECIFIED:
                 height = mTabContainer.getMeasuredHeight() + getPaddingTop() + getPaddingBottom();
                 break;
@@ -282,7 +275,7 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
                 break;
         }
 
-        if(mTabContainer.getMeasuredWidth() != width - getPaddingLeft() - getPaddingRight() || mTabContainer.getMeasuredHeight() != height - getPaddingTop() - getPaddingBottom())
+        if (mTabContainer.getMeasuredWidth() != width - getPaddingLeft() - getPaddingRight() || mTabContainer.getMeasuredHeight() != height - getPaddingTop() - getPaddingBottom())
             mTabContainer.measure(MeasureSpec.makeMeasureSpec(width - getPaddingLeft() - getPaddingRight(), MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(height - getPaddingTop() - getPaddingBottom(), MeasureSpec.EXACTLY));
 
         setMeasuredDimension(width, height);
@@ -292,17 +285,17 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         TextView tv = getTabView(mSelectedPosition);
-        if(tv != null)
+        if (tv != null)
             updateIndicator(tv.getLeft(), tv.getMeasuredWidth());
     }
 
-    private CheckedTextView getTabView(int position){
-    	return (CheckedTextView)mTabContainer.getChildAt(position);
+    private CheckedTextView getTabView(int position) {
+        return (CheckedTextView) mTabContainer.getChildAt(position);
     }
 
     private void animateToTab(final int position) {
-    	if(getTabView(position) == null)
-    		return;
+        if (getTabView(position) == null)
+            return;
 
         if (mTabAnimSelector != null)
             removeCallbacks(mTabAnimSelector);
@@ -310,7 +303,7 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
         mTabAnimSelector = new Runnable() {
             public void run() {
                 CheckedTextView tv = getTabView(position);
-                if(tv != null) {
+                if (tv != null) {
                     if (!mScrolling)
                         updateIndicator(tv.getLeft(), tv.getMeasuredWidth());
 
@@ -325,30 +318,32 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
 
     /**
      * Set a listener will be called when the current page is changed.
+     *
      * @param listener The {@link ViewPager.OnPageChangeListener} will be called.
      */
-	public void setOnPageChangeListener(ViewPager.OnPageChangeListener listener) {
+    public void setOnPageChangeListener(ViewPager.OnPageChangeListener listener) {
         mListener = listener;
     }
 
     /**
      * Set the ViewPager associate with this indicator view.
+     *
      * @param view The ViewPager view.
      */
     public void setViewPager(@Nullable ViewPager view) {
         if (mViewPager == view)
             return;
 
-        if (mViewPager != null){
+        if (mViewPager != null) {
             mViewPager.removeOnPageChangeListener(this);
             PagerAdapter adapter = mViewPager.getAdapter();
-            if(adapter != null)
-            	adapter.unregisterDataSetObserver(mObserver);
+            if (adapter != null)
+                adapter.unregisterDataSetObserver(mObserver);
         }
 
         mViewPager = view;
 
-        if(mViewPager != null) {
+        if (mViewPager != null) {
             PagerAdapter adapter = mViewPager.getAdapter();
             if (adapter == null)
                 throw new IllegalStateException("ViewPager does not have adapter instance.");
@@ -359,110 +354,110 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
 
             notifyDataSetChanged();
             onPageSelected(mViewPager.getCurrentItem());
-        }
-        else
+        } else
             mTabContainer.removeAllViews();
     }
 
     /**
      * Set the ViewPager associate with this indicator view and the current position;
-     * @param view The ViewPager view.
+     *
+     * @param view            The ViewPager view.
      * @param initialPosition The current position.
      */
     public void setViewPager(ViewPager view, int initialPosition) {
-    	setViewPager(view);
+        setViewPager(view);
         setCurrentItem(initialPosition);
     }
 
-    private void updateIndicator(int offset, int width){
-		mIndicatorOffset = offset;
-		mIndicatorWidth = width;
-		invalidate();
-	}
+    private void updateIndicator(int offset, int width) {
+        mIndicatorOffset = offset;
+        mIndicatorWidth = width;
+        invalidate();
+    }
 
-	@Override
-	public void draw(@NonNull Canvas canvas) {
-		super.draw(canvas);
+    @Override
+    public void draw(@NonNull Canvas canvas) {
+        super.draw(canvas);
 
-		int x = mIndicatorOffset + getPaddingLeft();
+        int x = mIndicatorOffset + getPaddingLeft();
         int y = mIndicatorAtTop ? 0 : getHeight() - mIndicatorHeight;
-		canvas.drawRect(x, y, x + mIndicatorWidth, y + mIndicatorHeight, mPaint);
+        canvas.drawRect(x, y, x + mIndicatorWidth, y + mIndicatorHeight, mPaint);
 
-		if(isInEditMode())
-			canvas.drawRect(getPaddingLeft(), y, getPaddingLeft() + mTabContainer.getChildAt(0).getWidth(), y + mIndicatorHeight, mPaint);
-	}
+        if (isInEditMode())
+            canvas.drawRect(getPaddingLeft(), y, getPaddingLeft() + mTabContainer.getChildAt(0).getWidth(), y + mIndicatorHeight, mPaint);
+    }
 
-	@Override
-	public void onPageScrollStateChanged(int state) {
-		if(state == ViewPager.SCROLL_STATE_IDLE){
-			mScrolling = false;
-			TextView tv = getTabView(mSelectedPosition);
-			if(tv != null) {
+    @Override
+    public void onPageScrollStateChanged(int state) {
+        if (state == ViewPager.SCROLL_STATE_IDLE) {
+            mScrolling = false;
+            TextView tv = getTabView(mSelectedPosition);
+            if (tv != null) {
                 updateIndicator(tv.getLeft(), tv.getMeasuredWidth());
             }
-		}
-		else
-			mScrolling = true;
+        } else
+            mScrolling = true;
 
-		if (mListener != null)
-			mListener.onPageScrollStateChanged(state);
-	}
+        if (mListener != null)
+            mListener.onPageScrollStateChanged(state);
+    }
 
-	@Override
-	public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-		if (mListener != null)
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        if (mListener != null)
             mListener.onPageScrolled(position, positionOffset, positionOffsetPixels);
 
-		CheckedTextView tv_scroll = getTabView(position);
-		CheckedTextView tv_next = getTabView(position + 1);
+        CheckedTextView tv_scroll = getTabView(position);
+        CheckedTextView tv_next = getTabView(position + 1);
 
-		if(tv_scroll != null && tv_next != null){
-			int width_scroll = tv_scroll.getMeasuredWidth();
-			int width_next = tv_next.getMeasuredWidth();
-			float distance = (width_scroll + width_next) / 2f;
+        if (tv_scroll != null && tv_next != null) {
+            int width_scroll = tv_scroll.getMeasuredWidth();
+            int width_next = tv_next.getMeasuredWidth();
+            float distance = (width_scroll + width_next) / 2f;
 
-			int width =  (int)(width_scroll + (width_next - width_scroll) * positionOffset + 0.5f);
-			int offset = (int)(tv_scroll.getLeft() + width_scroll / 2f + distance * positionOffset - width / 2f + 0.5f);
-			updateIndicator(offset, width);
-		}
-	}
+            int width = (int) (width_scroll + (width_next - width_scroll) * positionOffset + 0.5f);
+            int offset = (int) (tv_scroll.getLeft() + width_scroll / 2f + distance * positionOffset - width / 2f + 0.5f);
+            updateIndicator(offset, width);
+        }
+    }
 
-	@Override
-	public void onPageSelected(int position) {
-		setCurrentItem(position);
+    @Override
+    public void onPageSelected(int position) {
+        setCurrentItem(position);
         if (mListener != null)
             mListener.onPageSelected(position);
-	}
+    }
 
-	@Override
-	public void onClick(View v) {
-		int position = (Integer)v.getTag();
-		if(position == mSelectedPosition && mListener != null)
-			mListener.onPageSelected(position);
+    @Override
+    public void onClick(View v) {
+        int position = (Integer) v.getTag();
+        if (position == mSelectedPosition && mListener != null)
+            mListener.onPageSelected(position);
 
-		mViewPager.setCurrentItem(position, true);
-	}
+        mViewPager.setCurrentItem(position, true);
+    }
 
     /**
      * Set the current page of this TabPageIndicator.
+     *
      * @param position The position of current page.
      */
-	public void setCurrentItem(int position) {
-		if(mSelectedPosition != position){
-			CheckedTextView tv = getTabView(mSelectedPosition);
-			if(tv != null)
-				tv.setChecked(false);
-		}
+    public void setCurrentItem(int position) {
+        if (mSelectedPosition != position) {
+            CheckedTextView tv = getTabView(mSelectedPosition);
+            if (tv != null)
+                tv.setChecked(false);
+        }
 
-		mSelectedPosition = position;
-		CheckedTextView tv = getTabView(mSelectedPosition);
-		if(tv != null)
-			tv.setChecked(true);
+        mSelectedPosition = position;
+        CheckedTextView tv = getTabView(mSelectedPosition);
+        if (tv != null)
+            tv.setChecked(true);
 
-		animateToTab(position);
-	}
+        animateToTab(position);
+    }
 
-	private void notifyDataSetChanged() {
+    private void notifyDataSetChanged() {
         mTabContainer.removeAllViews();
 
         PagerAdapter adapter = mViewPager.getAdapter();
@@ -481,7 +476,7 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
             tv.setText(title);
             tv.setGravity(Gravity.CENTER);
             tv.setTextAppearance(getContext(), mTextAppearance);
-            if(mTabSingleLine)
+            if (mTabSingleLine)
                 tv.setSingleLine(true);
             else {
                 tv.setSingleLine(false);
@@ -490,7 +485,7 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
             tv.setEllipsize(TruncateAt.END);
             tv.setOnClickListener(this);
             tv.setTag(i);
-            if(mTabRippleStyle > 0)
+            if (mTabRippleStyle > 0)
                 ViewUtil.setBackground(tv, new RippleDrawable.Builder(getContext(), mTabRippleStyle).build());
 
             tv.setPadding(mTabPadding, 0, mTabPadding, 0);
@@ -499,15 +494,15 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
 
         setCurrentItem(mSelectedPosition);
         requestLayout();
-	}
+    }
 
-	private void notifyDataSetInvalidated() {
-		PagerAdapter adapter = mViewPager.getAdapter();
-		final int count = adapter.getCount();
+    private void notifyDataSetInvalidated() {
+        PagerAdapter adapter = mViewPager.getAdapter();
+        final int count = adapter.getCount();
         for (int i = 0; i < count; i++) {
-        	TextView tv = getTabView(i);
+            TextView tv = getTabView(i);
 
-            if(tv != null) {
+            if (tv != null) {
                 CharSequence title = adapter.getPageTitle(i);
                 if (title == null)
                     title = "NULL";
@@ -517,10 +512,10 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
         }
 
         requestLayout();
-	}
+    }
 
-	private void addTemporaryTab(){
-		for (int i = 0; i < 3; i++) {
+    private void addTemporaryTab() {
+        for (int i = 0; i < 3; i++) {
             CharSequence title = null;
             if (i == 0)
                 title = "TAB ONE";
@@ -538,19 +533,18 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
             tv.setEllipsize(TruncateAt.END);
             tv.setTag(i);
             tv.setChecked(i == 0);
-            if(mMode == MODE_SCROLL){
-            	tv.setPadding(mTabPadding, 0, mTabPadding, 0);
-            	mTabContainer.addView(tv, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
-            }
-            else if(mMode == MODE_FIXED){
-            	LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT);
-            	params.weight = 1f;
-            	mTabContainer.addView(tv, params);
+            if (mMode == MODE_SCROLL) {
+                tv.setPadding(mTabPadding, 0, mTabPadding, 0);
+                mTabContainer.addView(tv, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            } else if (mMode == MODE_FIXED) {
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT);
+                params.weight = 1f;
+                mTabContainer.addView(tv, params);
             }
         }
-	}
+    }
 
-    private class TabContainerLayout extends FrameLayout{
+    private class TabContainerLayout extends FrameLayout {
 
         public TabContainerLayout(Context context) {
             super(context);
@@ -564,7 +558,7 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
             int width = 0;
             int height = 0;
 
-            if(mMode == MODE_SCROLL){
+            if (mMode == MODE_SCROLL) {
                 int ws = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
                 for (int i = 0; i < getChildCount(); i++) {
                     View child = getChildAt(i);
@@ -573,9 +567,8 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
                     height = Math.max(height, child.getMeasuredHeight());
                 }
                 setMeasuredDimension(width, height);
-            }
-            else{
-                if(widthMode != MeasureSpec.EXACTLY){
+            } else {
+                if (widthMode != MeasureSpec.EXACTLY) {
                     int ws = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
                     for (int i = 0; i < getChildCount(); i++) {
                         View child = getChildAt(i);
@@ -584,27 +577,26 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
                         height = Math.max(height, child.getMeasuredHeight());
                     }
 
-                    if(widthMode == MeasureSpec.UNSPECIFIED || width < widthSize)
+                    if (widthMode == MeasureSpec.UNSPECIFIED || width < widthSize)
                         setMeasuredDimension(widthSize, height);
-                    else{
+                    else {
                         int count = getChildCount();
                         int childWidth = count == 0 ? 0 : widthSize / count;
                         for (int i = 0; i < count; i++) {
                             View child = getChildAt(i);
-                            if(i != count - 1)
+                            if (i != count - 1)
                                 child.measure(MeasureSpec.makeMeasureSpec(childWidth, MeasureSpec.EXACTLY), heightMeasureSpec);
                             else
                                 child.measure(MeasureSpec.makeMeasureSpec(widthSize - childWidth * (count - 1), MeasureSpec.EXACTLY), heightMeasureSpec);
                         }
                         setMeasuredDimension(widthSize, height);
                     }
-                }
-                else {
+                } else {
                     int count = getChildCount();
                     int childWidth = count == 0 ? 0 : widthSize / count;
                     for (int i = 0; i < count; i++) {
                         View child = getChildAt(i);
-                        if(i != count - 1)
+                        if (i != count - 1)
                             child.measure(MeasureSpec.makeMeasureSpec(childWidth, MeasureSpec.EXACTLY), heightMeasureSpec);
                         else
                             child.measure(MeasureSpec.makeMeasureSpec(widthSize - childWidth * (count - 1), MeasureSpec.EXACTLY), heightMeasureSpec);
@@ -617,7 +609,7 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
             int hs = MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY);
             for (int i = 0; i < getChildCount(); i++) {
                 View child = getChildAt(i);
-                if(child.getMeasuredHeight() != height)
+                if (child.getMeasuredHeight() != height)
                     child.measure(MeasureSpec.makeMeasureSpec(child.getMeasuredWidth(), MeasureSpec.EXACTLY), hs);
             }
         }
@@ -629,14 +621,14 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
             int childRight = right - left;
             int childBottom = bottom - top;
 
-            if(mIsRtl)
-                for(int i = 0, count = getChildCount(); i < count; i++){
+            if (mIsRtl)
+                for (int i = 0, count = getChildCount(); i < count; i++) {
                     View child = getChildAt(i);
                     child.layout(childRight - child.getMeasuredWidth(), childTop, childRight, childBottom);
                     childRight -= child.getMeasuredWidth();
                 }
             else
-                for(int i = 0, count = getChildCount(); i < count; i++){
+                for (int i = 0, count = getChildCount(); i < count; i++) {
                     View child = getChildAt(i);
                     child.layout(childLeft, childTop, childLeft + child.getMeasuredWidth(), childBottom);
                     childLeft += child.getMeasuredWidth();

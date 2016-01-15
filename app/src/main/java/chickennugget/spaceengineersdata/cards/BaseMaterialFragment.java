@@ -33,18 +33,21 @@ import chickennugget.spaceengineersdata.R;
  */
 public abstract class BaseMaterialFragment extends BaseFragment {
 
+    TextView mTitleHeader;
+    TextView mSubTitleHeader;
+    ImageButton mSourceButton;
+    ImageButton mDocButton;
     private View mHeaderBox;
     private View mHeaderContentBox;
     private View mHeaderBackgroundBox;
     private View mHeaderShadow;
-
-    TextView mTitleHeader;
-    TextView mSubTitleHeader;
-
-    ImageButton mSourceButton;
-    ImageButton mDocButton;
-
     private int colorResId = -1;
+
+    public static int scaleColor(int color, float factor, boolean scaleAlpha) {
+        return Color.argb(scaleAlpha ? (Math.round(Color.alpha(color) * factor)) : Color.alpha(color),
+                Math.round(Color.red(color) * factor), Math.round(Color.green(color) * factor),
+                Math.round(Color.blue(color) * factor));
+    }
 
     @Override
     public int getTitleResourceId() {
@@ -70,7 +73,7 @@ public abstract class BaseMaterialFragment extends BaseFragment {
         //((BaseActivity) getActivity()).getLPreviewUtils().setViewName(mHeaderBox, NativeDashFragment.VIEW_COLOR);
     }
 
-    protected void setupBarHeader(View rootView){
+    protected void setupBarHeader(View rootView) {
         mHeaderBox = getActivity().findViewById(R.id.header_recap);
         mHeaderContentBox = getActivity().findViewById(R.id.header_contents);
         mHeaderBackgroundBox = getActivity().findViewById(R.id.header_background);
@@ -156,13 +159,6 @@ public abstract class BaseMaterialFragment extends BaseFragment {
                     scaleColor(getResources().getColor(colorResId), 0.8f, false));
         }
     }
-
-    public static int scaleColor(int color, float factor, boolean scaleAlpha) {
-        return Color.argb(scaleAlpha ? (Math.round(Color.alpha(color) * factor)) : Color.alpha(color),
-                Math.round(Color.red(color) * factor), Math.round(Color.green(color) * factor),
-                Math.round(Color.blue(color) * factor));
-    }
-
 
     protected abstract int getSubTitleHeaderResourceId();
 

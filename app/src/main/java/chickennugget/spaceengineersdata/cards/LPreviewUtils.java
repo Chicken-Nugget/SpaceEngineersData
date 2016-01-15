@@ -27,6 +27,6 @@ public class LPreviewUtils {
     }
 
     public static LPreviewUtilsBase getInstance(BaseActivity activity) {
-            return new LPreviewUtilsBase(activity);
+        return new LPreviewUtilsBase(activity);
     }
 }

@@ -16,11 +16,6 @@ import chickennugget.spaceengineersdata.material.util.ViewUtil;
 public class CircleCheckedTextView extends android.widget.CheckedTextView {
 
     private CircleDrawable mBackground;
-
-    public interface OnCheckedChangeListener{
-        void onCheckedChanged(CircleCheckedTextView view, boolean checked);
-    }
-
     private OnCheckedChangeListener mCheckedChangeListener;
 
     public CircleCheckedTextView(Context context) {
@@ -48,7 +43,7 @@ public class CircleCheckedTextView extends android.widget.CheckedTextView {
         init(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
+    protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         setGravity(Gravity.CENTER);
         setPadding(0, 0, 0, 0);
 
@@ -59,7 +54,7 @@ public class CircleCheckedTextView extends android.widget.CheckedTextView {
         mBackground.setAnimEnable(true);
     }
 
-    public void setOnCheckedChangeListener(OnCheckedChangeListener listener){
+    public void setOnCheckedChangeListener(OnCheckedChangeListener listener) {
         mCheckedChangeListener = listener;
     }
 
@@ -80,6 +75,7 @@ public class CircleCheckedTextView extends android.widget.CheckedTextView {
 
     /**
      * Set the duration of background's animation.
+     *
      * @param duration The duration
      */
     public void setAnimDuration(int duration) {
@@ -94,18 +90,22 @@ public class CircleCheckedTextView extends android.widget.CheckedTextView {
     public void setChecked(boolean checked) {
         boolean oldCheck = isChecked();
 
-        if(oldCheck != checked) {
+        if (oldCheck != checked) {
             super.setChecked(checked);
 
-            if(mCheckedChangeListener != null)
+            if (mCheckedChangeListener != null)
                 mCheckedChangeListener.onCheckedChanged(this, checked);
         }
     }
 
-    public void setCheckedImmediately(boolean checked){
+    public void setCheckedImmediately(boolean checked) {
         mBackground.setAnimEnable(false);
         setChecked(checked);
         mBackground.setAnimEnable(true);
+    }
+
+    public interface OnCheckedChangeListener {
+        void onCheckedChanged(CircleCheckedTextView view, boolean checked);
     }
 
 }

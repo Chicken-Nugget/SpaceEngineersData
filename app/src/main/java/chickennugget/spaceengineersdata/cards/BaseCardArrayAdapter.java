@@ -46,7 +46,7 @@ public abstract class BaseCardArrayAdapter extends ArrayAdapter<Card> {
     /**
      * Used to set the viewTypeCount
      */
-    protected int innerviewTypeCount=1;
+    protected int innerviewTypeCount = 1;
 
 
     // -------------------------------------------------------------
@@ -91,10 +91,11 @@ public abstract class BaseCardArrayAdapter extends ArrayAdapter<Card> {
 
     /**
      * This method is used in with multichoice
+     *
      * @param mCard
      * @param mCardView
      */
-    protected void setupMultichoice(View view,Card mCard,CardViewWrapper mCardView,long position){
+    protected void setupMultichoice(View view, Card mCard, CardViewWrapper mCardView, long position) {
         //empty
     }
 

@@ -26,39 +26,22 @@ import chickennugget.spaceengineersdata.material.widget.TextView;
  */
 public class SimpleDialog extends Dialog {
 
-    private TextView mMessage;
-    private InternalScrollView mScrollView;
-    private InternalListView mListView;
-    private InternalAdapter mAdapter;
-
-    private int mMessageTextAppearanceId;
-    private int mMessageTextColor;
-
-    private int mRadioButtonStyle;
-    private int mCheckBoxStyle;
-    private int mItemHeight;
-    private int mItemTextAppearance;
-
-    private int mMode;
-
     protected static final int MODE_NONE = 0;
     protected static final int MODE_MESSAGE = 1;
     protected static final int MODE_ITEMS = 2;
     protected static final int MODE_MULTI_ITEMS = 3;
     protected static final int MODE_CUSTOM = 4;
-
-    /**
-     * Interface definition for a callback to be invoked when the checked state of an item changed.
-     */
-    public interface OnSelectionChangedListener{
-        /**
-         * Called when the checked state of an item changed.
-         * @param index The index of item.
-         * @param selected The checked state.
-         */
-        public void onSelectionChanged(int index, boolean selected);
-    }
-
+    private TextView mMessage;
+    private InternalScrollView mScrollView;
+    private InternalListView mListView;
+    private InternalAdapter mAdapter;
+    private int mMessageTextAppearanceId;
+    private int mMessageTextColor;
+    private int mRadioButtonStyle;
+    private int mCheckBoxStyle;
+    private int mItemHeight;
+    private int mItemTextAppearance;
+    private int mMode;
     private OnSelectionChangedListener mOnSelectionChangedListener;
 
     public SimpleDialog(Context context) {
@@ -80,7 +63,7 @@ public class SimpleDialog extends Dialog {
     public Dialog applyStyle(int resId) {
         super.applyStyle(resId);
 
-        if(resId == 0)
+        if (resId == 0)
             return this;
 
         TypedArray a = getContext().obtainStyledAttributes(resId, R.styleable.SimpleDialog);
@@ -88,31 +71,30 @@ public class SimpleDialog extends Dialog {
         int textColor = 0;
         boolean textColorDefined = false;
 
-        for(int i = 0, count = a.getIndexCount(); i < count; i++){
+        for (int i = 0, count = a.getIndexCount(); i < count; i++) {
             int attr = a.getIndex(i);
 
-            if(attr == R.styleable.SimpleDialog_di_messageTextAppearance)
+            if (attr == R.styleable.SimpleDialog_di_messageTextAppearance)
                 textAppearance = a.getResourceId(attr, 0);
-            else if(attr == R.styleable.SimpleDialog_di_messageTextColor) {
+            else if (attr == R.styleable.SimpleDialog_di_messageTextColor) {
                 textColor = a.getColor(attr, 0);
                 textColorDefined = true;
-            }
-            else if(attr == R.styleable.SimpleDialog_di_radioButtonStyle)
+            } else if (attr == R.styleable.SimpleDialog_di_radioButtonStyle)
                 radioButtonStyle(a.getResourceId(attr, 0));
-            else if(attr == R.styleable.SimpleDialog_di_checkBoxStyle)
+            else if (attr == R.styleable.SimpleDialog_di_checkBoxStyle)
                 checkBoxStyle(a.getResourceId(attr, 0));
-            else if(attr == R.styleable.SimpleDialog_di_itemHeight)
+            else if (attr == R.styleable.SimpleDialog_di_itemHeight)
                 itemHeight(a.getDimensionPixelSize(attr, 0));
-            else if(attr == R.styleable.SimpleDialog_di_itemTextAppearance)
+            else if (attr == R.styleable.SimpleDialog_di_itemTextAppearance)
                 itemTextAppearance(a.getResourceId(attr, 0));
         }
 
         a.recycle();
 
-        if(textAppearance != 0)
+        if (textAppearance != 0)
             messageTextAppearance(textAppearance);
 
-        if(textColorDefined)
+        if (textColorDefined)
             messageTextColor(textColor);
 
         return this;
@@ -126,7 +108,7 @@ public class SimpleDialog extends Dialog {
     }
 
     @Override
-    public Dialog title(CharSequence title){
+    public Dialog title(CharSequence title) {
         boolean titleVisible = !TextUtils.isEmpty(title);
         contentMargin(mContentPadding, titleVisible ? 0 : mContentPadding, mContentPadding, 0);
         return super.title(title);
@@ -134,10 +116,10 @@ public class SimpleDialog extends Dialog {
 
     @Override
     public Dialog contentView(View v) {
-        if(mScrollView == null)
+        if (mScrollView == null)
             initScrollView();
 
-        if(mScrollView.getChildAt(0) != v && v != null) {
+        if (mScrollView.getChildAt(0) != v && v != null) {
             mScrollView.removeAllViews();
             mScrollView.addView(v);
             mMode = MODE_CUSTOM;
@@ -147,7 +129,7 @@ public class SimpleDialog extends Dialog {
         return this;
     }
 
-    private void initScrollView(){
+    private void initScrollView() {
         mScrollView = new InternalScrollView(getContext());
         mScrollView.setPadding(0, 0, 0, mContentPadding - mActionPadding);
         mScrollView.setClipToPadding(false);
@@ -156,7 +138,7 @@ public class SimpleDialog extends Dialog {
         ViewCompat.setLayoutDirection(mScrollView, View.LAYOUT_DIRECTION_INHERIT);
     }
 
-    private void initMessageView(){
+    private void initMessageView() {
         mMessage = new TextView(getContext());
         mMessage.setTextAppearance(getContext(), mMessageTextAppearanceId);
         mMessage.setTextColor(mMessageTextColor);
@@ -165,23 +147,24 @@ public class SimpleDialog extends Dialog {
 
     /**
      * Set a message text to this SimpleDialog.
+     *
      * @param message
      * @return The SimpleDialog for chaining methods.
      */
-    public SimpleDialog message(CharSequence message){
-        if(mScrollView == null)
+    public SimpleDialog message(CharSequence message) {
+        if (mScrollView == null)
             initScrollView();
 
-        if(mMessage == null)
+        if (mMessage == null)
             initMessageView();
 
-        if(mScrollView.getChildAt(0) != mMessage) {
+        if (mScrollView.getChildAt(0) != mMessage) {
             mScrollView.removeAllViews();
             mScrollView.addView(mMessage);
         }
 
         mMessage.setText(message);
-        if(!TextUtils.isEmpty(message)) {
+        if (!TextUtils.isEmpty(message)) {
             mMode = MODE_MESSAGE;
             super.contentView(mScrollView);
         }
@@ -190,22 +173,24 @@ public class SimpleDialog extends Dialog {
 
     /**
      * Set a message text to this SimpleDialog.
+     *
      * @param id The resourceId of text.
      * @return The SimpleDialog for chaining methods.
      */
-    public SimpleDialog message(int id){
+    public SimpleDialog message(int id) {
         return message(id == 0 ? null : getContext().getResources().getString(id));
     }
 
     /**
      * Sets the text color, size, style of the message view from the specified TextAppearance resource.
+     *
      * @param resId The resourceId value.
      * @return The SimpleDialog for chaining methods.
      */
-    public SimpleDialog messageTextAppearance(int resId){
-        if(mMessageTextAppearanceId != resId){
+    public SimpleDialog messageTextAppearance(int resId) {
+        if (mMessageTextAppearanceId != resId) {
             mMessageTextAppearanceId = resId;
-            if(mMessage != null)
+            if (mMessage != null)
                 mMessage.setTextAppearance(getContext(), mMessageTextAppearanceId);
         }
         return this;
@@ -213,13 +198,14 @@ public class SimpleDialog extends Dialog {
 
     /**
      * Sets the text color of the message view.
+     *
      * @param color The color value.
      * @return The SimpleDialog for chaining methods.
      */
-    public SimpleDialog messageTextColor(int color){
-        if(mMessageTextColor != color){
+    public SimpleDialog messageTextColor(int color) {
+        if (mMessageTextColor != color) {
             mMessageTextColor = color;
-            if(mMessage != null)
+            if (mMessage != null)
                 mMessage.setTextColor(color);
         }
         return this;
@@ -227,13 +213,14 @@ public class SimpleDialog extends Dialog {
 
     /**
      * Sets the style of radio button.
+     *
      * @param resId The resourceId of style.
      * @return The SimpleDialog for chaining methods.
      */
-    public SimpleDialog radioButtonStyle(int resId){
-        if(mRadioButtonStyle != resId){
+    public SimpleDialog radioButtonStyle(int resId) {
+        if (mRadioButtonStyle != resId) {
             mRadioButtonStyle = resId;
-            if(mAdapter != null && mMode == MODE_ITEMS)
+            if (mAdapter != null && mMode == MODE_ITEMS)
                 mAdapter.notifyDataSetChanged();
         }
         return this;
@@ -241,13 +228,14 @@ public class SimpleDialog extends Dialog {
 
     /**
      * Sets the style of check box.
+     *
      * @param resId The resourceId of style.
      * @return The SimpleDialog for chaining methods.
      */
-    public SimpleDialog checkBoxStyle(int resId){
-        if(mCheckBoxStyle != resId){
+    public SimpleDialog checkBoxStyle(int resId) {
+        if (mCheckBoxStyle != resId) {
             mCheckBoxStyle = resId;
-            if(mAdapter != null && mMode == MODE_MULTI_ITEMS)
+            if (mAdapter != null && mMode == MODE_MULTI_ITEMS)
                 mAdapter.notifyDataSetChanged();
         }
         return this;
@@ -255,13 +243,14 @@ public class SimpleDialog extends Dialog {
 
     /**
      * Sets the height of item
+     *
      * @param height The size in pixels.
      * @return The SimpleDialog for chaining methods.
      */
-    public SimpleDialog itemHeight(int height){
-        if(mItemHeight != height){
+    public SimpleDialog itemHeight(int height) {
+        if (mItemHeight != height) {
             mItemHeight = height;
-            if(mAdapter != null)
+            if (mAdapter != null)
                 mAdapter.notifyDataSetChanged();
         }
         return this;
@@ -269,19 +258,20 @@ public class SimpleDialog extends Dialog {
 
     /**
      * Sets the text color, size, style of the item view from the specified TextAppearance resource.
+     *
      * @param resId The resourceId value.
      * @return The SimpleDialog for chaining methods.
      */
-    public SimpleDialog itemTextAppearance(int resId){
-        if(mItemTextAppearance != resId){
+    public SimpleDialog itemTextAppearance(int resId) {
+        if (mItemTextAppearance != resId) {
             mItemTextAppearance = resId;
-            if(mAdapter != null)
+            if (mAdapter != null)
                 mAdapter.notifyDataSetChanged();
         }
         return this;
     }
 
-    private void initListView(){
+    private void initListView() {
         mListView = new InternalListView(getContext());
         mListView.setDividerHeight(0);
         mListView.setCacheColorHint(0x00000000);
@@ -299,12 +289,13 @@ public class SimpleDialog extends Dialog {
 
     /**
      * Set the list of items in single-choice mode.
-     * @param items The list of items.
+     *
+     * @param items         The list of items.
      * @param selectedIndex The index of selected item.
      * @return The SimpleDialog for chaining methods.
      */
-    public SimpleDialog items(CharSequence[] items, int selectedIndex){
-        if(mListView == null)
+    public SimpleDialog items(CharSequence[] items, int selectedIndex) {
+        if (mListView == null)
             initListView();
 
         mMode = MODE_ITEMS;
@@ -315,12 +306,13 @@ public class SimpleDialog extends Dialog {
 
     /**
      * Set the list of items in multi-choice mode.
-     * @param items The list of items.
+     *
+     * @param items           The list of items.
      * @param selectedIndexes The indexes of selected items.
      * @return The SimpleDialog for chaining methods.
      */
-    public SimpleDialog multiChoiceItems(CharSequence[] items, int... selectedIndexes){
-        if(mListView == null)
+    public SimpleDialog multiChoiceItems(CharSequence[] items, int... selectedIndexes) {
+        if (mListView == null)
             initListView();
 
         mMode = MODE_MULTI_ITEMS;
@@ -331,10 +323,11 @@ public class SimpleDialog extends Dialog {
 
     /**
      * Set a listener will be called when the checked state of a item is changed.
+     *
      * @param listener The {@link OnSelectionChangedListener} will be called.
      * @return The SimpleDialog for chaining methods.
      */
-    public SimpleDialog onSelectionChangedListener(OnSelectionChangedListener listener){
+    public SimpleDialog onSelectionChangedListener(OnSelectionChangedListener listener) {
         mOnSelectionChangedListener = listener;
         return this;
     }
@@ -342,32 +335,221 @@ public class SimpleDialog extends Dialog {
     /**
      * @return The list of index of all selected items.
      */
-    public int[] getSelectedIndexes(){
+    public int[] getSelectedIndexes() {
         return mAdapter == null ? null : mAdapter.getSelectedIndexes();
     }
 
     /**
      * @return The list of value of all selected items.
      */
-    public CharSequence[] getSelectedValues(){
+    public CharSequence[] getSelectedValues() {
         return mAdapter.getSelectedValues();
     }
 
     /**
      * @return The index of selected item.
      */
-    public int getSelectedIndex(){
+    public int getSelectedIndex() {
         return mAdapter == null ? -1 : mAdapter.getLastSelectedIndex();
     }
 
     /**
      * @return The value of selected item.
      */
-    public CharSequence getSelectedValue(){
+    public CharSequence getSelectedValue() {
         return mAdapter.getLastSelectedValue();
     }
 
-    private class InternalScrollView extends ScrollView{
+    /**
+     * Interface definition for a callback to be invoked when the checked state of an item changed.
+     */
+    public interface OnSelectionChangedListener {
+        /**
+         * Called when the checked state of an item changed.
+         *
+         * @param index    The index of item.
+         * @param selected The checked state.
+         */
+        public void onSelectionChanged(int index, boolean selected);
+    }
+
+    public static class Builder extends Dialog.Builder implements OnSelectionChangedListener {
+
+        public static final Creator<Builder> CREATOR = new Creator<Builder>() {
+            public Builder createFromParcel(Parcel in) {
+                return new Builder(in);
+            }
+
+            public Builder[] newArray(int size) {
+                return new Builder[size];
+            }
+        };
+        protected int mMode;
+        protected CharSequence mMessage;
+        protected CharSequence[] mItems;
+        protected int[] mSelectedIndexes;
+
+        public Builder() {
+            super(R.style.Material_App_Dialog_Simple_Light);
+        }
+
+        public Builder(int styleId) {
+            super(styleId);
+        }
+
+        protected Builder(Parcel in) {
+            super(in);
+        }
+
+        public Builder message(CharSequence message) {
+            mMode = MODE_MESSAGE;
+            mMessage = message;
+            return this;
+        }
+
+        public Builder items(CharSequence[] items, int selectedIndex) {
+            mMode = MODE_ITEMS;
+            mItems = items;
+            mSelectedIndexes = new int[]{selectedIndex};
+            return this;
+        }
+
+        public Builder multiChoiceItems(CharSequence[] items, int... selectedIndexes) {
+            mMode = MODE_MULTI_ITEMS;
+            mItems = items;
+            mSelectedIndexes = selectedIndexes;
+            return this;
+        }
+
+        public int getSelectedIndex() {
+            if (mMode == MODE_ITEMS || mMode == MODE_MULTI_ITEMS)
+                return mSelectedIndexes[0];
+
+            return -1;
+        }
+
+        public CharSequence getSelectedValue() {
+            int index = getSelectedIndex();
+            return index >= 0 ? mItems[index] : null;
+        }
+
+        public int[] getSelectedIndexes() {
+            if (mMode == MODE_ITEMS || mMode == MODE_MULTI_ITEMS)
+                return mSelectedIndexes;
+
+            return null;
+        }
+
+        public CharSequence[] getSelectedValues() {
+            int[] indexes = getSelectedIndexes();
+            if (indexes == null || indexes.length == 0)
+                return null;
+
+            CharSequence[] result = new CharSequence[indexes.length];
+            for (int i = 0; i < indexes.length; i++)
+                result[i] = mItems[indexes[i]];
+
+            return result;
+        }
+
+        @Override
+        protected Dialog onBuild(Context context, int styleId) {
+            SimpleDialog dialog = new SimpleDialog(context, styleId);
+
+            switch (mMode) {
+                case MODE_MESSAGE:
+                    dialog.message(mMessage);
+                    break;
+                case MODE_ITEMS:
+                    dialog.items(mItems, mSelectedIndexes == null ? 0 : mSelectedIndexes[0]);
+                    dialog.onSelectionChangedListener(this);
+                    break;
+                case MODE_MULTI_ITEMS:
+                    dialog.multiChoiceItems(mItems, mSelectedIndexes);
+                    dialog.onSelectionChangedListener(this);
+                    break;
+            }
+
+            return dialog;
+        }
+
+        @Override
+        public void onSelectionChanged(int index, boolean selected) {
+            switch (mMode) {
+                case MODE_ITEMS:
+                    if (selected) {
+                        if (mSelectedIndexes == null)
+                            mSelectedIndexes = new int[]{index};
+                        else
+                            mSelectedIndexes[0] = index;
+                    }
+                    break;
+                case MODE_MULTI_ITEMS:
+                    mSelectedIndexes = ((SimpleDialog) mDialog).getSelectedIndexes();
+                    break;
+            }
+        }
+
+        @Override
+        protected void onReadFromParcel(Parcel in) {
+            mMode = in.readInt();
+            switch (mMode) {
+                case MODE_MESSAGE:
+                    mMessage = (CharSequence) in.readParcelable(null);
+                    break;
+                case MODE_ITEMS: {
+                    Parcelable[] values = in.readParcelableArray(null);
+                    if (values != null && values.length > 0) {
+                        mItems = new CharSequence[values.length];
+                        for (int i = 0; i < mItems.length; i++)
+                            mItems[i] = (CharSequence) values[i];
+                    } else
+                        mItems = null;
+                    mSelectedIndexes = new int[]{in.readInt()};
+                    break;
+                }
+                case MODE_MULTI_ITEMS: {
+                    Parcelable[] values = in.readParcelableArray(null);
+                    if (values != null && values.length > 0) {
+                        mItems = new CharSequence[values.length];
+                        for (int i = 0; i < mItems.length; i++)
+                            mItems[i] = (CharSequence) values[i];
+                    } else
+                        mItems = null;
+                    int length = in.readInt();
+                    if (length > 0) {
+                        mSelectedIndexes = new int[length];
+                        in.readIntArray(mSelectedIndexes);
+                    }
+                    break;
+                }
+            }
+        }
+
+        @Override
+        protected void onWriteToParcel(Parcel dest, int flags) {
+            dest.writeInt(mMode);
+            switch (mMode) {
+                case MODE_MESSAGE:
+                    dest.writeValue(mMessage);
+                    break;
+                case MODE_ITEMS:
+                    dest.writeArray(mItems);
+                    dest.writeInt(mSelectedIndexes == null ? 0 : mSelectedIndexes[0]);
+                    break;
+                case MODE_MULTI_ITEMS:
+                    dest.writeArray(mItems);
+                    int length = mSelectedIndexes == null ? 0 : mSelectedIndexes.length;
+                    dest.writeInt(length);
+                    if (length > 0)
+                        dest.writeIntArray(mSelectedIndexes);
+                    break;
+            }
+        }
+
+    }
+
+    private class InternalScrollView extends ScrollView {
 
         private boolean mIsRtl = false;
 
@@ -377,9 +559,9 @@ public class SimpleDialog extends Dialog {
 
         public void onRtlPropertiesChanged(int layoutDirection) {
             boolean rtl = layoutDirection == LAYOUT_DIRECTION_RTL;
-            if(mIsRtl != rtl) {
+            if (mIsRtl != rtl) {
                 mIsRtl = rtl;
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                     View v = getChildAt(0);
                     if (v != null && v == mMessage)
                         mMessage.setTextDirection(mIsRtl ? View.TEXT_DIRECTION_RTL : View.TEXT_DIRECTION_LTR);
@@ -388,7 +570,7 @@ public class SimpleDialog extends Dialog {
             }
         }
 
-        public boolean isLayoutRtl(){
+        public boolean isLayoutRtl() {
             return mIsRtl;
         }
 
@@ -401,7 +583,7 @@ public class SimpleDialog extends Dialog {
         }
     }
 
-    private class InternalListView extends ListView{
+    private class InternalListView extends ListView {
 
         private boolean mIsRtl = false;
 
@@ -411,21 +593,21 @@ public class SimpleDialog extends Dialog {
 
         public void onRtlPropertiesChanged(int layoutDirection) {
             boolean rtl = layoutDirection == LAYOUT_DIRECTION_RTL;
-            if(mIsRtl != rtl) {
+            if (mIsRtl != rtl) {
                 mIsRtl = rtl;
                 requestLayout();
             }
         }
 
-        public boolean isLayoutRtl(){
+        public boolean isLayoutRtl() {
             return mIsRtl;
         }
 
         @Override
         protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
             int heightMode = View.MeasureSpec.getMode(heightMeasureSpec);
-            if(heightMode == View.MeasureSpec.UNSPECIFIED){
-                if(mItemHeight != ViewGroup.LayoutParams.WRAP_CONTENT)
+            if (heightMode == View.MeasureSpec.UNSPECIFIED) {
+                if (mItemHeight != ViewGroup.LayoutParams.WRAP_CONTENT)
                     heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(mItemHeight * getAdapter().getCount() + getPaddingTop() + getPaddingBottom(), View.MeasureSpec.EXACTLY);
             }
 
@@ -439,7 +621,7 @@ public class SimpleDialog extends Dialog {
             int totalHeight = 0;
             int childCount = getChildCount();
 
-            for(int i = 0; i < childCount; i++)
+            for (int i = 0; i < childCount; i++)
                 totalHeight += getChildAt(i).getMeasuredHeight();
 
             showDivider(totalHeight > getMeasuredHeight() || (totalHeight == getMeasuredHeight() && getAdapter().getCount() > childCount));
@@ -447,24 +629,24 @@ public class SimpleDialog extends Dialog {
 
     }
 
-    private class InternalAdapter extends BaseAdapter implements CompoundButton.OnCheckedChangeListener{
+    private class InternalAdapter extends BaseAdapter implements CompoundButton.OnCheckedChangeListener {
 
         private CharSequence[] mItems;
         private boolean[] mSelected;
         private int mLastSelectedIndex;
 
-        public void setItems(CharSequence[] items, int... selectedIndexes){
+        public void setItems(CharSequence[] items, int... selectedIndexes) {
             mItems = items;
 
-            if(mSelected == null ||  mSelected.length != items.length)
+            if (mSelected == null || mSelected.length != items.length)
                 mSelected = new boolean[items.length];
 
-            for(int i = 0; i < mSelected.length; i++)
+            for (int i = 0; i < mSelected.length; i++)
                 mSelected[i] = false;
 
-            if(selectedIndexes != null)
-                for(int index : selectedIndexes)
-                    if(index >= 0 && index < mSelected.length) {
+            if (selectedIndexes != null)
+                for (int index : selectedIndexes)
+                    if (index >= 0 && index < mSelected.length) {
                         mSelected[index] = true;
                         mLastSelectedIndex = index;
                     }
@@ -472,27 +654,27 @@ public class SimpleDialog extends Dialog {
             notifyDataSetChanged();
         }
 
-        public int getLastSelectedIndex(){
+        public int getLastSelectedIndex() {
             return mLastSelectedIndex;
         }
 
-        public CharSequence getLastSelectedValue(){
+        public CharSequence getLastSelectedValue() {
             return mItems[mLastSelectedIndex];
         }
 
-        public int[] getSelectedIndexes(){
+        public int[] getSelectedIndexes() {
             int count = 0;
-            for(int i = 0; i < mSelected.length; i++)
-                if(mSelected[i])
+            for (int i = 0; i < mSelected.length; i++)
+                if (mSelected[i])
                     count++;
 
-            if(count == 0)
+            if (count == 0)
                 return null;
 
             int[] result = new int[count];
             count = 0;
-            for(int i = 0; i < mSelected.length; i++)
-                if(mSelected[i]){
+            for (int i = 0; i < mSelected.length; i++)
+                if (mSelected[i]) {
                     result[count] = i;
                     count++;
                 }
@@ -500,19 +682,19 @@ public class SimpleDialog extends Dialog {
             return result;
         }
 
-        public CharSequence[] getSelectedValues(){
+        public CharSequence[] getSelectedValues() {
             int count = 0;
-            for(int i = 0; i < mSelected.length; i++)
-                if(mSelected[i])
+            for (int i = 0; i < mSelected.length; i++)
+                if (mSelected[i])
                     count++;
 
-            if(count == 0)
+            if (count == 0)
                 return null;
 
             CharSequence[] result = new CharSequence[count];
             count = 0;
-            for(int i = 0; i < mSelected.length; i++)
-                if(mSelected[i]){
+            for (int i = 0; i < mSelected.length; i++)
+                if (mSelected[i]) {
                     result[count] = mItems[i];
                     count++;
                 }
@@ -537,28 +719,27 @@ public class SimpleDialog extends Dialog {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            CompoundButton v = (CompoundButton)convertView;
-            if(v == null) {
-                if(mMode == MODE_MULTI_ITEMS){
+            CompoundButton v = (CompoundButton) convertView;
+            if (v == null) {
+                if (mMode == MODE_MULTI_ITEMS) {
                     v = new CheckBox(parent.getContext());
                     v.applyStyle(mCheckBoxStyle);
-                }
-                else{
+                } else {
                     v = new RadioButton(parent.getContext());
                     v.applyStyle(mRadioButtonStyle);
                 }
-                if(mItemHeight != ViewGroup.LayoutParams.WRAP_CONTENT)
+                if (mItemHeight != ViewGroup.LayoutParams.WRAP_CONTENT)
                     v.setMinHeight(mItemHeight);
                 v.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
-                    v.setTextDirection(((InternalListView)parent).isLayoutRtl() ? View.TEXT_DIRECTION_RTL : View.TEXT_DIRECTION_LTR);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+                    v.setTextDirection(((InternalListView) parent).isLayoutRtl() ? View.TEXT_DIRECTION_RTL : View.TEXT_DIRECTION_LTR);
                 v.setTextAppearance(v.getContext(), mItemTextAppearance);
                 v.setCompoundDrawablePadding(mContentPadding);
             }
 
             v.setTag(position);
             v.setText(mItems[position]);
-            if(v instanceof CheckBox)
+            if (v instanceof CheckBox)
                 ((CheckBox) v).setCheckedImmediately(mSelected[position]);
             else
                 ((RadioButton) v).setCheckedImmediately(mSelected[position]);
@@ -570,203 +751,26 @@ public class SimpleDialog extends Dialog {
 
         @Override
         public void onCheckedChanged(android.widget.CompoundButton v, boolean isChecked) {
-            int position = (Integer)v.getTag();
-            if(mSelected[position] != isChecked) {
+            int position = (Integer) v.getTag();
+            if (mSelected[position] != isChecked) {
                 mSelected[position] = isChecked;
 
-                if(mOnSelectionChangedListener != null)
+                if (mOnSelectionChangedListener != null)
                     mOnSelectionChangedListener.onSelectionChanged(position, mSelected[position]);
             }
 
-            if(mMode == MODE_ITEMS && isChecked && mLastSelectedIndex != position){
+            if (mMode == MODE_ITEMS && isChecked && mLastSelectedIndex != position) {
                 mSelected[mLastSelectedIndex] = false;
 
-                if(mOnSelectionChangedListener != null)
+                if (mOnSelectionChangedListener != null)
                     mOnSelectionChangedListener.onSelectionChanged(mLastSelectedIndex, false);
 
                 CompoundButton child = (CompoundButton) mListView.getChildAt(mLastSelectedIndex - mListView.getFirstVisiblePosition());
-                if(child != null)
+                if (child != null)
                     child.setChecked(false);
 
                 mLastSelectedIndex = position;
             }
         }
-    }
-
-    public static class Builder extends Dialog.Builder implements OnSelectionChangedListener {
-
-        protected int mMode;
-        protected CharSequence mMessage;
-        protected CharSequence[] mItems;
-        protected int[] mSelectedIndexes;
-
-        public Builder(){
-            super(R.style.Material_App_Dialog_Simple_Light);
-        }
-
-        public Builder(int styleId){
-            super(styleId);
-        }
-
-        public Builder message(CharSequence message){
-            mMode = MODE_MESSAGE;
-            mMessage = message;
-            return this;
-        }
-
-        public Builder items(CharSequence[] items, int selectedIndex){
-            mMode = MODE_ITEMS;
-            mItems = items;
-            mSelectedIndexes = new int[]{selectedIndex};
-            return this;
-        }
-
-        public Builder multiChoiceItems(CharSequence[] items, int... selectedIndexes){
-            mMode = MODE_MULTI_ITEMS;
-            mItems = items;
-            mSelectedIndexes = selectedIndexes;
-            return this;
-        }
-
-        public int getSelectedIndex(){
-            if(mMode == MODE_ITEMS || mMode == MODE_MULTI_ITEMS)
-                return mSelectedIndexes[0];
-
-            return -1;
-        }
-
-        public CharSequence getSelectedValue(){
-            int index = getSelectedIndex();
-            return index >= 0 ? mItems[index] : null;
-        }
-
-        public int[] getSelectedIndexes(){
-            if(mMode == MODE_ITEMS || mMode == MODE_MULTI_ITEMS)
-                return mSelectedIndexes;
-
-            return null;
-        }
-
-        public CharSequence[] getSelectedValues(){
-            int[] indexes = getSelectedIndexes();
-            if(indexes == null || indexes.length == 0)
-                return null;
-
-            CharSequence[] result = new CharSequence[indexes.length];
-            for(int i = 0; i < indexes.length; i++)
-                result[i] = mItems[indexes[i]];
-
-            return result;
-        }
-
-        @Override
-        protected Dialog onBuild(Context context, int styleId) {
-            SimpleDialog dialog = new SimpleDialog(context, styleId);
-
-            switch (mMode){
-                case MODE_MESSAGE:
-                    dialog.message(mMessage);
-                    break;
-                case MODE_ITEMS:
-                    dialog.items(mItems, mSelectedIndexes == null ? 0 : mSelectedIndexes[0]);
-                    dialog.onSelectionChangedListener(this);
-                    break;
-                case MODE_MULTI_ITEMS:
-                    dialog.multiChoiceItems(mItems, mSelectedIndexes);
-                    dialog.onSelectionChangedListener(this);
-                    break;
-            }
-
-            return dialog;
-        }
-
-        @Override
-        public void onSelectionChanged(int index, boolean selected) {
-            switch (mMode){
-                case MODE_ITEMS:
-                    if(selected) {
-                        if (mSelectedIndexes == null)
-                            mSelectedIndexes = new int[]{index};
-                        else
-                            mSelectedIndexes[0] = index;
-                    }
-                    break;
-                case MODE_MULTI_ITEMS:
-                    mSelectedIndexes = ((SimpleDialog)mDialog).getSelectedIndexes();
-                    break;
-            }
-        }
-
-        protected Builder(Parcel in) {
-            super(in);
-        }
-
-        @Override
-        protected void onReadFromParcel(Parcel in) {
-            mMode = in.readInt();
-            switch (mMode){
-                case MODE_MESSAGE:
-                    mMessage = (CharSequence)in.readParcelable(null);
-                    break;
-                case MODE_ITEMS: {
-                    Parcelable[] values = in.readParcelableArray(null);
-                    if (values != null && values.length > 0) {
-                        mItems = new CharSequence[values.length];
-                        for (int i = 0; i < mItems.length; i++)
-                            mItems[i] = (CharSequence) values[i];
-                    } else
-                        mItems = null;
-                    mSelectedIndexes = new int[]{in.readInt()};
-                    break;
-                }
-                case MODE_MULTI_ITEMS: {
-                    Parcelable[] values = in.readParcelableArray(null);
-                    if (values != null && values.length > 0) {
-                        mItems = new CharSequence[values.length];
-                        for (int i = 0; i < mItems.length; i++)
-                            mItems[i] = (CharSequence) values[i];
-                    } else
-                        mItems = null;
-                    int length = in.readInt();
-                    if(length > 0) {
-                        mSelectedIndexes = new int[length];
-                        in.readIntArray(mSelectedIndexes);
-                    }
-                    break;
-                }
-            }
-        }
-
-        @Override
-        protected void onWriteToParcel(Parcel dest, int flags) {
-            dest.writeInt(mMode);
-            switch (mMode){
-                case MODE_MESSAGE:
-                    dest.writeValue(mMessage);
-                    break;
-                case MODE_ITEMS:
-                    dest.writeArray(mItems);
-                    dest.writeInt(mSelectedIndexes == null ? 0 : mSelectedIndexes[0]);
-                    break;
-                case MODE_MULTI_ITEMS:
-                    dest.writeArray(mItems);
-                    int length = mSelectedIndexes == null ? 0 : mSelectedIndexes.length;
-                    dest.writeInt(length);
-                    if(length > 0)
-                        dest.writeIntArray(mSelectedIndexes);
-                    break;
-                }
-            }
-
-        public static final Creator<Builder> CREATOR = new Creator<Builder>() {
-            public Builder createFromParcel(Parcel in) {
-                return new Builder(in);
-            }
-
-            public Builder[] newArray(int size) {
-                return new Builder[size];
-            }
-        };
-
     }
 }

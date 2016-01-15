@@ -25,14 +25,16 @@ import android.widget.Adapter;
 
 /**
  * An interface to specify if items can or cannot be dismissed and the SwipeDirection
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public interface Dismissable {
 
     /**
      * Returns whether the item for given id and position can be dismissed.
+     *
      * @param position the position of the item.
-     * @param card card
+     * @param card     card
      * @return true if the item can be dismissed, false otherwise.
      */
     boolean isDismissable(int position, Card card);

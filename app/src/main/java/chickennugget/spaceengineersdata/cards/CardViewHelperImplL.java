@@ -41,7 +41,7 @@ public class CardViewHelperImplL extends CardViewHelperImplKK {
 
     @Override
     public void setElevation(View view, float elevation) {
-        if (view != null){
+        if (view != null) {
             view.setElevation(elevation);
         }
     }

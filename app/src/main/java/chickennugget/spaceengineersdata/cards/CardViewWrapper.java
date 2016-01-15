@@ -27,6 +27,7 @@ import android.view.View;
  * <p>
  * Necessary to merge the native cardview and the library cardview.
  * <p>
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public interface CardViewWrapper {
@@ -53,16 +54,10 @@ public interface CardViewWrapper {
      */
     void doToggleExpand();
 
-    /** Support for longClickable**/
-    void setLongClickable(boolean b);
-
     /**
-     * Interface to listen any callbacks when expand/collapse animation starts
-     */
-    public interface OnExpandListAnimatorListener {
-        public void onExpandStart(CardViewWrapper viewCard, View expandingLayout);
-        public void onCollapseStart(CardViewWrapper viewCard, View expandingLayout);
-    }
+     * Support for longClickable
+     **/
+    void setLongClickable(boolean b);
 
     /**
      * Changes dynamically the drawable resource to override the style of MainLayout.
@@ -88,7 +83,7 @@ public interface CardViewWrapper {
     /**
      * Returns {@link chickennugget.spaceengineersdata.cards.Card} model
      *
-     * @return  {@link chickennugget.spaceengineersdata.cards.Card} model
+     * @return {@link chickennugget.spaceengineersdata.cards.Card} model
      */
     chickennugget.spaceengineersdata.cards.Card getCard();
 
@@ -102,15 +97,13 @@ public interface CardViewWrapper {
 
     /**
      * Indicates if inner layout have to be replaced
-     *
-     *
      */
     void setForceReplaceInnerLayout(boolean forceReplaceInnerLayout);
 
     /**
      * Sets if view can recycle ui elements
      *
-     * @param recycle  <code>true</code> to recycle
+     * @param recycle <code>true</code> to recycle
      */
     void setRecycle(boolean recycle);
 
@@ -121,12 +114,12 @@ public interface CardViewWrapper {
      */
     void refreshCard(chickennugget.spaceengineersdata.cards.Card card);
 
-    /** Returns the view used by Thumbnail
+    /**
+     * Returns the view used by Thumbnail
      *
      * @return {@link CardThumbnailView}
      */
     CardThumbnailView getInternalThumbnailLayout();
-
 
     void setOnTouchListener(View.OnTouchListener onTouchListener);
 
@@ -143,10 +136,9 @@ public interface CardViewWrapper {
     /**
      * Sets the card as expanded or collapsed
      *
-     * @param expanded  <code>true</code> if the card is expanded
+     * @param expanded <code>true</code> if the card is expanded
      */
     void setExpanded(boolean expanded);
-
 
     boolean isNative();
 
@@ -156,4 +148,13 @@ public interface CardViewWrapper {
      * @return
      */
     View getInternalMainCardLayout();
+
+    /**
+     * Interface to listen any callbacks when expand/collapse animation starts
+     */
+    public interface OnExpandListAnimatorListener {
+        public void onExpandStart(CardViewWrapper viewCard, View expandingLayout);
+
+        public void onCollapseStart(CardViewWrapper viewCard, View expandingLayout);
+    }
 }

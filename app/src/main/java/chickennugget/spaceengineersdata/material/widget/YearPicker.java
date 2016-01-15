@@ -32,8 +32,12 @@ import chickennugget.spaceengineersdata.material.util.TypefaceUtil;
  */
 public class YearPicker extends ListView {
 
+    private static final int[][] STATES = new int[][]{
+            new int[]{-android.R.attr.state_checked},
+            new int[]{android.R.attr.state_checked},
+    };
+    private static final String YEAR_FORMAT = "%4d";
     private YearAdapter mAdapter;
-
     private int mTextSize;
     private int mItemHeight;
     private int mSelectionColor;
@@ -41,38 +45,13 @@ public class YearPicker extends ListView {
     private Interpolator mInInterpolator;
     private Interpolator mOutInterpolator;
     private Typeface mTypeface;
-
     private int mItemRealHeight;
     private int mPadding;
     private int mPositionShift;
     private int mDistanceShift;
-
     private Paint mPaint;
-
-    /**
-     * Interface definition for a callback to be invoked when the selected year is changed.
-     */
-    public interface OnYearChangedListener{
-
-        /**
-         * Called then the selected year is changed.
-         * @param oldValue The old year value.
-         * @param newValue The new year value.
-         */
-        public void onYearChanged(int oldValue, int newValue);
-
-    }
-
     private OnYearChangedListener mOnYearChangedListener;
-
-    private static final int[][] STATES = new int[][]{
-            new int[]{-android.R.attr.state_checked},
-            new int[]{android.R.attr.state_checked},
-    };
-
     private int[] mTextColors = new int[]{0xFF000000, 0xFFFFFFFF};
-
-    private static final String YEAR_FORMAT = "%4d";
 
     public YearPicker(Context context) {
         super(context);
@@ -91,7 +70,7 @@ public class YearPicker extends ListView {
     }
 
     @Override
-    protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
+    protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         mTextSize = -1;
         mItemHeight = -1;
         mAnimDuration = -1;
@@ -118,7 +97,7 @@ public class YearPicker extends ListView {
     }
 
     @Override
-    protected void applyStyle(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
+    protected void applyStyle(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super.applyStyle(context, attrs, defStyleAttr, defStyleRes);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.YearPicker, defStyleAttr, defStyleRes);
@@ -129,76 +108,76 @@ public class YearPicker extends ListView {
         String familyName = null;
         int style = -1;
 
-        for(int i = 0, count = a.getIndexCount(); i < count; i++){
+        for (int i = 0, count = a.getIndexCount(); i < count; i++) {
             int attr = a.getIndex(i);
 
-            if(attr == R.styleable.YearPicker_dp_yearTextSize)
+            if (attr == R.styleable.YearPicker_dp_yearTextSize)
                 mTextSize = a.getDimensionPixelSize(attr, 0);
-            else if(attr == R.styleable.YearPicker_dp_year)
+            else if (attr == R.styleable.YearPicker_dp_year)
                 year = a.getInteger(attr, 0);
-            else if(attr == R.styleable.YearPicker_dp_yearMin)
+            else if (attr == R.styleable.YearPicker_dp_yearMin)
                 yearMin = a.getInteger(attr, 0);
-            else if(attr == R.styleable.YearPicker_dp_yearMax)
+            else if (attr == R.styleable.YearPicker_dp_yearMax)
                 yearMax = a.getInteger(attr, 0);
-            else if(attr == R.styleable.YearPicker_dp_yearItemHeight)
+            else if (attr == R.styleable.YearPicker_dp_yearItemHeight)
                 mItemHeight = a.getDimensionPixelSize(attr, 0);
-            else if(attr == R.styleable.YearPicker_dp_textColor)
+            else if (attr == R.styleable.YearPicker_dp_textColor)
                 mTextColors[0] = a.getColor(attr, 0);
-            else if(attr == R.styleable.YearPicker_dp_textHighlightColor)
+            else if (attr == R.styleable.YearPicker_dp_textHighlightColor)
                 mTextColors[1] = a.getColor(attr, 0);
-            else if(attr == R.styleable.YearPicker_dp_selectionColor)
+            else if (attr == R.styleable.YearPicker_dp_selectionColor)
                 mSelectionColor = a.getColor(attr, 0);
-            else if(attr == R.styleable.YearPicker_dp_animDuration)
+            else if (attr == R.styleable.YearPicker_dp_animDuration)
                 mAnimDuration = a.getInteger(attr, 0);
-            else if(attr == R.styleable.YearPicker_dp_inInterpolator)
+            else if (attr == R.styleable.YearPicker_dp_inInterpolator)
                 mInInterpolator = AnimationUtils.loadInterpolator(context, a.getResourceId(attr, 0));
-            else if(attr == R.styleable.YearPicker_dp_outInterpolator)
+            else if (attr == R.styleable.YearPicker_dp_outInterpolator)
                 mOutInterpolator = AnimationUtils.loadInterpolator(context, a.getResourceId(attr, 0));
-            else if(attr == R.styleable.YearPicker_dp_fontFamily)
+            else if (attr == R.styleable.YearPicker_dp_fontFamily)
                 familyName = a.getString(attr);
-            else if(attr == R.styleable.YearPicker_dp_textStyle)
+            else if (attr == R.styleable.YearPicker_dp_textStyle)
                 style = a.getInteger(attr, 0);
         }
 
         a.recycle();
 
-        if(mTextSize < 0)
+        if (mTextSize < 0)
             mTextSize = context.getResources().getDimensionPixelOffset(R.dimen.abc_text_size_title_material);
 
-        if(mItemHeight < 0)
+        if (mItemHeight < 0)
             mItemHeight = ThemeUtil.dpToPx(context, 48);
 
-        if(mAnimDuration < 0)
+        if (mAnimDuration < 0)
             mAnimDuration = context.getResources().getInteger(android.R.integer.config_mediumAnimTime);
 
-        if(mInInterpolator == null)
+        if (mInInterpolator == null)
             mInInterpolator = new DecelerateInterpolator();
 
-        if(mOutInterpolator == null)
+        if (mOutInterpolator == null)
             mOutInterpolator = new DecelerateInterpolator();
 
-        if(familyName != null || style >= 0)
+        if (familyName != null || style >= 0)
             mTypeface = TypefaceUtil.load(context, familyName, style);
 
-        if(yearMin >= 0 || yearMax >= 0){
-            if(yearMin < 0)
+        if (yearMin >= 0 || yearMax >= 0) {
+            if (yearMin < 0)
                 yearMin = mAdapter.getMinYear();
 
-            if(yearMax < 0)
+            if (yearMax < 0)
                 yearMax = mAdapter.getMaxYear();
 
-            if(yearMax < yearMin)
+            if (yearMax < yearMin)
                 yearMax = Integer.MAX_VALUE;
 
             setYearRange(yearMin, yearMax);
         }
 
-        if(mAdapter.getYear() < 0 && year < 0){
+        if (mAdapter.getYear() < 0 && year < 0) {
             Calendar cal = Calendar.getInstance();
             year = cal.get(Calendar.YEAR);
         }
 
-        if(year >= 0){
+        if (year >= 0) {
             year = Math.max(yearMin, Math.min(yearMax, year));
             setYear(year);
         }
@@ -209,21 +188,23 @@ public class YearPicker extends ListView {
 
     /**
      * Set the range of selectable year value.
+     *
      * @param min The minimum selectable year value.
      * @param max The maximum selectable year value.
      */
-    public void setYearRange(int min, int max){
+    public void setYearRange(int min, int max) {
         mAdapter.setYearRange(min, max);
     }
 
     /**
      * Jump to a specific year.
+     *
      * @param year
      */
-    public void goTo(int year){
+    public void goTo(int year) {
         int position = mAdapter.positionOfYear(year) - mPositionShift;
         int offset = mDistanceShift;
-        if(position < 0){
+        if (position < 0) {
             position = 0;
             offset = 0;
         }
@@ -241,11 +222,19 @@ public class YearPicker extends ListView {
     }
 
     /**
+     * @return The selected year value.
+     */
+    public int getYear() {
+        return mAdapter.getYear();
+    }
+
+    /**
      * Set the selected year.
+     *
      * @param year The selected year value.
      */
-    public void setYear(int year){
-        if(mAdapter.getYear() == year)
+    public void setYear(int year) {
+        if (mAdapter.getYear() == year)
             return;
 
         mAdapter.setYear(year);
@@ -253,22 +242,16 @@ public class YearPicker extends ListView {
     }
 
     /**
-     * @return The selected year value.
-     */
-    public int getYear(){
-        return mAdapter.getYear();
-    }
-
-    /**
      * Set a listener will be called when the selected year value is changed.
+     *
      * @param listener The {@link OnYearChangedListener} will be called.
      */
-    public void setOnYearChangedListener(OnYearChangedListener listener){
+    public void setOnYearChangedListener(OnYearChangedListener listener) {
         mOnYearChangedListener = listener;
     }
 
-    private void measureItemHeight(){
-        if(mItemRealHeight > 0)
+    private void measureItemHeight() {
+        if (mItemRealHeight > 0)
             return;
 
         mPaint.setTextSize(mTextSize);
@@ -282,13 +265,12 @@ public class YearPicker extends ListView {
 
         measureItemHeight();
 
-        if(heightMode != MeasureSpec.EXACTLY){
-            if(heightMode == MeasureSpec.AT_MOST){
+        if (heightMode != MeasureSpec.EXACTLY) {
+            if (heightMode == MeasureSpec.AT_MOST) {
                 int num = Math.min(mAdapter.getCount(), heightSize / mItemRealHeight);
-                if(num >= 3)
+                if (num >= 3)
                     heightSize = mItemRealHeight * (num % 2 == 0 ? num - 1 : num);
-            }
-            else
+            } else
                 heightSize = mItemRealHeight * mAdapter.getCount();
             heightMeasureSpec = MeasureSpec.makeMeasureSpec(heightSize + getPaddingTop() + getPaddingBottom(), MeasureSpec.EXACTLY);
         }
@@ -298,108 +280,11 @@ public class YearPicker extends ListView {
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        float shift = (h / (float)mItemRealHeight - 1) / 2;
-        mPositionShift = (int)Math.floor(shift);
+        float shift = (h / (float) mItemRealHeight - 1) / 2;
+        mPositionShift = (int) Math.floor(shift);
         mPositionShift = shift > mPositionShift ? mPositionShift + 1 : mPositionShift;
-        mDistanceShift = (int)((shift - mPositionShift) * mItemRealHeight) - getPaddingTop();
+        mDistanceShift = (int) ((shift - mPositionShift) * mItemRealHeight) - getPaddingTop();
         goTo(mAdapter.getYear());
-    }
-
-    private class YearAdapter extends BaseAdapter implements OnClickListener{
-
-        private int mMinYear = 1990;
-        private int mMaxYear = Integer.MAX_VALUE - 1;
-        private int mCurYear = -1;
-
-        public YearAdapter(){}
-
-        public int getMinYear(){
-            return mMinYear;
-        }
-
-        public int getMaxYear(){
-            return mMaxYear;
-        }
-
-        public void setYearRange(int min, int max){
-            if(mMinYear != min || mMaxYear != max){
-                mMinYear = min;
-                mMaxYear = max;
-                notifyDataSetChanged();
-            }
-        }
-
-        public int positionOfYear(int year){
-            return year - mMinYear;
-        }
-
-        @Override
-        public int getCount(){
-            return mMaxYear - mMinYear + 1;
-        }
-
-        @Override
-        public Object getItem(int position){
-            return mMinYear + position;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        public void setYear(int year){
-            if(mCurYear != year){
-                int old = mCurYear;
-                mCurYear = year;
-
-                CircleCheckedTextView child = (CircleCheckedTextView) YearPicker.this.getChildAt(positionOfYear(old) - YearPicker.this.getFirstVisiblePosition());
-                if(child != null)
-                    child.setChecked(false);
-
-                child = (CircleCheckedTextView) YearPicker.this.getChildAt(positionOfYear(mCurYear) - YearPicker.this.getFirstVisiblePosition());
-                if(child != null)
-                    child.setChecked(true);
-
-                if(mOnYearChangedListener != null)
-                    mOnYearChangedListener.onYearChanged(old, mCurYear);
-            }
-        }
-
-        public int getYear(){
-            return mCurYear;
-        }
-
-        @Override
-        public void onClick(View v) {
-            setYear((Integer)v.getTag());
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            CircleCheckedTextView v = (CircleCheckedTextView)convertView;
-            if(v == null){
-                v = new CircleCheckedTextView(getContext());
-                v.setGravity(Gravity.CENTER);
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
-                    v.setTextAlignment(TEXT_ALIGNMENT_CENTER);
-                v.setMinHeight(mItemRealHeight);
-                v.setMaxHeight(mItemRealHeight);
-                v.setAnimDuration(mAnimDuration);
-                v.setInterpolator(mInInterpolator, mOutInterpolator);
-                v.setBackgroundColor(mSelectionColor);
-                v.setTypeface(mTypeface);
-                v.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
-                v.setTextColor(new ColorStateList(STATES, mTextColors));
-                v.setOnClickListener(this);
-            }
-
-            int year = (Integer)getItem(position);
-            v.setTag(year);
-            v.setText(String.format(YEAR_FORMAT, year));
-            v.setCheckedImmediately(year == mCurYear);
-            return v;
-        }
     }
 
     @Override
@@ -423,7 +308,32 @@ public class YearPicker extends ListView {
         setYear(ss.year);
     }
 
+    /**
+     * Interface definition for a callback to be invoked when the selected year is changed.
+     */
+    public interface OnYearChangedListener {
+
+        /**
+         * Called then the selected year is changed.
+         *
+         * @param oldValue The old year value.
+         * @param newValue The new year value.
+         */
+        public void onYearChanged(int oldValue, int newValue);
+
+    }
+
     static class SavedState extends BaseSavedState {
+        public static final Creator<SavedState> CREATOR
+                = new Creator<SavedState>() {
+            public SavedState createFromParcel(Parcel in) {
+                return new SavedState(in);
+            }
+
+            public SavedState[] newArray(int size) {
+                return new SavedState[size];
+            }
+        };
         int yearMin;
         int yearMax;
         int year;
@@ -461,17 +371,104 @@ public class YearPicker extends ListView {
                     + " yearMax=" + yearMax
                     + " year=" + year + "}";
         }
+    }
 
-        public static final Creator<SavedState> CREATOR
-                = new Creator<SavedState>() {
-            public SavedState createFromParcel(Parcel in) {
-                return new SavedState(in);
+    private class YearAdapter extends BaseAdapter implements OnClickListener {
+
+        private int mMinYear = 1990;
+        private int mMaxYear = Integer.MAX_VALUE - 1;
+        private int mCurYear = -1;
+
+        public YearAdapter() {
+        }
+
+        public int getMinYear() {
+            return mMinYear;
+        }
+
+        public int getMaxYear() {
+            return mMaxYear;
+        }
+
+        public void setYearRange(int min, int max) {
+            if (mMinYear != min || mMaxYear != max) {
+                mMinYear = min;
+                mMaxYear = max;
+                notifyDataSetChanged();
+            }
+        }
+
+        public int positionOfYear(int year) {
+            return year - mMinYear;
+        }
+
+        @Override
+        public int getCount() {
+            return mMaxYear - mMinYear + 1;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return mMinYear + position;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        public int getYear() {
+            return mCurYear;
+        }
+
+        public void setYear(int year) {
+            if (mCurYear != year) {
+                int old = mCurYear;
+                mCurYear = year;
+
+                CircleCheckedTextView child = (CircleCheckedTextView) YearPicker.this.getChildAt(positionOfYear(old) - YearPicker.this.getFirstVisiblePosition());
+                if (child != null)
+                    child.setChecked(false);
+
+                child = (CircleCheckedTextView) YearPicker.this.getChildAt(positionOfYear(mCurYear) - YearPicker.this.getFirstVisiblePosition());
+                if (child != null)
+                    child.setChecked(true);
+
+                if (mOnYearChangedListener != null)
+                    mOnYearChangedListener.onYearChanged(old, mCurYear);
+            }
+        }
+
+        @Override
+        public void onClick(View v) {
+            setYear((Integer) v.getTag());
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            CircleCheckedTextView v = (CircleCheckedTextView) convertView;
+            if (v == null) {
+                v = new CircleCheckedTextView(getContext());
+                v.setGravity(Gravity.CENTER);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+                    v.setTextAlignment(TEXT_ALIGNMENT_CENTER);
+                v.setMinHeight(mItemRealHeight);
+                v.setMaxHeight(mItemRealHeight);
+                v.setAnimDuration(mAnimDuration);
+                v.setInterpolator(mInInterpolator, mOutInterpolator);
+                v.setBackgroundColor(mSelectionColor);
+                v.setTypeface(mTypeface);
+                v.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
+                v.setTextColor(new ColorStateList(STATES, mTextColors));
+                v.setOnClickListener(this);
             }
 
-            public SavedState[] newArray(int size) {
-                return new SavedState[size];
-            }
-        };
+            int year = (Integer) getItem(position);
+            v.setTag(year);
+            v.setText(String.format(YEAR_FORMAT, year));
+            v.setCheckedImmediately(year == mCurYear);
+            return v;
+        }
     }
 
 }

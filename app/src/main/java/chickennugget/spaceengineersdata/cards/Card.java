@@ -32,23 +32,23 @@ import chickennugget.spaceengineersdata.R;
 /**
  * Main Card Model
  * </p>
-  * You can customize this component. See https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md for more information.
+ * You can customize this component. See https://github.com/gabrielemariotti/cardslib/tree/master/doc/CARD.md for more information.
  * </p>
  * You can easily extend and customize this class providing your inner layout and
  * setting your values with {@link #setupInnerViewElements(android.view.ViewGroup, android.view.View)} method.
  * </p>
  * Usage:
  * <pre><code>
- *
+ * <p>
  *     //Create a Card
  *     Card card = new Card(getContext());
- *
+ * <p>
  *     //Create a CardHeader
  *     CardHeader header = new CardHeader(getContext());
- *
+ * <p>
  *     //Add Header to card
  *     card.addCardHeader(header);
- *
+ * <p>
  * </code></pre>
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
@@ -57,119 +57,97 @@ public class Card extends BaseCard {
 
     // -------------------------------------------------------------
 
-    protected static String TAG = "Card";
-
-    public static int DEFAULT_COLOR= 0;
-
     /**
-     * Used to enable a onClick Action on card
-     */
-    protected boolean mIsClickable = false;
-
-    /**
-     * Used to enable a onLongClick Action on card
-     */
-    protected boolean mIsLongClickable = false;
-
-    /**
-     * Used to enable a swipe gesture and its listener {@link Card#setOnClickListener(OnCardClickListener)}
-     */
-    protected boolean mIsSwipeable = false;
-
-    /**
-     * Indicates to draw a shadow
-     */
-    protected boolean mShadow = true;
-
-    // Elements
-
-    /**
-     * {@link CardHeader}
-     */
-    protected CardHeader mCardHeader;
-
-    /**
-     * {@link CardThumbnail}
-     */
-    protected CardThumbnail mCardThumbnail;
-
-    /**
-     * {@link CardExpand}
-     */
-    protected CardExpand mCardExpand;
-
-    /**
-     * Indicates if card is expanded or collapsed
-     */
-    protected boolean mIsExpanded=false;
-
-    // Listeners
-
-    /**
-     * Listener invoked when the card is swiped
-     */
-    protected OnSwipeListener mOnSwipeListener;
-
-    /**
-     * Listener invoked when the card is clicked
-     */
-    protected OnCardClickListener mOnClickListener;
-
-    /**
-     * Listener invoked when Expand Animator ends
-     */
-    protected OnExpandAnimatorEndListener mOnExpandAnimatorEndListener;
-
-    /**
-     * Listener invoked when Collapse Animator ends
-     */
-    protected OnCollapseAnimatorEndListener mOnCollapseAnimatorEndListener;
-
-    /**
-     * Listener invoked when Expand Animator starts
-     */
-    protected OnExpandAnimatorStartListener mOnExpandAnimatorStartListener;
-
-    /**
-     * Listener invoked when Collapse Animator starts
-     */
-    protected OnCollapseAnimatorStartListener mOnCollapseAnimatorStartListener;
-
-    /**
-     * Partial OnClickListener
-     */
-    protected HashMap<Integer, OnCardClickListener> mMultipleOnClickListener;
-
-    /**
-     *  Global area
-     *  It is used by partial click listener
+     * Global area
+     * It is used by partial click listener
      */
     public static final int CLICK_LISTENER_ALL_VIEW = 0;
-
     /**
      * Thumbnail area
-     *  It is used by partial click listener
+     * It is used by partial click listener
      */
     public static final int CLICK_LISTENER_THUMBNAIL_VIEW = 1;
-
     /**
      * Header Area
      * It is used by partial click listener
      */
     public static final int CLICK_LISTENER_HEADER_VIEW = 2;
-
     /**
      * Content Main area.
-       It is used by partial click listener
+     * It is used by partial click listener
      */
     public static final int CLICK_LISTENER_CONTENT_VIEW = 10;
-
     /**
      * All card area except the supplemental area with actions.
-     It is used by partial click listener
+     * It is used by partial click listener
      */
     public static final int CLICK_LISTENER_ACTIONAREA1_VIEW = 9;
+    public static int DEFAULT_COLOR = 0;
 
+    // Elements
+    protected static String TAG = "Card";
+    /**
+     * Used to enable a onClick Action on card
+     */
+    protected boolean mIsClickable = false;
+    /**
+     * Used to enable a onLongClick Action on card
+     */
+    protected boolean mIsLongClickable = false;
+    /**
+     * Used to enable a swipe gesture and its listener {@link Card#setOnClickListener(OnCardClickListener)}
+     */
+    protected boolean mIsSwipeable = false;
+
+    // Listeners
+    /**
+     * Indicates to draw a shadow
+     */
+    protected boolean mShadow = true;
+    /**
+     * {@link CardHeader}
+     */
+    protected CardHeader mCardHeader;
+    /**
+     * {@link CardThumbnail}
+     */
+    protected CardThumbnail mCardThumbnail;
+    /**
+     * {@link CardExpand}
+     */
+    protected CardExpand mCardExpand;
+    /**
+     * Indicates if card is expanded or collapsed
+     */
+    protected boolean mIsExpanded = false;
+    /**
+     * Listener invoked when the card is swiped
+     */
+    protected OnSwipeListener mOnSwipeListener;
+    /**
+     * Listener invoked when the card is clicked
+     */
+    protected OnCardClickListener mOnClickListener;
+    /**
+     * Listener invoked when Expand Animator ends
+     */
+    protected OnExpandAnimatorEndListener mOnExpandAnimatorEndListener;
+    /**
+     * Listener invoked when Collapse Animator ends
+     */
+    protected OnCollapseAnimatorEndListener mOnCollapseAnimatorEndListener;
+    /**
+     * Listener invoked when Expand Animator starts
+     */
+    protected OnExpandAnimatorStartListener mOnExpandAnimatorStartListener;
+    /**
+     * Listener invoked when Collapse Animator starts
+     */
+    protected OnCollapseAnimatorStartListener mOnCollapseAnimatorStartListener;
+    /**
+     * Partial OnClickListener
+     */
+    protected HashMap<Integer, OnCardClickListener> mMultipleOnClickListener;
     /**
      * Listener invoked when the user undo a swipe action in a List
      */
@@ -179,55 +157,50 @@ public class Card extends BaseCard {
      * Listener invoked when the Undo controller hides the Undo Bar after a swipe action in a List
      */
     protected OnUndoHideSwipeListListener mOnUndoHideSwipeListListener;
-
-    /**
-     * It identifies the background resource of view with this id:
-     * android:id="@+id/card_main_layout"
-     * <p/>
-     * In a native card it identifies the main background.
-     */
-    private int mBackgroundResourceId =0;
-
-    /**
-     * It identifies the background resource of view with this id:
-     * android:id="@+id/card_main_layout"
-     * <p/>
-     * In a native card it identifies the main background.
-     */
-    private Drawable mBackgroundResource =null;
-
-    /**
-     * In a native card it identifies the main background color.
-     * Use it only with a NativeCard
-     */
-    private int mBackgroundColorResourceId =0;
-
-    /**
-     * Used to enable a onLongClick Action on multichoiceAdapter
-     */
-    private boolean mCheckable= true;
-
     /**
      * Used by multichoice
      */
     protected boolean mMultiChoiceEnabled = false;
-
     /**
      * The view to click to enable expand/collapse actions
      */
-    protected ViewToClickToExpand viewToClickToExpand=null;
-
+    protected ViewToClickToExpand viewToClickToExpand = null;
     /**
-     *  Custom Elevation
+     * Custom Elevation
      */
     protected Float mCardElevation;
-
-
-    private boolean couldUseNativeInnerLayout = false;
+    /**
+     * Listener invoked when card is long clicked
+     */
+    protected OnLongCardClickListener mOnLongClickListener;
+    /**
+     * It identifies the background resource of view with this id:
+     * android:id="@+id/card_main_layout"
+     * <p>
+     * In a native card it identifies the main background.
+     */
+    private int mBackgroundResourceId = 0;
+    /**
+     * It identifies the background resource of view with this id:
+     * android:id="@+id/card_main_layout"
+     * <p>
+     * In a native card it identifies the main background.
+     */
+    private Drawable mBackgroundResource = null;
+    /**
+     * In a native card it identifies the main background color.
+     * Use it only with a NativeCard
+     */
+    private int mBackgroundColorResourceId = 0;
+    /**
+     * Used to enable a onLongClick Action on multichoiceAdapter
+     */
+    private boolean mCheckable = true;
 
     // -------------------------------------------------------------
     // Constructors
     // -------------------------------------------------------------
+    private boolean couldUseNativeInnerLayout = false;
 
     /**
      * Constructor with a base inner layout defined by R.layout.inner_base_main
@@ -237,6 +210,10 @@ public class Card extends BaseCard {
     public Card(Context context) {
         this(context, R.layout.inner_base_main);
     }
+
+    // -------------------------------------------------------------
+    // Setup Inner view Element
+    // -------------------------------------------------------------
 
     /**
      * Constructor with a custom inner layout.
@@ -253,9 +230,55 @@ public class Card extends BaseCard {
             couldUseNativeInnerLayout = true;
     }
 
-    // -------------------------------------------------------------
-    // Setup Inner view Element
-    // -------------------------------------------------------------
+    /**
+     * Checks if 2 cards have the same innerLayouts
+     * It can be used to force inner layout redraw
+     *
+     * @param oldCard
+     * @param newCard
+     * @return
+     */
+    public static boolean equalsInnerLayout(Card oldCard, Card newCard) {
+        if (oldCard == null || newCard == null) return false;
+
+        //Check inner Layout
+        if (oldCard.getInnerLayout() != newCard.getInnerLayout()) return true;
+
+        //Check inner layout of CardHeader
+        if (oldCard.getCardHeader() != null) {
+            if (newCard.getCardHeader() == null)
+                return true;
+            else if (oldCard.getCardHeader().getInnerLayout() != newCard.getCardHeader().getInnerLayout())
+                return true;
+        } else {
+            if (newCard.getCardHeader() != null)
+                return true;
+        }
+
+        //Check inner layout of CardThumbnail
+        if (oldCard.getCardThumbnail() != null) {
+            if (newCard.getCardThumbnail() == null)
+                return true;
+            else if (oldCard.getCardThumbnail().getInnerLayout() != newCard.getCardThumbnail().getInnerLayout())
+                return true;
+        } else {
+            if (newCard.getCardThumbnail() != null)
+                return true;
+        }
+
+        //Check inner layout of CardExpand
+        if (oldCard.getCardExpand() != null) {
+            if (newCard.getCardExpand() == null)
+                return true;
+            else if (oldCard.getCardExpand().getInnerLayout() != newCard.getCardExpand().getInnerLayout())
+                return true;
+        } else {
+            if (newCard.getCardExpand() != null)
+                return true;
+        }
+
+        return false;
+    }
 
     /**
      * Inflates the inner layout and adds to parent layout.
@@ -265,7 +288,7 @@ public class Card extends BaseCard {
      * You can provide your custom layout.
      * You can use a xml layout with {@link Card#setInnerLayout(int)} or with constructor
      * {@link Card#Card(android.content.Context, int)}
-     * <p/>
+     * <p>
      * Then customize #setupInnerViewElements to set your values.
      *
      * @param context context
@@ -295,10 +318,13 @@ public class Card extends BaseCard {
         return view;
     }
 
+    // -------------------------------------------------------------
+    // CardThumbnail
+    // -------------------------------------------------------------
 
     /**
      * This method sets values to header elements and customizes view.
-     * <p/>
+     * <p>
      * Override this method to set your elements inside InnerView.
      *
      * @param parent parent view (Inner Frame)
@@ -318,14 +344,14 @@ public class Card extends BaseCard {
     /**
      * Setup the inner layout
      */
-    protected void setupInnerLayout(){
+    protected void setupInnerLayout() {
         //Check if the default inner layout could be the native layout
         if (couldUseNativeInnerLayout && isNative())
             mInnerLayout = R.layout.native_inner_base_main;
     }
 
     // -------------------------------------------------------------
-    // CardThumbnail
+    // Header
     // -------------------------------------------------------------
 
     /**
@@ -350,7 +376,7 @@ public class Card extends BaseCard {
     }
 
     // -------------------------------------------------------------
-    // Header
+    // Expand
     // -------------------------------------------------------------
 
     /**
@@ -375,7 +401,7 @@ public class Card extends BaseCard {
     }
 
     // -------------------------------------------------------------
-    // Expand
+    // Supplemental Actions
     // -------------------------------------------------------------
 
     /**
@@ -389,6 +415,10 @@ public class Card extends BaseCard {
             mCardExpand.setParentCard(this);
     }
 
+    // -------------------------------------------------------------
+    // On Swipe Interface and Listener
+    // -------------------------------------------------------------
+
     /**
      * Returns the {@link CardExpand}
      *
@@ -398,23 +428,8 @@ public class Card extends BaseCard {
         return mCardExpand;
     }
 
-    // -------------------------------------------------------------
-    // Supplemental Actions
-    // -------------------------------------------------------------
-
     public void setupSupplementalActions() {
         //Do Nothing
-    }
-
-    // -------------------------------------------------------------
-    // On Swipe Interface and Listener
-    // -------------------------------------------------------------
-
-    /**
-     * Interface to listen for any callbacks when card is swiped.
-     */
-    public interface OnSwipeListener {
-        public void onSwipe(Card card);
     }
 
     /**
@@ -436,6 +451,10 @@ public class Card extends BaseCard {
         return mOnSwipeListener;
     }
 
+    // -------------------------------------------------------------
+    // On Undo Action
+    // -------------------------------------------------------------
+
     /**
      * Sets listener invoked when card is swiped.
      * If listener is <code>null</code> the card is not swipeable.
@@ -448,24 +467,6 @@ public class Card extends BaseCard {
         else
             mIsSwipeable = false;
         this.mOnSwipeListener = onSwipeListener;
-    }
-
-    // -------------------------------------------------------------
-    // On Undo Action
-    // -------------------------------------------------------------
-
-    /**
-     * Interface to listen for any callbacks when card is swiped in a List
-     */
-    public interface OnUndoSwipeListListener {
-        public void onUndoSwipe(Card card);
-    }
-
-    /**
-     * Interface to listen for when the Undo controller hides the Undo Bar
-     */
-    public interface OnUndoHideSwipeListListener {
-        public void onUndoHideSwipe(Card card);
     }
 
     /**
@@ -513,17 +514,6 @@ public class Card extends BaseCard {
         mOnUndoHideSwipeListListener = onUndoHideSwipeListListener;
     }
 
-    // -------------------------------------------------------------
-    //  OnClickListener
-    // -------------------------------------------------------------
-
-    /**
-     * Interface to listen for any callbacks when card is clicked
-     */
-    public interface OnCardClickListener {
-        public void onClick(Card card, View view);
-    }
-
     /**
      * Returns listener invoked when card is clicked
      *
@@ -532,6 +522,10 @@ public class Card extends BaseCard {
     public OnCardClickListener getOnClickListener() {
         return mOnClickListener;
     }
+
+    // -------------------------------------------------------------
+    //  OnClickListener
+    // -------------------------------------------------------------
 
     /**
      * Sets listener invoked when card is clicked
@@ -546,22 +540,6 @@ public class Card extends BaseCard {
             mIsClickable = false;
         mOnClickListener = onClickListener;
     }
-
-    // -------------------------------------------------------------
-    //  OnLongClickListener
-    // -------------------------------------------------------------
-
-    /**
-     * Interface to listen for any callbacks when card is long clicked
-     */
-    public interface OnLongCardClickListener {
-        public boolean onLongClick(Card card, View view);
-    }
-
-    /**
-     * Listener invoked when card is long clicked
-     */
-    protected OnLongCardClickListener mOnLongClickListener;
 
     /**
      * Return the listener invoked when card is long clicked
@@ -587,15 +565,8 @@ public class Card extends BaseCard {
     }
 
     // -------------------------------------------------------------
-    //  OnAnimationExpandEnd Interface and Listener
+    //  OnLongClickListener
     // -------------------------------------------------------------
-
-    /**
-     * Interface to listen any callbacks when expand animation ends
-     */
-    public interface OnExpandAnimatorEndListener {
-        public void onExpandEnd(Card card);
-    }
 
     /**
      * Called at the end of Expand Animator
@@ -625,13 +596,6 @@ public class Card extends BaseCard {
     }
 
     /**
-     * Interface to listen any callbacks when expand animation starts
-     */
-    public interface OnExpandAnimatorStartListener {
-        public void onExpandStart(Card card);
-    }
-
-    /**
      * Called at the start of Expand Animator
      */
     public void onExpandStart() {
@@ -639,6 +603,10 @@ public class Card extends BaseCard {
             mOnExpandAnimatorStartListener.onExpandStart(this);
         }
     }
+
+    // -------------------------------------------------------------
+    //  OnAnimationExpandEnd Interface and Listener
+    // -------------------------------------------------------------
 
     /**
      * Returns the listener invoked when expand animation starts
@@ -656,17 +624,6 @@ public class Card extends BaseCard {
      */
     public void setOnExpandAnimatorStartListener(OnExpandAnimatorStartListener onExpandAnimatorStartListener) {
         this.mOnExpandAnimatorStartListener = onExpandAnimatorStartListener;
-    }
-
-    // -------------------------------------------------------------
-    //  OnAnimationExpandEnd Interface and Listener
-    // -------------------------------------------------------------
-
-    /**
-     * Interface to listen any callbacks when expand animation ends
-     */
-    public interface OnCollapseAnimatorEndListener {
-        public void onCollapseEnd(Card card);
     }
 
     /**
@@ -697,13 +654,6 @@ public class Card extends BaseCard {
     }
 
     /**
-     * Interface to listen any callbacks when collapse animation starts
-     */
-    public interface OnCollapseAnimatorStartListener {
-        public void onCollapseStart(Card card);
-    }
-
-    /**
      * Call at the beginning of collapse animation
      */
     public void onCollapseStart() {
@@ -730,20 +680,21 @@ public class Card extends BaseCard {
         this.mOnCollapseAnimatorStartListener = onCollapseAnimatorStartListener;
     }
 
+    // -------------------------------------------------------------
+    //  OnAnimationExpandEnd Interface and Listener
+    // -------------------------------------------------------------
 
-    public void doExpand(){
+    public void doExpand() {
         getCardView().doExpand();
     }
 
-    public void doCollapse(){
+    public void doCollapse() {
         getCardView().doCollapse();
     }
 
-    public void doToogleExpand(){
+    public void doToogleExpand() {
         getCardView().doToggleExpand();
     }
-
-    // -------------------------------------------------------------
 
     /**
      * @return <code>true</code> if card has a header
@@ -754,19 +705,6 @@ public class Card extends BaseCard {
         else return false;
     }
 
-    // -------------------------------------------------------------
-    //  Getters and Setters
-    // -------------------------------------------------------------
-
-    /**
-     * Sets the shadow elevation.
-     * This method works only with the CardViewNative.
-     * @param elevation
-     */
-    public void setCardElevation(float elevation) {
-        this.mCardElevation = elevation;
-    }
-
     /**
      * Returns the elevation
      *
@@ -774,6 +712,16 @@ public class Card extends BaseCard {
      */
     public Float getCardElevation() {
         return mCardElevation;
+    }
+
+    /**
+     * Sets the shadow elevation.
+     * This method works only with the CardViewNative.
+     *
+     * @param elevation
+     */
+    public void setCardElevation(float elevation) {
+        this.mCardElevation = elevation;
     }
 
     /**
@@ -793,7 +741,6 @@ public class Card extends BaseCard {
     public void setShadow(boolean shadow) {
         mShadow = shadow;
     }
-
 
     public Context getContext() {
         return mContext;
@@ -819,6 +766,8 @@ public class Card extends BaseCard {
         return mIsClickable;
     }
 
+    // -------------------------------------------------------------
+
     /**
      * Set the card as clickable
      *
@@ -827,6 +776,10 @@ public class Card extends BaseCard {
     public void setClickable(boolean isClickable) {
         mIsClickable = isClickable;
     }
+
+    // -------------------------------------------------------------
+    //  Getters and Setters
+    // -------------------------------------------------------------
 
     /**
      * Indicates if the card is swipeable
@@ -905,7 +858,6 @@ public class Card extends BaseCard {
      * {@link Card#CLICK_LISTENER_THUMBNAIL_VIEW}
      * {@link Card#CLICK_LISTENER_CONTENT_VIEW}
      *
-     *
      * @param area
      */
     public void removePartialOnClickListener(int area) {
@@ -920,7 +872,7 @@ public class Card extends BaseCard {
     /**
      * Map for all partial listeners
      *
-     * @return  a map with partial listeners
+     * @return a map with partial listeners
      */
     public HashMap<Integer, OnCardClickListener> getMultipleOnClickListener() {
         if (mMultipleOnClickListener != null)
@@ -946,74 +898,11 @@ public class Card extends BaseCard {
         mIsExpanded = expanded;
     }
 
-
-    /**
-     * Checks if 2 cards have the same innerLayouts
-     * It can be used to force inner layout redraw
-     *
-     * @param oldCard
-     * @param newCard
-     * @return
-     */
-    public static boolean equalsInnerLayout(Card oldCard,Card newCard){
-        if (oldCard==null || newCard==null) return false;
-
-        //Check inner Layout
-        if (oldCard.getInnerLayout()!=newCard.getInnerLayout()) return true;
-
-        //Check inner layout of CardHeader
-        if (oldCard.getCardHeader()!=null){
-            if (newCard.getCardHeader()==null)
-                return true;
-            else
-            if (oldCard.getCardHeader().getInnerLayout()!=newCard.getCardHeader().getInnerLayout())
-                return true;
-        }else{
-            if (newCard.getCardHeader()!=null)
-                return true;
-        }
-
-        //Check inner layout of CardThumbnail
-        if (oldCard.getCardThumbnail()!=null){
-            if (newCard.getCardThumbnail()==null)
-                return true;
-            else
-            if (oldCard.getCardThumbnail().getInnerLayout()!=newCard.getCardThumbnail().getInnerLayout())
-                return true;
-        }else{
-            if (newCard.getCardThumbnail()!=null)
-                return true;
-        }
-
-        //Check inner layout of CardExpand
-        if (oldCard.getCardExpand()!=null){
-            if (newCard.getCardExpand()==null)
-                return true;
-            else
-            if (oldCard.getCardExpand().getInnerLayout()!=newCard.getCardExpand().getInnerLayout())
-                return true;
-        }else{
-            if (newCard.getCardExpand()!=null)
-                return true;
-        }
-
-        return false;
-    }
-
     /**
      * Refreshes the card content (it doesn't inflate layouts again)
      */
-    public void notifyDataSetChanged(){
+    public void notifyDataSetChanged() {
         getCardView().refreshCard(this);
-    }
-
-    /**
-     * Sets the background drawable resource to override the style of MainLayout (card.main_layout)
-     *
-     * @param drawableResourceId drawable resource Id
-     */
-    public void setBackgroundResourceId(int drawableResourceId) {
-        this.mBackgroundResourceId = drawableResourceId;
     }
 
     /**
@@ -1023,6 +912,15 @@ public class Card extends BaseCard {
      */
     public int getBackgroundResourceId() {
         return mBackgroundResourceId;
+    }
+
+    /**
+     * Sets the background drawable resource to override the style of MainLayout (card.main_layout)
+     *
+     * @param drawableResourceId drawable resource Id
+     */
+    public void setBackgroundResourceId(int drawableResourceId) {
+        this.mBackgroundResourceId = drawableResourceId;
     }
 
     /**
@@ -1046,10 +944,10 @@ public class Card extends BaseCard {
     /**
      * Changes dynamically the drawable resource to override the style of MainLayout.
      *
-     * @param drawableResourceId   drawable resource Id
+     * @param drawableResourceId drawable resource Id
      */
-    public void changeBackgroundResourceId(int drawableResourceId){
-        if (mCardView!=null){
+    public void changeBackgroundResourceId(int drawableResourceId) {
+        if (mCardView != null) {
             mCardView.changeBackgroundResourceId(drawableResourceId);
         }
     }
@@ -1057,10 +955,10 @@ public class Card extends BaseCard {
     /**
      * Changes dynamically the drawable resource to override the style of MainLayout.
      *
-     * @param drawableResource   drawable resource
+     * @param drawableResource drawable resource
      */
-    public void changeBackgroundResource(Drawable drawableResource){
-        if (mCardView!=null){
+    public void changeBackgroundResource(Drawable drawableResource) {
+        if (mCardView != null) {
             mCardView.changeBackgroundResource(drawableResource);
         }
     }
@@ -1085,6 +983,7 @@ public class Card extends BaseCard {
 
     /**
      * Returns true if the multichoice is enabled
+     *
      * @return
      */
     public boolean isMultiChoiceEnabled() {
@@ -1111,16 +1010,27 @@ public class Card extends BaseCard {
 
     /**
      * Returns true if the card is using the native card
+     *
      * @return
      */
-    protected boolean isNative(){
-        if (mCardView!=null)
+    protected boolean isNative() {
+        if (mCardView != null)
             return mCardView.isNative();
         return false;
     }
 
     /**
+     * Returns the background color assigned to the Native CardView
+     *
+     * @return
+     */
+    public int getBackgroundColorResourceId() {
+        return mBackgroundColorResourceId;
+    }
+
+    /**
      * Set the background color assigned to the Native CardView
+     *
      * @param backgroundColorResourceId
      */
     public void setBackgroundColorResourceId(int backgroundColorResourceId) {
@@ -1128,10 +1038,65 @@ public class Card extends BaseCard {
     }
 
     /**
-     * Returns the background color assigned to the Native CardView
-     * @return
+     * Interface to listen for any callbacks when card is swiped.
      */
-    public int getBackgroundColorResourceId() {
-        return mBackgroundColorResourceId;
+    public interface OnSwipeListener {
+        public void onSwipe(Card card);
+    }
+
+    /**
+     * Interface to listen for any callbacks when card is swiped in a List
+     */
+    public interface OnUndoSwipeListListener {
+        public void onUndoSwipe(Card card);
+    }
+
+    /**
+     * Interface to listen for when the Undo controller hides the Undo Bar
+     */
+    public interface OnUndoHideSwipeListListener {
+        public void onUndoHideSwipe(Card card);
+    }
+
+    /**
+     * Interface to listen for any callbacks when card is clicked
+     */
+    public interface OnCardClickListener {
+        public void onClick(Card card, View view);
+    }
+
+    /**
+     * Interface to listen for any callbacks when card is long clicked
+     */
+    public interface OnLongCardClickListener {
+        public boolean onLongClick(Card card, View view);
+    }
+
+    /**
+     * Interface to listen any callbacks when expand animation ends
+     */
+    public interface OnExpandAnimatorEndListener {
+        public void onExpandEnd(Card card);
+    }
+
+    /**
+     * Interface to listen any callbacks when expand animation starts
+     */
+    public interface OnExpandAnimatorStartListener {
+        public void onExpandStart(Card card);
+    }
+
+    /**
+     * Interface to listen any callbacks when expand animation ends
+     */
+    public interface OnCollapseAnimatorEndListener {
+        public void onCollapseEnd(Card card);
+    }
+
+    /**
+     * Interface to listen any callbacks when collapse animation starts
+     */
+    public interface OnCollapseAnimatorStartListener {
+        public void onCollapseStart(Card card);
     }
 }

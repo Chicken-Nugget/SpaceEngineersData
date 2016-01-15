@@ -80,18 +80,18 @@ public class GridBaseFragment extends MaterialV1Fragment {
     private void initCards() {
 
         ArrayList<Card> cards = new ArrayList<Card>();
-        for (int i=0;i<200;i++){
+        for (int i = 0; i < 200; i++) {
             GdriveGridCard card = new GdriveGridCard(getActivity());
 
-            card.headerTitle="Folder "+i;
+            card.headerTitle = "Folder " + i;
             card.init();
             cards.add(card);
         }
 
-        CardGridArrayAdapter mCardArrayAdapter = new CardGridArrayAdapter(getActivity(),cards);
+        CardGridArrayAdapter mCardArrayAdapter = new CardGridArrayAdapter(getActivity(), cards);
 
         CardGridView gridView = (CardGridView) getActivity().findViewById(R.id.carddemo_grid_base);
-        if (gridView!=null){
+        if (gridView != null) {
             gridView.setAdapter(mCardArrayAdapter);
         }
     }
@@ -106,7 +106,7 @@ public class GridBaseFragment extends MaterialV1Fragment {
         }
 
         private void init() {
-            CardHeader header = new CardHeader(getContext(),R.layout.carddemo_gdrive_header_inner);
+            CardHeader header = new CardHeader(getContext(), R.layout.carddemo_gdrive_header_inner);
             header.setTitle(headerTitle);
             header.setOtherButtonVisible(true);
 

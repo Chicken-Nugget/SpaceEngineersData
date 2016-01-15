@@ -11,7 +11,7 @@ import chickennugget.spaceengineersdata.R;
 
 public class PopupWindow extends android.widget.PopupWindow {
 
-	private final boolean mOverlapAnchor;
+    private final boolean mOverlapAnchor;
 
     public PopupWindow(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
