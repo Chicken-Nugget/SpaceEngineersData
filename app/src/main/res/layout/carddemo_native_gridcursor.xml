@@ -19,22 +19,22 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
 
     <!-- Card visible layout -->
     <chickennugget.spaceengineersdata.cards.ForegroundLinearLayout
         android:id="@+id/card_main_layout"
         style="@style/card.native.main_layout_foreground"
-        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         >
 
         <chickennugget.spaceengineersdata.cards.CardThumbnailView
-            style="@style/card.native.card_thumbnail_outer_layout"
             android:id="@+id/card_thumbnail_layout"
+            style="@style/card.native.card_thumbnail_outer_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -52,7 +52,6 @@
 
 
     </chickennugget.spaceengineersdata.cards.ForegroundLinearLayout>
-
 
 
 </LinearLayout>

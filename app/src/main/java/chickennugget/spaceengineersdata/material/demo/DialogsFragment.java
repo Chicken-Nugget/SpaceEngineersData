@@ -162,10 +162,8 @@ public class DialogsFragment extends Fragment implements View.OnClickListener {
                     }
                 };
 
-                ((SimpleDialog.Builder) builder).message("Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.")
-                        .title("Use Google's location service?")
-                        .positiveAction("AGREE")
-                        .negativeAction("DISAGREE");
+                ((SimpleDialog.Builder) builder).message("Let Google help apps determine location. This means sending anonymous location data to Google, " +
+                        "even when no apps are running.").title("Use Google's location service?").positiveAction("AGREE").negativeAction("DISAGREE");
                 break;
             case R.id.dialog_bt_custom:
                 builder = new SimpleDialog.Builder(isLightTheme ? R.style.SimpleDialogLight : R.style.SimpleDialog) {

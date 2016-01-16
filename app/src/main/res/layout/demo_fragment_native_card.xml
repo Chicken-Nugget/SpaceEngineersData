@@ -19,20 +19,20 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-     <ScrollView
-        style="@style/carddemo_default_container_padding"
+    <ScrollView
         android:id="@+id/card_scrollview"
+        style="@style/carddemo_default_container_padding"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <!-- Simple Title -->
             <TextView
@@ -43,9 +43,9 @@
 
             <chickennugget.spaceengineersdata.cards.CardViewNative
                 android:id="@+id/carddemo_card_id"
+                style="@style/card_external"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/card_external"/>
+                android:layout_height="wrap_content"/>
 
 
             <!-- Card with custom inner layout -->
@@ -57,9 +57,9 @@
 
             <chickennugget.spaceengineersdata.cards.CardViewNative
                 android:id="@+id/carddemo_card_inner"
+                style="@style/card_external"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/card_external"/>
+                android:layout_height="wrap_content"/>
 
             <!-- Extending card -->
             <TextView
@@ -70,9 +70,9 @@
 
             <chickennugget.spaceengineersdata.cards.CardViewNative
                 android:id="@+id/carddemo_example_card3"
+                style="@style/card_external"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/card_external"/>
+                android:layout_height="wrap_content"/>
 
             <!-- Swipe listener -->
             <TextView
@@ -84,9 +84,9 @@
 
             <chickennugget.spaceengineersdata.cards.CardViewNative
                 android:id="@+id/carddemo_example_card3_swipe"
+                style="@style/card_external"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/card_external"/>
+                android:layout_height="wrap_content"/>
 
             <!-- Clickable card -->
             <TextView
@@ -97,9 +97,9 @@
 
             <chickennugget.spaceengineersdata.cards.CardViewNative
                 android:id="@+id/carddemo_example_card3_clickable"
+                style="@style/card_external"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/card_external"/>
+                android:layout_height="wrap_content"/>
 
             <!-- Partial clickable -->
             <TextView
@@ -109,22 +109,22 @@
                 android:text="@string/demo_section_card_example_partial_listeners"/>
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
 
                 <chickennugget.spaceengineersdata.cards.CardViewNative
                     android:id="@+id/carddemo_example_card3_listeners1"
+                    style="@style/card_external"
                     android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    style="@style/card_external"/>
+                    android:layout_height="wrap_content"/>
 
                 <chickennugget.spaceengineersdata.cards.CardViewNative
                     android:id="@+id/carddemo_example_card3_listeners2"
+                    style="@style/card_external"
                     android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    style="@style/card_external"/>
+                    android:layout_height="wrap_content"/>
 
 
             </LinearLayout>
@@ -138,9 +138,9 @@
 
             <chickennugget.spaceengineersdata.cards.CardViewNative
                 android:id="@+id/carddemo_example_card_cab"
+                style="@style/card_external"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/card_external"/>
+                android:layout_height="wrap_content"/>
 
             <!-- Empty view-->
             <View

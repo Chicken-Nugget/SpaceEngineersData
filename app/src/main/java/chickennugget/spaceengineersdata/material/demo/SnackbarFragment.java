@@ -18,7 +18,6 @@ public class SnackbarFragment extends Fragment {
 
     public static SnackbarFragment newInstance() {
         SnackbarFragment fragment = new SnackbarFragment();
-
         return fragment;
     }
 
@@ -26,14 +25,11 @@ public class SnackbarFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_snackbar, container, false);
-
         Button bt_mobile_single = (Button) v.findViewById(R.id.snackbar_bt_mobile_single);
         Button bt_mobile_multi = (Button) v.findViewById(R.id.snackbar_bt_mobile_multi);
         Button bt_tablet_single = (Button) v.findViewById(R.id.snackbar_bt_tablet_single);
         Button bt_tablet_multi = (Button) v.findViewById(R.id.snackbar_bt_tablet_multi);
-
         View.OnClickListener listener = new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 if (mSnackBar.getState() == SnackBar.STATE_SHOWN)
@@ -66,15 +62,11 @@ public class SnackbarFragment extends Fragment {
                 }
             }
         };
-
-
         bt_mobile_single.setOnClickListener(listener);
         bt_mobile_multi.setOnClickListener(listener);
         bt_tablet_single.setOnClickListener(listener);
         bt_tablet_multi.setOnClickListener(listener);
-
         mSnackBar = ((MainActivity) getActivity()).getSnackBar();
-
         return v;
     }
 
@@ -87,5 +79,4 @@ public class SnackbarFragment extends Fragment {
     public void onResume() {
         super.onResume();
     }
-
 }

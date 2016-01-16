@@ -1,173 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Theme Colors -->
+    <!-- Theme -->
     <color name="colorPrimary">#F50057</color>
     <color name="colorPrimaryDark">#C51162</color>
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="windowBackground">#FFFFFF</color>
     <color name="navigationBarColor">#000000</color>
     <color name="colorAccent">#FF80AB</color>
-    <!-- Card Colors -->
+    <!-- Card -->
     <color name="card_background">#FFF</color>
     <color name="card_background_header">#FFF</color>
     <color name="card_backgroundExpand">#515254</color>
     <color name="card_native_background">@android:color/transparent</color>
     <color name="card_text_color_header">#000</color>
     <color name="card_expand_title_color">#B3B2B2</color>
-    <!-- Selector Colors -->
-    <color name="card_pressed">#7E0099CC</color>
-    <color name="card_activated">#CFE9F3</color>
-    <color name="card_foreground_activated">#99CFE9F3</color>
-    <color name="card_pressed_kitkat">#10000000</color>
-    <color name="card_activated_kitkat">#ADE1F4</color>
-    <color name="card_foreground_activated_kitkat">#99ADE1F4</color>
-    <!-- Card List Colors -->
-    <color name="card_base_cardwithlist_divider_color">#E5E5E5</color>
-    <color name="card_base_cardwithlist_background_list_color">#10000000</color>
-    <color name="card_native_base_cardwithlist_divider_color">#E5E5E5</color>
-    <color name="card_native_base_cardwithlist_background_list_color">#10000000</color>
-    <!-- Sectioned List Colors -->
-    <color name="card_section_container_color">#10000000</color>
-    <color name="card_section_title_color">@android:color/black</color>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <color name="demo_title_section_textcolor">#2a84a5</color>
-
-    <!-- customize header standard title
-    <color name="card_text_color_header">#990066</color>
-    -->
-
-    <color name="carddemo_extras_googlenowbirth_title">@android:color/holo_blue_dark</color>
-
-    <!-- color card -->
+    <color name="demo_card_background_color1">#FFBB33</color>
+    <color name="demo_card_background_color2">#98CC00</color>
+    <color name="demo_card_background_color3">#A966CC</color>
+    <color name="demo_card_background_color4">#33B4E4</color>
+    <color name="demo_card_background_color5">#FF4343</color>
     <color name="demoextra_card_background_color1">#FFBB33</color>
     <color name="demoextra_card_background_color2">#98CC00</color>
     <color name="demoextra_card_background_color3">#A966CC</color>
     <color name="demoextra_card_background_color4">#33B4E4</color>
     <color name="demoextra_card_background_color5">#FF4343</color>
     <color name="demoextra_card_background_color6">#A11143</color>
-
-
     <color name="demo_2way_yellow_transparent">#ccba68c8</color>
     <color name="demo_2way_green_transparent">#bb8bc34a</color>
     <color name="demo_2way_blue_transparent">#bb7986cb</color>
     <color name="demo_2way_red_transparent">#bbf36c60</color>
-
+    <!-- Selector -->
+    <color name="card_pressed">#7E0099CC</color>
+    <color name="card_activated">#CFE9F3</color>
+    <color name="card_foreground_activated">#99CFE9F3</color>
+    <color name="card_pressed_kitkat">#10000000</color>
+    <color name="card_activated_kitkat">#ADE1F4</color>
+    <color name="card_foreground_activated_kitkat">#99ADE1F4</color>
+    <!-- Card List -->
+    <color name="card_base_cardwithlist_divider_color">#E5E5E5</color>
+    <color name="card_base_cardwithlist_background_list_color">#10000000</color>
+    <color name="card_native_base_cardwithlist_divider_color">#E5E5E5</color>
+    <color name="card_native_base_cardwithlist_background_list_color">#10000000</color>
+    <!-- Sectioned List -->
+    <color name="card_section_container_color">#10000000</color>
+    <color name="card_section_title_color">@android:color/black</color>
+    <color name="demo_title_section_textcolor">#2a84a5</color>
+    <color name="carddemo_extras_googlenowbirth_title">@android:color/holo_blue_dark</color>
     <!-- Purchase -->
     <color name="demo_extras_purchase_normal">#ececec</color>
     <color name="demo_extras_purchase_pressed">#CCDF9F51</color>
-
     <color name="demoextra_sticky_header_normal">#ffe74c3c</color>
     <color name="demoextra_sticky_header_pressed">#ffc0392b</color>
-
-    <!-- Staggered-->
+    <color name="demo_purchase_normal">#ececec</color>
+    <color name="demo_purchase_pressed">#CC2A84A5</color>
+    <!-- Staggered -->
     <color name="demo_card_staggered_subtitle">#66000000</color>
-
     <!-- Weather -->
     <color name="demoextra_card_line_weather_color">#E5E5E5</color>
     <color name="demoextra_card_weather_city_color">#A4A4A4</color>
     <color name="demoextra_card_weather_temperature_color">#868686</color>
-    <!--override the listlayout background-->
-
+    <color name="demo_card_line_weather_color">#E5E5E5</color>
+    <color name="demo_card_weather_city_color">#A4A4A4</color>
+    <color name="demo_card_weather_temperature_color">#868686</color>
+    <!-- GPlus -->
     <integer-array name="gplus_colors">
         <item>@color/gplus_color_1</item>
         <item>@color/gplus_color_2</item>
         <item>@color/gplus_color_3</item>
         <item>@color/gplus_color_4</item>
     </integer-array>
-
     <color name="gplus_color_1">#3e802f</color>
     <color name="gplus_color_2">#f4b400</color>
     <color name="gplus_color_3">#427fed</color>
     <color name="gplus_color_4">#b23424</color>
-
-
-
     <!-- Material -->
     <color name="body_text_1">#de000000</color>
     <color name="body_text_2">#8a000000</color>
     <color name="body_text_3">#60000000</color>
     <color name="body_text_disabled">#44000000</color>
-
     <color name="body_text_1_inverse">#deffffff</color>
     <color name="body_text_2_inverse">#8affffff</color>
-
     <color name="theme_accent_2">#e91e63</color>
-
-
     <color name="navdrawer_background">#ffffffff</color>
     <color name="navdrawer_text_color">@color/body_text_1</color>
     <color name="navdrawer_icon_tint">#808080</color>
     <color name="gray_background">#fff3f3f3</color>
     <color name="navdrawer_scrim">#6000</color>
     <color name="native_background">#ececec</color>
-
-
-
-
-
-
-
-    <!-- customize header standard title
-    <color name="card_text_color_header">#990066</color>
-    -->
-
     <color name="carddemo_googlenowbirth_title">@android:color/holo_blue_dark</color>
-
-    <!-- Purchase -->
-    <color name="demo_purchase_normal">#ececec</color>
-    <color name="demo_purchase_pressed">#CC2A84A5</color>
-
-    <!-- color card -->
-    <color name="demo_card_background_color1">#FFBB33</color>
-    <color name="demo_card_background_color2">#98CC00</color>
-    <color name="demo_card_background_color3">#A966CC</color>
-    <color name="demo_card_background_color4">#33B4E4</color>
-    <color name="demo_card_background_color5">#FF4343</color>
-
+    <color name="theme_accent_1_light">#8ad4fa</color>
+    <color name="demo_primary_color">#2196F3</color>
+    <color name="demo_colorPrimaryDark">#0288D1</color>
+    <color name="carddemo_halfcolored_color">#109D58</color>
+    <color name="carddemo_blackcolored_color">#272727</color>
     <!-- Birth new-->
     <color name="demo_card_header_birth_color">#707070</color>
     <color name="demo_card_line_birth_color">#E5E5E5</color>
-
-    <!-- Weather -->
-    <color name="demo_card_line_weather_color">#E5E5E5</color>
-    <color name="demo_card_weather_city_color">#A4A4A4</color>
-    <color name="demo_card_weather_temperature_color">#868686</color>
-
     <!-- Stock -->
     <color name="demo_card_stock_negative">#FF4646</color>
     <color name="demo_card_stock_positive">#29A426</color>
-
-
     <color name="theme_accent_1">@color/md_light_blue_900</color>
-
-
-    <!-- Material -->
-
-    <color name="theme_accent_1_light">#8ad4fa</color>
-
-    <color name="demo_primary_color">#2196F3</color>
-    <color name="demo_colorPrimaryDark">#0288D1</color>
-
-    <color name="carddemo_halfcolored_color">#109D58</color>
-    <color name="carddemo_blackcolored_color">#272727</color>
-
-
-    <!-- google's material design colours from
-    http://www.google.com/design/spec/style/color.html#color-ui-color-palette -->
-
-    <!--reds-->
+    <!-- GOOGLE'S MATERIAL DESIGN COLORS -->
+    <!-- Red -->
     <color name="md_red_50">#fde0dc</color>
     <color name="md_red_100">#f9bdbb</color>
     <color name="md_red_200">#f69988</color>
@@ -182,8 +116,7 @@
     <color name="md_red_A200">#ff5177</color>
     <color name="md_red_A400">#ff2d6f</color>
     <color name="md_red_A700">#e00032</color>
-
-    <!-- pinks -->
+    <!-- Pink -->
     <color name="md_pink_50">#fce4ec</color>
     <color name="md_pink_100">#f8bbd0</color>
     <color name="md_pink_200">#f48fb1</color>
@@ -198,8 +131,7 @@
     <color name="md_pink_A200">#ff4081</color>
     <color name="md_pink_A400">#f50057</color>
     <color name="md_pink_A700">#c51162</color>
-
-    <!-- purples -->
+    <!-- Purple -->
     <color name="md_purple_50">#f3e5f5</color>
     <color name="md_purple_100">#e1bee7</color>
     <color name="md_purple_200">#ce93d8</color>
@@ -214,8 +146,7 @@
     <color name="md_purple_A200">#e040fb</color>
     <color name="md_purple_A400">#d500f9</color>
     <color name="md_purple_A700">#aa00ff</color>
-
-    <!-- deep purples -->
+    <!-- Deep Purple -->
     <color name="md_deep_purple_50">#ede7f6</color>
     <color name="md_deep_purple_100">#d1c4e9</color>
     <color name="md_deep_purple_200">#b39ddb</color>
@@ -230,8 +161,7 @@
     <color name="md_deep_purple_A200">#7c4dff</color>
     <color name="md_deep_purple_A400">#651fff</color>
     <color name="md_deep_purple_A700">#6200ea</color>
-
-    <!-- indigo -->
+    <!-- Indigo -->
     <color name="md_indigo_50">#e8eaf6</color>
     <color name="md_indigo_100">#c5cae9</color>
     <color name="md_indigo_200">#9fa8da</color>
@@ -246,8 +176,7 @@
     <color name="md_indigo_A200">#536dfe</color>
     <color name="md_indigo_A400">#3d5afe</color>
     <color name="md_indigo_A700">#304ffe</color>
-
-    <!--blue-->
+    <!-- Blue-->
     <color name="md_blue_50">#e7e9fd</color>
     <color name="md_blue_100">#d0d9ff</color>
     <color name="md_blue_200">#afbfff</color>
@@ -262,8 +191,7 @@
     <color name="md_blue_A200">#6889ff</color>
     <color name="md_blue_A400">#4d73ff</color>
     <color name="md_blue_A700">#4d69ff</color>
-
-    <!-- light blue-->
+    <!-- Light Blue-->
     <color name="md_light_blue_50">#e1f5fe</color>
     <color name="md_light_blue_100">#b3e5fc</color>
     <color name="md_light_blue_200">#81d4fa</color>
@@ -278,8 +206,7 @@
     <color name="md_light_blue_A200">#40c4ff</color>
     <color name="md_light_blue_A400">#00b0ff</color>
     <color name="md_light_blue_A700">#0091ea</color>
-
-    <!-- cyan -->
+    <!-- Cyan -->
     <color name="md_cyan_50">#e0f7fa</color>
     <color name="md_cyan_100">#b2ebf2</color>
     <color name="md_cyan_200">#80deea</color>
@@ -294,8 +221,7 @@
     <color name="md_cyan_A200">#18ffff</color>
     <color name="md_cyan_A400">#00e5ff</color>
     <color name="md_cyan_A700">#00b8d4</color>
-
-    <!-- teal -->
+    <!-- Teal -->
     <color name="md_teal_50">#e0f2f1</color>
     <color name="md_teal_100">#b2dfdb</color>
     <color name="md_teal_200">#80cbc4</color>
@@ -310,8 +236,7 @@
     <color name="md_teal_A200">#64ffda</color>
     <color name="md_teal_A400">#1de9b6</color>
     <color name="md_teal_A700">#00bfa5</color>
-
-    <!-- green -->
+    <!-- Green -->
     <color name="md_green_50">#d0f8ce</color>
     <color name="md_green_100">#a3e9a4</color>
     <color name="md_green_200">#72d572</color>
@@ -326,8 +251,7 @@
     <color name="md_green_A200">#5af158</color>
     <color name="md_green_A400">#14e715</color>
     <color name="md_green_A700">#12c700</color>
-
-    <!--light green-->
+    <!-- Light Green -->
     <color name="md_light_green_50">#f1f8e9</color>
     <color name="md_light_green_100">#dcedc8</color>
     <color name="md_light_green_200">#c5e1a5</color>
@@ -342,8 +266,7 @@
     <color name="md_light_green_A200">#b2ff59</color>
     <color name="md_light_green_A400">#76ff03</color>
     <color name="md_light_green_A700">#64dd17</color>
-
-    <!-- lime-->
+    <!-- Lime -->
     <color name="md_lime_50">#f9fbe7</color>
     <color name="md_lime_100">#f0f4c3</color>
     <color name="md_lime_200">#e6ee9c</color>
@@ -358,8 +281,7 @@
     <color name="md_lime_A200">#eeff41</color>
     <color name="md_lime_A400">#c6ff00</color>
     <color name="md_lime_A700">#aeea00</color>
-
-    <!--yellow -->
+    <!-- Yellow -->
     <color name="md_yellow_50">#fffde7</color>
     <color name="md_yellow_100">#fff9c4</color>
     <color name="md_yellow_200">#fff59d</color>
@@ -374,8 +296,7 @@
     <color name="md_yellow_A200">#ffff00</color>
     <color name="md_yellow_A400">#ffea00</color>
     <color name="md_yellow_A700">#ffd600</color>
-
-    <!--amber-->
+    <!-- Amber -->
     <color name="md_amber_50">#fff8e1</color>
     <color name="md_amber_100">#ffecb3</color>
     <color name="md_amber_200">#ffe082</color>
@@ -390,8 +311,7 @@
     <color name="md_amber_A200">#ffd740</color>
     <color name="md_amber_A400">#ffc400</color>
     <color name="md_amber_A700">#ffab00</color>
-
-    <!--orange-->
+    <!-- Orange -->
     <color name="md_orange_50">#fff3e0</color>
     <color name="md_orange_100">#ffe0b2</color>
     <color name="md_orange_200">#ffcc80</color>
@@ -406,8 +326,7 @@
     <color name="md_orange_A200">#ffab40</color>
     <color name="md_orange_A400">#ff9100</color>
     <color name="md_orange_A700">#ff6d00</color>
-
-    <!--deep orange-->
+    <!-- Deep Orange -->
     <color name="md_deep_orange_50">#fbe9e7</color>
     <color name="md_deep_orange_100">#ffccbc</color>
     <color name="md_deep_orange_200">#ffab91</color>
@@ -422,8 +341,7 @@
     <color name="md_deep_orange_A200">#ff6e40</color>
     <color name="md_deep_orange_A400">#ff3d00</color>
     <color name="md_deep_orange_A700">#dd2c00</color>
-
-    <!--brown -->
+    <!-- Brown -->
     <color name="md_brown_50">#efebe9</color>
     <color name="md_brown_100">#d7ccc8</color>
     <color name="md_brown_200">#bcaaa4</color>
@@ -434,8 +352,7 @@
     <color name="md_brown_700">#5d4037</color>
     <color name="md_brown_800">#4e342e</color>
     <color name="md_brown_900">#3e2723</color>
-
-    <!--grey-->
+    <!-- Grey -->
     <color name="md_grey_50">#fafafa</color>
     <color name="md_grey_100">#f5f5f5</color>
     <color name="md_grey_200">#eeeeee</color>
@@ -448,8 +365,7 @@
     <color name="md_grey_900">#212121</color>
     <color name="md_black_1000">#000000</color>
     <color name="md_white_1000">#ffffff</color>
-
-    <!--blue grey-->
+    <!-- Blue Grey -->
     <color name="md_blue_grey_50">#eceff1</color>
     <color name="md_blue_grey_100">#cfd8dc</color>
     <color name="md_blue_grey_200">#b0bec5</color>
@@ -460,50 +376,44 @@
     <color name="md_blue_grey_700">#455a64</color>
     <color name="md_blue_grey_800">#37474f</color>
     <color name="md_blue_grey_900">#263238</color>
-
-
+    <!-- Control -->
     <color name="colorControlNormal">#FF78909C</color>
     <color name="colorControlActivated">#FF03A9F4</color>
     <color name="colorSwitchThumbNormal">#FF78909C</color>
-
     <color name="colorPrimaryQuarter">#3303A9F4</color>
     <color name="colorPrimaryHalf">#9003A9F4</color>
     <color name="colorControlNormalHalf">#9078909C</color>
     <color name="colorControlActivatedHalf">#9003A9F4</color>
     <color name="colorAccentQuarter">#3300E5FF</color>
     <color name="colorAccentHalf">#9000E5FF</color>
-
+    <!-- Progress -->
     <array name="progress_colors_light">
         <item>#FF03A9F4</item>
         <item>#FFD8433C</item>
         <item>#FFF2AF3A</item>
         <item>#FF279B5E</item>
     </array>
-
     <array name="progress_colors_dark">
         <item>#FF00E5FF</item>
         <item>#ffd81d5a</item>
         <item>#fff27512</item>
         <item>#ff63bc34</item>
     </array>
-
     <array name="in_colors_light">
         <item>#4B03A9F4</item>
         <item>#3303A9F4</item>
         <item>#1903A9F4</item>
     </array>
-
     <array name="in_colors_dark">
         <item>#4B00E5FF</item>
         <item>#3300E5FF</item>
         <item>#1900E5FF</item>
     </array>
-
+    <!-- Check Boxes -->
     <color name="tpi_checked">#FFFFFFFF</color>
     <color name="tpi_unchecked">#99FFFFFF</color>
-
+    <!-- Dividers -->
     <color name="et_divider_focused">@color/colorControlActivated</color>
     <color name="et_divider_not_focused">#FF6D6D6D</color>
     <color name="et_divider_disable">#FFC1C1C1</color>
-
 </resources>

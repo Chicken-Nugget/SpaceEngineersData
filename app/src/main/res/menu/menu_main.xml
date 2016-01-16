@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+      xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <group
         android:id="@+id/tb_group_main">
 
 
-    <item
-        android:id="@+id/tb_switch"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_autorenew_white_24dp"
-        android:title="Switch group"/>
+        <item
+            android:id="@+id/tb_switch"
+            android:icon="@drawable/ic_autorenew_white_24dp"
+            android:title="Switch group"
+            app:showAsAction="always"/>
 
-    <item
-        android:id="@+id/tb_theme"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_visibility_white_24dp"
-        android:title="Change Theme"/>
+        <item
+            android:id="@+id/tb_theme"
+            android:icon="@drawable/ic_visibility_white_24dp"
+            android:title="Change Theme"
+            app:showAsAction="always"/>
 
     </group>
-    
+
     <group
         android:id="@+id/tb_group_contextual">
 
         <item
             android:id="@+id/tb_done"
-            app:showAsAction="always"
             android:icon="@drawable/ic_done_white_24dp"
-            android:title="Done"/>
+            android:title="Done"
+            app:showAsAction="always"/>
 
         <item
             android:id="@+id/tb_done_all"
-            app:showAsAction="never"
             android:icon="@drawable/ic_done_all_white_24dp"
-            android:title="Done all"/>
+            android:title="Done all"
+            app:showAsAction="never"/>
 
     </group>
-    
+
 </menu>

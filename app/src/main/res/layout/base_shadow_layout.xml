@@ -17,10 +17,10 @@
   ~   limitations under the License.
   ~  *****************************************************************************
   -->
-    <!-- Image view used for shadow.
-         You can customize it with your style file and card.shadow_image style-->
-    <ImageView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/card_shadow_view"
-        style="@style/card.shadow_image"
-        />
+<!-- Image view used for shadow.
+     You can customize it with your style file and card.shadow_image style-->
+<ImageView
+    android:id="@+id/card_shadow_view"
+    style="@style/card.shadow_image"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    />

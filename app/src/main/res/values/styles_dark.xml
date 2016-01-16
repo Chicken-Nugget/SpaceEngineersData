@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- TextView Style -->
+    <!-- TextView -->
 
     <style name="DarkTitleText">
         <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Title</item>
@@ -14,7 +14,7 @@
         <item name="android:textColor">#FFFFFFFF</item>
     </style>
 
-    <!-- Button Style -->
+    <!-- Button -->
 
     <style name="DarkFlatButtonRippleStyle" parent="Material.Drawable.Ripple.Touch">
         <item name="android:background">@null</item>
@@ -93,7 +93,7 @@
         <item name="android:textColor">@color/abc_primary_text_material_dark</item>
     </style>
 
-    <!-- Switch Style -->
+    <!-- Switch -->
 
     <style name="DarkRadioButtonDrawable" parent="Material.Drawable.RadioButton">
         <item name="rbd_strokeColor">@drawable/color_switch_dark</item>
@@ -112,9 +112,9 @@
         <item name="sw_thumbColor">@drawable/color_thumb_dark</item>
     </style>
 
-    <!-- FAB Style -->
+    <!-- FAB -->
 
-    <style name="DarkFloatingActionButtonIcon" >
+    <style name="DarkFloatingActionButtonIcon">
         <item name="lmd_state">@xml/fab_icon_states</item>
         <item name="lmd_curState">0</item>
         <item name="lmd_padding">2dp</item>
@@ -168,7 +168,7 @@
         <item name="rd_delayClick">afterRelease</item>
     </style>
 
-    <!-- Slider Style -->
+    <!-- Slider -->
 
     <style name="DarkSlider" parent="Material.Widget.Slider">
         <item name="sl_primaryColor">@color/colorAccent</item>
@@ -179,7 +179,7 @@
         <item name="sl_stepValue">10</item>
     </style>
 
-    <!-- Spinner Style -->
+    <!-- Spinner -->
 
     <style name="DarkSpinner" parent="Material.Widget.Spinner">
         <item name="rd_style">@style/Material.Drawable.Ripple.Wave</item>
@@ -206,9 +206,9 @@
         <item name="android:textColor">@color/abc_primary_text_material_dark</item>
     </style>
 
-    <!-- TabPageIndicator Style -->
+    <!-- TabPageIndicator -->
 
-    <style  name="DarkTabPageIndicator"  parent="Material.Widget.TabPageIndicator">
+    <style name="DarkTabPageIndicator" parent="Material.Widget.TabPageIndicator">
         <item name="tpi_tabPadding">12dp</item>
         <item name="tpi_tabRipple">@style/DarkTabRippleStyle</item>
         <item name="tpi_indicatorHeight">3dp</item>
@@ -231,9 +231,9 @@
         <item name="rd_padding">0dp</item>
     </style>
 
-    <!-- EditText Style-->
+    <!-- EditText -->
 
-    <style name="DarkEditText"  parent="Material.Widget.EditText">
+    <style name="DarkEditText" parent="Material.Widget.EditText">
         <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Body1</item>
         <item name="android:textColor">@color/abc_primary_text_material_dark</item>
         <item name="android:textColorHint">@color/abc_secondary_text_material_dark</item>
@@ -243,7 +243,7 @@
         <item name="et_dividerErrorColor">#FFFF0000</item>
     </style>
 
-    <style name="DarkContactEditText"  parent="DarkEditText">
+    <style name="DarkContactEditText" parent="DarkEditText">
         <item name="et_dividerPadding">4dp</item>
         <item name="cet_spanHeight">32dp</item>
         <item name="cet_spanMaxWidth">150dp</item>
@@ -255,11 +255,11 @@
         <item name="cet_spanSpacing">4dp</item>
     </style>
 
-    <style name="DarkNoDividerEditText"  parent="DarkEditText">
+    <style name="DarkNoDividerEditText" parent="DarkEditText">
         <item name="et_dividerHeight">0dp</item>
     </style>
 
-    <!-- Circular Progress Style -->
+    <!-- Circular Progress -->
 
     <style name="DarkCircularProgressDrawable" parent="Material.Drawable.CircularProgress">
         <item name="cpd_strokeColor">@color/colorAccent</item>
@@ -324,7 +324,7 @@
         <item name="pv_progressStyle">@style/DarkDeterminateInCircularProgressDrawable</item>
     </style>
 
-    <!-- Linear Progress Style -->
+    <!-- Linear Progress -->
 
     <style name="DarkLinearProgressDrawable" parent="Material.Drawable.LinearProgress">
         <item name="lpd_strokeColor">@color/colorAccent</item>
@@ -374,13 +374,13 @@
         <item name="pv_progressMode">buffer</item>
     </style>
 
-    <!-- ListView Style -->
+    <!-- ListView -->
 
-    <style name="DarkListView" >
+    <style name="DarkListView">
         <item name="android:background">@color/background_floating_material_dark</item>
     </style>
 
-    <!-- Navigator Drawable Style-->
+    <!-- Navigator Drawable-->
 
     <style name="DarkNavigatorDrawableIcon" parent="Material.Drawable.NavigationDrawerIcon">
         <item name="lmd_strokeSize">3dp</item>

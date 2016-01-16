@@ -1,6 +1,9 @@
 <resources>
+
     <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
+
     </style>
+
     <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
@@ -8,9 +11,6 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
-
-
 
     <style name="card">
         <!-- this style should be empty -->
@@ -47,7 +47,6 @@
 
     <!-- Style for Header ******************************************************-->
 
-
     <style name="card.header_outer_layout">
         <item name="android:layout_marginTop">@dimen/card_header_outer_view_margin_top</item>
         <item name="android:layout_marginBottom">@dimen/card_header_outer_view_margin_bottom</item>
@@ -55,14 +54,14 @@
         <item name="android:layout_marginRight">@dimen/card_header_outer_view_margin_right</item>
     </style>
 
-    <style name="card.native.header_outer_layout" >
+    <style name="card.native.header_outer_layout">
         <item name="android:paddingLeft">@dimen/card_header_native_default_paddingLeft</item>
         <item name="android:paddingRight">@dimen/card_header_native_default_paddingRight</item>
         <item name="android:paddingTop">@dimen/card_header_native_default_paddingTop</item>
         <item name="android:paddingBottom">@dimen/card_header_native_default_paddingBottom</item>
     </style>
 
-    <style name="card.native.header_outer_layout.nomargin" >
+    <style name="card.native.header_outer_layout.nomargin">
         <item name="android:paddingLeft">0dp</item>
         <item name="android:paddingRight">0dp</item>
         <item name="android:paddingTop">0dp</item>
@@ -93,7 +92,7 @@
         <item name="android:layout_marginBottom">@dimen/card_header_simple_title_margin_bottom</item>
     </style>
 
-    <style name="card.native.header_simple_title" >
+    <style name="card.native.header_simple_title">
         <item name="android:textSize">@dimen/card_header_native_simple_title_text_size</item>
         <item name="android:textColor">@color/card_text_color_header</item>
         <item name="android:layout_gravity">left|center_vertical</item>
@@ -144,11 +143,11 @@
     </style>
 
     <!-- Button Overflow in Header -->
-    <style name="card.header_button_base.overflow" >
+    <style name="card.header_button_base.overflow">
         <item name="android:background">@drawable/card_menu_button_rounded_overflow</item>
     </style>
 
-    <style name="card.native.header_button_base.overflow" >
+    <style name="card.native.header_button_base.overflow">
         <item name="android:background">@drawable/card_menu_button_overflow_material</item>
     </style>
 
@@ -184,7 +183,7 @@
     </style>
 
     <!--Style for Content View-->
-    <style name="card.native.content_outer_layout" >
+    <style name="card.native.content_outer_layout">
         <item name="android:layout_width">match_parent</item>
         <item name="android:minHeight">@dimen/card_base_empty_height</item>
         <item name="android:paddingLeft">@dimen/card_main_content_native_default_paddingLeft</item>
@@ -228,7 +227,7 @@
         <item name="android:background">@drawable/card_kitkat_selector</item>
     </style>
 
-    <style name="card.native.main_layout" >
+    <style name="card.native.main_layout">
         <item name="android:background">?android:selectableItemBackground</item>
         <item name="android:layout_marginTop">@dimen/card_main_layout_native_view_margin_top</item>
         <item name="android:layout_marginBottom">@dimen/card_main_layout_native_view_margin_bottom</item>
@@ -267,7 +266,7 @@
         <item name="android:padding">@dimen/card_expand_layout_padding</item>
     </style>
 
-    <style name="card.native.main_contentExpand" >
+    <style name="card.native.main_contentExpand">
         <item name="android:background">@color/card_backgroundExpand</item>
         <item name="android:layout_marginLeft">@dimen/card_expand_native_margin_right</item>
         <item name="android:layout_marginRight">@dimen/card_expand_native_margin_right</item>
@@ -336,7 +335,7 @@
     <!-- CardWithList ******************************************************-->
 
     <!--Style for Content View-->
-    <style name="card.native.content_outer_layout.cardwithlist" >
+    <style name="card.native.content_outer_layout.cardwithlist">
         <item name="android:paddingLeft">@dimen/card_main_content_native_cardwithlist_paddingLeft</item>
         <item name="android:paddingRight">@dimen/card_main_content_native_cardwithlist_paddingRight</item>
         <item name="android:paddingTop">@dimen/card_main_content_native_cardwithlist_paddingTop</item>
@@ -378,7 +377,7 @@
     </style>
 
     <!-- Base list -->
-    <style name="native_list_card.base" >
+    <style name="native_list_card.base">
 
     </style>
 
@@ -387,9 +386,6 @@
     <style name="native_list_card.thumbnail">
 
     </style>
-
-
-
 
 
     <style name="grid_card">
@@ -427,7 +423,6 @@
         <item name="android:background">@color/card_native_base_cardwithlist_background_list_color</item>
     </style>
 
-
     <!-- Style used for Sectioned List -->
     <style name="card_section_container">
         <item name="android:layout_width">match_parent</item>
@@ -450,13 +445,9 @@
         <item name="android:layout_marginBottom">@dimen/card_section_title_margin_top</item>
     </style>
 
+    <style name="FrameworkRoot.Theme" parent="Theme.AppCompat.Light"/>
 
-
-
-
-
-    <style name="FrameworkRoot.Theme" parent="Theme.AppCompat.Light" />
-    <style name="FrameworkRoot.Widget" parent="Theme.AppCompat" />
+    <style name="FrameworkRoot.Widget" parent="Theme.AppCompat"/>
 
     <!-- Immediate parent theme to specify base values for custom attributes -->
     <style name="Theme" parent="FrameworkRoot.Theme">
@@ -464,32 +455,24 @@
     </style>
 
     <style name="Theme.Carddemo.Base" parent="Theme">
-
         <!--<item name="android:actionBarStyle">@style/ActionBar</item>-->
         <item name="homeAsUpIndicator">@drawable/ic_up21</item>
-
-
         <item name="colorPrimary">@color/demo_primary_color</item>
         <item name="colorPrimaryDark">@color/demo_colorPrimaryDark</item>
         <item name="colorAccent">@color/theme_accent_1</item>
-
         <item name="android:textColorLink">@color/theme_accent_1</item>
-
         <item name="windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="windowNoTitle">true</item>
-
         <item name="android:windowBackground">@android:color/white</item>
         <item name="android:homeAsUpIndicator">@drawable/ic_up21</item>
-
         <item name="android:popupMenuStyle">@style/Widget.Carddemo.PopupMenu</item>
         <item name="android:listPopupWindowStyle">@style/Widget.Carddemo.PopupMenu</item>
         <item name="android:dropDownListViewStyle">@style/Widget.Carddemo.ListView.DropDown</item>
         <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu</item>
-
     </style>
 
-    <style name="Theme.Carddemo" parent="Theme.Carddemo.Base" />
+    <style name="Theme.Carddemo" parent="Theme.Carddemo.Base"/>
 
     <style name="Theme.Carddemo.WithNavDrawer" parent="Theme.Carddemo"/>
 
@@ -512,7 +495,7 @@
         <item name="colorControlHighlight">#3fff</item>
     </style>
 
-    <style name="ActionBarPopupThemeOverlay" parent="ThemeOverlay.AppCompat.Light" >
+    <style name="ActionBarPopupThemeOverlay" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:background">@android:color/white</item>
         <item name="android:textColor">#000</item>
     </style>
@@ -564,8 +547,6 @@
         <item name="android:textColor">@color/body_text_1</item>
     </style>
 
-
-
     <style name="TextBody">
         <item name="android:textSize">@dimen/text_size_medium</item>
         <item name="android:textColor">@color/body_text_1</item>
@@ -585,7 +566,6 @@
         <item name="android:paddingTop">@dimen/carddemo_keyline_1_minus_8dp</item>
         <item name="android:paddingBottom">@dimen/carddemo_keyline_1_minus_8dp</item>
     </style>
-
 
     <style name="MenuItemRippleStyle" parent="Material.Drawable.Ripple.Wave">
         <item name="rd_rippleColor">#902DA0FF</item>
@@ -656,7 +636,6 @@
     <style name="ReplacementContactView" parent="Material.Drawable.Ripple.Wave.Light">
         <item name="rd_cornerRadius">0dp</item>
         <item name="rd_delayClick">none</item>
-
         <item name="android:minHeight">56dp</item>
         <item name="cv_buttonSize">0dp</item>
         <item name="cv_avatarSize">40dp</item>
@@ -671,7 +650,6 @@
         <item name="android:background">#FF00B8D4</item>
         <item name="rd_cornerRadius">0dp</item>
         <item name="rd_delayClick">none</item>
-
         <item name="android:minHeight">72dp</item>
         <item name="cv_buttonSrc">@drawable/ic_cancel_white_24dp</item>
         <item name="cv_buttonSize">48dp</item>
@@ -699,15 +677,25 @@
         <item name="android:windowExitAnimation">@null</item>
     </style>
 
-    <style name="Material"></style>
+    <style name="Material">
 
-    <style name="Material.Drawable"></style>
+    </style>
 
-    <style name="Material.Widget"></style>
+    <style name="Material.Drawable">
 
-    <style name="Material.App"></style>
+    </style>
 
-    <style name="Material.TextAppearance"></style>
+    <style name="Material.Widget">
+
+    </style>
+
+    <style name="Material.App">
+
+    </style>
+
+    <style name="Material.TextAppearance">
+
+    </style>
 
     <style name="Material.Drawable.CircularProgress">
         <item name="cpd_padding">0dp</item>
@@ -1264,7 +1252,7 @@
     </style>
 
     <style name="Material.App.BottomSheetDialog">
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:windowIsFloating">false</item>
         <item name="bsd_inDuration">@android:integer/config_mediumAnimTime</item>
         <item name="bsd_inInterpolator">@android:anim/decelerate_interpolator</item>

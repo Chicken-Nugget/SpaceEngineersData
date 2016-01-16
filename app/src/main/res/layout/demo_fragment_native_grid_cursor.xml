@@ -19,16 +19,16 @@
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/carddemo_progressContainer"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <ProgressBar
             style="?android:attr/progressBarStyleLarge"
@@ -38,10 +38,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text=""
             android:paddingTop="4dip"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
 
     </LinearLayout>
 
@@ -51,19 +51,19 @@
         android:layout_height="match_parent">
 
         <chickennugget.spaceengineersdata.cards.CardGridView
+            android:id="@+id/carddemo_grid_cursor"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:columnWidth="@dimen/carddemo_gricursor_width"
+            android:gravity="center"
+            android:horizontalSpacing="8dp"
+            android:numColumns="auto_fit"
             android:paddingLeft="@dimen/carddemo_list_padding"
             android:paddingRight="@dimen/carddemo_list_padding"
-            android:numColumns="auto_fit"
-            android:columnWidth="@dimen/carddemo_gricursor_width"
-            android:verticalSpacing="8dp"
-            android:horizontalSpacing="8dp"
-            android:stretchMode="columnWidth"
-            android:gravity="center"
-            android:clipToPadding="false"
             android:scrollbarStyle="outsideOverlay"
-            android:id="@+id/carddemo_grid_cursor"/>
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="8dp"/>
 
 
     </FrameLayout>

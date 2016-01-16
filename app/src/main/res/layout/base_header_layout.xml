@@ -21,12 +21,13 @@
      If you customize your header layout, if you want to preserve built-in feature use same IDs.
     -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                style="@style/card.header_compound_view">
+<RelativeLayout
+    style="@style/card.header_compound_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true">
 
     <!-- This is the Inner Content Header which you can populate runtime
          with setupInnerViewElements(android.view.ViewGroup, android.view.View) method in CardHeader class.-->
@@ -41,10 +42,10 @@
     <FrameLayout
         android:id="@+id/card_header_button_frame"
         style="@style/card.header_button_frame"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true">
 
         <!-- overflow button. It has a Popup Menu -->
         <ImageButton

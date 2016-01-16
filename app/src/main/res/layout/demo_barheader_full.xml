@@ -19,59 +19,60 @@
   ~  *****************************************************************************
   -->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:clipChildren="false"
-             android:clipToPadding="false"
-             android:id="@+id/header_recap"
-             tools:showIn="@layout/demo_fragment_native_card">
+<FrameLayout
+    android:id="@+id/header_recap"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:showIn="@layout/demo_fragment_native_card">
 
     <!-- height assigned dynamically -->
     <View
         android:id="@+id/header_background"
-        android:layout_width="match_parent"
         style="@style/subheader"
-        android:background="@color/demo_primary_color"
-        android:layout_height="@dimen/carddemo_barheader_height"/>
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/carddemo_barheader_height"
+        android:background="@color/demo_primary_color"/>
 
     <LinearLayout
         android:id="@+id/header_contents"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/keyline_2"
-        android:paddingTop="8dp"
-        android:paddingRight="@dimen/carddemo_keyline_margin"
         android:paddingBottom="16dp"
-        android:layout_height="wrap_content">
+        android:paddingLeft="@dimen/keyline_2"
+        android:paddingRight="@dimen/carddemo_keyline_margin"
+        android:paddingTop="8dp">
 
         <!-- Session title -->
         <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_marginBottom="0dp"
-            android:text="@string/placeholder_session_title"
             android:id="@+id/header_title"
-            android:maxLines="4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
             android:ellipsize="end"
-            android:textSize="@dimen/text_size_large"
-            android:lineSpacingMultiplier="1.1"
-            android:textStyle="normal"
             android:fontFamily="@string/font_fontFamily_medium"
+            android:lineSpacingMultiplier="1.1"
+            android:maxLines="4"
+            android:text="@string/placeholder_session_title"
             android:textColor="@color/body_text_1_inverse"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="normal"
             />
 
         <!-- Session subtitle -->
         <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="@string/placeholder_session_subtitle"
             android:id="@+id/header_subtitle"
-            android:maxLines="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:textSize="16sp"
+            android:maxLines="2"
+            android:text="@string/placeholder_session_subtitle"
             android:textColor="@color/body_text_2_inverse"
+            android:textSize="16sp"
             />
 
     </LinearLayout>
@@ -82,16 +83,16 @@
         android:layout_width="@dimen/hd_fab_size"
         android:layout_height="@dimen/hd_fab_size"
         android:layout_gravity="bottom|right"
-        android:layout_marginRight="16dp"
         android:layout_marginBottom="12dp"
+        android:layout_marginRight="16dp"
         android:background="@drawable/hd_fab_ripple"
-        android:stateListAnimator="@anim/hd_fab_anim"
-        android:src="@drawable/ic_github"
         android:elevation="2dp"
+        android:src="@drawable/ic_github"
+        android:stateListAnimator="@anim/hd_fab_anim"
         />
 
     <View
-         android:id="@+id/header_shadow"
+        android:id="@+id/header_shadow"
         android:layout_width="match_parent"
         android:layout_height="6dp"
         android:layout_gravity="bottom"

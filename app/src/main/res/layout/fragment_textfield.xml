@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:scrollbarStyle="outsideOverlay">
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbarStyle="outsideOverlay">
 
     <LinearLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:orientation="vertical"
-	    android:padding="8dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
 
         <chickennugget.spaceengineersdata.material.app.ContactEditText
             android:id="@+id/textfield_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailSubject|textMultiLine"
+            android:completionThreshold="2"
+            android:dropDownSelector="@drawable/abc_list_selector_background_transition_holo_light"
             android:hint="Contact"
             android:imeOptions="actionNext|flagNoEnterAction|flagNoExtractUi"
-            android:dropDownSelector="@drawable/abc_list_selector_background_transition_holo_light"
-            app:et_inputId="@+id/textfield_et_contact_input"
-            app:et_autoCompleteMode="multi"
-            app:et_supportMode="none"
+            android:inputType="textEmailSubject|textMultiLine"
             app:cet_spanFontFamily="asset:FreeSans.ttf"
-            android:completionThreshold="2"
+            app:et_autoCompleteMode="multi"
+            app:et_inputId="@+id/textfield_et_contact_input"
+            app:et_supportMode="none"
             app:v_styleId="@array/edittext_contact"/>
 
         <chickennugget.spaceengineersdata.material.widget.EditText
             android:id="@+id/textfield_et_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
             android:hint="Input with label"
+            android:inputType="text"
             app:et_inputId="@+id/textfield_et_label_input"
             app:et_supportMode="none"
             app:v_styleId="@array/edittext"/>
@@ -42,11 +42,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:inputType="textMultiLine"
             android:hint="Input with char counter"
+            android:inputType="textMultiLine"
             app:et_inputId="@+id/textfield_et_char_counter_input"
-            app:et_supportMode="charCounter"
             app:et_supportMaxChars="20"
+            app:et_supportMode="charCounter"
             app:v_styleId="@array/edittext"/>
 
         <chickennugget.spaceengineersdata.material.widget.EditText
@@ -54,11 +54,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:inputType="textPassword"
             android:hint="Input with helper"
+            android:inputType="textPassword"
+            app:et_helper="Enter password"
             app:et_inputId="@+id/textfield_et_helper_input"
             app:et_supportMode="helper"
-            app:et_helper="Enter password"
             app:v_styleId="@array/edittext"/>
 
         <chickennugget.spaceengineersdata.material.widget.EditText
@@ -66,11 +66,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:inputType="textPassword"
             android:hint="Input with helper + error"
+            android:inputType="textPassword"
+            app:et_helper="Enter password"
             app:et_inputId="@+id/textfield_et_label_error_input"
             app:et_supportMode="helperWithError"
-            app:et_helper="Enter password"
             app:v_styleId="@array/edittext"/>
 
         <chickennugget.spaceengineersdata.material.widget.EditText
@@ -78,15 +78,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:inputType="text"
-            android:hint="Disabled"
-            android:text="Input text"
             android:enabled="false"
+            android:hint="Disabled"
+            android:inputType="text"
+            android:text="Input text"
             app:et_inputId="@+id/textfield_et_disable_input"
             app:et_supportMode="none"
             app:v_styleId="@array/edittext"/>
 
-	</LinearLayout>
+    </LinearLayout>
 
 
 </ScrollView>

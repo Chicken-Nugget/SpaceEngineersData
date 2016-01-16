@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- TextView Style -->
+    <!-- TextView -->
 
     <style name="LightTitleText">
         <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Title</item>
@@ -14,7 +14,7 @@
         <item name="android:textColor">#FF000000</item>
     </style>
 
-    <!-- Button Style -->
+    <!-- Button -->
 
     <style name="LightFlatButtonRippleStyle" parent="Material.Drawable.Ripple.Touch.Light">
         <item name="android:background">@null</item>
@@ -93,7 +93,7 @@
         <item name="android:textColor">@color/abc_primary_text_material_dark</item>
     </style>
 
-    <!-- Switch Style -->
+    <!-- Switch -->
 
     <style name="LightRadioButtonDrawable" parent="Material.Drawable.RadioButton">
         <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Body1</item>
@@ -110,9 +110,9 @@
         <item name="sw_thumbColor">@drawable/color_thumb_light</item>
     </style>
 
-    <!-- FAB Style -->
+    <!-- FAB -->
 
-    <style name="LightFloatingActionButtonIcon" >
+    <style name="LightFloatingActionButtonIcon">
         <item name="lmd_state">@xml/fab_icon_states</item>
         <item name="lmd_curState">0</item>
         <item name="lmd_padding">2dp</item>
@@ -166,7 +166,7 @@
         <item name="rd_delayClick">afterRelease</item>
     </style>
 
-    <!-- Slider Style -->
+    <!-- Slider -->
 
     <style name="LightSlider" parent="Material.Widget.Slider">
         <item name="sl_primaryColor">@color/colorPrimary</item>
@@ -177,7 +177,7 @@
         <item name="sl_stepValue">10</item>
     </style>
 
-    <!-- Spinner Style -->
+    <!-- Spinner -->
 
     <style name="LightSpinner" parent="Material.Widget.Spinner.Light">
         <item name="rd_style">@style/Material.Drawable.Ripple.Wave.Light</item>
@@ -204,9 +204,9 @@
         <item name="android:textColor">@color/abc_primary_text_material_light</item>
     </style>
 
-    <!-- TabPageIndicator Style-->
+    <!-- TabPageIndicator -->
 
-    <style  name="LightTabPageIndicator"  parent="Material.Widget.TabPageIndicator">
+    <style name="LightTabPageIndicator" parent="Material.Widget.TabPageIndicator">
         <item name="tpi_tabPadding">12dp</item>
         <item name="tpi_tabRipple">@style/LightTabRippleStyle</item>
         <item name="tpi_indicatorHeight">3dp</item>
@@ -229,9 +229,9 @@
         <item name="rd_padding">0dp</item>
     </style>
 
-    <!-- EditText Style-->
+    <!-- EditText -->
 
-    <style  name="LightEditText"  parent="Material.Widget.EditText.Light">
+    <style name="LightEditText" parent="Material.Widget.EditText.Light">
         <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Body1</item>
         <item name="android:textColor">@color/abc_primary_text_material_light</item>
         <item name="android:textColorHint">@color/abc_secondary_text_material_light</item>
@@ -241,7 +241,7 @@
         <item name="et_dividerErrorColor">#FFFF0000</item>
     </style>
 
-    <style name="LightContactEditText"  parent="LightEditText">
+    <style name="LightContactEditText" parent="LightEditText">
         <item name="et_dividerPadding">4dp</item>
         <item name="cet_spanHeight">32dp</item>
         <item name="cet_spanMaxWidth">150dp</item>
@@ -253,11 +253,11 @@
         <item name="cet_spanSpacing">4dp</item>
     </style>
 
-    <style name="LightNoDividerEditText"  parent="LightEditText">
+    <style name="LightNoDividerEditText" parent="LightEditText">
         <item name="et_dividerHeight">0dp</item>
     </style>
 
-    <!-- Circular Progress Style -->
+    <!-- Circular Progress -->
 
     <style name="LightCircularProgressDrawable" parent="Material.Drawable.CircularProgress">
         <item name="cpd_strokeColor">@color/colorPrimary</item>
@@ -321,7 +321,7 @@
         <item name="pv_progressStyle">@style/LightDeterminateInCircularProgressDrawable</item>
     </style>
 
-    <!-- Linear Progress Style -->
+    <!-- Linear Progress -->
 
     <style name="LightLinearProgressDrawable" parent="Material.Drawable.LinearProgress">
         <item name="lpd_strokeColor">@color/colorPrimary</item>
@@ -369,13 +369,13 @@
         <item name="pv_progressMode">buffer</item>
     </style>
 
-    <!-- ListView Style -->
+    <!-- ListView -->
 
-    <style name="LightListView" >
+    <style name="LightListView">
         <item name="android:background">@color/background_floating_material_light</item>
     </style>
 
-    <!-- Navigator Drawable Style -->
+    <!-- Navigator Drawable -->
 
     <style name="LightNavigatorDrawableIcon" parent="Material.Drawable.NavigationDrawerIcon">
         <item name="lmd_strokeSize">3dp</item>

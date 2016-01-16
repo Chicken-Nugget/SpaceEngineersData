@@ -19,41 +19,42 @@
   ~  *****************************************************************************
   -->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:clipChildren="false"
-             android:clipToPadding="false"
-             android:id="@+id/header_recap"
-             tools:showIn="@layout/demo_fragment_native_card">
+<FrameLayout
+    android:id="@+id/header_recap"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:showIn="@layout/demo_fragment_native_card">
 
 
     <LinearLayout
         android:id="@+id/header_contents"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <!-- Session title -->
         <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="@string/placeholder_session_title"
             android:id="@+id/header_title"
-            android:maxLines="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/placeholder_session_title"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
             android:textColor="@color/body_text_1_inverse"
             />
 
         <!-- Session subtitle -->
         <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="@string/placeholder_session_subtitle"
             android:id="@+id/header_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:maxLines="1"
+            android:text="@string/placeholder_session_subtitle"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle"
             android:textColor="@color/body_text_2_inverse"
             />
@@ -66,12 +67,12 @@
         android:layout_width="@dimen/hd_fab_size"
         android:layout_height="@dimen/hd_fab_size"
         android:layout_gravity="bottom|right"
-        android:layout_marginRight="16dp"
         android:layout_marginBottom="12dp"
+        android:layout_marginRight="16dp"
         android:background="@drawable/hd_fab_ripple"
-        android:stateListAnimator="@anim/hd_fab_anim"
-        android:src="@drawable/ic_github"
         android:elevation="2dp"
+        android:src="@drawable/ic_github"
+        android:stateListAnimator="@anim/hd_fab_anim"
         />
 
 </FrameLayout>

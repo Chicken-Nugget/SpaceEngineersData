@@ -18,27 +18,28 @@
   ~  *****************************************************************************
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout
     style="@style/card"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <!-- Card visible layout -->
     <LinearLayout
         android:id="@+id/card_main_layout"
         style="@style/card.main_layout"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         >
 
         <!-- Compound view for Header Card
              If you want to customize this element use attr card:card_header_layout_resourceID
              You can also use your CardHeader subclass-->
         <chickennugget.spaceengineersdata.cards.CardHeaderView
-            style="@style/card.header_outer_layout"
             android:id="@+id/card_header_layout"
+            style="@style/card.header_outer_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -54,8 +55,8 @@
     <!-- Compound view for Shadow
          If you want to customize this element use attr card:card_shadow_layout_resourceID -->
     <chickennugget.spaceengineersdata.cards.CardShadowView
-        style="@style/card.shadow_outer_layout"
         android:id="@+id/card_shadow_layout"
+        style="@style/card.shadow_outer_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -66,7 +67,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
-
 
 
     </FrameLayout>

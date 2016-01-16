@@ -19,46 +19,45 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:paddingLeft="2dp"
-    android:paddingRight="2dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:paddingLeft="2dp"
+              android:paddingRight="2dp">
 
     <!-- Card visible layout -->
     <LinearLayout
         android:id="@+id/card_main_layout"
         style="@style/card.main_layout"
-        android:orientation="horizontal"
-        android:layout_gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
         >
 
         <chickennugget.spaceengineersdata.cards.CardThumbnailView
-            style="@style/card_thumbnail_outer_layout"
             android:id="@+id/card_thumbnail_layout"
-            android:layout_gravity="center_vertical"
+            style="@style/card_thumbnail_outer_layout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"/>
 
         <chickennugget.spaceengineersdata.cards.CardHeaderView
-            style="@style/card.header_outer_layout"
             android:id="@+id/card_header_layout"
-            android:layout_gravity="center_vertical"
+            style="@style/card.header_outer_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"/>
 
     </LinearLayout>
 
     <!-- Compound view for Shadow
            If you want to customize this element use attr card:card_shadow_layout_resourceID -->
     <chickennugget.spaceengineersdata.cards.CardShadowView
-        style="@style/card.shadow_outer_layout"
         android:id="@+id/card_shadow_layout"
+        style="@style/card.shadow_outer_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
 
 
 </LinearLayout>

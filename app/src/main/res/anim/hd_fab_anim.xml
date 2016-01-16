@@ -27,7 +27,7 @@
             android:propertyName="translationZ"
             android:valueFrom="@dimen/hd_button_elevation"
             android:valueTo="@dimen/hd_button_press_elevation"
-            android:valueType="floatType" />
+            android:valueType="floatType"/>
     </item>
     <item>
         <objectAnimator
@@ -35,6 +35,6 @@
             android:propertyName="translationZ"
             android:valueFrom="@dimen/hd_button_press_elevation"
             android:valueTo="@dimen/hd_button_elevation"
-            android:valueType="floatType" />
+            android:valueType="floatType"/>
     </item>
 </selector>
