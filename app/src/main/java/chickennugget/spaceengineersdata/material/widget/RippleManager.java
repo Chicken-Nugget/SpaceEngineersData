@@ -21,11 +21,6 @@ public final class RippleManager implements View.OnClickListener {
     public RippleManager() {
     }
 
-    /**
-     * Cancel the ripple effect of this view and all of it's children.
-     *
-     * @param v
-     */
     public static void cancelRipple(View v) {
         Drawable background = v.getBackground();
         if (background instanceof RippleDrawable)
@@ -40,23 +35,12 @@ public final class RippleManager implements View.OnClickListener {
         }
     }
 
-    /**
-     * Should be called in the construction method of view to create a RippleDrawable.
-     *
-     * @param v
-     * @param context
-     * @param attrs
-     * @param defStyleAttr
-     * @param defStyleRes
-     */
     public void onCreate(View v, Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         if (v.isInEditMode())
             return;
-
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RippleView, defStyleAttr, defStyleRes);
         int rippleStyle = a.getResourceId(R.styleable.RippleView_rd_style, 0);
         RippleDrawable drawable = null;
-
         if (rippleStyle != 0)
             drawable = new RippleDrawable.Builder(context, rippleStyle).backgroundDrawable(getBackground(v)).build();
         else {
@@ -64,9 +48,7 @@ public final class RippleManager implements View.OnClickListener {
             if (rippleEnable)
                 drawable = new RippleDrawable.Builder(context, attrs, defStyleAttr, defStyleRes).backgroundDrawable(getBackground(v)).build();
         }
-
         a.recycle();
-
         if (drawable != null)
             ViewUtil.setBackground(v, drawable);
     }
@@ -75,10 +57,8 @@ public final class RippleManager implements View.OnClickListener {
         Drawable background = v.getBackground();
         if (background == null)
             return null;
-
         if (background instanceof RippleDrawable)
             return ((RippleDrawable) background).getBackgroundDrawable();
-
         return background;
     }
 

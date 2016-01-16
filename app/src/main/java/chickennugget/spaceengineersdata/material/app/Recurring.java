@@ -2,9 +2,6 @@ package chickennugget.spaceengineersdata.material.app;
 
 import java.util.Calendar;
 
-/**
- * Created by Rey on 2/4/2015.
- */
 public class Recurring {
 
     public static final int REPEAT_NONE = 0;

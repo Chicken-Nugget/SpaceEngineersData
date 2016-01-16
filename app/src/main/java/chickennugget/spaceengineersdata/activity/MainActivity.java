@@ -55,8 +55,6 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 //      TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
 //      tabLayout.setupWithViewPager(viewPager);
         // Display the first navigation drawer view on app launch
-
-
         BaseFragment baseFragment = new GridBaseFragment();
         openFragment(baseFragment);
         displayView(0);
@@ -67,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         if (baseFragment != null) {
             android.app.FragmentManager fragmentManager = getFragmentManager();
             android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
             fragmentTransaction.replace(R.id.fragment_main, baseFragment);
             //fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
@@ -86,14 +83,11 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         // Handle action bar item clicks here. The action bar will utomatically handle clicks on
         // the Home/Up button, so long as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        if (id == R.id.action_settings) return true;
         if (id == R.id.action_search) {
             Toast.makeText(getApplicationContext(), "Search action is selected!", Toast.LENGTH_SHORT).show();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -147,6 +141,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
+
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 

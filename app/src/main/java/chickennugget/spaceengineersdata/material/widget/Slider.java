@@ -33,9 +33,6 @@ import chickennugget.spaceengineersdata.material.util.ThemeUtil;
 import chickennugget.spaceengineersdata.material.util.TypefaceUtil;
 import chickennugget.spaceengineersdata.material.util.ViewUtil;
 
-/**
- * Created by Ret on 3/18/2015.
- */
 public class Slider extends View implements ThemeManager.OnThemeChangedListener {
 
     protected int mStyleId;
@@ -47,13 +44,10 @@ public class Slider extends View implements ThemeManager.OnThemeChangedListener 
     private Path mLeftTrackPath;
     private Path mRightTrackPath;
     private Path mMarkPath;
-
     private int mMinValue = 0;
     private int mMaxValue = 100;
     private int mStepValue = 1;
-
     private boolean mDiscreteMode = false;
-
     private int mPrimaryColor;
     private int mSecondaryColor;
     private int mTrackSize = -1;
@@ -70,7 +64,6 @@ public class Slider extends View implements ThemeManager.OnThemeChangedListener 
     private int mTransformAnimationDuration = -1;
     private Interpolator mInterpolator;
     private int mBaselineOffset;
-
     private int mTouchSlop;
     private PointF mMemoPoint;
     private boolean mIsDragging;
@@ -80,61 +73,48 @@ public class Slider extends View implements ThemeManager.OnThemeChangedListener 
     private int mTextHeight;
     private int mMemoValue;
     private String mValueText;
-
     private ThumbRadiusAnimator mThumbRadiusAnimator;
     private ThumbStrokeAnimator mThumbStrokeAnimator;
     private ThumbMoveAnimator mThumbMoveAnimator;
-
     private boolean mIsRtl = false;
     private OnPositionChangeListener mOnPositionChangeListener;
     private ValueDescriptionProvider mValueDescriptionProvider;
 
     public Slider(Context context) {
         super(context);
-
         init(context, null, 0, 0);
     }
 
     public Slider(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         init(context, attrs, 0, 0);
     }
 
     public Slider(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         init(context, attrs, defStyleAttr, 0);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public Slider(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-
         init(context, attrs, defStyleAttr, defStyleRes);
     }
 
     protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-
-        //default color
         mPrimaryColor = ThemeUtil.colorControlActivated(context, 0xFF000000);
         mSecondaryColor = ThemeUtil.colorControlNormal(context, 0xFF000000);
-
         mDrawRect = new RectF();
         mTempRect = new RectF();
         mLeftTrackPath = new Path();
         mRightTrackPath = new Path();
-
         mThumbRadiusAnimator = new ThumbRadiusAnimator();
         mThumbStrokeAnimator = new ThumbStrokeAnimator();
         mThumbMoveAnimator = new ThumbMoveAnimator();
-
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         mMemoPoint = new PointF();
-
         applyStyle(context, attrs, defStyleAttr, defStyleRes);
-
         if (!isInEditMode())
             mStyleId = ThemeManager.getStyleId(context, attrs, defStyleAttr, defStyleRes);
     }
@@ -146,7 +126,6 @@ public class Slider extends View implements ThemeManager.OnThemeChangedListener 
 
     protected void applyStyle(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         getRippleManager().onCreate(this, context, attrs, defStyleAttr, defStyleRes);
-
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Slider, defStyleAttr, defStyleRes);
         int minValue = getMinValue();
         int maxValue = getMaxValue();

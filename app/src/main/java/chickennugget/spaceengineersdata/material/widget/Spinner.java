@@ -36,7 +36,6 @@ import chickennugget.spaceengineersdata.material.util.ThemeUtil;
 public class Spinner extends FrameLayout implements ThemeManager.OnThemeChangedListener {
 
     private static final int MAX_ITEMS_MEASURED = 15;
-
     private static final int INVALID_POSITION = -1;
     private boolean mLabelEnable;
     private TextView mLabelView;
@@ -88,22 +87,17 @@ public class Spinner extends FrameLayout implements ThemeManager.OnThemeChangedL
         mDisableChildrenWhenDisabled = false;
         mSelectedPosition = INVALID_POSITION;
         mIsRtl = false;
-
         setWillNotDraw(false);
-
         mPopup = new DropdownPopup(context, attrs, defStyleAttr, defStyleRes);
         mPopup.setModal(true);
-
         if (isInEditMode())
             applyStyle(R.style.Material_Widget_Spinner);
-
         setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 showPopup();
             }
         });
-
         super.init(context, attrs, defStyleAttr, defStyleRes);
     }
 
@@ -115,18 +109,14 @@ public class Spinner extends FrameLayout implements ThemeManager.OnThemeChangedL
             mLabelView.setSingleLine(true);
             mLabelView.setDuplicateParentStateEnabled(true);
         }
-
         return mLabelView;
     }
 
     @Override
     protected void applyStyle(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super.applyStyle(context, attrs, defStyleAttr, defStyleRes);
-
         removeAllViews();
-
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Spinner, defStyleAttr, defStyleRes);
-
         int arrowAnimDuration = -1;
         ColorStateList arrowColor = null;
         Interpolator arrowInterpolator = null;
@@ -135,7 +125,6 @@ public class Spinner extends FrameLayout implements ThemeManager.OnThemeChangedL
         ColorStateList dividerColor = null;
         ColorStateList labelTextColor = null;
         int labelTextSize = -1;
-
         for (int i = 0, count = a.getIndexCount(); i < count; i++) {
             int attr = a.getIndex(i);
 

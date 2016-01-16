@@ -79,40 +79,32 @@ public class Switch extends View implements Checkable, ThemeManager.OnThemeChang
 
     public Switch(Context context) {
         super(context);
-
         init(context, null, 0, 0);
     }
 
     public Switch(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         init(context, attrs, 0, 0);
     }
 
     public Switch(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         init(context, attrs, defStyleAttr, 0);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public Switch(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-
         init(context, attrs, defStyleAttr, defStyleRes);
     }
 
     protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-
         mDrawRect = new RectF();
         mTempRect = new RectF();
         mTrackPath = new Path();
-
         mFlingVelocity = ViewConfiguration.get(context).getScaledMinimumFlingVelocity();
-
         applyStyle(context, attrs, defStyleAttr, defStyleRes);
-
         if (!isInEditMode())
             mStyleId = ThemeManager.getStyleId(context, attrs, defStyleAttr, defStyleRes);
     }
@@ -124,9 +116,7 @@ public class Switch extends View implements Checkable, ThemeManager.OnThemeChang
 
     protected void applyStyle(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         getRippleManager().onCreate(this, context, attrs, defStyleAttr, defStyleRes);
-
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Switch, defStyleAttr, defStyleRes);
-
         for (int i = 0, count = a.getIndexCount(); i < count; i++) {
             int attr = a.getIndex(i);
             if (attr == R.styleable.Switch_sw_trackSize)

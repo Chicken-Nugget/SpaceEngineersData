@@ -16,36 +16,30 @@ public class ListView extends ListViewCompat implements ThemeManager.OnThemeChan
 
     public ListView(Context context) {
         super(context);
-
         init(context, null, 0, 0);
     }
 
     public ListView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         init(context, attrs, 0, 0);
     }
 
     public ListView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         init(context, attrs, defStyleAttr, 0);
     }
 
     public ListView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr);
-
         init(context, attrs, defStyleAttr, defStyleRes);
     }
 
     protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-
         super.setRecyclerListener(new RecyclerListener() {
 
             @Override
             public void onMovedToScrapHeap(View view) {
                 RippleManager.cancelRipple(view);
-
                 if (mRecyclerListener != null)
                     mRecyclerListener.onMovedToScrapHeap(view);
             }

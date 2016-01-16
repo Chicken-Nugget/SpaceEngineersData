@@ -1,21 +1,3 @@
-/*
- * ******************************************************************************
- *   Copyright (c) 2013-2014 Gabriele Mariotti.
- *
- *   Licensed under the Apache License, Version 2.0 (the "License");
- *   you may not use this file except in compliance with the License.
- *   You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing, software
- *   distributed under the License is distributed on an "AS IS" BASIS,
- *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *   See the License for the specific language governing permissions and
- *   limitations under the License.
- *  *****************************************************************************
- */
-
 package chickennugget.spaceengineersdata.cards;
 
 import android.app.LoaderManager;
@@ -34,11 +16,6 @@ import android.widget.Toast;
 
 import chickennugget.spaceengineersdata.R;
 
-/**
- * List with Cursor Example
- *
- * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
- */
 public class NativeGridCursorCardFragment extends BaseNativeListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     MyCursorCardAdapter mAdapter;
@@ -83,17 +60,10 @@ public class NativeGridCursorCardFragment extends BaseNativeListFragment impleme
         init();
     }
 
-
     private void init() {
-
         mAdapter = new MyCursorCardAdapter(getActivity());
-
         mGridView = (CardGridView) getActivity().findViewById(R.id.carddemo_grid_cursor);
-        if (mGridView != null) {
-            mGridView.setAdapter(mAdapter);
-        }
-
-        // Force start background query to load sessions
+        if (mGridView != null) mGridView.setAdapter(mAdapter);
         getLoaderManager().restartLoader(0, null, this);
     }
 
@@ -106,11 +76,8 @@ public class NativeGridCursorCardFragment extends BaseNativeListFragment impleme
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        if (getActivity() == null) {
-            return;
-        }
+        if (getActivity() == null) return;
         mAdapter.swapCursor(data);
-
         displayList();
     }
 
@@ -120,12 +87,8 @@ public class NativeGridCursorCardFragment extends BaseNativeListFragment impleme
     }
 
     private void removeCard(Card card) {
-
-        //Use this code to delete items on DB
         ContentResolver resolver = getActivity().getContentResolver();
-
         //mAdapter.notifyDataSetChanged();
-
     }
 
     public class MyCursorCardAdapter extends CardGridCursorAdapter {
@@ -138,11 +101,7 @@ public class NativeGridCursorCardFragment extends BaseNativeListFragment impleme
         protected Card getCardFromCursor(Cursor cursor) {
             MyCursorCard card = new MyCursorCard(super.getContext());
             setCardFromCursor(card, cursor);
-
-            //Create a CardHeader
             CardHeader header = new CardHeader(getActivity(), R.layout.native_inner_gplay2_header);
-            //Set the header title
-
             header.setTitle(card.mainHeader);
             header.setPopupMenu(R.menu.popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener() {
                 @Override
@@ -150,33 +109,24 @@ public class NativeGridCursorCardFragment extends BaseNativeListFragment impleme
                     Toast.makeText(getContext(), "Click on card=" + card.getId() + " item=" + item.getTitle(), Toast.LENGTH_SHORT).show();
                 }
             });
-
-            //Add Header to card
             card.addCardHeader(header);
-
-
             CardThumbnail thumb = new CardThumbnail(getActivity());
             thumb.setDrawableResource(card.resourceIdThumb);
             card.addCardThumbnail(thumb);
-
             card.setOnClickListener(new Card.OnCardClickListener() {
                 @Override
                 public void onClick(Card card, View view) {
                     Toast.makeText(getContext(), "Card id=" + card.getId() + " Title=" + card.getCardHeader().getTitle(), Toast.LENGTH_SHORT).show();
                 }
             });
-
-
             return card;
         }
 
         private void setCardFromCursor(MyCursorCard card, Cursor cursor) {
-
             card.mainTitle = cursor.getString(CardCursorContract.CardCursor.IndexColumns.TITLE_COLUMN);
             card.secondaryTitle = cursor.getString(CardCursorContract.CardCursor.IndexColumns.SUBTITLE_COLUMN);
             card.mainHeader = cursor.getString(CardCursorContract.CardCursor.IndexColumns.HEADER_COLUMN);
             card.setId("" + cursor.getInt(CardCursorContract.CardCursor.IndexColumns.ID_COLUMN));
-
             int thumb = cursor.getInt(CardCursorContract.CardCursor.IndexColumns.THUMBNAIL_COLUMN);
             switch (thumb) {
                 case 0:
@@ -195,7 +145,6 @@ public class NativeGridCursorCardFragment extends BaseNativeListFragment impleme
                     card.resourceIdThumb = R.drawable.ic_smile;
                     break;
             }
-
         }
     }
 
@@ -212,16 +161,12 @@ public class NativeGridCursorCardFragment extends BaseNativeListFragment impleme
 
         @Override
         public void setupInnerViewElements(ViewGroup parent, View view) {
-            //Retrieve elements
             TextView mTitleTextView = (TextView) parent.findViewById(R.id.carddemo_cursor_main_inner_title);
             TextView mSecondaryTitleTextView = (TextView) parent.findViewById(R.id.carddemo_cursor_main_inner_subtitle);
-
             if (mTitleTextView != null)
                 mTitleTextView.setText(mainTitle);
-
             if (mSecondaryTitleTextView != null)
                 mSecondaryTitleTextView.setText(secondaryTitle);
-
         }
     }
 }

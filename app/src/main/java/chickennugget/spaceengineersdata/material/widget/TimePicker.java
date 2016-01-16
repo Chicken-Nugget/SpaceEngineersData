@@ -28,9 +28,6 @@ import chickennugget.spaceengineersdata.material.util.ThemeUtil;
 import chickennugget.spaceengineersdata.material.util.TypefaceUtil;
 import chickennugget.spaceengineersdata.material.util.ViewUtil;
 
-/**
- * Created by Rey on 12/19/2014.
- */
 public class TimePicker extends View implements ThemeManager.OnThemeChangedListener {
 
     public static final int MODE_HOUR = 0;
@@ -76,41 +73,33 @@ public class TimePicker extends View implements ThemeManager.OnThemeChangedListe
 
     public TimePicker(Context context) {
         super(context);
-
         init(context, null, 0, 0);
     }
 
     public TimePicker(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         init(context, attrs, 0, 0);
     }
 
     public TimePicker(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         init(context, attrs, defStyleAttr, 0);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TimePicker(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-
         init(context, attrs, defStyleAttr, defStyleRes);
     }
 
     protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mRect = new Rect();
-
         mBackgroundColor = ColorUtil.getColor(ThemeUtil.colorPrimary(context, 0xFF000000), 0.25f);
         mSelectionColor = ThemeUtil.colorPrimary(context, 0xFF000000);
-
         initTickLabels();
-
         setWillNotDraw(false);
         applyStyle(context, attrs, defStyleAttr, defStyleRes);
-
         if (!isInEditMode())
             mStyleId = ThemeManager.getStyleId(context, attrs, defStyleAttr, defStyleRes);
     }

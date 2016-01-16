@@ -35,31 +35,15 @@ import chickennugget.spaceengineersdata.material.util.ViewUtil;
 import chickennugget.spaceengineersdata.material.widget.Button;
 import chickennugget.spaceengineersdata.material.widget.TextView;
 
-/**
- * Created by Rey on 12/10/2014.
- */
 public class Dialog extends android.app.Dialog {
 
-    /**
-     * The viewId of title view.
-     */
     public static final int TITLE = ViewUtil.generateViewId();
-    /**
-     * The viewId of positive action button.
-     */
     public static final int ACTION_POSITIVE = ViewUtil.generateViewId();
-    /**
-     * The viewId of negative action button.
-     */
     public static final int ACTION_NEGATIVE = ViewUtil.generateViewId();
-    /**
-     * The viewId of neutral action button.
-     */
     public static final int ACTION_NEUTRAL = ViewUtil.generateViewId();
     private final Handler mHandler = new Handler();
     private final Runnable mDismissAction = new Runnable() {
         public void run() {
-            //dirty fix for java.lang.IllegalArgumentException: View not attached to window manager
             try {
                 Dialog.super.dismiss();
             } catch (IllegalArgumentException ex) {
@@ -95,12 +79,8 @@ public class Dialog extends android.app.Dialog {
         this(context, R.style.Material_App_Dialog_Light);
     }
 
-
     public Dialog(Context context, int style) {
         super(context, style);
-
-        //Override style to ensure not show window's title or background.
-        //TODO: find a way to ensure windowIsFloating attribute is false.
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setBackgroundDrawable(BlankDrawable.getInstance());
         WindowManager.LayoutParams layout = getWindow().getAttributes();
@@ -108,7 +88,6 @@ public class Dialog extends android.app.Dialog {
         layout.height = ViewGroup.LayoutParams.MATCH_PARENT;
         layout.windowAnimations = R.style.DialogNoAnimation;
         getWindow().setAttributes(layout);
-
         init(context, style);
     }
 
@@ -275,74 +254,48 @@ public class Dialog extends android.app.Dialog {
             else if (attr == R.styleable.Dialog_di_canceledOnTouchOutside)
                 canceledOnTouchOutside(a.getBoolean(attr, true));
         }
-
         a.recycle();
-
         if (layoutParamsDefined)
             layoutParams(layout_width, layout_height);
-
         if (titleTextAppearance != 0)
             titleTextAppearance(titleTextAppearance);
-
         if (titleTextColorDefined)
             titleColor(titleTextColor);
-
         if (actionBackground != 0)
             actionBackground(actionBackground);
-
         if (actionRipple != 0)
             actionRipple(actionRipple);
-
         if (actionTextAppearance != 0)
             actionTextAppearance(actionTextAppearance);
-
         if (actionTextColors != null)
             actionTextColor(actionTextColors);
-
         if (positiveActionBackground != 0)
             positiveActionBackground(positiveActionBackground);
-
         if (positiveActionRipple != 0)
             positiveActionRipple(positiveActionRipple);
-
         if (positiveActionTextAppearance != 0)
             positiveActionTextAppearance(positiveActionTextAppearance);
-
         if (positiveActionTextColors != null)
             positiveActionTextColor(positiveActionTextColors);
-
         if (negativeActionBackground != 0)
             negativeActionBackground(negativeActionBackground);
-
         if (negativeActionRipple != 0)
             negativeActionRipple(negativeActionRipple);
-
         if (negativeActionTextAppearance != 0)
             negativeActionTextAppearance(negativeActionTextAppearance);
-
         if (negativeActionTextColors != null)
             negativeActionTextColor(negativeActionTextColors);
-
         if (neutralActionBackground != 0)
             neutralActionBackground(neutralActionBackground);
-
         if (neutralActionRipple != 0)
             neutralActionRipple(neutralActionRipple);
-
         if (neutralActionTextAppearance != 0)
             neutralActionTextAppearance(neutralActionTextAppearance);
-
         if (neutralActionTextColors != null)
             neutralActionTextColor(neutralActionTextColors);
-
         return this;
     }
 
-    /**
-     * Clear the content of this Dialog.
-     *
-     * @return The Dialog for chaining methods.
-     */
     public Dialog clearContent() {
         title(0);
         positiveAction(0);

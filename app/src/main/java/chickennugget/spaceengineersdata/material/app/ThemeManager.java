@@ -1,6 +1,5 @@
 package chickennugget.spaceengineersdata.material.app;
 
-import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
@@ -16,9 +15,6 @@ import java.util.ArrayList;
 
 import chickennugget.spaceengineersdata.R;
 
-/**
- * Created by Rey on 5/25/2015.
- */
 public class ThemeManager {
 
     public static final int THEME_UNDEFINED = Integer.MIN_VALUE;
@@ -31,15 +27,6 @@ public class ThemeManager {
     private int mThemeCount;
     private EventDispatcher mDispatcher;
 
-    /**
-     * Get the styleId from attributes.
-     *
-     * @param context
-     * @param attrs
-     * @param defStyleAttr
-     * @param defStyleRes
-     * @return The styleId.
-     */
     public static int getStyleId(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ThemableView, defStyleAttr, defStyleRes);
         int styleId = a.getResourceId(R.styleable.ThemableView_v_styleId, 0);
@@ -48,23 +35,10 @@ public class ThemeManager {
         return styleId;
     }
 
-    /**
-     * Init ThemeManager. Should be call in {@link Application#onCreate()}.
-     *
-     * @param context      The context object. Should be {#link Application} object.
-     * @param totalTheme   The total theme.
-     * @param defaultTheme The default theme if current theme isn't set.
-     * @param dispatcher   The {@link EventDispatcher} will be used to dispatch {@link OnThemeChangedEvent}. If null, then use {@link SimpleDispatcher}.
-     */
     public static void init(Context context, int totalTheme, int defaultTheme, @Nullable EventDispatcher dispatcher) {
         getInstance().setup(context, totalTheme, defaultTheme, dispatcher);
     }
 
-    /**
-     * Get the singleton instance of ThemeManager.
-     *
-     * @return The singleton instance of ThemeManager.
-     */
     public static ThemeManager getInstance() {
         if (mInstance == null) {
             synchronized (ThemeManager.class) {

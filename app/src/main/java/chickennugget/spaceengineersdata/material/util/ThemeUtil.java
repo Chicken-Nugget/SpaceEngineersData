@@ -125,5 +125,4 @@ public class ThemeUtil {
         String result = array.getString(index);
         return result == null ? defaultValue : result;
     }
-
 }

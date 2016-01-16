@@ -7,9 +7,6 @@ import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.view.View;
 
-/**
- * Created by Rey on 1/12/2015.
- */
 public class DialogFragment extends android.support.v4.app.DialogFragment {
 
     protected static final String ARG_BUILDER = "arg_builder";

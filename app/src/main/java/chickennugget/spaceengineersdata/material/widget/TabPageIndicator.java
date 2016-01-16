@@ -49,7 +49,6 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
     private int mSelectedPosition;
     private boolean mScrolling;
     private boolean mIsRtl;
-
     private Runnable mTabAnimSelector;
 
     private ViewPager.OnPageChangeListener mListener;
@@ -70,50 +69,40 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
 
     public TabPageIndicator(Context context) {
         super(context);
-
         init(context, null, 0, 0);
     }
 
     public TabPageIndicator(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         init(context, attrs, 0, 0);
     }
 
     public TabPageIndicator(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         init(context, attrs, defStyleAttr, 0);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TabPageIndicator(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-
         init(context, attrs, defStyleAttr, defStyleRes);
     }
 
     protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         setHorizontalScrollBarEnabled(false);
-
         mTabPadding = -1;
         mTabSingleLine = true;
         mIndicatorHeight = -1;
         mIndicatorAtTop = false;
         mScrolling = false;
         mIsRtl = false;
-
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setColor(ThemeUtil.colorAccent(context, 0xFFFFFFFF));
-
         mTabContainer = new TabContainerLayout(context);
-
         applyStyle(context, attrs, defStyleAttr, defStyleRes);
-
         if (isInEditMode())
             addTemporaryTab();
-
         if (!isInEditMode())
             mStyleId = ThemeManager.getStyleId(context, attrs, defStyleAttr, defStyleRes);
     }
@@ -125,11 +114,9 @@ public class TabPageIndicator extends HorizontalScrollView implements ViewPager.
 
     protected void applyStyle(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TabPageIndicator, defStyleAttr, defStyleRes);
-
         int textAppearance = 0;
         int mode = -1;
         int rippleStyle = 0;
-
         for (int i = 0, count = a.getIndexCount(); i < count; i++) {
             int attr = a.getIndex(i);
             if (attr == R.styleable.TabPageIndicator_tpi_tabPadding)

@@ -1,21 +1,3 @@
-/*
- * ******************************************************************************
- *   Copyright (c) 2013-2014 Gabriele Mariotti.
- *
- *   Licensed under the Apache License, Version 2.0 (the "License");
- *   you may not use this file except in compliance with the License.
- *   You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing, software
- *   distributed under the License is distributed on an "AS IS" BASIS,
- *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *   See the License for the specific language governing permissions and
- *   limitations under the License.
- *  *****************************************************************************
- */
-
 package chickennugget.spaceengineersdata.cards;
 
 import android.animation.ArgbEvaluator;
@@ -42,9 +24,6 @@ import java.util.ArrayList;
 
 import chickennugget.spaceengineersdata.R;
 
-/**
- * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
- */
 public abstract class BaseActivity extends AppCompatActivity {
 
     protected static final int NAVDRAWER_ITEM_NATIVE_CARDSLIB = 0;
@@ -58,13 +37,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected static final int NAVDRAWER_ITEM_SEPARATOR_SPECIAL = -3;
     private static final String TAG = null;
     private static final TypeEvaluator ARGB_EVALUATOR = new ArgbEvaluator();
-
-    // symbols for navdrawer items (indices must correspond to array below). This is
-    // not a list of items that are necessarily *present* in the Nav Drawer; rather,
-    // it's a list of all possible items.
-    // Durations for certain animations we use:
     private static final int HEADER_HIDE_ANIM_DURATION = 300;
-    // titles for navdrawer items (indices must correspond to the above)
+    // Titles for navdrawer items (indices must correspond to the above)
     private static final int[] NAVDRAWER_TITLE_RES_ID = new int[]{
             R.string.navdrawer_item_native_cardslib,
             R.string.navdrawer_item_cardslib_v1,
@@ -73,7 +47,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             R.string.navdrawer_item_donate,
             R.string.navdrawer_item_info
     };
-    // icons for navdrawer items (indices must correspond to above array)
+    // Icons for navdrawer items (indices must correspond to above array)
     private static final int[] NAVDRAWER_ICON_RES_ID = new int[]{
             R.drawable.ic_launcher,
             R.drawable.ic_launcher,
@@ -82,76 +56,51 @@ public abstract class BaseActivity extends AppCompatActivity {
             R.drawable.ic_money,
             R.drawable.ic_l_info
     };
-    // delay to launch nav drawer item, to allow close animation to play
     private static final int NAVDRAWER_LAUNCH_DELAY = 250;
-    // fade in and fade out durations for the main content when switching between
-    // different Activities of the app through the Nav Drawer
     private static final int MAIN_CONTENT_FADEOUT_DURATION = 150;
     private static final int MAIN_CONTENT_FADEIN_DURATION = 250;
-    // allows access to L-Preview APIs through an abstract interface so we can compile with
-    // both the L Preview SDK and with the API 19 SDK
     private LPreviewUtilsBase mLPreviewUtils;
-    // Navigation drawer:
     private DrawerLayout mDrawerLayout;
     private ObjectAnimator mStatusBarColorAnimator;
     private int mThemedStatusBarColor;
     private int mNormalStatusBarColor;
-    // When set, these components will be shown/hidden in sync with the action bar
-    // to implement the "quick recall" effect (the Action Bar and the header views disappear
-    // when you scroll down a list, and reappear quickly when you scroll up).
     private ArrayList<View> mHideableHeaderViews = new ArrayList<View>();
-    // Primary toolbar and drawer toggle
     private Toolbar mActionBarToolbar;
-    // list of navdrawer items that were actually added to the navdrawer, in order
     private ArrayList<Integer> mNavDrawerItems = new ArrayList<Integer>();
     private ViewGroup mDrawerItemsListContainer;
-    // views that correspond to each navdrawer item, null if not yet created
     private View[] mNavDrawerItemViews = null;
-    // variables that control the Action Bar auto hide behavior (aka "quick recall")
     private boolean mActionBarAutoHideEnabled = false;
     private boolean mActionBarShown = true;
 
-    // A Runnable that we should execute when the navigation drawer finishes its closing animation
     private Runnable mDeferredOnDrawerClosedRunnable;
 
     private Handler mHandler;
 
-    /**
-     * Converts an intent into a {@link Bundle} suitable for use as fragment arguments.
-     */
     public static Bundle intentToFragmentArguments(Intent intent) {
         Bundle arguments = new Bundle();
         if (intent == null) {
             return arguments;
         }
-
         final Uri data = intent.getData();
         if (data != null) {
             arguments.putParcelable("_uri", data);
         }
-
         final Bundle extras = intent.getExtras();
         if (extras != null) {
             arguments.putAll(intent.getExtras());
         }
-
         return arguments;
     }
 
-    /**
-     * Converts a fragment arguments bundle into an intent.
-     */
     public static Intent fragmentArgumentsToIntent(Bundle arguments) {
         Intent intent = new Intent();
         if (arguments == null) {
             return intent;
         }
-
         final Uri data = arguments.getParcelable("_uri");
         if (data != null) {
             intent.setData(data);
         }
-
         intent.putExtras(arguments);
         intent.removeExtra("_uri");
         return intent;
@@ -160,16 +109,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         mLPreviewUtils = LPreviewUtilsBase.getInstance(this);
-
         mThemedStatusBarColor = getResources().getColor(R.color.demo_colorPrimaryDark);
         mNormalStatusBarColor = mThemedStatusBarColor;
-
         mHandler = new Handler();
-
-        //-----------------------------------------------------------------
     }
 
     @Override
@@ -184,10 +127,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         setupNavDrawer();
     }
 
-    //----------------------------------------------------------------------------
-    // Navigation Drawer
-    //----------------------------------------------------------------------------
-
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -198,36 +137,19 @@ public abstract class BaseActivity extends AppCompatActivity {
         Log.d(TAG, "onActivityResult(" + requestCode + "," + resultCode + "," + data);
     }
 
-    /**
-     * Sets up the navigation drawer as appropriate. Note that the nav drawer will be
-     * different depending on whether the attendee indicated that they are attending the
-     * event on-site vs. attending remotely.
-     */
     private void setupNavDrawer() {
-        // What nav drawer item should be selected?
         int selfItem = getSelfNavDrawerItem();
-
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (mDrawerLayout == null) {
             return;
         }
-
         mDrawerLayout.setStatusBarBackgroundColor(
                 getResources().getColor(R.color.demo_colorPrimaryDark));
-
-
         //getActionBar().setDisplayHomeAsUpEnabled(true);
         //getActionBar().setHomeButtonEnabled(true);
-
-        // populate the nav drawer with the correct items
         populateNavDrawer();
     }
 
-    /**
-     * Returns the navigation drawer item that corresponds to this Activity. Subclasses
-     * of BaseActivity override this to indicate what nav drawer item corresponds to them
-     * Return NAVDRAWER_ITEM_INVALID to mean that this Activity should not have a Nav Drawer.
-     */
     protected int getSelfNavDrawerItem() {
         return NAVDRAWER_ITEM_INVALID;
     }
@@ -249,72 +171,43 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         mActionBarShown = show;
         onActionBarAutoShowOrHide(show);
-
     }
 
     private void updateStatusBarForNavDrawerSlide(float slideOffset) {
-
     }
 
     protected void onNavDrawerSlide(float offset) {
     }
 
-    /**
-     * Populates the navigation drawer with the appropriate items.
-     */
+    // Populates the navigation drawer with the appropriate items.
     private void populateNavDrawer() {
-
         mNavDrawerItems.clear();
-
         // Explore is always shown
         mNavDrawerItems.add(NAVDRAWER_ITEM_NATIVE_CARDSLIB);
         mNavDrawerItems.add(NAVDRAWER_ITEM_SEPARATOR);
         mNavDrawerItems.add(NAVDRAWER_ITEM_CARDSLIB_V1);
-
         mNavDrawerItems.add(NAVDRAWER_ITEM_SEPARATOR_SPECIAL);
-
         mNavDrawerItems.add(NAVDRAWER_ITEM_GUIDELINES);
-
         mNavDrawerItems.add(NAVDRAWER_ITEM_GITHUB);
         mNavDrawerItems.add(NAVDRAWER_ITEM_DONATE);
         mNavDrawerItems.add(NAVDRAWER_ITEM_INFO);
-
-
     }
 
     private View makeNavDrawerItem(final int itemId, ViewGroup container) {
         boolean selected = getSelfNavDrawerItem() == itemId;
         int layoutToInflate = 0;
         View view = getLayoutInflater().inflate(layoutToInflate, container, false);
-
-        if (isSeparator(itemId)) {
-            // we are done
-            //UIUtils.setAccessibilityIgnore(view);
-            return view;
-        }
-
+        if (isSeparator(itemId)) return view;
         ImageView iconView = (ImageView) view.findViewById(R.id.icon);
         TextView titleView = (TextView) view.findViewById(R.id.title);
-        int iconId = itemId >= 0 && itemId < NAVDRAWER_ICON_RES_ID.length ?
-                NAVDRAWER_ICON_RES_ID[itemId] : 0;
-        int titleId = itemId >= 0 && itemId < NAVDRAWER_TITLE_RES_ID.length ?
-                NAVDRAWER_TITLE_RES_ID[itemId] : 0;
-
-        // set icon and text
+        int iconId = itemId >= 0 && itemId < NAVDRAWER_ICON_RES_ID.length ? NAVDRAWER_ICON_RES_ID[itemId] : 0;
+        int titleId = itemId >= 0 && itemId < NAVDRAWER_TITLE_RES_ID.length ? NAVDRAWER_TITLE_RES_ID[itemId] : 0;
+        // Set icon and text
         iconView.setVisibility(iconId > 0 ? View.VISIBLE : View.GONE);
-        if (iconId > 0) {
-            iconView.setImageResource(iconId);
-        }
+        if (iconId > 0) iconView.setImageResource(iconId);
         titleView.setText(getString(titleId));
-
-
         return view;
     }
-
-
-    //----------------------------------------------------------------------------
-    // Bundle
-    //----------------------------------------------------------------------------
 
     private boolean isSpecialItem(int itemId) {
         return itemId == NAVDRAWER_ITEM_DONATE || itemId == NAVDRAWER_ITEM_INFO || itemId == NAVDRAWER_ITEM_GITHUB;
@@ -323,10 +216,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     private boolean isSeparator(int itemId) {
         return itemId == NAVDRAWER_ITEM_SEPARATOR || itemId == NAVDRAWER_ITEM_SEPARATOR_SPECIAL;
     }
-
-    //----------------------------------------------------------------------------
-    // Toolbar
-    //----------------------------------------------------------------------------
 
     protected Toolbar getActionBarToolbar() {
         if (mActionBarToolbar == null) {
@@ -380,7 +269,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         mStatusBarColorAnimator.setEvaluator(ARGB_EVALUATOR);
         mStatusBarColorAnimator.start();
-
         for (View view : mHideableHeaderViews) {
             if (shown) {
                 view.animate()

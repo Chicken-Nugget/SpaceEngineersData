@@ -58,27 +58,12 @@ public class ViewUtil {
             v.setBackgroundDrawable(drawable);
     }
 
-    /**
-     * Apply any View style attributes to a view.
-     *
-     * @param v     The view is applied.
-     * @param resId The style resourceId.
-     */
     public static void applyStyle(View v, int resId) {
         applyStyle(v, null, 0, resId);
     }
 
-    /**
-     * Apply any View style attributes to a view.
-     *
-     * @param v            The view is applied.
-     * @param attrs
-     * @param defStyleAttr
-     * @param defStyleRes
-     */
     public static void applyStyle(View v, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         TypedArray a = v.getContext().obtainStyledAttributes(attrs, R.styleable.View, defStyleAttr, defStyleRes);
-
         int leftPadding = -1;
         int topPadding = -1;
         int rightPadding = -1;
@@ -86,12 +71,10 @@ public class ViewUtil {
         int startPadding = Integer.MIN_VALUE;
         int endPadding = Integer.MIN_VALUE;
         int padding = -1;
-
         boolean startPaddingDefined = false;
         boolean endPaddingDefined = false;
         boolean leftPaddingDefined = false;
         boolean rightPaddingDefined = false;
-
         for (int i = 0, count = a.getIndexCount(); i < count; i++) {
             int attr = a.getIndex(i);
             if (attr == R.styleable.View_android_background) {

@@ -36,9 +36,6 @@ import chickennugget.spaceengineersdata.material.util.ViewUtil;
 import chickennugget.spaceengineersdata.material.widget.ImageButton;
 import chickennugget.spaceengineersdata.material.widget.RippleManager;
 
-/**
- * Created by Administrator on 3/2/2015.
- */
 public class ContactView extends FrameLayout implements Target {
 
     private TextView mNameView;

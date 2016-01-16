@@ -14,9 +14,6 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.style.ReplacementSpan;
 
-/**
- * Created by Rey on 1/21/2015.
- */
 public class ContactChipSpan extends ReplacementSpan {
 
     private Paint mPaint;
@@ -25,12 +22,10 @@ public class ContactChipSpan extends ReplacementSpan {
     private int mBackgroundColor;
     private int mHeight;
     private int mWidth;
-
     private CharSequence mContactName;
     private BoringLayout mBoringLayout;
     private TextPaint mTextPaint;
     private RectF mRect;
-
     private BitmapShader mBitmapShader;
     private Bitmap mBitmap;
     private Matrix mMatrix;
@@ -41,21 +36,15 @@ public class ContactChipSpan extends ReplacementSpan {
         mPaint.setColor(textColor);
         mPaint.setTypeface(typeface);
         mPaint.setTextSize(textSize);
-
         mTextPaint = new TextPaint(mPaint);
-
-
         mRect = new RectF();
-
         mMatrix = new Matrix();
-
         mContactName = name;
         mPaddingLeft = paddingLeft;
         mPaddingRight = paddingRight;
         mBackgroundColor = backgroundColor;
         mHeight = height;
         mWidth = Math.round(Math.min(maxWidth, mPaint.measureText(name, 0, name.length()) + paddingLeft + paddingRight + height));
-
         int outerWidth = Math.max(0, mWidth - mPaddingLeft - mPaddingRight - mHeight);
         Paint.FontMetricsInt temp = mTextPaint.getFontMetricsInt();
         BoringLayout.Metrics mMetrics = new BoringLayout.Metrics();
@@ -92,16 +81,13 @@ public class ContactChipSpan extends ReplacementSpan {
             fm.top = Math.min(fm.top, fm.ascent);
             fm.bottom = Math.max(fm.bottom, fm.descent);
         }
-
         return mWidth;
     }
 
     @Override
     public void draw(Canvas canvas, CharSequence text, int start, int end, float x, int top, int y, int bottom, Paint paint) {
         canvas.save();
-
         canvas.translate(x, top);
-
         float halfHeight = mHeight / 2f;
         mPaint.setShader(null);
         mPaint.setColor(mBackgroundColor);
@@ -111,17 +97,14 @@ public class ContactChipSpan extends ReplacementSpan {
         canvas.drawArc(mRect, 270, 180, true, mPaint);
         mRect.set(halfHeight, 0, mWidth - halfHeight, mHeight);
         canvas.drawRect(mRect, mPaint);
-
         if (mBitmap != null) {
             mPaint.setShader(mBitmapShader);
             canvas.drawCircle(halfHeight, halfHeight, halfHeight, mPaint);
         }
-
         if (mContactName != null && mBoringLayout != null) {
             canvas.translate(mHeight + mPaddingLeft, (mHeight - mBoringLayout.getHeight()) / 2f);
             mBoringLayout.draw(canvas);
         }
-
         canvas.restore();
     }
 }

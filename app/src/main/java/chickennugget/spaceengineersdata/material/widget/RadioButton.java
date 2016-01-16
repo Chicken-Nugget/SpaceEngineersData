@@ -36,18 +36,9 @@ public class RadioButton extends CompoundButton {
 
     @Override
     public void toggle() {
-        // we override to prevent toggle when the radio is already
-        // checked (as opposed to check boxes widgets)
-        if (!isChecked()) {
-            super.toggle();
-        }
+        if (!isChecked()) super.toggle();
     }
 
-    /**
-     * Change the checked state of this button immediately without showing animation.
-     *
-     * @param checked The checked state.
-     */
     public void setCheckedImmediately(boolean checked) {
         if (getButtonDrawable() instanceof RadioButtonDrawable) {
             RadioButtonDrawable drawable = (RadioButtonDrawable) getButtonDrawable();

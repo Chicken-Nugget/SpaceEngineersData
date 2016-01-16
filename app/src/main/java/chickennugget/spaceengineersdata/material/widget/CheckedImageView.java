@@ -13,9 +13,6 @@ import chickennugget.spaceengineersdata.material.app.ThemeManager;
 import chickennugget.spaceengineersdata.material.drawable.RippleDrawable;
 import chickennugget.spaceengineersdata.material.util.ViewUtil;
 
-/**
- * Created by Rey on 9/16/2015.
- */
 public class CheckedImageView extends android.widget.ImageView implements Checkable, ThemeManager.OnThemeChangedListener {
 
     protected int mStyleId;

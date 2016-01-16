@@ -10,9 +10,6 @@ import android.view.animation.Interpolator;
 import chickennugget.spaceengineersdata.material.drawable.CircleDrawable;
 import chickennugget.spaceengineersdata.material.util.ViewUtil;
 
-/**
- * Created by Rey on 2/5/2015.
- */
 public class CircleCheckedTextView extends android.widget.CheckedTextView {
 
     private CircleDrawable mBackground;

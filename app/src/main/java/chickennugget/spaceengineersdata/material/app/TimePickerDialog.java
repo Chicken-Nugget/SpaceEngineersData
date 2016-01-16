@@ -26,9 +26,6 @@ import chickennugget.spaceengineersdata.material.util.ThemeUtil;
 import chickennugget.spaceengineersdata.material.widget.CircleCheckedTextView;
 import chickennugget.spaceengineersdata.material.widget.TimePicker;
 
-/**
- * Created by Rey on 12/24/2014.
- */
 public class TimePickerDialog extends Dialog {
 
     private TimePickerLayout mTimePickerLayout;

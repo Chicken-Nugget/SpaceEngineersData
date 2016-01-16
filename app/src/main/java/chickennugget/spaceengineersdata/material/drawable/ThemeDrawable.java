@@ -5,9 +5,6 @@ import android.graphics.drawable.LevelListDrawable;
 
 import chickennugget.spaceengineersdata.material.app.ThemeManager;
 
-/**
- * Created by Rey on 5/27/2015.
- */
 public class ThemeDrawable extends LevelListDrawable implements ThemeManager.OnThemeChangedListener {
     private int mStyleId;
 
@@ -37,5 +34,4 @@ public class ThemeDrawable extends LevelListDrawable implements ThemeManager.OnT
         if (getLevel() != event.theme)
             setLevel(event.theme);
     }
-
 }

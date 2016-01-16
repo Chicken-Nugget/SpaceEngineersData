@@ -63,21 +63,9 @@ import chickennugget.spaceengineersdata.material.util.ViewUtil;
 
 public class EditText extends FrameLayout implements ThemeManager.OnThemeChangedListener {
 
-    /**
-     * Indicate this EditText should not show a support text.
-     */
     public static final int SUPPORT_MODE_NONE = 0;
-    /**
-     * Indicate this EditText should show a helper text, or error text if it's set.
-     */
     public static final int SUPPORT_MODE_HELPER = 1;
-    /**
-     * Indicate this EditText should show a helper text, along with error text if it's set.
-     */
     public static final int SUPPORT_MODE_HELPER_WITH_ERROR = 2;
-    /**
-     * Indicate this EditText should show a char counter text.
-     */
     public static final int SUPPORT_MODE_CHAR_COUNTER = 3;
     public static final int AUTOCOMPLETE_MODE_NONE = 0;
     public static final int AUTOCOMPLETE_MODE_SINGLE = 1;
@@ -101,9 +89,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
     private int mLabelInAnimId;
     private int mLabelOutAnimId;
     private DividerDrawable mDivider;
-
     private TextView.OnSelectionChangedListener mOnSelectionChangedListener;
-
     private boolean mIsRtl;
 
     public EditText(Context context) {
@@ -1307,6 +1293,10 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
         return mInputView.getText();
     }
 
+    public final void setText(int resid) {
+        mInputView.setText(resid);
+    }
+
     public final void setText(CharSequence text) {
         mInputView.setText(text);
     }
@@ -1339,7 +1329,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
     /**
      * Adds a TextWatcher to the list of those whose methods are called
      * whenever this TextView's text changes.
-     * <p>
+     * <p/>
      * In 1.0, the {@link TextWatcher#afterTextChanged} method was erroneously
      * not called after {@link #setText} calls.  Now, doing {@link #setText}
      * if there are any text changed listeners forces the buffer type to
@@ -1596,23 +1586,23 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
     /**
      * If provided, this ActionMode.Callback will be used to create the ActionMode when text
      * selection is initiated in this View.
-     * <p>
+     * <p/>
      * The standard implementation populates the menu with a subset of Select All, Cut, Copy and
      * Paste actions, depending on what this View supports.
-     * <p>
+     * <p/>
      * A custom implementation can add new entries in the default menu in its
      * {@link ActionMode.Callback#onPrepareActionMode(ActionMode, android.view.Menu)} method. The
      * default actions can also be removed from the menu using {@link android.view.Menu#removeItem(int)} and
      * passing {@link android.R.id#selectAll}, {@link android.R.id#cut}, {@link android.R.id#copy}
      * or {@link android.R.id#paste} ids as parameters.
-     * <p>
+     * <p/>
      * Returning false from
      * {@link ActionMode.Callback#onCreateActionMode(ActionMode, android.view.Menu)} will prevent
      * the action mode from being started.
-     * <p>
+     * <p/>
      * Action click events should be handled by the custom implementation of
      * {@link ActionMode.Callback#onActionItemClicked(ActionMode, android.view.MenuItem)}.
-     * <p>
+     * <p/>
      * Note that text selection mode is not started when a TextView receives focus and the
      * {@link android.R.attr#selectAllOnFocus} flag has been set. The content is highlighted in
      * that case, to allow for quick replacement.
@@ -1647,7 +1637,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * want to {@link #setSingleLine} or {@link #setHorizontallyScrolling}
      * to constrain the text to a single line.  Use <code>null</code>
      * to turn off ellipsizing.
-     * <p>
+     * <p/>
      * If {@link #setMaxLines} has been used to set two or more lines,
      * only {@link TruncateAt#END} and
      * {@link TruncateAt#MARQUEE} are supported
@@ -1811,6 +1801,19 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
     }
 
     /**
+     * Sets the text to be displayed when the text of the TextView is empty.
+     * Null means to use the normal empty text. The hint does not currently
+     * participate in determining the size of the view.
+     *
+     * @attr ref android.R.styleable#TextView_hint
+     */
+    public final void setHint(CharSequence hint) {
+        mInputView.setHint(hint);
+        if (mLabelView != null)
+            mLabelView.setText(hint);
+    }
+
+    /**
      * Sets the text to be displayed when the text of the TextView is empty,
      * from a resource.
      *
@@ -1930,7 +1933,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * will take care of changing the key listener, by calling {@link #setKeyListener(KeyListener)},
      * to match the given content type.  If the given content type is {@link EditorInfo#TYPE_NULL}
      * then a soft keyboard will not be displayed for this text view.
-     * <p>
+     * <p/>
      * Note that the maximum number of displayed lines (see {@link #setMaxLines(int)}) will be
      * modified if you change the {@link EditorInfo#TYPE_TEXT_FLAG_MULTI_LINE} flag of the input
      * type.
@@ -1966,7 +1969,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * for important details.  Calling this method will replace the current
      * content type of the text view with the content type returned by the
      * key listener.
-     * <p>
+     * <p/>
      * Be warned that if you want a TextView with a key listener or movement
      * method not to be focusable, or if you want a TextView without a
      * key listener or movement method to be focusable, you must call
@@ -2182,7 +2185,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
     /**
      * Makes the TextView at most this many pixels tall.  This option is mutually exclusive with the
      * {@link #setMaxLines(int)} method.
-     * <p>
+     * <p/>
      * Setting this value overrides any other (maximum) number of lines setting.
      *
      * @attr ref android.R.styleable#TextView_maxHeight
@@ -2207,7 +2210,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
 
     /**
      * Makes the TextView at most this many lines tall.
-     * <p>
+     * <p/>
      * Setting this value overrides any other (maximum) height setting.
      *
      * @attr ref android.R.styleable#TextView_maxLines
@@ -2280,7 +2283,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
 
     /**
      * Makes the TextView at least this many pixels tall.
-     * <p>
+     * <p/>
      * Setting this value overrides any other (minimum) number of lines setting.
      *
      * @attr ref android.R.styleable#TextView_minHeight
@@ -2305,7 +2308,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
 
     /**
      * Makes the TextView at least this many lines tall.
-     * <p>
+     * <p/>
      * Setting this value overrides any other (minimum) height setting. A single line TextView will
      * set this value to 1.
      *
@@ -2352,7 +2355,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * Sets the movement method (arrow key handler) to be used for
      * this TextView.  This can be null to disallow using the arrow keys
      * to move the cursor or scroll the view.
-     * <p>
+     * <p/>
      * Be warned that if you want a TextView with a key listener or movement
      * method not to be focusable, or if you want a TextView without a
      * key listener or movement method to be focusable, you must call
@@ -2755,20 +2758,20 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * Return whether or not suggestions are enabled on this TextView. The suggestions are generated
      * by the IME or by the spell checker as the user types. This is done by adding
      * {@link android.text.style.SuggestionSpan}s to the text.
-     * <p>
+     * <p/>
      * When suggestions are enabled (default), this list of suggestions will be displayed when the
      * user asks for them on these parts of the text. This value depends on the inputType of this
      * TextView.
-     * <p>
+     * <p/>
      * The class of the input type must be {@link android.text.InputType#TYPE_CLASS_TEXT}.
-     * <p>
+     * <p/>
      * In addition, the type variation must be one of
      * {@link android.text.InputType#TYPE_TEXT_VARIATION_NORMAL},
      * {@link android.text.InputType#TYPE_TEXT_VARIATION_EMAIL_SUBJECT},
      * {@link android.text.InputType#TYPE_TEXT_VARIATION_LONG_MESSAGE},
      * {@link android.text.InputType#TYPE_TEXT_VARIATION_SHORT_MESSAGE} or
      * {@link android.text.InputType#TYPE_TEXT_VARIATION_WEB_EDIT_TEXT}.
-     * <p>
+     * <p/>
      * And finally, the {@link android.text.InputType#TYPE_TEXT_FLAG_NO_SUGGESTIONS} flag must <i>not</i> be set.
      *
      * @return true if the suggestions popup window is enabled, based on the inputType.
@@ -2783,7 +2786,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * {@link #setTextIsSelectable setTextIsSelectable()}). Although you have to set this flag
      * to allow users to select and copy text in a non-editable TextView, the content of an
      * {@link EditText} can always be selected, independently of the value of this flag.
-     * <p>
+     * <p/>
      *
      * @return True if the text displayed in this TextView can be selected by the user.
      * @attr ref android.R.styleable#TextView_textIsSelectable
@@ -2868,7 +2871,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * EditorInfo.IME_ACTION_NEXT}, {@link EditorInfo#IME_ACTION_PREVIOUS
      * EditorInfo.IME_ACTION_PREVIOUS}, or {@link EditorInfo#IME_ACTION_DONE
      * EditorInfo.IME_ACTION_DONE}.
-     * <p>
+     * <p/>
      * <p>For backwards compatibility, if no IME options have been set and the
      * text view would not normally advance focus on enter, then
      * the NEXT and DONE actions received here will be turned into an enter
@@ -2975,7 +2978,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * Sets the properties of this field to transform input to ALL CAPS
      * display. This may use a "small caps" formatting if available.
      * This setting will be ignored if this field is editable or selectable.
-     * <p>
+     * <p/>
      * This call replaces the current transformation method. Disabling this
      * will not necessarily restore the previous behavior from before this
      * was enabled.
@@ -2994,7 +2997,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * right of, and below the text. Use {@code null} if you do not want a
      * Drawable there. The Drawables must already have had
      * {@link Drawable#setBounds} called.
-     * <p>
+     * <p/>
      * Calling this method will overwrite any Drawables previously set using
      * {@link #setCompoundDrawablesRelative} or related methods.
      *
@@ -3019,7 +3022,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * of, and below the text. Use {@code null} if you do not want a Drawable
      * there. The Drawables must already have had {@link Drawable#setBounds}
      * called.
-     * <p>
+     * <p/>
      * Calling this method will overwrite any Drawables previously set using
      * {@link #setCompoundDrawables} or related methods.
      *
@@ -3040,7 +3043,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * Sets the Drawables (if any) to appear to the start of, above, to the end
      * of, and below the text. Use {@code null} if you do not want a Drawable
      * there. The Drawables' bounds will be set to their intrinsic bounds.
-     * <p>
+     * <p/>
      * Calling this method will overwrite any Drawables previously set using
      * {@link #setCompoundDrawables} or related methods.
      *
@@ -3061,7 +3064,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * Sets the Drawables (if any) to appear to the start of, above, to the end
      * of, and below the text. Use 0 if you do not want a Drawable there. The
      * Drawables' bounds will be set to their intrinsic bounds.
-     * <p>
+     * <p/>
      * Calling this method will overwrite any Drawables previously set using
      * {@link #setCompoundDrawables} or related methods.
      *
@@ -3087,7 +3090,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * right of, and below the text. Use {@code null} if you do not want a
      * Drawable there. The Drawables' bounds will be set to their intrinsic
      * bounds.
-     * <p>
+     * <p/>
      * Calling this method will overwrite any Drawables previously set using
      * {@link #setCompoundDrawablesRelative} or related methods.
      *
@@ -3104,7 +3107,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * Sets the Drawables (if any) to appear to the left of, above, to the
      * right of, and below the text. Use 0 if you do not want a Drawable there.
      * The Drawables' bounds will be set to their intrinsic bounds.
-     * <p>
+     * <p/>
      * Calling this method will overwrite any Drawables previously set using
      * {@link #setCompoundDrawablesRelative} or related methods.
      *
@@ -3161,19 +3164,6 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      */
     public void setExtractedText(ExtractedText text) {
         mInputView.setExtractedText(text);
-    }
-
-    /**
-     * Sets the text to be displayed when the text of the TextView is empty.
-     * Null means to use the normal empty text. The hint does not currently
-     * participate in determining the size of the view.
-     *
-     * @attr ref android.R.styleable#TextView_hint
-     */
-    public final void setHint(CharSequence hint) {
-        mInputView.setHint(hint);
-        if (mLabelView != null)
-            mLabelView.setText(hint);
     }
 
     /**
@@ -3255,7 +3245,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
 
     /**
      * Makes the TextView exactly this many lines tall.
-     * <p>
+     * <p/>
      * Note that setting this value overrides any other (minimum / maximum) number of lines or
      * height setting. A single line TextView will set this value to 1.
      *
@@ -3359,7 +3349,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
     /**
      * Gives the text a shadow of the specified blur radius and color, the specified
      * distance from its drawn position.
-     * <p>
+     * <p/>
      * The text shadow produced does not interact with the properties on view
      * that are responsible for real time shadows,
      * {@link View#getElevation() elevation} and
@@ -3390,10 +3380,6 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      */
     public final void setSpannableFactory(Spannable.Factory factory) {
         mInputView.setSpannableFactory(factory);
-    }
-
-    public final void setText(int resid) {
-        mInputView.setText(resid);
     }
 
     public final void setText(char[] text, int start, int len) {
@@ -3440,12 +3426,12 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
     /**
      * Sets whether the content of this view is selectable by the user. The default is
      * {@code false}, meaning that the content is not selectable.
-     * <p>
+     * <p/>
      * When you use a TextView to display a useful piece of information to the user (such as a
      * contact's address), make it selectable, so that the user can select and copy its
      * content. You can also use set the XML attribute
      * {@link android.R.styleable#TextView_textIsSelectable} to "true".
-     * <p>
+     * <p/>
      * When you call this method to set the value of {@code textIsSelectable}, it sets
      * the flags {@code focusable}, {@code focusableInTouchMode}, {@code clickable},
      * and {@code longClickable} to the same value. These flags correspond to the attributes
@@ -3516,13 +3502,13 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
     /**
      * It would be better to rely on the input type for everything. A password inputType should have
      * a password transformation. We should hence use isPasswordInputType instead of this method.
-     * <p>
+     * <p/>
      * We should:
      * - Call setInputType in setKeyListener instead of changing the input type directly (which
      * would install the correct transformation).
      * - Refuse the installation of a non-password transformation in setTransformation if the input
      * type is password.
-     * <p>
+     * <p/>
      * However, this is like this for legacy reasons and we cannot break existing apps. This method
      * is useful since it matches what the user can see (obfuscated text or not).
      *

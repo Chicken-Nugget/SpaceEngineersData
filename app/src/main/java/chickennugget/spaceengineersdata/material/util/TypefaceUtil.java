@@ -5,9 +5,6 @@ import android.graphics.Typeface;
 
 import java.util.HashMap;
 
-/**
- * Created by Rey on 12/23/2014.
- */
 public class TypefaceUtil {
 
     private static final HashMap<String, Typeface> sCachedFonts = new HashMap<String, Typeface>();
@@ -16,10 +13,6 @@ public class TypefaceUtil {
     private TypefaceUtil() {
     }
 
-    /**
-     * @param familyName if start with 'asset:' prefix, then load font from asset folder.
-     * @return
-     */
     public static Typeface load(Context context, String familyName, int style) {
         if (familyName != null && familyName.startsWith(PREFIX_ASSET))
             synchronized (sCachedFonts) {
@@ -32,10 +25,8 @@ public class TypefaceUtil {
                 } catch (Exception e) {
                     return Typeface.DEFAULT;
                 }
-
                 return sCachedFonts.get(familyName);
             }
-
         return Typeface.create(familyName, style);
     }
 }

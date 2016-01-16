@@ -8,9 +8,6 @@ import android.view.View;
 import chickennugget.spaceengineersdata.material.widget.Slider;
 import chickennugget.spaceengineersdata.material.widget.Switch;
 
-/**
- * Created by Rey on 3/18/2015.
- */
 public class CustomViewPager extends ViewPager {
 
     public CustomViewPager(Context context, AttributeSet attrs) {

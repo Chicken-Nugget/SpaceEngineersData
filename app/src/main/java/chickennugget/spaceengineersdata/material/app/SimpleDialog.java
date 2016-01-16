@@ -21,9 +21,6 @@ import chickennugget.spaceengineersdata.material.widget.ListView;
 import chickennugget.spaceengineersdata.material.widget.RadioButton;
 import chickennugget.spaceengineersdata.material.widget.TextView;
 
-/**
- * Created by Rey on 12/16/2014.
- */
 public class SimpleDialog extends Dialog {
 
     protected static final int MODE_NONE = 0;

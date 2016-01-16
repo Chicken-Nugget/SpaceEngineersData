@@ -25,9 +25,6 @@ import chickennugget.spaceengineersdata.material.drawable.RippleDrawable;
 import chickennugget.spaceengineersdata.material.util.ThemeUtil;
 import chickennugget.spaceengineersdata.material.util.ViewUtil;
 
-/**
- * Created by Rey on 9/15/2015.
- */
 public class TabIndicatorView extends RecyclerView implements ThemeManager.OnThemeChangedListener {
 
     public static final int MODE_SCROLL = 0;
@@ -51,36 +48,29 @@ public class TabIndicatorView extends RecyclerView implements ThemeManager.OnThe
     private int mSelectedPosition;
     private boolean mScrolling;
     private boolean mIsRtl;
-
     private LayoutManager mLayoutManager;
     private Adapter mAdapter;
     private TabIndicatorFactory mFactory;
-
     private Runnable mTabAnimSelector;
-
     private boolean mScrollingToCenter = false;
 
     public TabIndicatorView(Context context) {
         super(context);
-
         init(context, null, 0, 0);
     }
 
     public TabIndicatorView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         init(context, attrs, 0, 0);
     }
 
     public TabIndicatorView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         init(context, attrs, defStyleAttr, 0);
     }
 
     protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         setHorizontalScrollBarEnabled(false);
-
         mTabPadding = -1;
         mTabSingleLine = true;
         mCenterCurrentTab = false;
@@ -88,18 +78,15 @@ public class TabIndicatorView extends RecyclerView implements ThemeManager.OnThe
         mIndicatorAtTop = false;
         mScrolling = false;
         mIsRtl = false;
-
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setColor(ThemeUtil.colorAccent(context, 0xFFFFFFFF));
-
         mAdapter = new Adapter();
         setAdapter(mAdapter);
         mLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, mIsRtl);
         setLayoutManager(mLayoutManager);
         setItemAnimator(new DefaultItemAnimator());
         addOnScrollListener(new OnScrollListener() {
-
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
@@ -111,11 +98,8 @@ public class TabIndicatorView extends RecyclerView implements ThemeManager.OnThe
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 updateIndicator(mLayoutManager.findViewByPosition(mSelectedPosition));
             }
-
         });
-
         applyStyle(context, attrs, defStyleAttr, defStyleRes);
-
         if (!isInEditMode())
             mStyleId = ThemeManager.getStyleId(context, attrs, defStyleAttr, defStyleRes);
     }
@@ -127,14 +111,12 @@ public class TabIndicatorView extends RecyclerView implements ThemeManager.OnThe
 
     protected void applyStyle(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TabPageIndicator, defStyleAttr, defStyleRes);
-
         int tabPadding = -1;
         int textAppearance = 0;
         int mode = -1;
         int rippleStyle = 0;
         boolean tabSingleLine = false;
         boolean singleLineDefined = false;
-
         for (int i = 0, count = a.getIndexCount(); i < count; i++) {
             int attr = a.getIndex(i);
             if (attr == R.styleable.TabPageIndicator_tpi_tabPadding)
@@ -157,43 +139,33 @@ public class TabIndicatorView extends RecyclerView implements ThemeManager.OnThe
             else if (attr == R.styleable.TabPageIndicator_tpi_mode)
                 mode = a.getInteger(attr, 0);
         }
-
         a.recycle();
-
         if (mIndicatorHeight < 0)
             mIndicatorHeight = ThemeUtil.dpToPx(context, 2);
-
         boolean shouldNotify = false;
-
         if (tabPadding >= 0 && mTabPadding != tabPadding) {
             mTabPadding = tabPadding;
             shouldNotify = true;
         }
-
         if (singleLineDefined && mTabSingleLine != tabSingleLine) {
             mTabSingleLine = tabSingleLine;
             shouldNotify = true;
         }
-
         if (mode >= 0 && mMode != mode) {
             mMode = mode;
             mAdapter.setFixedWidth(0, 0);
             shouldNotify = true;
         }
-
         if (textAppearance != 0 && mTextAppearance != textAppearance) {
             mTextAppearance = textAppearance;
             shouldNotify = true;
         }
-
         if (rippleStyle != 0 && rippleStyle != mTabRippleStyle) {
             mTabRippleStyle = rippleStyle;
             shouldNotify = true;
         }
-
         if (shouldNotify)
             mAdapter.notifyItemRangeChanged(0, mAdapter.getItemCount());
-
         invalidate();
     }
 

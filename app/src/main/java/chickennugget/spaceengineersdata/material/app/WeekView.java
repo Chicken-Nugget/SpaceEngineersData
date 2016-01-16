@@ -19,9 +19,6 @@ import chickennugget.spaceengineersdata.R;
 import chickennugget.spaceengineersdata.material.util.ThemeUtil;
 import chickennugget.spaceengineersdata.material.widget.CircleCheckedTextView;
 
-/**
- * Created by Rey on 2/6/2015.
- */
 public class WeekView extends FrameLayout {
 
     private static final String BASE_TEXT = "WWW";

@@ -47,26 +47,22 @@ public class FloatingActionButton extends View implements ThemeManager.OnThemeCh
 
     public FloatingActionButton(Context context) {
         super(context);
-
         init(context, null, 0, 0);
     }
 
     public FloatingActionButton(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         init(context, attrs, 0, 0);
     }
 
     public FloatingActionButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         init(context, attrs, defStyleAttr, 0);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public FloatingActionButton(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-
         init(context, attrs, defStyleAttr, defStyleRes);
     }
 
@@ -78,7 +74,6 @@ public class FloatingActionButton extends View implements ThemeManager.OnThemeCh
         setClickable(true);
         mSwitchIconAnimator = new SwitchIconAnimator();
         applyStyle(context, attrs, defStyleAttr, defStyleRes);
-
         if (!isInEditMode())
             mStyleId = ThemeManager.getStyleId(context, attrs, defStyleAttr, defStyleRes);
     }
@@ -270,6 +265,11 @@ public class FloatingActionButton extends View implements ThemeManager.OnThemeCh
         return mBackground.getColor();
     }
 
+    public void setBackgroundColor(ColorStateList color) {
+        mBackground.setColor(color);
+        invalidate();
+    }
+
     @Override
     public void setBackgroundColor(int color) {
         mBackground.setColor(color);
@@ -308,11 +308,6 @@ public class FloatingActionButton extends View implements ThemeManager.OnThemeCh
             mIcon.setCallback(this);
             invalidate();
         }
-    }
-
-    public void setBackgroundColor(ColorStateList color) {
-        mBackground.setColor(color);
-        invalidate();
     }
 
     /**

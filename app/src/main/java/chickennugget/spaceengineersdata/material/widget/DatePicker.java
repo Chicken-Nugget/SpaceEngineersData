@@ -32,9 +32,6 @@ import chickennugget.spaceengineersdata.material.util.ThemeUtil;
 import chickennugget.spaceengineersdata.material.util.TypefaceUtil;
 import chickennugget.spaceengineersdata.material.util.ViewUtil;
 
-/**
- * Created by Rey on 12/31/2014.
- */
 public class DatePicker extends ListView implements AbsListView.OnScrollListener {
 
     protected static final int SCROLL_DURATION = 250;
@@ -77,9 +74,9 @@ public class DatePicker extends ListView implements AbsListView.OnScrollListener
     private int mPaddingTop;
     private int mPaddingRight;
     private int mPaddingBottom;
+
     public DatePicker(Context context) {
         super(context);
-
         init(context, null, 0, 0);
     }
 

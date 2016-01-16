@@ -13,9 +13,6 @@ import android.view.animation.Interpolator;
 
 import chickennugget.spaceengineersdata.material.util.ViewUtil;
 
-/**
- * Created by Rey on 12/26/2014.
- */
 public class CircleDrawable extends Drawable implements Animatable {
 
     private boolean mRunning = false;

@@ -45,9 +45,6 @@ import chickennugget.spaceengineersdata.material.widget.RadioButton;
 import chickennugget.spaceengineersdata.material.widget.Spinner;
 import chickennugget.spaceengineersdata.material.widget.TextView;
 
-/**
- * Created by Rey on 2/2/2015.
- */
 public class RecurringPickerDialog extends Dialog implements WeekView.OnDaySelectionChangedListener {
 
     private static int[] MONTH_SAME_WEEKDAY = {R.string.rd_month_last, R.string.rd_month_first, R.string.rd_month_second, R.string.rd_month_third, R.string.rd_month_fourth};

@@ -27,9 +27,6 @@ import chickennugget.spaceengineersdata.material.drawable.BlankDrawable;
 import chickennugget.spaceengineersdata.material.util.ThemeUtil;
 import chickennugget.spaceengineersdata.material.util.TypefaceUtil;
 
-/**
- * Created by Rey on 12/26/2014.
- */
 public class YearPicker extends ListView {
 
     private static final int[][] STATES = new int[][]{
@@ -76,11 +73,9 @@ public class YearPicker extends ListView {
         mAnimDuration = -1;
         mTypeface = Typeface.DEFAULT;
         mItemRealHeight = -1;
-
         setWillNotDraw(false);
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setStyle(Paint.Style.FILL);
-
         mAdapter = new YearAdapter();
         setAdapter(mAdapter);
         setScrollBarStyle(SCROLLBARS_OUTSIDE_OVERLAY);
@@ -88,29 +83,22 @@ public class YearPicker extends ListView {
         setDividerHeight(0);
         setCacheColorHint(Color.TRANSPARENT);
         setClipToPadding(false);
-
         mPadding = ThemeUtil.dpToPx(context, 4);
-
         mSelectionColor = ThemeUtil.colorPrimary(context, 0xFF000000);
-
         super.init(context, attrs, defStyleAttr, defStyleRes);
     }
 
     @Override
     protected void applyStyle(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super.applyStyle(context, attrs, defStyleAttr, defStyleRes);
-
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.YearPicker, defStyleAttr, defStyleRes);
-
         int year = -1;
         int yearMin = -1;
         int yearMax = -1;
         String familyName = null;
         int style = -1;
-
         for (int i = 0, count = a.getIndexCount(); i < count; i++) {
             int attr = a.getIndex(i);
-
             if (attr == R.styleable.YearPicker_dp_yearTextSize)
                 mTextSize = a.getDimensionPixelSize(attr, 0);
             else if (attr == R.styleable.YearPicker_dp_year)

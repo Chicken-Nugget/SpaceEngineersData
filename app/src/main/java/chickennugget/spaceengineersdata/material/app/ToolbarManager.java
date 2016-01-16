@@ -23,12 +23,6 @@ import chickennugget.spaceengineersdata.material.drawable.NavigationDrawerDrawab
 import chickennugget.spaceengineersdata.material.drawable.ToolbarRippleDrawable;
 import chickennugget.spaceengineersdata.material.util.ViewUtil;
 
-/**
- * A Manager class to help handling Toolbar used as ActionBar in ActionBarActivity.
- * It help grouping ActionItem in Toolbar and only show the items of current group.
- * It also help manager state of navigation icon.
- * Created by Rey on 1/6/2015.
- */
 public class ToolbarManager {
 
     private AppCompatDelegate mAppCompatDelegate;

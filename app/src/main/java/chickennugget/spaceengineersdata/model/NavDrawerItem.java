@@ -1,6 +1,7 @@
 package chickennugget.spaceengineersdata.model;
 
 public class NavDrawerItem {
+
     private String title;
 
     public NavDrawerItem() {

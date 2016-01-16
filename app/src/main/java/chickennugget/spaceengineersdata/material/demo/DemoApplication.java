@@ -9,9 +9,6 @@ import com.squareup.leakcanary.RefWatcher;
 import chickennugget.spaceengineersdata.BuildConfig;
 import chickennugget.spaceengineersdata.material.app.ThemeManager;
 
-/**
- * Created by Rey on 5/22/2015.
- */
 public class DemoApplication extends Application {
 
     private RefWatcher refWatcher;

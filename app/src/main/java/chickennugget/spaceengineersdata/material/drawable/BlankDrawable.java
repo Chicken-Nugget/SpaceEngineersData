@@ -5,11 +5,6 @@ import android.graphics.ColorFilter;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 
-/**
- * A drawable that draw nothing.
- *
- * @author Rey
- */
 public class BlankDrawable extends Drawable {
 
     private static BlankDrawable mInstance;
@@ -20,7 +15,6 @@ public class BlankDrawable extends Drawable {
                 if (mInstance == null)
                     mInstance = new BlankDrawable();
             }
-
         return mInstance;
     }
 

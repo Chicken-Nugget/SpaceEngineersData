@@ -1,5 +1,6 @@
 package chickennugget.spaceengineersdata.material.app;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Handler;
@@ -22,15 +23,11 @@ import android.widget.FrameLayout;
 import chickennugget.spaceengineersdata.R;
 import chickennugget.spaceengineersdata.material.drawable.BlankDrawable;
 
-/**
- * Created by Rey on 7/25/2015.
- */
 public class BottomSheetDialog extends android.app.Dialog {
 
     private final Handler mHandler = new Handler();
     private final Runnable mDismissAction = new Runnable() {
         public void run() {
-            //dirty fix for java.lang.IllegalArgumentException: View not attached to window manager
             try {
                 BottomSheetDialog.super.dismiss();
             } catch (IllegalArgumentException ex) {
@@ -57,9 +54,6 @@ public class BottomSheetDialog extends android.app.Dialog {
 
     public BottomSheetDialog(Context context, int style) {
         super(context, style);
-
-        //Override style to ensure not show window's title or background.
-        //TODO: find a way to ensure windowIsFloating attribute is false.
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setBackgroundDrawable(BlankDrawable.getInstance());
         WindowManager.LayoutParams layout = getWindow().getAttributes();
@@ -67,21 +61,16 @@ public class BottomSheetDialog extends android.app.Dialog {
         layout.height = ViewGroup.LayoutParams.MATCH_PARENT;
         layout.windowAnimations = R.style.DialogNoAnimation;
         getWindow().setAttributes(layout);
-
         init(context, style);
     }
 
     private void init(Context context, int style) {
         mContainer = new ContainerFrameLayout(context);
-
         cancelable(true);
         canceledOnTouchOutside(true);
-
         onCreate();
         applyStyle(style);
-
         mMinFlingVelocity = ViewConfiguration.get(context).getScaledMinimumFlingVelocity() * 2;
-
         mGestureDetector = new GestureDetector(context, new GestureDetector.OnGestureListener() {
             @Override
             public boolean onDown(MotionEvent e) {
@@ -90,7 +79,6 @@ public class BottomSheetDialog extends android.app.Dialog {
 
             @Override
             public void onShowPress(MotionEvent e) {
-
             }
 
             @Override
@@ -105,7 +93,6 @@ public class BottomSheetDialog extends android.app.Dialog {
 
             @Override
             public void onLongPress(MotionEvent e) {
-
             }
 
             @Override
@@ -117,7 +104,6 @@ public class BottomSheetDialog extends android.app.Dialog {
                 return false;
             }
         });
-
         super.setContentView(mContainer);
     }
 
@@ -127,7 +113,6 @@ public class BottomSheetDialog extends android.app.Dialog {
     public BottomSheetDialog applyStyle(int styleId) {
         Context context = getContext();
         TypedArray a = context.obtainStyledAttributes(styleId, R.styleable.BottomSheetDialog);
-
         for (int i = 0, count = a.getIndexCount(); i < count; i++) {
             int attr = a.getIndex(i);
             if (attr == R.styleable.BottomSheetDialog_android_layout_height)
@@ -152,15 +137,11 @@ public class BottomSheetDialog extends android.app.Dialog {
                     outInterpolator(AnimationUtils.loadInterpolator(context, resId));
             }
         }
-
         a.recycle();
-
         if (mInInterpolator == null)
             mInInterpolator = new DecelerateInterpolator();
-
         if (mOutInterpolator == null)
             mOutInterpolator = new AccelerateInterpolator();
-
         return this;
     }
 
@@ -176,12 +157,6 @@ public class BottomSheetDialog extends android.app.Dialog {
         return this;
     }
 
-    /**
-     * Set the dim amount of the region outside this BottomSheetDialog.
-     *
-     * @param amount The dim amount in [0..1].
-     * @return The BottomSheetDialog for chaining methods.
-     */
     public BottomSheetDialog dimAmount(float amount) {
         Window window = getWindow();
         if (amount > 0f) {
@@ -194,12 +169,6 @@ public class BottomSheetDialog extends android.app.Dialog {
         return this;
     }
 
-    /**
-     * Set the content view of this BottomSheetDialog.
-     *
-     * @param v The content view.
-     * @return The BottomSheetDialog for chaining methods.
-     */
     public BottomSheetDialog contentView(View v) {
         mContentView = v;
         mContainer.removeAllViews();
@@ -207,30 +176,16 @@ public class BottomSheetDialog extends android.app.Dialog {
         return this;
     }
 
-    /**
-     * Set the content view of this BottomSheetDialog.
-     *
-     * @param layoutId The reourceId of layout.
-     * @return The BottomSheetDialog for chaining methods.
-     */
     public BottomSheetDialog contentView(int layoutId) {
         if (layoutId == 0)
             return this;
-
         View v = LayoutInflater.from(getContext()).inflate(layoutId, null);
         return contentView(v);
     }
 
-    /**
-     * Set the height params of this BottomSheetDialog's content view.
-     *
-     * @param height The height param. Can be the size in pixels, or {@link ViewGroup.LayoutParams#WRAP_CONTENT} or {@link ViewGroup.LayoutParams#MATCH_PARENT}.
-     * @return The BottomSheetDialog for chaining methods.
-     */
     public BottomSheetDialog heightParam(int height) {
         if (mLayoutHeight != height) {
             mLayoutHeight = height;
-
             if (isShowing() && mContentView != null) {
                 mRunShowAnimation = true;
                 mContainer.forceLayout();
@@ -240,45 +195,21 @@ public class BottomSheetDialog extends android.app.Dialog {
         return this;
     }
 
-    /**
-     * Set the duration of in animation.
-     *
-     * @param duration The duration of animation.
-     * @return The BottomSheetDialog for chaining methods.
-     */
     public BottomSheetDialog inDuration(int duration) {
         mInDuration = duration;
         return this;
     }
 
-    /**
-     * Set the interpolator of in animation.
-     *
-     * @param interpolator The duration of animation.
-     * @return The BottomSheetDialog for chaining methods.
-     */
     public BottomSheetDialog inInterpolator(Interpolator interpolator) {
         mInInterpolator = interpolator;
         return this;
     }
 
-    /**
-     * Set the duration of out animation.
-     *
-     * @param duration The duration of animation.
-     * @return The BottomSheetDialog for chaining methods.
-     */
     public BottomSheetDialog outDuration(int duration) {
         mOutDuration = duration;
         return this;
     }
 
-    /**
-     * Set the interpolator of out animation.
-     *
-     * @param interpolator The duration of animation.
-     * @return The BottomSheetDialog for chaining methods.
-     */
     public BottomSheetDialog outInterpolator(Interpolator interpolator) {
         mOutInterpolator = interpolator;
         return this;
@@ -331,15 +262,10 @@ public class BottomSheetDialog extends android.app.Dialog {
         contentView(view);
     }
 
-    /**
-     * Dismiss Dialog immediately without showing out animation.
-     */
     public void dismissImmediately() {
         super.dismiss();
-
         if (mAnimation != null)
             mAnimation.cancel();
-
         if (mHandler != null)
             mHandler.removeCallbacks(mDismissAction);
     }
@@ -348,7 +274,6 @@ public class BottomSheetDialog extends android.app.Dialog {
     public void dismiss() {
         if (!isShowing())
             return;
-
         if (mContentView != null) {
             mAnimation = new SlideAnimation(mContentView.getTop(), mContainer.getMeasuredHeight());
             mAnimation.setDuration(mOutDuration);
@@ -397,7 +322,6 @@ public class BottomSheetDialog extends android.app.Dialog {
         protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
             int widthSize = MeasureSpec.getSize(widthMeasureSpec);
             int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-
             View child = getChildAt(0);
             if (child != null) {
                 switch (mLayoutHeight) {
@@ -415,24 +339,20 @@ public class BottomSheetDialog extends android.app.Dialog {
             setMeasuredDimension(widthSize, heightSize);
         }
 
+        @SuppressLint("DrawAllocation")
         @Override
         protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
             View child = getChildAt(0);
-
             if (child != null) {
                 if (mChildTop < 0)
                     mChildTop = bottom - top;
-
                 child.layout(0, mChildTop, child.getMeasuredWidth(), Math.max(bottom - top, mChildTop + child.getMeasuredHeight()));
-
                 if (mRunShowAnimation) {
                     mRunShowAnimation = false;
-
                     if (mAnimation != null) {
                         mAnimation.cancel();
                         mAnimation = null;
                     }
-
                     if (mContentView != null) {
                         int start = mChildTop < 0 ? getHeight() : child.getTop();
                         int end = getMeasuredHeight() - mContentView.getMeasuredHeight();
@@ -464,10 +384,8 @@ public class BottomSheetDialog extends android.app.Dialog {
         private boolean isOutsideDialog(float x, float y) {
             if (y < mChildTop)
                 return true;
-
             View child = getChildAt(0);
             return child != null && y > mChildTop + child.getMeasuredHeight();
-
         }
 
         @Override
@@ -480,10 +398,8 @@ public class BottomSheetDialog extends android.app.Dialog {
         @Override
         public boolean onTouchEvent(MotionEvent event) {
             boolean handled = super.onTouchEvent(event);
-
             if (handled)
                 return true;
-
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     if (isOutsideDialog(event.getX(), event.getY())) {
@@ -505,7 +421,6 @@ public class BottomSheetDialog extends android.app.Dialog {
                     }
                     return false;
             }
-
             return false;
         }
 
@@ -530,5 +445,4 @@ public class BottomSheetDialog extends android.app.Dialog {
                 cancel();
         }
     }
-
 }

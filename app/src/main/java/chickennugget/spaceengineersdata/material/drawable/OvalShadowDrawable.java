@@ -16,9 +16,6 @@ import android.os.SystemClock;
 import chickennugget.spaceengineersdata.material.util.ColorUtil;
 import chickennugget.spaceengineersdata.material.util.ViewUtil;
 
-/**
- * Created by Rey on 5/19/2015.
- */
 public class OvalShadowDrawable extends Drawable implements Animatable {
 
     private static final int COLOR_SHADOW_START = 0x4C000000;

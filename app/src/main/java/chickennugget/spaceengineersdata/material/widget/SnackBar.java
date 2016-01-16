@@ -34,21 +34,9 @@ public class SnackBar extends FrameLayout implements ThemeManager.OnThemeChanged
 
     public static final int MATCH_PARENT = ViewGroup.LayoutParams.MATCH_PARENT;
     public static final int WRAP_CONTENT = ViewGroup.LayoutParams.WRAP_CONTENT;
-    /**
-     * Indicate this SnackBar is already dismissed.
-     */
     public static final int STATE_DISMISSED = 0;
-    /**
-     * Indicate this SnackBar is already shown.
-     */
     public static final int STATE_SHOWN = 1;
-    /**
-     * Indicate this SnackBar is being shown.
-     */
     public static final int STATE_SHOWING = 2;
-    /**
-     * Indicate this SnackBar is being dismissed.
-     */
     public static final int STATE_DISMISSING = 3;
     private TextView mText;
     private Button mAction;
@@ -101,42 +89,33 @@ public class SnackBar extends FrameLayout implements ThemeManager.OnThemeChanged
         mHeight = WRAP_CONTENT;
         mDuration = -1;
         mIsRtl = false;
-
         mText = new TextView(context);
         mText.setSingleLine(true);
         mText.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
         addView(mText, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-
         mAction = new Button(context);
         mAction.setBackgroundResource(0);
         mAction.setGravity(Gravity.CENTER);
         mAction.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 if (mActionClickListener != null)
                     mActionClickListener.onActionClick(SnackBar.this, mActionId);
-
                 dismiss();
             }
-
         });
         addView(mAction, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-
         mBackground = new BackgroundDrawable();
         mBackground.setColor(0xFF323232);
         ViewUtil.setBackground(this, mBackground);
         setClickable(true);
-
         super.init(context, attrs, defStyleAttr, defStyleRes);
     }
 
     @Override
     protected void applyStyle(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super.applyStyle(context, attrs, defStyleAttr, defStyleRes);
-
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SnackBar, defStyleAttr, defStyleRes);
-
         int horizontalPadding = -1;
         int verticalPadding = -1;
         int textSize = -1;
@@ -146,7 +125,6 @@ public class SnackBar extends FrameLayout implements ThemeManager.OnThemeChanged
         int actionTextSize = -1;
         ColorStateList actionTextColor = null;
         int actionTextAppearance = 0;
-
         for (int i = 0, count = a.getIndexCount(); i < count; i++) {
             int attr = a.getIndex(i);
             if (attr == R.styleable.SnackBar_sb_backgroundColor)

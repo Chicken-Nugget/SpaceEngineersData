@@ -10,9 +10,6 @@ import android.graphics.Region;
 import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.DrawableCompat;
 
-/**
- * Created by Rey on 8/19/2015.
- */
 public class PaddingDrawable extends Drawable implements Drawable.Callback {
 
     private Drawable mDrawable;

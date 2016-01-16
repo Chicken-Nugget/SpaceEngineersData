@@ -3,9 +3,6 @@ package chickennugget.spaceengineersdata.material.app;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by Rey on 3/2/2015.
- */
 public class Recipient implements Parcelable {
     public static final Creator<Recipient> CREATOR = new Creator<Recipient>() {
         public Recipient createFromParcel(Parcel source) {
