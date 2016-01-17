@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress ALL -->
+<resources>
+    BLOCKS
+    Ship (Ship, Control, Thrust, [Passenger Seat])
+    Electronics (Power, Comms, Displays, Gadgets, [Medical Room], [Gravity Gen], [Space Ball], [Cryo Chamber])
+    Industry (Industry, Storage, O2/H2, Conveyor)
+    Military (Military)
+    Structure (Interior, Exterior, Windows, [Hangar Door], [Merge Block], Blast Doors)
+    Armor (Light Armor, Heavy Armor)
+
+    ASSEMBLY
+    Components
+    Tools
+    Ammo
+
+    REFINING
+    Refinery
+    *All Ingots
+    Arc Furnace
+    *Common Metals
+    Generator
+    O2 Farm
+
+    ORES &amp; INGOTS
+    Elements
+    Other
+</resources>

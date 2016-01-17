@@ -25,7 +25,8 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 import chickennugget.spaceengineersdata.R;
-import chickennugget.spaceengineersdata.material.app.DialogFragment;
+import chickennugget.spaceengineersdata.dummy.DummyContent;
+import chickennugget.spaceengineersdata.fragments.ShipFragment;
 import chickennugget.spaceengineersdata.material.app.ThemeManager;
 import chickennugget.spaceengineersdata.material.app.ToolbarManager;
 import chickennugget.spaceengineersdata.material.drawable.ThemeDrawable;
@@ -34,7 +35,7 @@ import chickennugget.spaceengineersdata.material.util.ViewUtil;
 import chickennugget.spaceengineersdata.material.widget.SnackBar;
 import chickennugget.spaceengineersdata.material.widget.TabIndicatorView;
 
-public class MainActivity extends AppCompatActivity implements ToolbarManager.OnToolbarGroupChangedListener {
+public class MainActivity extends AppCompatActivity implements ToolbarManager.OnToolbarGroupChangedListener, ShipFragment.OnListFragmentInteractionListener {
 
     private DrawerLayout dl_navigator;
     private FrameLayout fl_drawer;
@@ -46,7 +47,14 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
     private Toolbar mToolbar;
     private ToolbarManager mToolbarManager;
     private SnackBar mSnackBar;
-    private Tab[] mItems = new Tab[]{Tab.PROGRESS, Tab.BUTTONS, Tab.FAB, Tab.SWITCHES, Tab.SLIDERS, Tab.SPINNERS, Tab.TEXTFIELDS, Tab.SNACKBARS, Tab.DIALOGS, Tab.NEATO};
+    private Tab[] mItems = new Tab[]{
+            Tab.SHIP,
+            Tab.ELECTRONICS,
+            Tab.INDUSTRY,
+            Tab.MILITARY,
+            Tab.STRUCTURE,
+            Tab.ARMOR
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
 
         });
 
-        mDrawerAdapter.setSelected(Tab.PROGRESS);
+        mDrawerAdapter.setSelected(Tab.SHIP);
         vp.setCurrentItem(0);
 
         ViewUtil.setBackground(getWindow().getDecorView(), new ThemeDrawable(R.array.bg_window));
@@ -153,17 +161,18 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
         return mSnackBar;
     }
 
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+
+    }
+
     public enum Tab {
-        PROGRESS("Progresses"),
-        BUTTONS("Buttons"),
-        FAB("FABs"),
-        SWITCHES("Switches"),
-        SLIDERS("Sliders"),
-        SPINNERS("Spinners"),
-        TEXTFIELDS("TextFields"),
-        SNACKBARS("SnackBars"),
-        DIALOGS("Dialogs"),
-        NEATO("Neato");
+        SHIP("Ship"),
+        ELECTRONICS("Electronics"),
+        INDUSTRY("Industry"),
+        MILITARY("Military"),
+        STRUCTURE("Structure"),
+        ARMOR("Armor");
         private final String name;
 
         Tab(String s) {
@@ -190,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
                 Class<?> c = Class.forName("android.support.v4.app.FragmentManagerImpl");
                 f = c.getDeclaredField("mActive");
                 f.setAccessible(true);
-            } catch (Exception e) {
+            } catch (Exception ignored) {
             }
 
             sActiveField = f;
@@ -208,29 +217,21 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
                 ArrayList<Fragment> mActive = (ArrayList<Fragment>) sActiveField.get(fm);
                 if (mActive != null) {
                     for (Fragment fragment : mActive) {
-                        if (fragment instanceof ProgressFragment)
-                            setFragment(Tab.PROGRESS, fragment);
-                        else if (fragment instanceof ButtonFragment)
-                            setFragment(Tab.BUTTONS, fragment);
-                        else if (fragment instanceof FabFragment)
-                            setFragment(Tab.FAB, fragment);
-                        else if (fragment instanceof SwitchesFragment)
-                            setFragment(Tab.SWITCHES, fragment);
-                        else if (fragment instanceof SliderFragment)
-                            setFragment(Tab.SLIDERS, fragment);
-                        else if (fragment instanceof SpinnersFragment)
-                            setFragment(Tab.SPINNERS, fragment);
-                        else if (fragment instanceof TextfieldFragment)
-                            setFragment(Tab.TEXTFIELDS, fragment);
-                        else if (fragment instanceof SnackbarFragment)
-                            setFragment(Tab.SNACKBARS, fragment);
-                        else if (fragment instanceof DialogsFragment)
-                            setFragment(Tab.DIALOGS, fragment);
-                        else if (fragment instanceof DialogFragment)
-                            setFragment(Tab.NEATO, fragment);
+                        if (fragment instanceof ProgressFragment) //@TODO
+                            setFragment(Tab.SHIP, fragment);
+                        else if (fragment instanceof ButtonFragment) //@TODO
+                            setFragment(Tab.ELECTRONICS, fragment);
+                        else if (fragment instanceof FabFragment) //@TODO
+                            setFragment(Tab.INDUSTRY, fragment);
+                        else if (fragment instanceof SwitchesFragment) //@TODO
+                            setFragment(Tab.MILITARY, fragment);
+                        else if (fragment instanceof SliderFragment) //@TODO
+                            setFragment(Tab.STRUCTURE, fragment);
+                        else if (fragment instanceof SpinnersFragment) //@TODO
+                            setFragment(Tab.ARMOR, fragment);
                     }
                 }
-            } catch (Exception e) {
+            } catch (Exception ignored) {
             }
         }
 
@@ -244,38 +245,25 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
 
         @Override
         public Fragment getItem(int position) {
-            if (mFragments[position] == null) {
-                switch (mTabs[position]) {
-                    case PROGRESS:
-                        mFragments[position] = ProgressFragment.newInstance();
-                        break;
-                    case BUTTONS:
-                        mFragments[position] = ButtonFragment.newInstance();
-                        break;
-                    case FAB:
-                        mFragments[position] = FabFragment.newInstance();
-                        break;
-                    case SWITCHES:
-                        mFragments[position] = SwitchesFragment.newInstance();
-                        break;
-                    case SLIDERS:
-                        mFragments[position] = SliderFragment.newInstance();
-                        break;
-                    case SPINNERS:
-                        mFragments[position] = SpinnersFragment.newInstance();
-                        break;
-                    case TEXTFIELDS:
-                        mFragments[position] = TextfieldFragment.newInstance();
-                        break;
-                    case SNACKBARS:
-                        mFragments[position] = SnackbarFragment.newInstance();
-                        break;
-                    case DIALOGS:
-                        mFragments[position] = DialogsFragment.newInstance();
-                        break;
-                    case NEATO:
-                        mFragments[position] = DialogsFragment.newInstance();
-                }
+            if (mFragments[position] == null) switch (mTabs[position]) {
+                case SHIP:
+                    mFragments[position] = ShipFragment.newInstance(2); //@TODO
+                    break;
+                case ELECTRONICS:
+                    mFragments[position] = ButtonFragment.newInstance(); //@TODO
+                    break;
+                case INDUSTRY:
+                    mFragments[position] = FabFragment.newInstance(); //@TODO
+                    break;
+                case MILITARY:
+                    mFragments[position] = SwitchesFragment.newInstance(); //@TODO
+                    break;
+                case STRUCTURE:
+                    mFragments[position] = SliderFragment.newInstance(); //@TODO
+                    break;
+                case ARMOR:
+                    mFragments[position] = SpinnersFragment.newInstance(); //@TODO
+                    break;
             }
 
             return mFragments[position];
