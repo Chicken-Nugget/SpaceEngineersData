@@ -24,7 +24,7 @@
               android:orientation="vertical">
 
     <!-- Card visible layout -->
-    <chickennugget.spaceengineersdata.cards.ForegroundLinearLayout
+    <chickennugget.spaceengineersdata.unused.cards.ForegroundLinearLayout
         android:id="@+id/card_main_layout"
         style="@style/card.native.main_layout_foreground"
         android:layout_width="match_parent"
@@ -58,7 +58,7 @@
 
         </LinearLayout>
 
-    </chickennugget.spaceengineersdata.cards.ForegroundLinearLayout>
+    </chickennugget.spaceengineersdata.unused.cards.ForegroundLinearLayout>
 
     <FrameLayout
         android:id="@+id/card_content_expand_layout"

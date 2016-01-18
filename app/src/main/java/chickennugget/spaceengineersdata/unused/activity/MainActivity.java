@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import chickennugget.spaceengineersdata.R;
-import chickennugget.spaceengineersdata.cards.fragments.BaseFragment;
-import chickennugget.spaceengineersdata.cards.fragments.GridBaseFragment;
+import chickennugget.spaceengineersdata.unused.cards.fragments.BaseFragment;
+import chickennugget.spaceengineersdata.unused.cards.fragments.GridBaseFragment;
 import chickennugget.spaceengineersdata.unused.fragments.EightFragment;
 import chickennugget.spaceengineersdata.unused.fragments.FiveFragment;
 import chickennugget.spaceengineersdata.unused.fragments.FourFragment;

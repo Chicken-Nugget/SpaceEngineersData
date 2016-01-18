@@ -35,7 +35,7 @@
         <!-- Compound view for Header Card
              If you want to customize this element use attr card:card_header_layout_resourceID
              You can also use your CardHeader subclass-->
-        <chickennugget.spaceengineersdata.cards.card_view.CardHeaderView
+        <chickennugget.spaceengineersdata.unused.cards.card_view.CardHeaderView
             android:id="@+id/card_header_layout"
             style="@style/card.header_outer_layout"
             android:layout_width="match_parent"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <chickennugget.spaceengineersdata.cards.card_view.CardThumbnailView
+            <chickennugget.spaceengineersdata.unused.cards.card_view.CardThumbnailView
                 android:id="@+id/card_thumbnail_layout"
                 style="@style/card_thumbnail_outer_layout"
                 android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
 
     <!-- Compound view for Shadow
          If you want to customize this element use attr card:card_shadow_layout_resourceID -->
-    <chickennugget.spaceengineersdata.cards.card_view.CardShadowView
+    <chickennugget.spaceengineersdata.unused.cards.card_view.CardShadowView
         android:id="@+id/card_shadow_layout"
         style="@style/card.shadow_outer_layout"
         android:layout_width="match_parent"

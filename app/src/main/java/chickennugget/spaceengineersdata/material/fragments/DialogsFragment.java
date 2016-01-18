@@ -12,7 +12,7 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 
 import chickennugget.spaceengineersdata.R;
-import chickennugget.spaceengineersdata.material.activity.MainActivity;
+import chickennugget.spaceengineersdata.activity.MainActivity;
 import chickennugget.spaceengineersdata.material.app.BottomSheetDialog;
 import chickennugget.spaceengineersdata.material.app.DatePickerDialog;
 import chickennugget.spaceengineersdata.material.app.Dialog;

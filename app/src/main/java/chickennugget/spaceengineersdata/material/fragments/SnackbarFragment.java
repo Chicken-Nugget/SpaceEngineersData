@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import chickennugget.spaceengineersdata.R;
-import chickennugget.spaceengineersdata.material.activity.MainActivity;
+import chickennugget.spaceengineersdata.activity.MainActivity;
 import chickennugget.spaceengineersdata.material.widgets.Button;
 import chickennugget.spaceengineersdata.material.widgets.SnackBar;
 
