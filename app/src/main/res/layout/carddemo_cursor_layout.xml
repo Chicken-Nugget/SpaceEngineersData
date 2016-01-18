@@ -31,7 +31,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <chickennugget.spaceengineersdata.cards.CardThumbnailView
+        <chickennugget.spaceengineersdata.cards.card_view.CardThumbnailView
             android:id="@+id/card_thumbnail_layout"
             style="@style/card_thumbnail_outer_layout"
             android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <chickennugget.spaceengineersdata.cards.CardHeaderView
+            <chickennugget.spaceengineersdata.cards.card_view.CardHeaderView
                 android:id="@+id/card_header_layout"
                 style="@style/card.header_outer_layout"
                 android:layout_width="match_parent"
@@ -61,7 +61,7 @@
     </LinearLayout>
     <!-- Compound view for Shadow
            If you want to customize this element use attr card:card_shadow_layout_resourceID -->
-    <chickennugget.spaceengineersdata.cards.CardShadowView
+    <chickennugget.spaceengineersdata.cards.card_view.CardShadowView
         android:id="@+id/card_shadow_layout"
         style="@style/card.shadow_outer_layout"
         android:layout_width="match_parent"

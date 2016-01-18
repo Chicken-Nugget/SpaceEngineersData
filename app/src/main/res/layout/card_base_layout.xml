@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/card_base_empty_height"/>
 
-    <chickennugget.spaceengineersdata.cards.CardShadowView
+    <chickennugget.spaceengineersdata.cards.card_view.CardShadowView
         android:id="@+id/card_shadow_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

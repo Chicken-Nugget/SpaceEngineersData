@@ -20,7 +20,7 @@
 <!-- You can customize this layout.
      You need to have in your layout a `CardView` with the ID `list_cardId` -->
 
-<chickennugget.spaceengineersdata.cards.CardView
+<chickennugget.spaceengineersdata.cards.card_view.CardView
     android:id="@+id/list_cardId"
     style="@style/list_card.base"
     xmlns:android="http://schemas.android.com/apk/res/android"
