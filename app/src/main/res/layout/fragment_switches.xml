@@ -13,13 +13,13 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <chickennugget.spaceengineersdata.material.widget.TextView
+        <chickennugget.spaceengineersdata.material.widgets.TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Checkbox"
             app:v_styleId="@array/text_title"/>
 
-        <chickennugget.spaceengineersdata.material.widget.CheckBox
+        <chickennugget.spaceengineersdata.material.widgets.CheckBox
             android:id="@+id/switches_cb1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
             android:text="Checkbox 1"
             app:v_styleId="@array/checkbox"/>
 
-        <chickennugget.spaceengineersdata.material.widget.CheckBox
+        <chickennugget.spaceengineersdata.material.widgets.CheckBox
             android:id="@+id/switches_cb2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             android:text="Checkbox 2"
             app:v_styleId="@array/checkbox"/>
 
-        <chickennugget.spaceengineersdata.material.widget.CheckBox
+        <chickennugget.spaceengineersdata.material.widgets.CheckBox
             android:id="@+id/switches_cb3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,13 +46,13 @@
             android:text="Checkbox 3"
             app:v_styleId="@array/checkbox"/>
 
-        <chickennugget.spaceengineersdata.material.widget.TextView
+        <chickennugget.spaceengineersdata.material.widgets.TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Radio Button"
             app:v_styleId="@array/text_title"/>
 
-        <chickennugget.spaceengineersdata.material.widget.RadioButton
+        <chickennugget.spaceengineersdata.material.widgets.RadioButton
             android:id="@+id/switches_rb1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
             android:text="Radio Button 1"
             app:v_styleId="@array/radio_button"/>
 
-        <chickennugget.spaceengineersdata.material.widget.RadioButton
+        <chickennugget.spaceengineersdata.material.widgets.RadioButton
             android:id="@+id/switches_rb2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
             android:text="Radio Button 2"
             app:v_styleId="@array/radio_button"/>
 
-        <chickennugget.spaceengineersdata.material.widget.RadioButton
+        <chickennugget.spaceengineersdata.material.widgets.RadioButton
             android:id="@+id/switches_rb3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,13 +79,13 @@
             android:text="Radio Button 3"
             app:v_styleId="@array/radio_button"/>
 
-        <chickennugget.spaceengineersdata.material.widget.TextView
+        <chickennugget.spaceengineersdata.material.widgets.TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Switch"
             app:v_styleId="@array/text_title"/>
 
-        <chickennugget.spaceengineersdata.material.widget.Switch
+        <chickennugget.spaceengineersdata.material.widgets.Switch
             android:id="@+id/switches_sw1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
             android:padding="16dp"
             app:v_styleId="@array/switches"/>
 
-        <chickennugget.spaceengineersdata.material.widget.Switch
+        <chickennugget.spaceengineersdata.material.widgets.Switch
             android:id="@+id/switches_sw2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

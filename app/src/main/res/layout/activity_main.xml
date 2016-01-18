@@ -22,21 +22,21 @@
                 android:minHeight="?attr/actionBarSize"
                 app:theme="@style/AppBar"/>
 
-            <chickennugget.spaceengineersdata.material.widget.TabIndicatorView
+            <chickennugget.spaceengineersdata.material.widgets.TabIndicatorView
                 android:id="@+id/main_tiv"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:clipToPadding="false"
                 app:v_styleId="@array/tab_indicator"/>
 
-            <chickennugget.spaceengineersdata.material.demo.CustomViewPager
+            <chickennugget.spaceengineersdata.material.other.CustomViewPager
                 android:id="@+id/main_vp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
         </LinearLayout>
 
-        <chickennugget.spaceengineersdata.material.widget.SnackBar
+        <chickennugget.spaceengineersdata.material.widgets.SnackBar
             android:id="@+id/main_sn"
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -52,7 +52,7 @@
         android:layout_gravity="start"
         android:paddingTop="?attr/actionBarSize">
 
-        <chickennugget.spaceengineersdata.material.widget.ListView
+        <chickennugget.spaceengineersdata.material.widgets.ListView
             android:id="@+id/main_lv_drawer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

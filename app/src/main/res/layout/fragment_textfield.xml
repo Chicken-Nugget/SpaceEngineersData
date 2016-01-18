@@ -27,7 +27,7 @@
             app:et_supportMode="none"
             app:v_styleId="@array/edittext_contact"/>
 
-        <chickennugget.spaceengineersdata.material.widget.EditText
+        <chickennugget.spaceengineersdata.material.widgets.EditText
             android:id="@+id/textfield_et_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             app:et_supportMode="none"
             app:v_styleId="@array/edittext"/>
 
-        <chickennugget.spaceengineersdata.material.widget.EditText
+        <chickennugget.spaceengineersdata.material.widgets.EditText
             android:id="@+id/textfield_et_char_counter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
             app:et_supportMode="charCounter"
             app:v_styleId="@array/edittext"/>
 
-        <chickennugget.spaceengineersdata.material.widget.EditText
+        <chickennugget.spaceengineersdata.material.widgets.EditText
             android:id="@+id/textfield_et_helper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
             app:et_supportMode="helper"
             app:v_styleId="@array/edittext"/>
 
-        <chickennugget.spaceengineersdata.material.widget.EditText
+        <chickennugget.spaceengineersdata.material.widgets.EditText
             android:id="@+id/textfield_et_helper_error"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
             app:et_supportMode="helperWithError"
             app:v_styleId="@array/edittext"/>
 
-        <chickennugget.spaceengineersdata.material.widget.EditText
+        <chickennugget.spaceengineersdata.material.widgets.EditText
             android:id="@+id/textfield_et_disable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

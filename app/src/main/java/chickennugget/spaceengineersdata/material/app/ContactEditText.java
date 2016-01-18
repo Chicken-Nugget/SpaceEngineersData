@@ -43,12 +43,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import chickennugget.spaceengineersdata.R;
-import chickennugget.spaceengineersdata.material.text.style.ContactChipSpan;
-import chickennugget.spaceengineersdata.material.util.ThemeUtil;
-import chickennugget.spaceengineersdata.material.util.TypefaceUtil;
-import chickennugget.spaceengineersdata.material.widget.EditText;
-import chickennugget.spaceengineersdata.material.widget.ListPopupWindow;
-import chickennugget.spaceengineersdata.material.widget.ListView;
+import chickennugget.spaceengineersdata.material.other.ContactChipSpan;
+import chickennugget.spaceengineersdata.material.utils.ThemeUtil;
+import chickennugget.spaceengineersdata.material.utils.TypefaceUtil;
+import chickennugget.spaceengineersdata.material.widgets.EditText;
+import chickennugget.spaceengineersdata.material.widgets.ListPopupWindow;
+import chickennugget.spaceengineersdata.material.widgets.ListView;
 
 public class ContactEditText extends EditText {
 

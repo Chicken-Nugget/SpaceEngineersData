@@ -22,9 +22,9 @@ import java.util.Calendar;
 import java.util.Locale;
 
 import chickennugget.spaceengineersdata.R;
-import chickennugget.spaceengineersdata.material.util.ThemeUtil;
-import chickennugget.spaceengineersdata.material.widget.DatePicker;
-import chickennugget.spaceengineersdata.material.widget.YearPicker;
+import chickennugget.spaceengineersdata.material.utils.ThemeUtil;
+import chickennugget.spaceengineersdata.material.widgets.DatePicker;
+import chickennugget.spaceengineersdata.material.widgets.YearPicker;
 
 public class DatePickerDialog extends Dialog {
 

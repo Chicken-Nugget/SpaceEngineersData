@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<chickennugget.spaceengineersdata.material.widget.TextView
+<chickennugget.spaceengineersdata.material.widgets.TextView
     style="@style/Material.Drawable.Ripple.Wave.Light"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"

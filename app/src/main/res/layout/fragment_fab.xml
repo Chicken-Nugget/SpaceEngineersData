@@ -13,26 +13,26 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <chickennugget.spaceengineersdata.material.widget.TextView
+        <chickennugget.spaceengineersdata.material.widgets.TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Image"
             app:v_styleId="@array/text_title"/>
 
-        <chickennugget.spaceengineersdata.material.widget.FloatingActionButton
+        <chickennugget.spaceengineersdata.material.widgets.FloatingActionButton
             android:id="@+id/fab_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fab_iconSrc="@drawable/ic_done_white_24dp"
             app:v_styleId="@array/fab_icon"/>
 
-        <chickennugget.spaceengineersdata.material.widget.TextView
+        <chickennugget.spaceengineersdata.material.widgets.TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Line Morphing"
             app:v_styleId="@array/text_title"/>
 
-        <chickennugget.spaceengineersdata.material.widget.FloatingActionButton
+        <chickennugget.spaceengineersdata.material.widgets.FloatingActionButton
             android:id="@+id/fab_line"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

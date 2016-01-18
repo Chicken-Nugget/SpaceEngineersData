@@ -14,12 +14,12 @@ import android.widget.BaseAdapter;
 import android.widget.ScrollView;
 
 import chickennugget.spaceengineersdata.R;
-import chickennugget.spaceengineersdata.material.drawable.BlankDrawable;
-import chickennugget.spaceengineersdata.material.widget.CheckBox;
-import chickennugget.spaceengineersdata.material.widget.CompoundButton;
-import chickennugget.spaceengineersdata.material.widget.ListView;
-import chickennugget.spaceengineersdata.material.widget.RadioButton;
-import chickennugget.spaceengineersdata.material.widget.TextView;
+import chickennugget.spaceengineersdata.material.drawables.BlankDrawable;
+import chickennugget.spaceengineersdata.material.widgets.CheckBox;
+import chickennugget.spaceengineersdata.material.widgets.CompoundButton;
+import chickennugget.spaceengineersdata.material.widgets.ListView;
+import chickennugget.spaceengineersdata.material.widgets.RadioButton;
+import chickennugget.spaceengineersdata.material.widgets.TextView;
 
 public class SimpleDialog extends Dialog {
 

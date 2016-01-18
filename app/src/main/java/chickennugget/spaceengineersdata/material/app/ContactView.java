@@ -30,11 +30,11 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
 import chickennugget.spaceengineersdata.R;
-import chickennugget.spaceengineersdata.material.drawable.BlankDrawable;
-import chickennugget.spaceengineersdata.material.util.ThemeUtil;
-import chickennugget.spaceengineersdata.material.util.ViewUtil;
-import chickennugget.spaceengineersdata.material.widget.ImageButton;
-import chickennugget.spaceengineersdata.material.widget.RippleManager;
+import chickennugget.spaceengineersdata.material.drawables.BlankDrawable;
+import chickennugget.spaceengineersdata.material.utils.ThemeUtil;
+import chickennugget.spaceengineersdata.material.utils.ViewUtil;
+import chickennugget.spaceengineersdata.material.widgets.ImageButton;
+import chickennugget.spaceengineersdata.material.widgets.RippleManager;
 
 public class ContactView extends FrameLayout implements Target {
 

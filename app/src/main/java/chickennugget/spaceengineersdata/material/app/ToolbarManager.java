@@ -19,9 +19,9 @@ import android.view.animation.AnimationUtils;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
-import chickennugget.spaceengineersdata.material.drawable.NavigationDrawerDrawable;
-import chickennugget.spaceengineersdata.material.drawable.ToolbarRippleDrawable;
-import chickennugget.spaceengineersdata.material.util.ViewUtil;
+import chickennugget.spaceengineersdata.material.drawables.NavigationDrawerDrawable;
+import chickennugget.spaceengineersdata.material.drawables.ToolbarRippleDrawable;
+import chickennugget.spaceengineersdata.material.utils.ViewUtil;
 
 public class ToolbarManager {
 

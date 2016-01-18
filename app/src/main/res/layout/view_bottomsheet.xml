@@ -5,7 +5,7 @@
               android:layout_height="wrap_content"
               android:orientation="vertical">
 
-    <chickennugget.spaceengineersdata.material.widget.TextView
+    <chickennugget.spaceengineersdata.material.widgets.TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Bottom Sheet"
@@ -20,7 +20,7 @@
         android:paddingTop="16dp"
         android:weightSum="1.0">
 
-        <chickennugget.spaceengineersdata.material.widget.Button
+        <chickennugget.spaceengineersdata.material.widgets.Button
             android:id="@+id/sheet_bt_match"
             android:layout_width="0dp"
             android:layout_height="@dimen/bt_height"
@@ -34,7 +34,7 @@
             android:layout_height="1dp"
             android:layout_weight="0.1"/>
 
-        <chickennugget.spaceengineersdata.material.widget.Button
+        <chickennugget.spaceengineersdata.material.widgets.Button
             android:id="@+id/sheet_bt_wrap"
             android:layout_width="0dp"
             android:layout_height="@dimen/bt_height"

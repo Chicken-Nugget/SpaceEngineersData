@@ -22,9 +22,9 @@ import java.text.DateFormat;
 import java.util.Calendar;
 
 import chickennugget.spaceengineersdata.R;
-import chickennugget.spaceengineersdata.material.util.ThemeUtil;
-import chickennugget.spaceengineersdata.material.widget.CircleCheckedTextView;
-import chickennugget.spaceengineersdata.material.widget.TimePicker;
+import chickennugget.spaceengineersdata.material.utils.ThemeUtil;
+import chickennugget.spaceengineersdata.material.widgets.CircleCheckedTextView;
+import chickennugget.spaceengineersdata.material.widgets.TimePicker;
 
 public class TimePickerDialog extends Dialog {
 

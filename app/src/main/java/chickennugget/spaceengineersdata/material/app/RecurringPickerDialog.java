@@ -37,13 +37,13 @@ import java.util.Date;
 import java.util.Locale;
 
 import chickennugget.spaceengineersdata.R;
-import chickennugget.spaceengineersdata.material.util.ThemeUtil;
-import chickennugget.spaceengineersdata.material.util.ViewUtil;
-import chickennugget.spaceengineersdata.material.widget.CompoundButton;
-import chickennugget.spaceengineersdata.material.widget.EditText;
-import chickennugget.spaceengineersdata.material.widget.RadioButton;
-import chickennugget.spaceengineersdata.material.widget.Spinner;
-import chickennugget.spaceengineersdata.material.widget.TextView;
+import chickennugget.spaceengineersdata.material.utils.ThemeUtil;
+import chickennugget.spaceengineersdata.material.utils.ViewUtil;
+import chickennugget.spaceengineersdata.material.widgets.CompoundButton;
+import chickennugget.spaceengineersdata.material.widgets.EditText;
+import chickennugget.spaceengineersdata.material.widgets.RadioButton;
+import chickennugget.spaceengineersdata.material.widgets.Spinner;
+import chickennugget.spaceengineersdata.material.widgets.TextView;
 
 public class RecurringPickerDialog extends Dialog implements WeekView.OnDaySelectionChangedListener {
 

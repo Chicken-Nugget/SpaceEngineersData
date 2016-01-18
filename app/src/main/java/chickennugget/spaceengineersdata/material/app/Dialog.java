@@ -28,12 +28,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 
 import chickennugget.spaceengineersdata.R;
-import chickennugget.spaceengineersdata.material.drawable.BlankDrawable;
-import chickennugget.spaceengineersdata.material.drawable.RippleDrawable;
-import chickennugget.spaceengineersdata.material.util.ThemeUtil;
-import chickennugget.spaceengineersdata.material.util.ViewUtil;
-import chickennugget.spaceengineersdata.material.widget.Button;
-import chickennugget.spaceengineersdata.material.widget.TextView;
+import chickennugget.spaceengineersdata.material.drawables.BlankDrawable;
+import chickennugget.spaceengineersdata.material.drawables.RippleDrawable;
+import chickennugget.spaceengineersdata.material.utils.ThemeUtil;
+import chickennugget.spaceengineersdata.material.utils.ViewUtil;
+import chickennugget.spaceengineersdata.material.widgets.Button;
+import chickennugget.spaceengineersdata.material.widgets.TextView;
 
 public class Dialog extends android.app.Dialog {
 

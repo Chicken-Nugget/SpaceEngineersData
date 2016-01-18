@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                tools:context="chickennugget.spaceengineersdata.activity.MessagesFragment">
+                tools:context=".unused.fragments.activity.MessagesFragment">
 
     <TextView
         android:id="@+id/label"

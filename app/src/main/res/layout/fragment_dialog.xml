@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <chickennugget.spaceengineersdata.material.widget.TextView
+        <chickennugget.spaceengineersdata.material.widgets.TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Simple"
@@ -26,7 +26,7 @@
             android:orientation="horizontal"
             android:weightSum="1.0">
 
-            <chickennugget.spaceengineersdata.material.widget.Button
+            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/dialog_bt_title_only"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/bt_height"
@@ -42,7 +42,7 @@
                 android:layout_height="1dp"
                 android:layout_weight="0.1"/>
 
-            <chickennugget.spaceengineersdata.material.widget.Button
+            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/dialog_bt_msg_only"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/bt_height"
@@ -63,7 +63,7 @@
             android:paddingTop="8dp"
             android:weightSum="1.0">
 
-            <chickennugget.spaceengineersdata.material.widget.Button
+            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/dialog_bt_title_msg"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/bt_height"
@@ -79,7 +79,7 @@
                 android:layout_height="1dp"
                 android:layout_weight="0.1"/>
 
-            <chickennugget.spaceengineersdata.material.widget.Button
+            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/dialog_bt_custom"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/bt_height"
@@ -100,7 +100,7 @@
             android:paddingTop="8dp"
             android:weightSum="1.0">
 
-            <chickennugget.spaceengineersdata.material.widget.Button
+            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/dialog_bt_choice"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/bt_height"
@@ -116,7 +116,7 @@
                 android:layout_height="1dp"
                 android:layout_weight="0.1"/>
 
-            <chickennugget.spaceengineersdata.material.widget.Button
+            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/dialog_bt_multi_choice"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/bt_height"
@@ -129,7 +129,7 @@
 
         </LinearLayout>
 
-        <chickennugget.spaceengineersdata.material.widget.TextView
+        <chickennugget.spaceengineersdata.material.widgets.TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Picker"
@@ -143,7 +143,7 @@
             android:paddingTop="8dp"
             android:weightSum="1.0">
 
-            <chickennugget.spaceengineersdata.material.widget.Button
+            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/dialog_bt_time"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/bt_height"
@@ -159,7 +159,7 @@
                 android:layout_height="1dp"
                 android:layout_weight="0.1"/>
 
-            <chickennugget.spaceengineersdata.material.widget.Button
+            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/dialog_bt_date"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/bt_height"
@@ -172,7 +172,7 @@
 
         </LinearLayout>
 
-        <chickennugget.spaceengineersdata.material.widget.TextView
+        <chickennugget.spaceengineersdata.material.widgets.TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Bottom Sheet"
@@ -186,7 +186,7 @@
             android:paddingTop="8dp"
             android:weightSum="1.0">
 
-            <chickennugget.spaceengineersdata.material.widget.Button
+            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/dialog_bt_bottomsheet"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/bt_height"

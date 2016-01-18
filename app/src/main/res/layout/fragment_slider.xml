@@ -13,13 +13,13 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <chickennugget.spaceengineersdata.material.widget.TextView
+        <chickennugget.spaceengineersdata.material.widgets.TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Continuous"
             app:v_styleId="@array/text_title"/>
 
-        <chickennugget.spaceengineersdata.material.widget.Slider
+        <chickennugget.spaceengineersdata.material.widgets.Slider
             android:id="@+id/slider_sl_continuous"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,14 +28,14 @@
             app:sl_value="50"
             app:v_styleId="@array/slider"/>
 
-        <chickennugget.spaceengineersdata.material.widget.TextView
+        <chickennugget.spaceengineersdata.material.widgets.TextView
             android:id="@+id/slider_tv_continuous"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             app:v_styleId="@array/text_body"/>
 
-        <chickennugget.spaceengineersdata.material.widget.Slider
+        <chickennugget.spaceengineersdata.material.widgets.Slider
             android:id="@+id/slider_sl_continuous_disable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,13 +44,13 @@
             android:padding="16dp"
             app:v_styleId="@array/slider"/>
 
-        <chickennugget.spaceengineersdata.material.widget.TextView
+        <chickennugget.spaceengineersdata.material.widgets.TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Discrete"
             app:v_styleId="@array/text_title"/>
 
-        <chickennugget.spaceengineersdata.material.widget.Slider
+        <chickennugget.spaceengineersdata.material.widgets.Slider
             android:id="@+id/slider_sl_discrete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,14 +59,14 @@
             app:sl_value="50"
             app:v_styleId="@array/slider_discrete"/>
 
-        <chickennugget.spaceengineersdata.material.widget.TextView
+        <chickennugget.spaceengineersdata.material.widgets.TextView
             android:id="@+id/slider_tv_discrete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             app:v_styleId="@array/text_body"/>
 
-        <chickennugget.spaceengineersdata.material.widget.Slider
+        <chickennugget.spaceengineersdata.material.widgets.Slider
             android:id="@+id/slider_sl_discrete_disable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

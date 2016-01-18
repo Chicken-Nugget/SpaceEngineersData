@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <chickennugget.spaceengineersdata.material.widget.Spinner
+        <chickennugget.spaceengineersdata.material.widgets.Spinner
             android:id="@+id/spinner_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
             app:spn_label="Spinner with arrow"
             app:v_styleId="@array/spinner"/>
 
-        <chickennugget.spaceengineersdata.material.widget.Spinner
+        <chickennugget.spaceengineersdata.material.widgets.Spinner
             android:id="@+id/spinner_no_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

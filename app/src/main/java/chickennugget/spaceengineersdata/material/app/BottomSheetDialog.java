@@ -21,7 +21,7 @@ import android.view.animation.Transformation;
 import android.widget.FrameLayout;
 
 import chickennugget.spaceengineersdata.R;
-import chickennugget.spaceengineersdata.material.drawable.BlankDrawable;
+import chickennugget.spaceengineersdata.material.drawables.BlankDrawable;
 
 public class BottomSheetDialog extends android.app.Dialog {
 

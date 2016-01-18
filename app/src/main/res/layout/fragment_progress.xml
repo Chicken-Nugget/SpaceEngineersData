@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <chickennugget.spaceengineersdata.material.widget.TextView
+        <chickennugget.spaceengineersdata.material.widgets.TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Circular"
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0">
 
-                <chickennugget.spaceengineersdata.material.widget.ProgressView
+                <chickennugget.spaceengineersdata.material.widgets.ProgressView
                     android:id="@+id/progress_pv_circular"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0">
 
-                <chickennugget.spaceengineersdata.material.widget.ProgressView
+                <chickennugget.spaceengineersdata.material.widgets.ProgressView
                     android:id="@+id/progress_pv_circular_colors"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0">
 
-                <chickennugget.spaceengineersdata.material.widget.ProgressView
+                <chickennugget.spaceengineersdata.material.widgets.ProgressView
                     android:id="@+id/progress_pv_circular_inout"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0">
 
-                <chickennugget.spaceengineersdata.material.widget.ProgressView
+                <chickennugget.spaceengineersdata.material.widgets.ProgressView
                     android:id="@+id/progress_pv_circular_inout_colors"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0">
 
-                <chickennugget.spaceengineersdata.material.widget.ProgressView
+                <chickennugget.spaceengineersdata.material.widgets.ProgressView
                     android:id="@+id/progress_pv_circular_determinate_in_out"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
@@ -123,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0">
 
-                <chickennugget.spaceengineersdata.material.widget.ProgressView
+                <chickennugget.spaceengineersdata.material.widgets.ProgressView
                     android:id="@+id/progress_pv_circular_determinate"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
@@ -134,7 +134,7 @@
 
         </LinearLayout>
 
-        <chickennugget.spaceengineersdata.material.widget.TextView
+        <chickennugget.spaceengineersdata.material.widgets.TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Linear"
@@ -145,7 +145,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <chickennugget.spaceengineersdata.material.widget.ProgressView
+            <chickennugget.spaceengineersdata.material.widgets.ProgressView
                 android:id="@+id/progress_pv_linear"
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
@@ -159,7 +159,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <chickennugget.spaceengineersdata.material.widget.ProgressView
+            <chickennugget.spaceengineersdata.material.widgets.ProgressView
                 android:id="@+id/progress_pv_linear_colors"
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
@@ -173,7 +173,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <chickennugget.spaceengineersdata.material.widget.ProgressView
+            <chickennugget.spaceengineersdata.material.widgets.ProgressView
                 android:id="@+id/progress_pv_linear_determinate"
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
@@ -187,7 +187,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <chickennugget.spaceengineersdata.material.widget.ProgressView
+            <chickennugget.spaceengineersdata.material.widgets.ProgressView
                 android:id="@+id/progress_pv_linear_query"
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
@@ -201,7 +201,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <chickennugget.spaceengineersdata.material.widget.ProgressView
+            <chickennugget.spaceengineersdata.material.widgets.ProgressView
                 android:id="@+id/progress_pv_linear_buffer"
                 android:layout_width="match_parent"
                 android:layout_height="4dp"

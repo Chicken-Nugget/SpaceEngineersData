@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
-        <chickennugget.spaceengineersdata.material.widget.Spinner
+        <chickennugget.spaceengineersdata.material.widgets.Spinner
             android:id="@+id/rd_spn_mode"
             style="@style/Material.Widget.Spinner"
             android:layout_width="wrap_content"
@@ -47,14 +47,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <chickennugget.spaceengineersdata.material.widget.TextView
+                <chickennugget.spaceengineersdata.material.widgets.TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/rd_every"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textColor="@color/abc_primary_text_material_light"/>
 
-                <chickennugget.spaceengineersdata.material.widget.EditText
+                <chickennugget.spaceengineersdata.material.widgets.EditText
                     android:id="@+id/rd_et_period"
                     style="@style/Material.Widget.EditText.Light"
                     android:layout_width="48dp"
@@ -68,7 +68,7 @@
                     app:et_labelEnable="false"
                     tools:text="1"/>
 
-                <chickennugget.spaceengineersdata.material.widget.TextView
+                <chickennugget.spaceengineersdata.material.widgets.TextView
                     android:id="@+id/rd_tv_period_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
                 app:wv_horizontalPadding="8dp"
                 app:wv_verticalPadding="8dp"/>
 
-            <chickennugget.spaceengineersdata.material.widget.RadioButton
+            <chickennugget.spaceengineersdata.material.widgets.RadioButton
                 android:id="@+id/rd_month_rb_same"
                 style="@style/Material.Drawable.RadioButton"
                 android:layout_width="wrap_content"
@@ -104,7 +104,7 @@
                 android:textColor="@color/abc_primary_text_material_light"
                 android:textDirection="locale"/>
 
-            <chickennugget.spaceengineersdata.material.widget.RadioButton
+            <chickennugget.spaceengineersdata.material.widgets.RadioButton
                 android:id="@+id/rd_month_rb_week"
                 style="@style/Material.Drawable.RadioButton"
                 android:layout_width="wrap_content"
@@ -122,7 +122,7 @@
                 android:layout_marginStart="-8dp"
                 android:paddingTop="8dp">
 
-                <chickennugget.spaceengineersdata.material.widget.Spinner
+                <chickennugget.spaceengineersdata.material.widgets.Spinner
                     android:id="@+id/rd_spn_end"
                     style="@style/Material.Widget.Spinner"
                     android:layout_width="wrap_content"
@@ -131,7 +131,7 @@
                     android:padding="8dp"
                     app:rd_style="@style/Material.Drawable.Ripple.Wave.Light"/>
 
-                <chickennugget.spaceengineersdata.material.widget.EditText
+                <chickennugget.spaceengineersdata.material.widgets.EditText
                     android:id="@+id/rd_et_end_num"
                     style="@style/Material.Widget.EditText.Light"
                     android:layout_width="48dp"
@@ -146,7 +146,7 @@
                     app:et_labelEnable="false"
                     tools:text="1"/>
 
-                <chickennugget.spaceengineersdata.material.widget.TextView
+                <chickennugget.spaceengineersdata.material.widgets.TextView
                     android:id="@+id/rd_tv_end_num_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
                     android:textColor="@color/abc_primary_text_material_light"
                     tools:text="@string/rd_event"/>
 
-                <chickennugget.spaceengineersdata.material.widget.Button
+                <chickennugget.spaceengineersdata.material.widgets.Button
                     android:id="@+id/rd_bt_end_date"
                     style="@style/Material.Drawable.Ripple.Wave.Light"
                     android:layout_width="wrap_content"

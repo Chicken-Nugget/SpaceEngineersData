@@ -5,7 +5,7 @@
               android:layout_height="wrap_content"
               android:orientation="horizontal">
 
-    <chickennugget.spaceengineersdata.material.widget.Button
+    <chickennugget.spaceengineersdata.material.widgets.Button
         android:id="@+id/ship_frag_content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

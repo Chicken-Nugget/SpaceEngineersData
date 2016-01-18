@@ -16,8 +16,8 @@ import android.widget.FrameLayout;
 import java.util.Calendar;
 
 import chickennugget.spaceengineersdata.R;
-import chickennugget.spaceengineersdata.material.util.ThemeUtil;
-import chickennugget.spaceengineersdata.material.widget.CircleCheckedTextView;
+import chickennugget.spaceengineersdata.material.utils.ThemeUtil;
+import chickennugget.spaceengineersdata.material.widgets.CircleCheckedTextView;
 
 public class WeekView extends FrameLayout {
 
