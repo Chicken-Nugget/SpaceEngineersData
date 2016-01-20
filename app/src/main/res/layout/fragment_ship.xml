@@ -22,32 +22,13 @@
             android:weightSum="1.0">
 
             <chickennugget.spaceengineersdata.material.widgets.Button
-                android:id="@+id/dialog_bt_bottomsheet"
+                android:id="@+id/b_gyroscope"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/se_ammo_box"
+                android:drawableLeft="@drawable/se_gyro"
+                android:drawablePadding="25dp"
                 android:gravity="center_vertical"
-                android:text="\t\tAMMO BOX"
-                app:v_styleId="@array/button_raise_wave_color"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingTop="8dp"
-            android:weightSum="1.0">
-
-            <chickennugget.spaceengineersdata.material.widgets.Button
-                android:id="@+id/dialog_bt_bottomsheet"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/se_ammo_box"
-                android:gravity="center_vertical"
-                android:text="\t\tAMMO BOX"
+                android:text="Gyroscope"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
         </LinearLayout>
@@ -61,14 +42,53 @@
             android:weightSum="1.0">
 
             <chickennugget.spaceengineersdata.material.widgets.Button
-                android:id="@+id/dialog_bt_bottomsheet"
+                android:id="@+id/b_landing_gear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/se_ammo_box"
+                android:drawableLeft="@drawable/se_landing_gear"
                 android:drawablePadding="25dp"
                 android:gravity="center_vertical"
-                android:text="AMMO BOX"
-                android:textSize="18sp"
+                android:text="Landing Gear"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:weightSum="1.0">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_artificial_mass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/se_artificialmass"
+                android:drawablePadding="25dp"
+                android:gravity="center_vertical"
+                android:text="Artificial Mass"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:weightSum="1.0">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_jump_drive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/se_jumpdrive"
+                android:drawablePadding="25dp"
+                android:gravity="center_vertical"
+                android:text="Jump Drive"
                 app:v_styleId="@array/button_raise_wave_color"
                 />
 

@@ -1263,4 +1263,10 @@
         <item name="bsd_dimAmount">0.5</item>
     </style>
 
+    <style name="Material.Widget.Button">
+        <item name="android:textSize">18sp</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+
 </resources>

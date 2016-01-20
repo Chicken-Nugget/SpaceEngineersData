@@ -17,36 +17,51 @@ import chickennugget.spaceengineersdata.material.drawables.ThemeDrawable;
 import chickennugget.spaceengineersdata.material.utils.ViewUtil;
 import chickennugget.spaceengineersdata.material.widgets.Button;
 
-public class DialogsFragment extends Fragment implements View.OnClickListener {
+public class ShipFragment extends Fragment implements View.OnClickListener {
 
+    private static final int[] button_id = {
+            R.id.b_gyroscope,
+            R.id.b_landing_gear,
+            R.id.b_artificial_mass,
+            R.id.b_jump_drive,
+    };
+    private static final int[] sheet_id = {
+            R.layout.f_gyroscope,
+            R.layout.f_landing_gear,
+            R.layout.f_artificial_mass,
+            R.layout.f_jump_drive,
+    };
+    private static final Button[] button = new Button[button_id.length];
     private MainActivity mActivity;
     private BottomSheetDialog mBottomSheetDialog;
 
-    public static DialogsFragment newInstance() {
-        return new DialogsFragment();
+    public static ShipFragment newInstance() {
+        return new ShipFragment();
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_dialog, container, false);
+        View v = inflater.inflate(R.layout.fragment_ship, container, false);
 
-        Button bt_bottomsheet = (Button) v.findViewById(R.id.dialog_bt_bottomsheet);
-
-        bt_bottomsheet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showBottomSheet();
-            }
-        });
+        for (int i = 0; i < button_id.length; i++) {
+            button[i] = (Button) v.findViewById(button_id[i]);
+            final int finalI = i;
+            button[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showBottomSheet(sheet_id[finalI]);
+                }
+            });
+        }
 
         mActivity = (MainActivity) getActivity();
         return v;
     }
 
-    private void showBottomSheet() {
+    private void showBottomSheet(int resID) {
         mBottomSheetDialog = new BottomSheetDialog(mActivity, R.style.Material_App_BottomSheetDialog);
-        View v = LayoutInflater.from(mActivity).inflate(R.layout.view_bottomsheet, null);
+        View v = LayoutInflater.from(mActivity).inflate(resID, null);
         ViewUtil.setBackground(v, new ThemeDrawable(R.array.bg_window));
         mBottomSheetDialog.contentView(v).show();
     }

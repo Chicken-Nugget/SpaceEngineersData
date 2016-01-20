@@ -29,9 +29,9 @@ import chickennugget.spaceengineersdata.material.app.ThemeManager;
 import chickennugget.spaceengineersdata.material.app.ToolbarManager;
 import chickennugget.spaceengineersdata.material.drawables.ThemeDrawable;
 import chickennugget.spaceengineersdata.material.fragments.ButtonFragment;
-import chickennugget.spaceengineersdata.material.fragments.DialogsFragment;
 import chickennugget.spaceengineersdata.material.fragments.FabFragment;
 import chickennugget.spaceengineersdata.material.fragments.ProgressFragment;
+import chickennugget.spaceengineersdata.material.fragments.ShipFragment;
 import chickennugget.spaceengineersdata.material.fragments.SliderFragment;
 import chickennugget.spaceengineersdata.material.fragments.SpinnersFragment;
 import chickennugget.spaceengineersdata.material.fragments.SwitchesFragment;
@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
         public Fragment getItem(int position) {
             if (mFragments[position] == null) switch (mTabs[position]) {
                 case SHIP:
-                    mFragments[position] = DialogsFragment.newInstance(); //@TODO
+                    mFragments[position] = ShipFragment.newInstance(); //@TODO
                     break;
                 case ELECTRONICS:
                     mFragments[position] = ButtonFragment.newInstance(); //@TODO
