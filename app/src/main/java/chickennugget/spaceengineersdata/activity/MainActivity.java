@@ -25,12 +25,11 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 import chickennugget.spaceengineersdata.R;
-import chickennugget.spaceengineersdata.dummy.DummyContent;
-import chickennugget.spaceengineersdata.fragments.ShipFragment;
 import chickennugget.spaceengineersdata.material.app.ThemeManager;
 import chickennugget.spaceengineersdata.material.app.ToolbarManager;
 import chickennugget.spaceengineersdata.material.drawables.ThemeDrawable;
 import chickennugget.spaceengineersdata.material.fragments.ButtonFragment;
+import chickennugget.spaceengineersdata.material.fragments.DialogsFragment;
 import chickennugget.spaceengineersdata.material.fragments.FabFragment;
 import chickennugget.spaceengineersdata.material.fragments.ProgressFragment;
 import chickennugget.spaceengineersdata.material.fragments.SliderFragment;
@@ -42,7 +41,7 @@ import chickennugget.spaceengineersdata.material.utils.ViewUtil;
 import chickennugget.spaceengineersdata.material.widgets.SnackBar;
 import chickennugget.spaceengineersdata.material.widgets.TabIndicatorView;
 
-public class MainActivity extends AppCompatActivity implements ToolbarManager.OnToolbarGroupChangedListener, ShipFragment.OnListFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements ToolbarManager.OnToolbarGroupChangedListener {
 
     private DrawerLayout dl_navigator;
     private FrameLayout fl_drawer;
@@ -168,11 +167,6 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
         return mSnackBar;
     }
 
-    @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
-
-    }
-
     public enum Tab {
         SHIP("Ship"),
         ELECTRONICS("Electronics"),
@@ -254,7 +248,7 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
         public Fragment getItem(int position) {
             if (mFragments[position] == null) switch (mTabs[position]) {
                 case SHIP:
-                    mFragments[position] = ShipFragment.newInstance(2); //@TODO
+                    mFragments[position] = DialogsFragment.newInstance(); //@TODO
                     break;
                 case ELECTRONICS:
                     mFragments[position] = ButtonFragment.newInstance(); //@TODO

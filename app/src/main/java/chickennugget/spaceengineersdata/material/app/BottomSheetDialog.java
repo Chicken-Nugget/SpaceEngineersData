@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Handler;
+import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -30,23 +31,24 @@ public class BottomSheetDialog extends android.app.Dialog {
         public void run() {
             try {
                 BottomSheetDialog.super.dismiss();
-            } catch (IllegalArgumentException ex) {
+            } catch (IllegalArgumentException ignored) {
             }
         }
     };
     private boolean mCancelable = true;
     private boolean mCanceledOnTouchOutside = true;
-    private int mLayoutHeight = ViewGroup.LayoutParams.WRAP_CONTENT;
+    private boolean mRunShowAnimation = false;
     private Interpolator mInInterpolator;
-    private int mInDuration;
     private Interpolator mOutInterpolator;
-    private int mOutDuration;
     private ContainerFrameLayout mContainer;
     private View mContentView;
     private GestureDetector mGestureDetector;
-    private int mMinFlingVelocity;
-    private boolean mRunShowAnimation = false;
     private Animation mAnimation;
+    private int mLayoutHeight = ViewGroup.LayoutParams.WRAP_CONTENT;
+    private int mInDuration;
+    private int mOutDuration;
+    private int mMinFlingVelocity;
+    private int mOffset;
 
     public BottomSheetDialog(Context context) {
         this(context, R.style.Material_App_BottomSheetDialog);
@@ -356,6 +358,7 @@ public class BottomSheetDialog extends android.app.Dialog {
                     if (mContentView != null) {
                         int start = mChildTop < 0 ? getHeight() : child.getTop();
                         int end = getMeasuredHeight() - mContentView.getMeasuredHeight();
+                        mOffset = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 52, getResources().getDisplayMetrics());
                         if (start != end) {
                             mAnimation = new SlideAnimation(start, end);
                             mAnimation.setDuration(mInDuration);
@@ -433,7 +436,7 @@ public class BottomSheetDialog extends android.app.Dialog {
 
         public SlideAnimation(int start, int end) {
             mStart = start;
-            mEnd = end;
+            mEnd = end + mOffset;
         }
 
         @Override

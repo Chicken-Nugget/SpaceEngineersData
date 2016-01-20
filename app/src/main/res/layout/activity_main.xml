@@ -19,6 +19,7 @@
                 android:id="@+id/main_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:elevation="4dp"
                 android:minHeight="?attr/actionBarSize"
                 app:theme="@style/AppBar"/>
 
@@ -26,7 +27,7 @@
                 android:id="@+id/main_tiv"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:clipToPadding="false"
+                android:elevation="4dp"
                 app:v_styleId="@array/tab_indicator"/>
 
             <chickennugget.spaceengineersdata.material.other.CustomViewPager
@@ -50,7 +51,8 @@
         android:layout_width="@dimen/drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:paddingTop="?attr/actionBarSize">
+        android:elevation="16dp"
+        android:outlineProvider="bounds">
 
         <chickennugget.spaceengineersdata.material.widgets.ListView
             android:id="@+id/main_lv_drawer"
