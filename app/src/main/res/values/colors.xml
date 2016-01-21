@@ -417,4 +417,7 @@
     <color name="et_divider_not_focused">#FF6D6D6D</color>
     <color name="et_divider_disable">#FFC1C1C1</color>
     <color name="block_header_background">@color/md_indigo_100</color>
+    <!-- F Fragment -->
+    <color name="f_divider">#d4d4d4</color>
+    <color name="f_component_tint">#98758f94</color>
 </resources>

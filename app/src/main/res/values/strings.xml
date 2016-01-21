@@ -278,4 +278,15 @@
     <string name="rd_month_fourth">on every fourth %s</string>
     <string name="rd_event">event</string>
     <string name="rd_events">events</string>
+    <!-- F Fragment -->
+    <string name="large_grid_section">Large Grid</string>
+    <string name="small_grid_section">Small Grid</string>
+    <string name="f_iron_section">Basic Components (Iron Only)</string>
+    <string name="f_adv_section">Advanced Components</string>
+    <string name="f_spec_section">Specialized Components</string>
+    <string name="f_critcomp_section">Critical Component :</string>
+    <string name="f_weldgrind_section">Weld/Grind Time</string>
+    <string name="f_pwr_section">Power (W)</string>
+    <string name="f_storage_section">Storage Capacity</string>
+
 </resources>
