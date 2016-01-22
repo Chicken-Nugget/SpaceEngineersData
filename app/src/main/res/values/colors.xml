@@ -420,4 +420,14 @@
     <!-- F Fragment -->
     <color name="f_divider">#d4d4d4</color>
     <color name="f_component_tint">#98758f94</color>
+    <color name="f_iron_tint">#98a3857a</color>
+    <color name="f_nickel_tint">#98544838</color>
+    <color name="f_cobalt_tint">#98a69a7f</color>
+    <color name="f_magnesium_tint">#98678096</color>
+    <color name="f_silicon_tint">#98bababa</color>
+    <color name="f_gravel_tint">#98707070</color>
+    <color name="f_silver_tint">#98a0c7c3</color>
+    <color name="f_gold_tint">#98bbb97a</color>
+    <color name="f_platinum_tint">#98e2e2e2</color>
+
 </resources>

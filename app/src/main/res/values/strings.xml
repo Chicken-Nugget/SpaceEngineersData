@@ -288,5 +288,32 @@
     <string name="f_weldgrind_section">Weld/Grind Time</string>
     <string name="f_pwr_section">Power (W)</string>
     <string name="f_storage_section">Storage Capacity</string>
+    <string name="f_force_section">Force :</string>
+    <string name="f_virtualmass_section">Virtual Mass :</string>
+    <string name="f_range_section">Range :</string>
+    <string name="f_moduleratio_section">Module Ratio :</string>
+    <string name="f_firerate_section">Fire Rate :</string>
+    <string name="f_explosiondmg_section">Explosion Damage :</string>
+    <string name="f_seatdata_section">Seat Data</string>
+    <string name="f_sd_fp_section">First Person :</string>
+    <string name="f_sd_ctrl_section">Control :</string>
+    <string name="f_physattr_section">Physical Attributes</string>
+    <string name="f_integrity_section">Integrity :</string>
+    <string name="f_density_section">Density :</string>
+    <string name="f_volume_section">Volume :</string>
+    <string name="f_mass_section">Mass :</string>
+    <string name="f_wlnperkg_section">W/L/N per kg :</string>
+    <string name="f_integperkg_section">Integrity per kg</string>
+    <string name="f_integritypervolume_section">Integrity per m^3 :</string>
+    <string name="f_integrityperdensity_section">Integrity per kg/m^3 :</string>
+    <string name="f_assembly_section">Assembly</string>
+    <string name="f_calculatedingotcost_section">Calculated Ingot Cost</string>
+    <string name="f_commonmetals_section">Common Metals</string>
+    <string name="f_noncommonmetals_section">Non-Common Metals / Non-Metals</string>
+    <string name="f_calculatedorecost_section">Calculated Ore Cost</string>
+    <string name="f_calculatedresmass_section">Calculated Resource Mass</string>
+    <string name="f_calculatedresvolume_section">Calculated Resource Volume</string>
+    <string name="f_refining_section">Refining</string>
+    <string name="f_total_section">Total</string>
 
 </resources>
