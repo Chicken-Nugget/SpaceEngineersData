@@ -116,7 +116,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_steel_plate_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop" />
 
                         <TextView
                             android:id="@+id/textView4"
@@ -143,7 +143,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_interior_plate_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop" />
 
                         <TextView
                             android:id="@+id/textView5"
@@ -169,7 +169,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_construction_components_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView6"
@@ -201,7 +201,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_small_tube_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView7"
@@ -227,7 +227,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_large_tube_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView8"
@@ -253,7 +253,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_girder_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView9"
@@ -300,7 +300,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_motor_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView10"
@@ -326,7 +326,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_computer_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView11"
@@ -352,7 +352,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_display_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView12"
@@ -384,7 +384,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_metal_grid_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView13"
@@ -410,7 +410,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_bulletproof_glass_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"
+                            android:backgroundTintMode="src_atop"
                             android:baselineAlignBottom="false"/>
 
                         <TextView
@@ -437,7 +437,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_explosivescomponent"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView15"
@@ -484,7 +484,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_solarcellcomponent"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView19"
@@ -510,7 +510,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_batterycomponent"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView20"
@@ -536,7 +536,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_reactor_components_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView21"
@@ -568,7 +568,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_thrust_components_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView22"
@@ -594,7 +594,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_superconductor_conducts_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"
+                            android:backgroundTintMode="src_atop"
                             android:baselineAlignBottom="false"/>
 
                         <TextView
@@ -621,7 +621,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_gravity_generator_components_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView24"
@@ -653,7 +653,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_radio_communication_components_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView25"
@@ -679,7 +679,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_detector_components_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"
+                            android:backgroundTintMode="src_atop"
                             android:baselineAlignBottom="false"/>
 
                         <TextView
@@ -707,7 +707,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_medical_components_component"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView27"
@@ -747,7 +747,7 @@
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/se_computer_component"
                         android:backgroundTint="@color/f_component_tint"
-                        android:backgroundTintMode="src_over"
+                        android:backgroundTintMode="src_atop"
                         />
                 </LinearLayout>
 
@@ -800,7 +800,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_welder"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView30"
@@ -826,7 +826,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_grinder"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"
+                            android:backgroundTintMode="src_atop"
                             android:baselineAlignBottom="false"/>
 
                         <TextView
@@ -887,7 +887,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_nuclear_reactor"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView33"
@@ -913,7 +913,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_nuclear_reactor_large"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"
+                            android:backgroundTintMode="src_atop"
                             android:baselineAlignBottom="false"/>
 
                         <TextView
@@ -972,7 +972,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_container_medium"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView36"
@@ -998,7 +998,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_oxygentank"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"
+                            android:backgroundTintMode="src_atop"
                             android:baselineAlignBottom="false"/>
 
                         <TextView
@@ -1025,7 +1025,7 @@
                             android:layout_marginRight="5dp"
                             android:background="@drawable/se_battery"
                             android:backgroundTint="@color/f_component_tint"
-                            android:backgroundTintMode="src_over"/>
+                            android:backgroundTintMode="src_atop"/>
 
                         <TextView
                             android:id="@+id/textView38"
