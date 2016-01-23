@@ -303,17 +303,18 @@
     <string name="f_volume_section">Volume :</string>
     <string name="f_mass_section">Mass :</string>
     <string name="f_wlnperkg_section">W/L/N per kg :</string>
-    <string name="f_integperkg_section">Integrity per kg</string>
+    <string name="f_integperkg_section">Integrity per kg :</string>
     <string name="f_integritypervolume_section">Integrity per m^3 :</string>
     <string name="f_integrityperdensity_section">Integrity per kg/m^3 :</string>
     <string name="f_assembly_section">Assembly</string>
-    <string name="f_calculatedingotcost_section">Calculated Ingot Cost</string>
+    <string name="f_calculatedingotcost_section">Calculated Ingot Cost (kg)</string>
     <string name="f_commonmetals_section">Common Metals</string>
     <string name="f_noncommonmetals_section">Non-Common Metals / Non-Metals</string>
-    <string name="f_calculatedorecost_section">Calculated Ore Cost</string>
+    <string name="f_calculatedorecost_section">Calculated Ore Cost (kg)</string>
     <string name="f_calculatedresmass_section">Calculated Resource Mass</string>
     <string name="f_calculatedresvolume_section">Calculated Resource Volume</string>
     <string name="f_refining_section">Refining</string>
     <string name="f_total_section">Total</string>
-
+    <string name="f_totaltime_section">Time</string>
+    <string name="f_totalpower_section">Power</string>
 </resources>
