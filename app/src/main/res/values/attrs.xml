@@ -1,31 +1,4 @@
 <resources>
-    <declare-styleable name="card_options">
-        <!-- Layout to build a card. Default value is  @layout/card_base_layout -->
-        <attr name="card_layout_resourceID" format="reference"/>
-        <!-- Layout to build a shadow. Default value is @layout/base_shadow_layout -->
-        <attr name="card_shadow_layout_resourceID" format="reference"/>
-        <!-- Layout to build a Header. Default value is @layout/base_header_layout -->
-        <attr name="card_header_layout_resourceID" format="reference"/>
-        <!-- Layout to build a Thumbnail. Default value is @layout/base_thumbnail_layout -->
-        <attr name="card_thumbnail_layout_resourceID" format="reference"/>
-        <!-- Layout used by card in a ListView. Default value is  @layout/list_card_layout -->
-        <attr name="list_card_layout_resourceID" format="reference"/>
-        <!-- Layout used by card in a ListView. Default value is  @layout/list_card_layout -->
-        <attr name="list_card_layout_resourceIDs" format="reference"/>
-    </declare-styleable>
-
-    <!-- Used for ForegroundLinearLayout -->
-    <declare-styleable name="ForegroundLinearLayout">
-        <attr name="android:foreground"/>
-        <attr name="android:foregroundInsidePadding"/>
-        <attr name="android:foregroundGravity"/>
-    </declare-styleable>
-
-    <!-- Used in card with list-->
-    <declare-styleable name="card_listItem">
-        <!-- Height of divider used in the list -->
-        <attr name="card_list_item_dividerHeight" format="dimension"/>
-    </declare-styleable>
 
     <declare-styleable name="WeekView">
         <attr name="wv_backgroundColor" format="reference|color"/>

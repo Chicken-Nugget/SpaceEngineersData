@@ -28,13 +28,7 @@ import chickennugget.spaceengineersdata.R;
 import chickennugget.spaceengineersdata.material.app.ThemeManager;
 import chickennugget.spaceengineersdata.material.app.ToolbarManager;
 import chickennugget.spaceengineersdata.material.drawables.ThemeDrawable;
-import chickennugget.spaceengineersdata.material.fragments.ButtonFragment;
-import chickennugget.spaceengineersdata.material.fragments.FabFragment;
-import chickennugget.spaceengineersdata.material.fragments.ProgressFragment;
 import chickennugget.spaceengineersdata.material.fragments.ShipFragment;
-import chickennugget.spaceengineersdata.material.fragments.SliderFragment;
-import chickennugget.spaceengineersdata.material.fragments.SpinnersFragment;
-import chickennugget.spaceengineersdata.material.fragments.SwitchesFragment;
 import chickennugget.spaceengineersdata.material.other.CustomViewPager;
 import chickennugget.spaceengineersdata.material.utils.ThemeUtil;
 import chickennugget.spaceengineersdata.material.utils.ViewUtil;
@@ -218,17 +212,17 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
                 ArrayList<Fragment> mActive = (ArrayList<Fragment>) sActiveField.get(fm);
                 if (mActive != null) {
                     for (Fragment fragment : mActive) {
-                        if (fragment instanceof ProgressFragment) //@TODO
+                        if (fragment instanceof ShipFragment)
                             setFragment(Tab.SHIP, fragment);
-                        else if (fragment instanceof ButtonFragment) //@TODO
+                        else if (fragment instanceof ShipFragment) //@TODO
                             setFragment(Tab.ELECTRONICS, fragment);
-                        else if (fragment instanceof FabFragment) //@TODO
+                        else if (fragment instanceof ShipFragment) //@TODO
                             setFragment(Tab.INDUSTRY, fragment);
-                        else if (fragment instanceof SwitchesFragment) //@TODO
+                        else if (fragment instanceof ShipFragment) //@TODO
                             setFragment(Tab.MILITARY, fragment);
-                        else if (fragment instanceof SliderFragment) //@TODO
+                        else if (fragment instanceof ShipFragment) //@TODO
                             setFragment(Tab.STRUCTURE, fragment);
-                        else if (fragment instanceof SpinnersFragment) //@TODO
+                        else if (fragment instanceof ShipFragment) //@TODO
                             setFragment(Tab.ARMOR, fragment);
                     }
                 }
@@ -248,7 +242,7 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
         public Fragment getItem(int position) {
             if (mFragments[position] == null) switch (mTabs[position]) {
                 case SHIP:
-                    mFragments[position] = ShipFragment.newInstance(); //@TODO
+                    mFragments[position] = ShipFragment.newInstance();
                     break;
                 case ELECTRONICS:
                     mFragments[position] = ShipFragment.newInstance(); //@TODO

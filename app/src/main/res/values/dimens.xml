@@ -6,127 +6,6 @@
     <dimen name="tab_max_width">264dp</dimen>
     <dimen name="tab_padding_bottom">16dp</dimen>
     <dimen name="tab_label">14sp</dimen>
-    <!-- Card -->
-    <dimen name="card_base_empty_height">96dp</dimen>
-    <dimen name="card_background_default_radius">2dp</dimen>
-    <!-- Card Margin -->
-    <dimen name="card_default_native_margin_top">12dp</dimen>
-    <dimen name="card_default_native_margin_bottom">12dp</dimen>
-    <dimen name="card_default_native_margin_left">8dp</dimen>
-    <dimen name="card_default_native_margin_right">8dp</dimen>
-    <!-- Card Main-->
-    <dimen name="card_main_layout_view_margin_top">0dp</dimen>
-    <dimen name="card_main_layout_view_margin_left">0dp</dimen>
-    <dimen name="card_main_layout_view_margin_bottom">0dp</dimen>
-    <dimen name="card_main_layout_view_margin_right">0dp</dimen>
-    <dimen name="card_main_layout_native_view_margin_top">0dp</dimen>
-    <dimen name="card_main_layout_native_view_margin_left">0dp</dimen>
-    <dimen name="card_main_layout_native_view_margin_bottom">0dp</dimen>
-    <dimen name="card_main_layout_native_view_margin_right">0dp</dimen>
-    <!-- Card Header -->
-    <dimen name="card_header_default_padding">12dp</dimen>
-    <dimen name="card_header_native_default_paddingLeft">12dp</dimen>
-    <dimen name="card_header_native_default_paddingRight">12dp</dimen>
-    <dimen name="card_header_native_default_paddingTop">12dp</dimen>
-    <dimen name="card_header_native_default_paddingBottom">0dp</dimen>
-    <dimen name="card_header_outer_view_margin_top">0dp</dimen>
-    <dimen name="card_header_outer_view_margin_left">0dp</dimen>
-    <dimen name="card_header_outer_view_margin_bottom">0dp</dimen>
-    <dimen name="card_header_outer_view_margin_right">0dp</dimen>
-    <!-- Card Button Header -->
-    <dimen name="card_header_button_padding_left">10dp</dimen>
-    <dimen name="card_header_button_padding_right">0dp</dimen>
-    <dimen name="card_header_button_padding_bottom">0dp</dimen>
-    <dimen name="card_header_button_padding_top">0dp</dimen>
-    <dimen name="card_header_button_margin_right">2dp</dimen>
-    <dimen name="card_header_button_overflow_margin_right">3dp</dimen>
-    <dimen name="card_header_native_button_margin_right">0dp</dimen>
-    <dimen name="card_header_native_button_margin_left">0dp</dimen>
-    <!-- Card Title Header -->
-    <dimen name="card_header_simple_title_margin_left">10dp</dimen>
-    <dimen name="card_header_simple_title_margin_top">5dp</dimen>
-    <dimen name="card_header_simple_title_margin_right">20dp</dimen>
-    <dimen name="card_header_simple_title_margin_bottom">0dp</dimen>
-    <dimen name="card_header_simple_title_text_size">20sp</dimen>
-    <dimen name="card_header_native_simple_title_margin_left">0dp</dimen>
-    <dimen name="card_header_native_simple_title_margin_top">0dp</dimen>
-    <dimen name="card_header_native_simple_title_margin_right">0dp</dimen>
-    <dimen name="card_header_native_simple_title_margin_bottom">0dp</dimen>
-    <dimen name="card_header_native_simple_title_margin">0dp</dimen>
-    <dimen name="card_header_native_simple_title_text_size">18sp</dimen>
-    <!-- Card Content -->
-    <dimen name="card_content_outer_view_margin_top">0dp</dimen>
-    <dimen name="card_content_outer_view_margin_left">0dp</dimen>
-    <dimen name="card_content_outer_view_margin_bottom">0dp</dimen>
-    <dimen name="card_content_outer_view_margin_right">0dp</dimen>
-    <dimen name="card_main_content_native_default_paddingLeft">12dp</dimen>
-    <dimen name="card_main_content_native_default_paddingRight">12dp</dimen>
-    <dimen name="card_main_content_native_default_paddingTop">12dp</dimen>
-    <dimen name="card_main_content_native_default_paddingBottom">12dp</dimen>
-    <dimen name="card_main_content_native_cardwithlist_paddingLeft">0dp</dimen>
-    <dimen name="card_main_content_native_cardwithlist_paddingRight">0dp</dimen>
-    <dimen name="card_main_content_native_cardwithlist_paddingTop">12dp</dimen>
-    <dimen name="card_main_content_native_cardwithlist_paddingBottom">12dp</dimen>
-    <dimen name="card_main_simple_title_margin_left">5dp</dimen>
-    <dimen name="card_main_simple_title_margin_top">0dp</dimen>
-    <dimen name="card_main_simple_title_margin_right">0dp</dimen>
-    <dimen name="card_main_simple_title_margin_bottom">0dp</dimen>
-    <dimen name="card_main_native_simple_title_margin_left">0dp</dimen>
-    <dimen name="card_main_native_simple_title_margin_top">0dp</dimen>
-    <dimen name="card_main_content_native_simple_title_text_size">16sp</dimen>
-    <!-- Card Shadow -->
-    <dimen name="card_shadow_height">3dp</dimen>
-    <dimen name="card_shadow_view_margin_top">0dp</dimen>
-    <dimen name="card_shadow_view_margin_left">@dimen/card_background_default_radius</dimen>
-    <dimen name="card_shadow_view_margin_bottom">0dp</dimen>
-    <dimen name="card_shadow_view_margin_right">@dimen/card_background_default_radius</dimen>
-    <!-- Card Thumbnail -->
-    <dimen name="card_thumbnail_width">72dp</dimen>
-    <dimen name="card_thumbnail_height">72dp</dimen>
-    <!-- Card Expand -->
-    <dimen name="card_expand_layout_padding">2dp</dimen>
-    <dimen name="card_expand_simple_title_paddingLeft">10dp</dimen>
-    <dimen name="card_expand_simple_title_paddingRight">10dp</dimen>
-    <dimen name="card_expand_simple_title_text_size">14sp</dimen>
-    <dimen name="card_expand_native_layout_padding_left">12dp</dimen>
-    <dimen name="card_expand_native_layout_padding_right">12dp</dimen>
-    <dimen name="card_expand_native_layout_padding_top">12dp</dimen>
-    <dimen name="card_expand_native_layout_padding_bottom">12dp</dimen>
-    <dimen name="card_expand_native_margin_right">0dp</dimen>
-    <dimen name="card_expand_native_margin_left">0dp</dimen>
-    <dimen name="card_expand_native_simple_title_text_size">14sp</dimen>
-    <dimen name="card_expand_native_simple_title_padding_left">0dp</dimen>
-    <dimen name="card_expand_native_simple_title_padding_right">0dp</dimen>
-    <!-- Card List -->
-    <dimen name="list_card_padding_left">8dp</dimen>
-    <dimen name="list_card_padding_right">8dp</dimen>
-    <dimen name="list_card_padding_bottom">6dp</dimen>
-    <dimen name="list_card_padding_top">2dp</dimen>
-    <dimen name="native_list_card_margin_left">0dp</dimen>
-    <dimen name="native_list_card_margin_right">0dp</dimen>
-    <dimen name="native_list_card_margin_bottom">6dp</dimen>
-    <dimen name="native_list_card_margin_top">6dp</dimen>
-    <!-- RecyclerView -->
-    <dimen name="native_recyclerview_card_margin_left">0dp</dimen>
-    <dimen name="native_recyclerview_card_margin_right">0dp</dimen>
-    <dimen name="native_recyclerview_card_margin_bottom">6dp</dimen>
-    <dimen name="native_recyclerview_card_margin_top">6dp</dimen>
-    <!-- Grid -->
-    <dimen name="grid_card_padding_left">2dp</dimen>
-    <dimen name="grid_card_padding_right">2dp</dimen>
-    <dimen name="grid_card_padding_bottom">2dp</dimen>
-    <dimen name="grid_card_padding_top">2dp</dimen>
-    <!-- Card with List -->
-    <dimen name="card_base_cardwithlist_layout_leftmargin">0dp</dimen>
-    <dimen name="card_base_cardwithlist_layout_rightmargin">0dp</dimen>
-    <dimen name="card_base_cardwithlist_list_margin_top">10dp</dimen>
-    <dimen name="card_base_cardwithlist_list_margin_left">0dp</dimen>
-    <dimen name="card_base_cardwithlist_dividerHeight">1dp</dimen>
-    <!-- Card Section -->
-    <dimen name="card_section_title">18sp</dimen>
-    <dimen name="card_section_container_padding_left">15dp</dimen>
-    <dimen name="card_section_container_padding_right">15dp</dimen>
-    <dimen name="card_section_title_margin_top">10dp</dimen>
     <!-- Default screen margins, per the Android Design guidelines -->
     <dimen name="drawer_width">240dp</dimen>
     <dimen name="text_size_medium">14sp</dimen>
@@ -135,49 +14,7 @@
     <dimen name="demo_title_section_margin_bottom">1dp</dimen>
     <dimen name="demo_title_section_margin_top">3dp</dimen>
     <dimen name="demo_title_section_textsize">18sp</dimen>
-    <!-- Card -->
-    <dimen name="card_birth_width">350dp</dimen>
-    <dimen name="card_mayknow_margin_top">3dp</dimen>
-    <!-- Elevation -->
-    <dimen name="carddemo_shadow_elevation">6dp</dimen>
-    <dimen name="carddemo_shadow_start_elevation">2dp</dimen>
-    <dimen name="carddemo_shadow_end_elevation">4dp</dimen>
-    <!-- Grid -->
-    <dimen name="carddemo_base_grid_columnwidth">140dp</dimen>
-    <dimen name="carddemo_base_grid_columnwidth_card">125dp</dimen>
-    <dimen name="carddemo_gplay_grid_columnwidth">140dp</dimen>
-    <dimen name="carddemo_gplay_grid_columnwidth_card">125dp</dimen>
-    <dimen name="carddemo_gricursor_width">125dp</dimen>
-    <dimen name="card_rose">250dp</dimen>
-    <!-- GPlay Sectioned List -->
-    <dimen name="carddemo_section_textmore_text">13sp</dimen>
-    <dimen name="carddemo_section_textmore_padding_left">8dp</dimen>
-    <dimen name="carddemo_section_textmore_padding_right">8dp</dimen>
-    <dimen name="carddemo_section_textmore_padding_top">5dp</dimen>
-    <dimen name="carddemo_section_textmore_padding_bottom">5dp</dimen>
-    <dimen name="carddemo_section_textmore_margin_left">10dp</dimen>
-    <!-- Material Design -->
-    <dimen name="navdrawer_width">304dp</dimen>
-    <dimen name="navdrawer_image_height">145dp</dimen>
-    <dimen name="headerbar_elevation">2dp</dimen>
-    <dimen name="carddemo_keyline_1">16dp</dimen>
-    <dimen name="carddemo_keyline_1_minus_8dp">8dp</dimen>
-    <dimen name="carddemo_keyline_margin">16dp</dimen>
-    <dimen name="carddemo_keyline_content_new">56dp</dimen>
-    <dimen name="carddemo_keyline_content_start">72dp</dimen>
-    <dimen name="carddemo_barheader_elevation">2dp</dimen>
-    <dimen name="carddemo_barheader_height">72dp</dimen>
-    <dimen name="carddemo_keyline_2">72dp</dimen>
-    <dimen name="keyline_1">16dp</dimen>
-    <dimen name="keyline_1_minus_8dp">8dp</dimen>
-    <dimen name="keyline_2">72dp</dimen>
-    <dimen name="keyline_2_minus_16dp">56dp</dimen>
-    <dimen name="menu_hz_margin">0dp</dimen>
-    <dimen name="hashtag_line_height">1dp</dimen>
-    <dimen name="hashtag_height">120dp</dimen>
-    <dimen name="hashtag_desc_size">40dp</dimen>
-    <dimen name="hashtag_text_size">14sp</dimen>
-    <dimen name="hashtag_hero_text_size">16sp</dimen>
+    <!-- Material -->
     <dimen name="hd_fab_size">52dp</dimen>
     <dimen name="toolbar_x2">112dp</dimen>
     <dimen name="circle_elevation">4dp</dimen>
@@ -199,5 +36,4 @@
     <dimen name="f_sub_section">12sp</dimen>
     <dimen name="f_critcomp_section">16sp</dimen>
     <dimen name="f_attribute_section">10sp</dimen>
-
 </resources>

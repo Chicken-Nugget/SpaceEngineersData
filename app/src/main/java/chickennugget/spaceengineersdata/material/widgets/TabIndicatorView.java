@@ -303,8 +303,6 @@ public class TabIndicatorView extends RecyclerView implements ThemeManager.OnThe
         int y = mIndicatorAtTop ? 0 : getHeight() - mIndicatorHeight;
         canvas.drawRect(x, y, x + mIndicatorWidth, y + mIndicatorHeight, mPaint);
 
-        //TODO: handle it
-
 //        if(isInEditMode())
 //            canvas.drawRect(getPaddingLeft(), y, getPaddingLeft() + mTabContainer.getChildAt(0).getWidth(), y + mIndicatorHeight, mPaint);
     }
