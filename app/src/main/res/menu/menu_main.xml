@@ -5,18 +5,17 @@
     <group
         android:id="@+id/tb_group_main">
 
-
         <item
             android:id="@+id/tb_switch"
             android:icon="@drawable/ic_autorenew_white_24dp"
             android:title="Switch group"
-            app:showAsAction="always"/>
+            app:showAsAction="never"/>
 
         <item
             android:id="@+id/tb_theme"
             android:icon="@drawable/ic_visibility_white_24dp"
             android:title="Change Theme"
-            app:showAsAction="always"/>
+            app:showAsAction="never"/>
 
     </group>
 

@@ -251,19 +251,19 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
                     mFragments[position] = ShipFragment.newInstance(); //@TODO
                     break;
                 case ELECTRONICS:
-                    mFragments[position] = ButtonFragment.newInstance(); //@TODO
+                    mFragments[position] = ShipFragment.newInstance(); //@TODO
                     break;
                 case INDUSTRY:
-                    mFragments[position] = FabFragment.newInstance(); //@TODO
+                    mFragments[position] = ShipFragment.newInstance(); //@TODO
                     break;
                 case MILITARY:
-                    mFragments[position] = SwitchesFragment.newInstance(); //@TODO
+                    mFragments[position] = ShipFragment.newInstance(); //@TODO
                     break;
                 case STRUCTURE:
-                    mFragments[position] = SliderFragment.newInstance(); //@TODO
+                    mFragments[position] = ShipFragment.newInstance(); //@TODO
                     break;
                 case ARMOR:
-                    mFragments[position] = SpinnersFragment.newInstance(); //@TODO
+                    mFragments[position] = ShipFragment.newInstance(); //@TODO
                     break;
             }
 
