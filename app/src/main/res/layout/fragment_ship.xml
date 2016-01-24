@@ -94,6 +94,258 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:weightSum="1.0">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_cockpit_screen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/se_cockpit"
+                android:drawablePadding="25dp"
+                android:gravity="center_vertical"
+                android:text="Cockpit (Screen)"
+                app:v_styleId="@array/button_raise_wave_color"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:weightSum="1.0">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_cockpit_enclosed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/se_cockpitsmall"
+                android:drawablePadding="25dp"
+                android:gravity="center_vertical"
+                android:text="Cockpit (Enclosed)"
+                app:v_styleId="@array/button_raise_wave_color"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:weightSum="1.0">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_cockpit_small_screen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/se_cockpitopen"
+                android:drawablePadding="25dp"
+                android:gravity="center_vertical"
+                android:text="Cockpit (Small Screen)"
+                app:v_styleId="@array/button_raise_wave_color"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:weightSum="1.0">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_cockpit_fighter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/se_fightercockpit"
+                android:drawablePadding="25dp"
+                android:gravity="center_vertical"
+                android:text="Cockpit (Fighter)"
+                app:v_styleId="@array/button_raise_wave_color"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:weightSum="1.0">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_passenger_seat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/se_passengerseat"
+                android:drawablePadding="25dp"
+                android:gravity="center_vertical"
+                android:text="Passenger Seat"
+                app:v_styleId="@array/button_raise_wave_color"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:weightSum="1.0">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_control_panel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/se_control_panel"
+                android:drawablePadding="25dp"
+                android:gravity="center_vertical"
+                android:text="Control Panel"
+                app:v_styleId="@array/button_raise_wave_color"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:weightSum="1.0">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_small_thruster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/se_thrust"
+                android:drawablePadding="25dp"
+                android:gravity="center_vertical"
+                android:text="Small Ion Thruster"
+                app:v_styleId="@array/button_raise_wave_color"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:weightSum="1.0">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_large_thruster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/se_thrust_large"
+                android:drawablePadding="25dp"
+                android:gravity="center_vertical"
+                android:text="Large Ion Thruster"
+                app:v_styleId="@array/button_raise_wave_color"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:weightSum="1.0">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_small_hydrogen_thruster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/se_hydrogenthrustersmall"
+                android:drawablePadding="25dp"
+                android:gravity="center_vertical"
+                android:text="Small Hydrogen Thruster"
+                app:v_styleId="@array/button_raise_wave_color"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:weightSum="1.0">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_large_hydrogen_thruster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/se_hydrogenthrusterlarge"
+                android:drawablePadding="25dp"
+                android:gravity="center_vertical"
+                android:text="Large Hydrogen Thruster"
+                app:v_styleId="@array/button_raise_wave_color"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:weightSum="1.0">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_small_atmospheric_thruster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/se_atmosphericthrustersmall"
+                android:drawablePadding="25dp"
+                android:gravity="center_vertical"
+                android:text="Small Atmospheric Thruster"
+                app:v_styleId="@array/button_raise_wave_color"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:weightSum="1.0">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_large_atmospheric_thruster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/se_atmosphericthrusterlarge"
+                android:drawablePadding="25dp"
+                android:gravity="center_vertical"
+                android:text="Large Atmospheric Thruster"
+                app:v_styleId="@array/button_raise_wave_color"
+                />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>

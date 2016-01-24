@@ -14,10 +14,10 @@
     <string name="block_data_solar_panel_small_title">Solar Panel</string>
     <string name="block_data_battery_large_title">Battery</string>
     <string name="block_data_battery_small_title">Battery</string>
-    <string name="block_data_small_thruster_large_title">Small Thruster</string>
-    <string name="block_data_small_thruster_small_title">Small Thruster</string>
-    <string name="block_data_large_thruster_large_title">Large Thruster</string>
-    <string name="block_data_large_thruster_small_title">Large Thruster</string>
+    <string name="block_data_small_thruster_large_title">Small Ion Thruster</string>
+    <string name="block_data_small_thruster_small_title">Small Ion Thruster</string>
+    <string name="block_data_large_thruster_large_title">Large Ion Thruster</string>
+    <string name="block_data_large_thruster_small_title">Large Ion Thruster</string>
     <string name="block_data_small_hydrogen_thruster_large_title">Small Hydrogen Thruster</string>
     <string name="block_data_small_hydrogen_thruster_small_title">Small Hydrogen Thruster</string>
     <string name="block_data_large_hydrogen_thruster_large_title">Large Hydrogen Thruster</string>
