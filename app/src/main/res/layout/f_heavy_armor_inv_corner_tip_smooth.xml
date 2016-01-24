@@ -27,7 +27,7 @@
             android:layout_marginLeft="4dp"
             android:gravity="center_vertical"
             android:singleLine="false"
-            android:text="@string/block_data_gyroscope_large_title"
+            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_title"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="@dimen/f_header_size"
             android:textStyle="bold"/>
@@ -102,7 +102,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
-                            android:text="@string/block_data_gyroscope_large_sizex"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_sizex"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -137,7 +137,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="@string/block_data_gyroscope_large_sizey"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_sizey"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -172,7 +172,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="start"
-                            android:text="@string/block_data_gyroscope_large_sizez"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_sizez"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -229,7 +229,7 @@
                             android:id="@+id/textView4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_steelplate"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_steelplate"
                             />
                     </LinearLayout>
 
@@ -256,7 +256,7 @@
                             android:id="@+id/textView5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_interiorplate"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_interiorplate"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -282,7 +282,7 @@
                             android:id="@+id/textView6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_constructioncomponent"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_constructioncomponent"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -314,7 +314,7 @@
                             android:id="@+id/textView7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_smalltube"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_smalltube"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -340,7 +340,7 @@
                             android:id="@+id/textView8"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_largetube"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_largetube"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -366,7 +366,7 @@
                             android:id="@+id/textView9"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_girder"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_girder"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -414,7 +414,7 @@
                             android:id="@+id/textView10"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_motor"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_motor"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -440,7 +440,7 @@
                             android:id="@+id/textView11"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_computer"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_computer"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -466,7 +466,7 @@
                             android:id="@+id/textView12"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_display"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_display"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -498,7 +498,7 @@
                             android:id="@+id/textView13"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_metalgrid"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_metalgrid"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -525,7 +525,7 @@
                             android:id="@+id/textView14"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_glass"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_glass"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -551,7 +551,7 @@
                             android:id="@+id/textView15"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_explosive"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_explosive"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -599,7 +599,7 @@
                             android:id="@+id/textView19"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_solarcell"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_solarcell"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -625,7 +625,7 @@
                             android:id="@+id/textView20"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_powercell"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_powercell"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -651,7 +651,7 @@
                             android:id="@+id/textView21"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_reactorcomp"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_reactorcomp"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -683,7 +683,7 @@
                             android:id="@+id/textView22"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_thrustercomp"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_thrustercomp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -710,7 +710,7 @@
                             android:id="@+id/textView23"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_superconductor"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_superconductor"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -736,7 +736,7 @@
                             android:id="@+id/textView24"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_gravitycomp"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_gravitycomp"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -768,7 +768,7 @@
                             android:id="@+id/textView25"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_radiocom"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_radiocom"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -795,7 +795,7 @@
                             android:id="@+id/textView26"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_detectorcomp"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_detectorcomp"
                             />
                     </LinearLayout>
 
@@ -822,7 +822,7 @@
                             android:id="@+id/textView27"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_medicalcomp"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_medicalcomp"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -915,7 +915,7 @@
                             android:id="@+id/textView30"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_weldtime"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_weldtime"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -942,7 +942,7 @@
                             android:id="@+id/textView31"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_grindtime"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_grindtime"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -1002,7 +1002,7 @@
                             android:id="@+id/textView33"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_standbypower"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_standbypower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1029,7 +1029,7 @@
                             android:id="@+id/textView34"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_operationpower"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_operationpower"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1087,7 +1087,7 @@
                             android:id="@+id/textView36"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_itemstorage"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_itemstorage"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1114,7 +1114,7 @@
                             android:id="@+id/textView37"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_gasstorage"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_gasstorage"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1140,7 +1140,7 @@
                             android:id="@+id/textView38"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_powerstorage"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_powerstorage"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1173,7 +1173,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_gyroscope_large_force"
+                        android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_force"
                         android:textSize="@dimen/f_attribute_section"/>
 
                 </LinearLayout>
@@ -1207,7 +1207,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_gyroscope_large_virtualmass"
+                        android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_virtualmass"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -1240,7 +1240,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_gyroscope_large_range"
+                        android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_range"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -1273,7 +1273,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_gyroscope_large_moduleratio"
+                        android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_moduleratio"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -1306,7 +1306,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_gyroscope_large_firerate"
+                        android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_firerate"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -1339,7 +1339,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_gyroscope_large_explosiondamage"
+                        android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_explosiondamage"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -1398,7 +1398,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_large_firstperson"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_firstperson"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -1423,7 +1423,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_large_seatcontrol"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_seatcontrol"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1483,7 +1483,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_large_mass"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_mass"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -1508,7 +1508,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_large_integrity"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_integrity"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1542,7 +1542,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_large_volume"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_volume"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -1567,7 +1567,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_large_density"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_density"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1601,7 +1601,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_large_wlnperkg"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_wlnperkg"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -1626,7 +1626,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_large_integrityperkg"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_integrityperkg"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1660,7 +1660,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_large_integritypervolume"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_integritypervolume"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -1685,7 +1685,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_large_integrityperdensity"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_integrityperdensity"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1745,7 +1745,7 @@
                             android:id="@+id/textView74"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_assembletime"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_assembletime"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1772,7 +1772,7 @@
                             android:id="@+id/textView75"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_componentvolume"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_componentvolume"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1805,7 +1805,7 @@
                             android:id="@+id/textView76"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_assemblepower"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_assemblepower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1832,7 +1832,7 @@
                             android:id="@+id/textView77"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_assembleuranium"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_assembleuranium"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1905,7 +1905,7 @@
                             android:id="@+id/textView79"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_ironi"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_ironi"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1931,7 +1931,7 @@
                             android:id="@+id/textView80"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_nicklei"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_nicklei"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1957,7 +1957,7 @@
                             android:id="@+id/textView81"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_cobalti"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_cobalti"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2005,7 +2005,7 @@
                             android:id="@+id/textView82"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_magnesiumi"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_magnesiumi"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2032,7 +2032,7 @@
                             android:id="@+id/textView83"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_siliconi"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_siliconi"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2058,7 +2058,7 @@
                             android:id="@+id/textView84"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_stonei"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_stonei"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2090,7 +2090,7 @@
                             android:id="@+id/textView85"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_silveri"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_silveri"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2117,7 +2117,7 @@
                             android:id="@+id/textView86"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_goldi"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_goldi"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2143,7 +2143,7 @@
                             android:id="@+id/textView87"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_platinumi"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_platinumi"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2216,7 +2216,7 @@
                             android:id="@+id/textView92"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_irono"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_irono"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2242,7 +2242,7 @@
                             android:id="@+id/textView93"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_nickelo"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_nickelo"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2268,7 +2268,7 @@
                             android:id="@+id/textView94"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_cobalto"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_cobalto"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2316,7 +2316,7 @@
                             android:id="@+id/textView96"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_magnesiumo"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_magnesiumo"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2343,7 +2343,7 @@
                             android:id="@+id/textView97"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_silicono"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_silicono"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2369,7 +2369,7 @@
                             android:id="@+id/textView98"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_stoneo"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_stoneo"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2401,7 +2401,7 @@
                             android:id="@+id/textView99"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_silvero"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_silvero"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2428,7 +2428,7 @@
                             android:id="@+id/textView101"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_goldo"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_goldo"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2454,7 +2454,7 @@
                             android:id="@+id/textView102"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_platinumo"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_platinumo"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2511,7 +2511,7 @@
                             android:id="@+id/textView104"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_refinetime"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_refinetime"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2537,7 +2537,7 @@
                             android:id="@+id/textView105"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_refinepower"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_refinepower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2564,7 +2564,7 @@
                             android:id="@+id/textView106"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_refineuranium"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_refineuranium"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2614,7 +2614,7 @@
                             android:id="@+id/textView108"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_totalingotmass"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_totalingotmass"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2640,7 +2640,7 @@
                             android:id="@+id/textView109"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_totaloremass"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_totaloremass"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2688,7 +2688,7 @@
                             android:id="@+id/textView111"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_totalingotvolume"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_totalingotvolume"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2714,7 +2714,7 @@
                             android:id="@+id/textView112"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_totalorevolume"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_totalorevolume"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2855,7 +2855,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="@string/block_data_gyroscope_large_totaltime"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_totaltime"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2905,7 +2905,7 @@
                             android:id="@+id/textView123"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_totalpower"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_totalpower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2932,7 +2932,7 @@
                             android:id="@+id/textView124"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_large_totaluranium"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_large_totaluranium"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2998,7 +2998,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
-                            android:text="@string/block_data_gyroscope_small_sizex"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_sizex"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3033,7 +3033,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="@string/block_data_gyroscope_small_sizey"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_sizey"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3068,7 +3068,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="start"
-                            android:text="@string/block_data_gyroscope_small_sizez"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_sizez"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -3124,7 +3124,7 @@
                             android:id="@+id/textView131"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_steelplate"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_steelplate"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3150,7 +3150,7 @@
                             android:id="@+id/textView132"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_interiorplate"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_interiorplate"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3176,7 +3176,7 @@
                             android:id="@+id/textView133"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_constructioncomponent"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_constructioncomponent"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -3208,7 +3208,7 @@
                             android:id="@+id/textView134"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_smalltube"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_smalltube"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3234,7 +3234,7 @@
                             android:id="@+id/textView135"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_largetube"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_largetube"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3260,7 +3260,7 @@
                             android:id="@+id/textView136"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_girder"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_girder"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -3308,7 +3308,7 @@
                             android:id="@+id/textView138"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_motor"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_motor"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3334,7 +3334,7 @@
                             android:id="@+id/textView139"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_computer"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_computer"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3360,7 +3360,7 @@
                             android:id="@+id/textView140"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_display"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_display"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -3392,7 +3392,7 @@
                             android:id="@+id/textView141"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_metalgrid"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_metalgrid"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3419,7 +3419,7 @@
                             android:id="@+id/textView142"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_glass"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_glass"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3445,7 +3445,7 @@
                             android:id="@+id/textView143"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_explosive"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_explosive"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -3493,7 +3493,7 @@
                             android:id="@+id/textView145"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_solarcell"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_solarcell"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3519,7 +3519,7 @@
                             android:id="@+id/textView146"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_powercell"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_powercell"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3545,7 +3545,7 @@
                             android:id="@+id/textView147"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_reactorcomp"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_reactorcomp"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -3577,7 +3577,7 @@
                             android:id="@+id/textView148"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_thrustercomp"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_thrustercomp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3604,7 +3604,7 @@
                             android:id="@+id/textView149"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_superconductor"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_superconductor"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3630,7 +3630,7 @@
                             android:id="@+id/textView150"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_gravitycomp"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_gravitycomp"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -3662,7 +3662,7 @@
                             android:id="@+id/textView151"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_radiocom"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_radiocom"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3689,7 +3689,7 @@
                             android:id="@+id/textView152"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_detectorcomp"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_detectorcomp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3715,7 +3715,7 @@
                             android:id="@+id/textView153"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_medicalcomp"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_medicalcomp"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -3805,7 +3805,7 @@
                             android:id="@+id/textView156"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_weldtime"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_weldtime"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3832,7 +3832,7 @@
                             android:id="@+id/textView157"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_grindtime"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_grindtime"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -3891,7 +3891,7 @@
                             android:id="@+id/textView159"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_standbypower"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_standbypower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -3918,7 +3918,7 @@
                             android:id="@+id/textView160"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_operationpower"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_operationpower"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -3976,7 +3976,7 @@
                             android:id="@+id/textView162"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_itemstorage"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_itemstorage"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -4003,7 +4003,7 @@
                             android:id="@+id/textView163"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_gasstorage"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_gasstorage"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -4029,7 +4029,7 @@
                             android:id="@+id/textView164"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_powerstorage"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_powerstorage"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -4062,7 +4062,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_gyroscope_small_force"
+                        android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_force"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -4095,7 +4095,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_gyroscope_small_virtualmass"
+                        android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_virtualmass"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -4128,7 +4128,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_gyroscope_small_range"
+                        android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_range"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -4161,7 +4161,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_gyroscope_small_moduleratio"
+                        android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_moduleratio"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -4194,7 +4194,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_gyroscope_small_firerate"
+                        android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_firerate"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -4227,7 +4227,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_gyroscope_small_explosiondamage"
+                        android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_explosiondamage"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -4284,7 +4284,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_small_firstperson"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_firstperson"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -4309,7 +4309,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_small_seatcontrol"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_seatcontrol"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -4369,7 +4369,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_small_mass"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_mass"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -4394,7 +4394,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_small_integrity"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_integrity"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -4428,7 +4428,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_small_volume"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_volume"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -4453,7 +4453,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_small_density"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_density"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -4487,7 +4487,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_small_wlnperkg"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_wlnperkg"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -4512,7 +4512,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_small_integrityperkg"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_integrityperkg"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -4546,7 +4546,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_small_integritypervolume"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_integritypervolume"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -4571,7 +4571,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_gyroscope_small_integrityperdensity"
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_integrityperdensity"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -4631,7 +4631,7 @@
                             android:id="@+id/textView200"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_assembletime"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_assembletime"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -4658,7 +4658,7 @@
                             android:id="@+id/textView201"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_componentvolume"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_componentvolume"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -4691,7 +4691,7 @@
                             android:id="@+id/textView202"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_assemblepower"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_assemblepower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -4718,7 +4718,7 @@
                             android:id="@+id/textView203"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_assembleuranium"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_assembleuranium"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -4791,7 +4791,7 @@
                             android:id="@+id/textView206"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_ironi"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_ironi"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -4817,7 +4817,7 @@
                             android:id="@+id/textView207"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_nicklei"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_nicklei"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -4843,7 +4843,7 @@
                             android:id="@+id/textView208"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_cobalti"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_cobalti"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -4891,7 +4891,7 @@
                             android:id="@+id/textView210"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_magnesiumi"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_magnesiumi"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -4918,7 +4918,7 @@
                             android:id="@+id/textView211"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_siliconi"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_siliconi"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -4944,7 +4944,7 @@
                             android:id="@+id/textView212"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_stonei"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_stonei"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -4976,7 +4976,7 @@
                             android:id="@+id/textView213"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_silveri"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_silveri"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -5003,7 +5003,7 @@
                             android:id="@+id/textView214"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_goldi"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_goldi"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -5029,7 +5029,7 @@
                             android:id="@+id/textView215"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_platinumi"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_platinumi"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -5102,7 +5102,7 @@
                             android:id="@+id/textView218"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_irono"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_irono"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -5128,7 +5128,7 @@
                             android:id="@+id/textView219"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_nickelo"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_nickelo"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -5154,7 +5154,7 @@
                             android:id="@+id/textView220"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_cobalto"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_cobalto"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -5202,7 +5202,7 @@
                             android:id="@+id/textView222"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_magnesiumo"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_magnesiumo"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -5229,7 +5229,7 @@
                             android:id="@+id/textView223"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_silicono"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_silicono"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -5255,7 +5255,7 @@
                             android:id="@+id/textView224"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_stoneo"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_stoneo"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -5287,7 +5287,7 @@
                             android:id="@+id/textView225"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_silvero"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_silvero"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -5314,7 +5314,7 @@
                             android:id="@+id/textView226"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_goldo"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_goldo"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -5340,7 +5340,7 @@
                             android:id="@+id/textView227"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_platinumo"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_platinumo"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -5397,7 +5397,7 @@
                             android:id="@+id/textView229"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_refinetime"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_refinetime"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -5423,7 +5423,7 @@
                             android:id="@+id/textView230"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_refinepower"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_refinepower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -5450,7 +5450,7 @@
                             android:id="@+id/textView231"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_refineuranium"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_refineuranium"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -5500,7 +5500,7 @@
                             android:id="@+id/textView233"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_totalingotmass"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_totalingotmass"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -5526,7 +5526,7 @@
                             android:id="@+id/textView234"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_totaloremass"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_totaloremass"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -5574,7 +5574,7 @@
                             android:id="@+id/textView236"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_totalingotvolume"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_totalingotvolume"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -5600,7 +5600,7 @@
                             android:id="@+id/textView237"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_totalorevolume"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_totalorevolume"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -5741,7 +5741,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="@string/block_data_gyroscope_small_totaltime"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_totaltime"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -5791,7 +5791,7 @@
                             android:id="@+id/textView244"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_totalpower"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_totalpower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -5818,7 +5818,7 @@
                             android:id="@+id/textView245"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_gyroscope_small_totaluranium"/>
+                            android:text="@string/block_data_heavy_armor_inv_corner_tip_smooth_small_totaluranium"/>
                     </LinearLayout>
                 </LinearLayout>
 

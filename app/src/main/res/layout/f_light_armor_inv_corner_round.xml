@@ -27,7 +27,7 @@
             android:layout_marginLeft="4dp"
             android:gravity="center_vertical"
             android:singleLine="false"
-            android:text="@string/block_data_jump_drive_large_title"
+            android:text="@string/block_data_light_armor_inv_corner_round_small_title"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="@dimen/f_header_size"
             android:textStyle="bold"/>
@@ -63,12 +63,12 @@
                     android:paddingTop="@dimen/grid_text_pad">
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/textView3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/large_grid_section"
-                        android:textAppearance="?android:attr/textAppearanceLarge"/>
-
+                        android:text="@string/small_grid_section"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        />
                 </LinearLayout>
 
                 <FrameLayout
@@ -76,9 +76,7 @@
                     android:layout_height="2dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:background="@color/f_divider">
-
-                </FrameLayout>
+                    android:background="@color/f_divider"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -98,11 +96,11 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <TextView
-                            android:id="@+id/textView100"
+                            android:id="@+id/textView125"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
-                            android:text="@string/block_data_jump_drive_large_sizex"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_sizex"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -114,7 +112,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <TextView
-                            android:id="@+id/textView121"
+                            android:id="@+id/textView126"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
@@ -133,11 +131,11 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <TextView
-                            android:id="@+id/textView119"
+                            android:id="@+id/textView127"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="@string/block_data_jump_drive_large_sizey"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_sizey"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -149,7 +147,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <TextView
-                            android:id="@+id/textView122"
+                            android:id="@+id/textView128"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
@@ -168,11 +166,11 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <TextView
-                            android:id="@+id/textView120"
+                            android:id="@+id/textView129"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="start"
-                            android:text="@string/block_data_jump_drive_large_sizez"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_sizez"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -192,7 +190,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView16"
+                        android:id="@+id/textView130"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_iron_section"
@@ -203,8 +201,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -216,7 +213,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView2"
+                            android:id="@+id/imageView65"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -226,11 +223,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView4"
+                            android:id="@+id/textView131"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_steelplate"
-                            />
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_steelplate"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -243,7 +239,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView3"
+                            android:id="@+id/imageView66"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -253,10 +249,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView5"
+                            android:id="@+id/textView132"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_interiorplate"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_interiorplate"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -269,7 +265,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView4"
+                            android:id="@+id/imageView67"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -279,10 +275,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView6"
+                            android:id="@+id/textView133"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_constructioncomponent"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_constructioncomponent"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -301,7 +297,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView5"
+                            android:id="@+id/imageView68"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -311,10 +307,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView7"
+                            android:id="@+id/textView134"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_smalltube"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_smalltube"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -327,7 +323,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView6"
+                            android:id="@+id/imageView69"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -337,10 +333,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView8"
+                            android:id="@+id/textView135"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_largetube"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_largetube"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -353,7 +349,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView7"
+                            android:id="@+id/imageView70"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -363,10 +359,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView9"
+                            android:id="@+id/textView136"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_girder"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_girder"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -378,7 +374,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView17"
+                        android:id="@+id/textView137"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_adv_section"
@@ -401,7 +397,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView8"
+                            android:id="@+id/imageView71"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -411,10 +407,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView10"
+                            android:id="@+id/textView138"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_motor"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_motor"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -427,7 +423,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView9"
+                            android:id="@+id/imageView72"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -437,10 +433,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView11"
+                            android:id="@+id/textView139"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_computer"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_computer"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -453,7 +449,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView10"
+                            android:id="@+id/imageView73"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -463,10 +459,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView12"
+                            android:id="@+id/textView140"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_display"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_display"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -485,7 +481,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView11"
+                            android:id="@+id/imageView74"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -495,10 +491,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/textView141"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_metalgrid"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_metalgrid"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -511,7 +507,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView12"
+                            android:id="@+id/imageView75"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -522,10 +518,10 @@
                             android:baselineAlignBottom="false"/>
 
                         <TextView
-                            android:id="@+id/textView14"
+                            android:id="@+id/textView142"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_glass"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_glass"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -538,7 +534,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView13"
+                            android:id="@+id/imageView76"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -548,10 +544,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView15"
+                            android:id="@+id/textView143"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_explosive"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_explosive"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -563,7 +559,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView18"
+                        android:id="@+id/textView144"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_spec_section"
@@ -586,7 +582,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView14"
+                            android:id="@+id/imageView77"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -596,10 +592,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView19"
+                            android:id="@+id/textView145"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_solarcell"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_solarcell"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -612,7 +608,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView15"
+                            android:id="@+id/imageView78"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -622,10 +618,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView20"
+                            android:id="@+id/textView146"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_powercell"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_powercell"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -638,7 +634,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView16"
+                            android:id="@+id/imageView79"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -648,10 +644,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView21"
+                            android:id="@+id/textView147"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_reactorcomp"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_reactorcomp"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -670,7 +666,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView17"
+                            android:id="@+id/imageView80"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -680,10 +676,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView22"
+                            android:id="@+id/textView148"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_thrustercomp"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_thrustercomp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -696,7 +692,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView18"
+                            android:id="@+id/imageView81"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -707,10 +703,10 @@
                             android:baselineAlignBottom="false"/>
 
                         <TextView
-                            android:id="@+id/textView23"
+                            android:id="@+id/textView149"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_superconductor"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_superconductor"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -723,7 +719,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView19"
+                            android:id="@+id/imageView82"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -733,10 +729,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView24"
+                            android:id="@+id/textView150"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_gravitycomp"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_gravitycomp"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -755,7 +751,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView20"
+                            android:id="@+id/imageView83"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -765,10 +761,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView25"
+                            android:id="@+id/textView151"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_radiocom"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_radiocom"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -781,7 +777,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView21"
+                            android:id="@+id/imageView84"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -792,11 +788,10 @@
                             android:baselineAlignBottom="false"/>
 
                         <TextView
-                            android:id="@+id/textView26"
+                            android:id="@+id/textView152"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_detectorcomp"
-                            />
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_detectorcomp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -809,7 +804,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView22"
+                            android:id="@+id/imageView85"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -819,12 +814,11 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView27"
+                            android:id="@+id/textView153"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_medicalcomp"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_medicalcomp"/>
                     </LinearLayout>
-
                 </LinearLayout>
 
                 <FrameLayout
@@ -833,8 +827,7 @@
                     android:layout_marginBottom="4dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:background="@color/f_divider">
-                </FrameLayout>
+                    android:background="@color/f_divider"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -843,21 +836,20 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView28"
+                        android:id="@+id/textView154"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_critcomp_section"
                         android:textSize="@dimen/f_critcomp_section"/>
 
                     <ImageView
-                        android:id="@+id/imageView23"
+                        android:id="@+id/imageView86"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/se_computer_component"
                         android:backgroundTint="@color/f_component_tint"
-                        android:backgroundTintMode="src_atop"
-                        />
+                        android:backgroundTintMode="src_atop"/>
                 </LinearLayout>
 
                 <FrameLayout
@@ -878,7 +870,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView29"
+                        android:id="@+id/textView155"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_weldgrind_section"
@@ -902,7 +894,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView24"
+                            android:id="@+id/imageView87"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -912,10 +904,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView30"
+                            android:id="@+id/textView156"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_weldtime"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_weldtime"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -928,7 +920,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView25"
+                            android:id="@+id/imageView88"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -939,12 +931,11 @@
                             android:baselineAlignBottom="false"/>
 
                         <TextView
-                            android:id="@+id/textView31"
+                            android:id="@+id/textView157"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_grindtime"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_grindtime"/>
                     </LinearLayout>
-
                 </LinearLayout>
 
                 <FrameLayout
@@ -965,7 +956,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView32"
+                        android:id="@+id/textView158"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_pwr_section"
@@ -989,7 +980,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView26"
+                            android:id="@+id/imageView89"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -999,10 +990,10 @@
                             android:backgroundTintMode="screen"/>
 
                         <TextView
-                            android:id="@+id/textView33"
+                            android:id="@+id/textView159"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_standbypower"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_standbypower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1015,7 +1006,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView27"
+                            android:id="@+id/imageView90"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -1026,10 +1017,10 @@
                             android:baselineAlignBottom="false"/>
 
                         <TextView
-                            android:id="@+id/textView34"
+                            android:id="@+id/textView160"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_operationpower"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_operationpower"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1051,7 +1042,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView35"
+                        android:id="@+id/textView161"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_storage_section"
@@ -1074,7 +1065,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView28"
+                            android:id="@+id/imageView91"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -1084,10 +1075,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView36"
+                            android:id="@+id/textView162"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_itemstorage"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_itemstorage"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1100,7 +1091,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView29"
+                            android:id="@+id/imageView92"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -1111,10 +1102,10 @@
                             android:baselineAlignBottom="false"/>
 
                         <TextView
-                            android:id="@+id/textView37"
+                            android:id="@+id/textView163"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_gasstorage"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_gasstorage"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1127,7 +1118,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView30"
+                            android:id="@+id/imageView93"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -1137,10 +1128,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView38"
+                            android:id="@+id/textView164"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_powerstorage"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_powerstorage"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1161,21 +1152,20 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView41"
+                        android:id="@+id/textView165"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_force_section"
                         android:textSize="@dimen/f_attribute_section"/>
 
                     <TextView
-                        android:id="@+id/textView42"
+                        android:id="@+id/textView166"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_jump_drive_large_force"
+                        android:text="@string/block_data_light_armor_inv_corner_round_small_force"
                         android:textSize="@dimen/f_attribute_section"/>
-
                 </LinearLayout>
 
                 <FrameLayout
@@ -1195,19 +1185,19 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView39"
+                        android:id="@+id/textView167"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_virtualmass_section"
                         android:textSize="@dimen/f_attribute_section"/>
 
                     <TextView
-                        android:id="@+id/textView40"
+                        android:id="@+id/textView168"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_jump_drive_large_virtualmass"
+                        android:text="@string/block_data_light_armor_inv_corner_round_small_virtualmass"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -1228,19 +1218,19 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView43"
+                        android:id="@+id/textView169"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_range_section"
                         android:textSize="@dimen/f_attribute_section"/>
 
                     <TextView
-                        android:id="@+id/textView44"
+                        android:id="@+id/textView170"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_jump_drive_large_range"
+                        android:text="@string/block_data_light_armor_inv_corner_round_small_range"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -1261,19 +1251,19 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView45"
+                        android:id="@+id/textView171"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_moduleratio_section"
                         android:textSize="@dimen/f_attribute_section"/>
 
                     <TextView
-                        android:id="@+id/textView46"
+                        android:id="@+id/textView172"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_jump_drive_large_moduleratio"
+                        android:text="@string/block_data_light_armor_inv_corner_round_small_moduleratio"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -1294,19 +1284,19 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView47"
+                        android:id="@+id/textView173"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_firerate_section"
                         android:textSize="@dimen/f_attribute_section"/>
 
                     <TextView
-                        android:id="@+id/textView48"
+                        android:id="@+id/textView174"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_jump_drive_large_firerate"
+                        android:text="@string/block_data_light_armor_inv_corner_round_small_firerate"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -1327,19 +1317,19 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView49"
+                        android:id="@+id/textView175"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_explosiondmg_section"
                         android:textSize="@dimen/f_attribute_section"/>
 
                     <TextView
-                        android:id="@+id/textView50"
+                        android:id="@+id/textView176"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_jump_drive_large_explosiondamage"
+                        android:text="@string/block_data_light_armor_inv_corner_round_small_explosiondamage"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -1350,9 +1340,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="4dp"
-                    android:background="@color/f_divider">
-
-                </FrameLayout>
+                    android:background="@color/f_divider"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1362,7 +1350,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView55"
+                        android:id="@+id/textView177"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="2dp"
@@ -1386,19 +1374,19 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView51"
+                            android:id="@+id/textView178"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/f_sd_fp_section"
                             android:textSize="@dimen/f_attribute_section"/>
 
                         <TextView
-                            android:id="@+id/textView52"
+                            android:id="@+id/textView179"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_firstperson"
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_firstperson"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -1411,19 +1399,19 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView53"
+                            android:id="@+id/textView180"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/f_sd_ctrl_section"
                             android:textSize="@dimen/f_attribute_section"/>
 
                         <TextView
-                            android:id="@+id/textView54"
+                            android:id="@+id/textView181"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_seatcontrol"
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_seatcontrol"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1445,7 +1433,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView56"
+                        android:id="@+id/textView182"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="2dp"
@@ -1471,19 +1459,19 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView57"
+                            android:id="@+id/textView183"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/f_mass_section"
                             android:textSize="@dimen/f_attribute_section"/>
 
                         <TextView
-                            android:id="@+id/textView58"
+                            android:id="@+id/textView184"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_mass"
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_mass"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -1496,19 +1484,19 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView61"
+                            android:id="@+id/textView185"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/f_integrity_section"
                             android:textSize="@dimen/f_attribute_section"/>
 
                         <TextView
-                            android:id="@+id/textView62"
+                            android:id="@+id/textView186"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_integrity"
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_integrity"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1530,19 +1518,19 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView65"
+                            android:id="@+id/textView187"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/f_volume_section"
                             android:textSize="@dimen/f_attribute_section"/>
 
                         <TextView
-                            android:id="@+id/textView66"
+                            android:id="@+id/textView188"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_volume"
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_volume"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -1555,19 +1543,19 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView67"
+                            android:id="@+id/textView189"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/f_density_section"
                             android:textSize="@dimen/f_attribute_section"/>
 
                         <TextView
-                            android:id="@+id/textView68"
+                            android:id="@+id/textView190"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_density"
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_density"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1589,19 +1577,19 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView59"
+                            android:id="@+id/textView191"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/f_wlnperkg_section"
                             android:textSize="@dimen/f_attribute_section"/>
 
                         <TextView
-                            android:id="@+id/textView60"
+                            android:id="@+id/textView192"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_wlnperkg"
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_wlnperkg"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -1614,19 +1602,19 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView63"
+                            android:id="@+id/textView193"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/f_integperkg_section"
                             android:textSize="@dimen/f_attribute_section"/>
 
                         <TextView
-                            android:id="@+id/textView64"
+                            android:id="@+id/textView194"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_integrityperkg"
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_integrityperkg"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1648,19 +1636,19 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView69"
+                            android:id="@+id/textView195"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/f_integritypervolume_section"
                             android:textSize="@dimen/f_attribute_section"/>
 
                         <TextView
-                            android:id="@+id/textView70"
+                            android:id="@+id/textView196"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_integritypervolume"
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_integritypervolume"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -1673,19 +1661,19 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView71"
+                            android:id="@+id/textView197"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/f_integrityperdensity_section"
                             android:textSize="@dimen/f_attribute_section"/>
 
                         <TextView
-                            android:id="@+id/textView72"
+                            android:id="@+id/textView198"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_integrityperdensity"
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_integrityperdensity"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1707,7 +1695,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView73"
+                        android:id="@+id/textView199"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="2dp"
@@ -1732,7 +1720,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView31"
+                            android:id="@+id/imageView94"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -1742,10 +1730,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView74"
+                            android:id="@+id/textView200"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_assembletime"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_assembletime"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1758,7 +1746,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView32"
+                            android:id="@+id/imageView95"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -1769,10 +1757,10 @@
                             android:baselineAlignBottom="false"/>
 
                         <TextView
-                            android:id="@+id/textView75"
+                            android:id="@+id/textView201"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_componentvolume"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_componentvolume"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1792,7 +1780,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView33"
+                            android:id="@+id/imageView96"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -1802,10 +1790,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView76"
+                            android:id="@+id/textView202"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_assemblepower"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_assemblepower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1818,7 +1806,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView34"
+                            android:id="@+id/imageView97"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -1829,10 +1817,10 @@
                             android:baselineAlignBottom="false"/>
 
                         <TextView
-                            android:id="@+id/textView77"
+                            android:id="@+id/textView203"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_assembleuranium"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_assembleuranium"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1852,7 +1840,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView78"
+                        android:id="@+id/textView204"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="2dp"
@@ -1869,7 +1857,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView88"
+                        android:id="@+id/textView205"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_commonmetals_section"
@@ -1892,7 +1880,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView35"
+                            android:id="@+id/imageView98"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -1902,10 +1890,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView79"
+                            android:id="@+id/textView206"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_ironi"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_ironi"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1918,7 +1906,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView36"
+                            android:id="@+id/imageView99"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -1928,10 +1916,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView80"
+                            android:id="@+id/textView207"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_nicklei"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_nicklei"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1944,7 +1932,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView37"
+                            android:id="@+id/imageView100"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -1954,10 +1942,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView81"
+                            android:id="@+id/textView208"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_cobalti"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_cobalti"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1969,7 +1957,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView89"
+                        android:id="@+id/textView209"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_noncommonmetals_section"
@@ -1992,7 +1980,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView38"
+                            android:id="@+id/imageView101"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2002,10 +1990,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView82"
+                            android:id="@+id/textView210"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_magnesiumi"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_magnesiumi"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2018,7 +2006,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView39"
+                            android:id="@+id/imageView102"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2029,10 +2017,10 @@
                             android:baselineAlignBottom="false"/>
 
                         <TextView
-                            android:id="@+id/textView83"
+                            android:id="@+id/textView211"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_siliconi"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_siliconi"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2045,7 +2033,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView40"
+                            android:id="@+id/imageView103"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2055,10 +2043,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView84"
+                            android:id="@+id/textView212"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_stonei"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_stonei"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2077,7 +2065,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView41"
+                            android:id="@+id/imageView104"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2087,10 +2075,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView85"
+                            android:id="@+id/textView213"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_silveri"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_silveri"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2103,7 +2091,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView42"
+                            android:id="@+id/imageView105"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2114,10 +2102,10 @@
                             android:baselineAlignBottom="false"/>
 
                         <TextView
-                            android:id="@+id/textView86"
+                            android:id="@+id/textView214"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_goldi"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_goldi"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2130,7 +2118,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView43"
+                            android:id="@+id/imageView106"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2140,10 +2128,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView87"
+                            android:id="@+id/textView215"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_platinumi"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_platinumi"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2163,7 +2151,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView90"
+                        android:id="@+id/textView216"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="2dp"
@@ -2180,7 +2168,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView91"
+                        android:id="@+id/textView217"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_commonmetals_section"
@@ -2203,7 +2191,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView44"
+                            android:id="@+id/imageView107"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2213,10 +2201,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView92"
+                            android:id="@+id/textView218"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_irono"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_irono"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2229,7 +2217,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView45"
+                            android:id="@+id/imageView108"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2239,10 +2227,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView93"
+                            android:id="@+id/textView219"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_nickelo"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_nickelo"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2255,7 +2243,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView46"
+                            android:id="@+id/imageView109"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2265,10 +2253,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView94"
+                            android:id="@+id/textView220"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_cobalto"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_cobalto"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2280,7 +2268,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView95"
+                        android:id="@+id/textView221"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_noncommonmetals_section"
@@ -2303,7 +2291,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView47"
+                            android:id="@+id/imageView110"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2313,10 +2301,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView96"
+                            android:id="@+id/textView222"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_magnesiumo"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_magnesiumo"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2329,7 +2317,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView48"
+                            android:id="@+id/imageView111"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2340,10 +2328,10 @@
                             android:baselineAlignBottom="false"/>
 
                         <TextView
-                            android:id="@+id/textView97"
+                            android:id="@+id/textView223"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_silicono"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_silicono"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2356,7 +2344,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView49"
+                            android:id="@+id/imageView112"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2366,10 +2354,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView98"
+                            android:id="@+id/textView224"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_stoneo"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_stoneo"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2388,7 +2376,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView50"
+                            android:id="@+id/imageView113"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2398,10 +2386,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView99"
+                            android:id="@+id/textView225"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_silvero"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_silvero"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2414,7 +2402,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView51"
+                            android:id="@+id/imageView114"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2425,10 +2413,10 @@
                             android:baselineAlignBottom="false"/>
 
                         <TextView
-                            android:id="@+id/textView101"
+                            android:id="@+id/textView226"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_goldo"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_goldo"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2441,7 +2429,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView52"
+                            android:id="@+id/imageView115"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2451,10 +2439,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView102"
+                            android:id="@+id/textView227"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_platinumo"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_platinumo"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2474,7 +2462,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView103"
+                        android:id="@+id/textView228"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="2dp"
@@ -2498,7 +2486,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView53"
+                            android:id="@+id/imageView116"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2508,10 +2496,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView104"
+                            android:id="@+id/textView229"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_refinetime"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_refinetime"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2524,7 +2512,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView54"
+                            android:id="@+id/imageView117"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2534,10 +2522,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView105"
+                            android:id="@+id/textView230"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_refinepower"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_refinepower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2550,7 +2538,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView55"
+                            android:id="@+id/imageView118"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2561,10 +2549,10 @@
                             android:baselineAlignBottom="false"/>
 
                         <TextView
-                            android:id="@+id/textView106"
+                            android:id="@+id/textView231"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_refineuranium"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_refineuranium"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2577,7 +2565,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView107"
+                        android:id="@+id/textView232"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_calculatedresmass_section"
@@ -2601,7 +2589,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView56"
+                            android:id="@+id/imageView119"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2611,10 +2599,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView108"
+                            android:id="@+id/textView233"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_totalingotmass"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_totalingotmass"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2627,7 +2615,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView59"
+                            android:id="@+id/imageView120"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2637,10 +2625,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView109"
+                            android:id="@+id/textView234"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_totaloremass"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_totaloremass"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2652,7 +2640,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView110"
+                        android:id="@+id/textView235"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_calculatedresvolume_section"
@@ -2675,7 +2663,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView57"
+                            android:id="@+id/imageView121"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2685,10 +2673,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView111"
+                            android:id="@+id/textView236"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_totalingotvolume"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_totalingotvolume"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2701,7 +2689,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView58"
+                            android:id="@+id/imageView122"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2711,10 +2699,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView112"
+                            android:id="@+id/textView237"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_totalorevolume"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_totalorevolume"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2734,7 +2722,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView113"
+                        android:id="@+id/textView238"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="2dp"
@@ -2752,7 +2740,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView114"
+                        android:id="@+id/textView239"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_totaltime_section"
@@ -2783,7 +2771,7 @@
                             android:orientation="horizontal">
 
                             <ImageView
-                                android:id="@+id/imageView60"
+                                android:id="@+id/imageView123"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:layout_marginLeft="10dp"
@@ -2793,7 +2781,7 @@
                                 android:backgroundTintMode="src_atop"/>
 
                             <TextView
-                                android:id="@+id/textView115"
+                                android:id="@+id/textView240"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="+"/>
@@ -2808,7 +2796,7 @@
                             android:orientation="horizontal">
 
                             <ImageView
-                                android:id="@+id/imageView61"
+                                android:id="@+id/imageView124"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:layout_marginRight="5dp"
@@ -2817,7 +2805,7 @@
                                 android:backgroundTintMode="src_atop"/>
 
                             <TextView
-                                android:id="@+id/textView116"
+                                android:id="@+id/textView241"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="+"/>
@@ -2830,7 +2818,7 @@
                             android:orientation="horizontal">
 
                             <ImageView
-                                android:id="@+id/imageView62"
+                                android:id="@+id/imageView125"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:layout_marginRight="5dp"
@@ -2851,11 +2839,11 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <TextView
-                            android:id="@+id/textView117"
+                            android:id="@+id/textView242"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="@string/block_data_jump_drive_large_totaltime"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_totaltime"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2868,7 +2856,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView118"
+                        android:id="@+id/textView243"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/f_totalpower_section"
@@ -2892,7 +2880,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView63"
+                            android:id="@+id/imageView126"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2902,10 +2890,10 @@
                             android:backgroundTintMode="src_atop"/>
 
                         <TextView
-                            android:id="@+id/textView123"
+                            android:id="@+id/textView244"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_totalpower"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_totalpower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2918,7 +2906,7 @@
                         android:paddingTop="@dimen/grid_text_pad">
 
                         <ImageView
-                            android:id="@+id/imageView64"
+                            android:id="@+id/imageView127"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginLeft="10dp"
@@ -2929,10 +2917,10 @@
                             android:baselineAlignBottom="false"/>
 
                         <TextView
-                            android:id="@+id/textView124"
+                            android:id="@+id/textView245"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_totaluranium"/>
+                            android:text="@string/block_data_light_armor_inv_corner_round_small_totaluranium"/>
                     </LinearLayout>
                 </LinearLayout>
 

@@ -27,7 +27,7 @@
             android:layout_marginLeft="4dp"
             android:gravity="center_vertical"
             android:singleLine="false"
-            android:text="@string/block_data_jump_drive_large_title"
+            android:text="@string/block_data_catwalk_large_title"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="@dimen/f_header_size"
             android:textStyle="bold"/>
@@ -102,7 +102,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
-                            android:text="@string/block_data_jump_drive_large_sizex"/>
+                            android:text="@string/block_data_catwalk_large_sizex"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -137,7 +137,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="@string/block_data_jump_drive_large_sizey"/>
+                            android:text="@string/block_data_catwalk_large_sizey"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -172,7 +172,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="start"
-                            android:text="@string/block_data_jump_drive_large_sizez"/>
+                            android:text="@string/block_data_catwalk_large_sizez"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -229,7 +229,7 @@
                             android:id="@+id/textView4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_steelplate"
+                            android:text="@string/block_data_catwalk_large_steelplate"
                             />
                     </LinearLayout>
 
@@ -256,7 +256,7 @@
                             android:id="@+id/textView5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_interiorplate"/>
+                            android:text="@string/block_data_catwalk_large_interiorplate"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -282,7 +282,7 @@
                             android:id="@+id/textView6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_constructioncomponent"/>
+                            android:text="@string/block_data_catwalk_large_constructioncomponent"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -314,7 +314,7 @@
                             android:id="@+id/textView7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_smalltube"/>
+                            android:text="@string/block_data_catwalk_large_smalltube"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -340,7 +340,7 @@
                             android:id="@+id/textView8"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_largetube"/>
+                            android:text="@string/block_data_catwalk_large_largetube"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -366,7 +366,7 @@
                             android:id="@+id/textView9"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_girder"/>
+                            android:text="@string/block_data_catwalk_large_girder"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -414,7 +414,7 @@
                             android:id="@+id/textView10"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_motor"/>
+                            android:text="@string/block_data_catwalk_large_motor"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -440,7 +440,7 @@
                             android:id="@+id/textView11"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_computer"/>
+                            android:text="@string/block_data_catwalk_large_computer"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -466,7 +466,7 @@
                             android:id="@+id/textView12"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_display"/>
+                            android:text="@string/block_data_catwalk_large_display"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -498,7 +498,7 @@
                             android:id="@+id/textView13"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_metalgrid"/>
+                            android:text="@string/block_data_catwalk_large_metalgrid"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -525,7 +525,7 @@
                             android:id="@+id/textView14"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_glass"/>
+                            android:text="@string/block_data_catwalk_large_glass"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -551,7 +551,7 @@
                             android:id="@+id/textView15"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_explosive"/>
+                            android:text="@string/block_data_catwalk_large_explosive"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -599,7 +599,7 @@
                             android:id="@+id/textView19"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_solarcell"/>
+                            android:text="@string/block_data_catwalk_large_solarcell"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -625,7 +625,7 @@
                             android:id="@+id/textView20"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_powercell"/>
+                            android:text="@string/block_data_catwalk_large_powercell"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -651,7 +651,7 @@
                             android:id="@+id/textView21"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_reactorcomp"/>
+                            android:text="@string/block_data_catwalk_large_reactorcomp"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -683,7 +683,7 @@
                             android:id="@+id/textView22"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_thrustercomp"/>
+                            android:text="@string/block_data_catwalk_large_thrustercomp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -710,7 +710,7 @@
                             android:id="@+id/textView23"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_superconductor"/>
+                            android:text="@string/block_data_catwalk_large_superconductor"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -736,7 +736,7 @@
                             android:id="@+id/textView24"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_gravitycomp"/>
+                            android:text="@string/block_data_catwalk_large_gravitycomp"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -768,7 +768,7 @@
                             android:id="@+id/textView25"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_radiocom"/>
+                            android:text="@string/block_data_catwalk_large_radiocom"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -795,7 +795,7 @@
                             android:id="@+id/textView26"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_detectorcomp"
+                            android:text="@string/block_data_catwalk_large_detectorcomp"
                             />
                     </LinearLayout>
 
@@ -822,7 +822,7 @@
                             android:id="@+id/textView27"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_medicalcomp"/>
+                            android:text="@string/block_data_catwalk_large_medicalcomp"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -915,7 +915,7 @@
                             android:id="@+id/textView30"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_weldtime"/>
+                            android:text="@string/block_data_catwalk_large_weldtime"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -942,7 +942,7 @@
                             android:id="@+id/textView31"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_grindtime"/>
+                            android:text="@string/block_data_catwalk_large_grindtime"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -1002,7 +1002,7 @@
                             android:id="@+id/textView33"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_standbypower"/>
+                            android:text="@string/block_data_catwalk_large_standbypower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1029,7 +1029,7 @@
                             android:id="@+id/textView34"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_operationpower"/>
+                            android:text="@string/block_data_catwalk_large_operationpower"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1087,7 +1087,7 @@
                             android:id="@+id/textView36"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_itemstorage"/>
+                            android:text="@string/block_data_catwalk_large_itemstorage"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1114,7 +1114,7 @@
                             android:id="@+id/textView37"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_gasstorage"/>
+                            android:text="@string/block_data_catwalk_large_gasstorage"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1140,7 +1140,7 @@
                             android:id="@+id/textView38"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_powerstorage"/>
+                            android:text="@string/block_data_catwalk_large_powerstorage"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1173,7 +1173,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_jump_drive_large_force"
+                        android:text="@string/block_data_catwalk_large_force"
                         android:textSize="@dimen/f_attribute_section"/>
 
                 </LinearLayout>
@@ -1207,7 +1207,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_jump_drive_large_virtualmass"
+                        android:text="@string/block_data_catwalk_large_virtualmass"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -1240,7 +1240,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_jump_drive_large_range"
+                        android:text="@string/block_data_catwalk_large_range"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -1273,7 +1273,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_jump_drive_large_moduleratio"
+                        android:text="@string/block_data_catwalk_large_moduleratio"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -1306,7 +1306,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_jump_drive_large_firerate"
+                        android:text="@string/block_data_catwalk_large_firerate"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -1339,7 +1339,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/block_data_jump_drive_large_explosiondamage"
+                        android:text="@string/block_data_catwalk_large_explosiondamage"
                         android:textSize="@dimen/f_attribute_section"/>
                 </LinearLayout>
 
@@ -1398,7 +1398,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_firstperson"
+                            android:text="@string/block_data_catwalk_large_firstperson"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -1423,7 +1423,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_seatcontrol"
+                            android:text="@string/block_data_catwalk_large_seatcontrol"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1483,7 +1483,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_mass"
+                            android:text="@string/block_data_catwalk_large_mass"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -1508,7 +1508,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_integrity"
+                            android:text="@string/block_data_catwalk_large_integrity"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1542,7 +1542,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_volume"
+                            android:text="@string/block_data_catwalk_large_volume"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -1567,7 +1567,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_density"
+                            android:text="@string/block_data_catwalk_large_density"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1601,7 +1601,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_wlnperkg"
+                            android:text="@string/block_data_catwalk_large_wlnperkg"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -1626,7 +1626,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_integrityperkg"
+                            android:text="@string/block_data_catwalk_large_integrityperkg"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1660,7 +1660,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_integritypervolume"
+                            android:text="@string/block_data_catwalk_large_integritypervolume"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -1685,7 +1685,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_jump_drive_large_integrityperdensity"
+                            android:text="@string/block_data_catwalk_large_integrityperdensity"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1745,7 +1745,7 @@
                             android:id="@+id/textView74"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_assembletime"/>
+                            android:text="@string/block_data_catwalk_large_assembletime"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1772,7 +1772,7 @@
                             android:id="@+id/textView75"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_componentvolume"/>
+                            android:text="@string/block_data_catwalk_large_componentvolume"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1805,7 +1805,7 @@
                             android:id="@+id/textView76"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_assemblepower"/>
+                            android:text="@string/block_data_catwalk_large_assemblepower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1832,7 +1832,7 @@
                             android:id="@+id/textView77"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_assembleuranium"/>
+                            android:text="@string/block_data_catwalk_large_assembleuranium"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1905,7 +1905,7 @@
                             android:id="@+id/textView79"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_ironi"/>
+                            android:text="@string/block_data_catwalk_large_ironi"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1931,7 +1931,7 @@
                             android:id="@+id/textView80"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_nicklei"/>
+                            android:text="@string/block_data_catwalk_large_nicklei"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1957,7 +1957,7 @@
                             android:id="@+id/textView81"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_cobalti"/>
+                            android:text="@string/block_data_catwalk_large_cobalti"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2005,7 +2005,7 @@
                             android:id="@+id/textView82"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_magnesiumi"/>
+                            android:text="@string/block_data_catwalk_large_magnesiumi"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2032,7 +2032,7 @@
                             android:id="@+id/textView83"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_siliconi"/>
+                            android:text="@string/block_data_catwalk_large_siliconi"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2058,7 +2058,7 @@
                             android:id="@+id/textView84"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_stonei"/>
+                            android:text="@string/block_data_catwalk_large_stonei"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2090,7 +2090,7 @@
                             android:id="@+id/textView85"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_silveri"/>
+                            android:text="@string/block_data_catwalk_large_silveri"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2117,7 +2117,7 @@
                             android:id="@+id/textView86"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_goldi"/>
+                            android:text="@string/block_data_catwalk_large_goldi"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2143,7 +2143,7 @@
                             android:id="@+id/textView87"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_platinumi"/>
+                            android:text="@string/block_data_catwalk_large_platinumi"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2216,7 +2216,7 @@
                             android:id="@+id/textView92"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_irono"/>
+                            android:text="@string/block_data_catwalk_large_irono"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2242,7 +2242,7 @@
                             android:id="@+id/textView93"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_nickelo"/>
+                            android:text="@string/block_data_catwalk_large_nickelo"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2268,7 +2268,7 @@
                             android:id="@+id/textView94"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_cobalto"/>
+                            android:text="@string/block_data_catwalk_large_cobalto"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2316,7 +2316,7 @@
                             android:id="@+id/textView96"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_magnesiumo"/>
+                            android:text="@string/block_data_catwalk_large_magnesiumo"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2343,7 +2343,7 @@
                             android:id="@+id/textView97"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_silicono"/>
+                            android:text="@string/block_data_catwalk_large_silicono"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2369,7 +2369,7 @@
                             android:id="@+id/textView98"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_stoneo"/>
+                            android:text="@string/block_data_catwalk_large_stoneo"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2401,7 +2401,7 @@
                             android:id="@+id/textView99"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_silvero"/>
+                            android:text="@string/block_data_catwalk_large_silvero"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2428,7 +2428,7 @@
                             android:id="@+id/textView101"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_goldo"/>
+                            android:text="@string/block_data_catwalk_large_goldo"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2454,7 +2454,7 @@
                             android:id="@+id/textView102"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_platinumo"/>
+                            android:text="@string/block_data_catwalk_large_platinumo"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2511,7 +2511,7 @@
                             android:id="@+id/textView104"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_refinetime"/>
+                            android:text="@string/block_data_catwalk_large_refinetime"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2537,7 +2537,7 @@
                             android:id="@+id/textView105"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_refinepower"/>
+                            android:text="@string/block_data_catwalk_large_refinepower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2564,7 +2564,7 @@
                             android:id="@+id/textView106"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_refineuranium"/>
+                            android:text="@string/block_data_catwalk_large_refineuranium"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2614,7 +2614,7 @@
                             android:id="@+id/textView108"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_totalingotmass"/>
+                            android:text="@string/block_data_catwalk_large_totalingotmass"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2640,7 +2640,7 @@
                             android:id="@+id/textView109"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_totaloremass"/>
+                            android:text="@string/block_data_catwalk_large_totaloremass"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2688,7 +2688,7 @@
                             android:id="@+id/textView111"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_totalingotvolume"/>
+                            android:text="@string/block_data_catwalk_large_totalingotvolume"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2714,7 +2714,7 @@
                             android:id="@+id/textView112"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_totalorevolume"/>
+                            android:text="@string/block_data_catwalk_large_totalorevolume"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2855,7 +2855,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="@string/block_data_jump_drive_large_totaltime"/>
+                            android:text="@string/block_data_catwalk_large_totaltime"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2905,7 +2905,7 @@
                             android:id="@+id/textView123"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_totalpower"/>
+                            android:text="@string/block_data_catwalk_large_totalpower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2932,7 +2932,7 @@
                             android:id="@+id/textView124"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_jump_drive_large_totaluranium"/>
+                            android:text="@string/block_data_catwalk_large_totaluranium"/>
                     </LinearLayout>
                 </LinearLayout>
 
