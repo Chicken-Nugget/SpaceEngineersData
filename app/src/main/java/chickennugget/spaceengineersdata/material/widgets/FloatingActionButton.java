@@ -265,13 +265,13 @@ public class FloatingActionButton extends View implements ThemeManager.OnThemeCh
         return mBackground.getColor();
     }
 
-    public void setBackgroundColor(ColorStateList color) {
+    @Override
+    public void setBackgroundColor(int color) {
         mBackground.setColor(color);
         invalidate();
     }
 
-    @Override
-    public void setBackgroundColor(int color) {
+    public void setBackgroundColor(ColorStateList color) {
         mBackground.setColor(color);
         invalidate();
     }

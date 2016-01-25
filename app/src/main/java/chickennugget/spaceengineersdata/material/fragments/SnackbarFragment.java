@@ -18,8 +18,7 @@ public class SnackbarFragment extends Fragment {
     SnackBar mSnackBar;
 
     public static SnackbarFragment newInstance() {
-        SnackbarFragment fragment = new SnackbarFragment();
-        return fragment;
+        return new SnackbarFragment();
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)

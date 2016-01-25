@@ -48,8 +48,6 @@ import chickennugget.spaceengineersdata.material.widgets.TextView;
 public class RecurringPickerDialog extends Dialog implements WeekView.OnDaySelectionChangedListener {
 
     private static int[] MONTH_SAME_WEEKDAY = {R.string.rd_month_last, R.string.rd_month_first, R.string.rd_month_second, R.string.rd_month_third, R.string.rd_month_fourth};
-    private ModeAdapter mModeAdapter;
-    private EndAdapter mEndAdapter;
     private EditText mPeriodEditText;
     private TextView mPeriodUnitTextView;
     private Spinner mModeSpinner;
@@ -106,7 +104,7 @@ public class RecurringPickerDialog extends Dialog implements WeekView.OnDaySelec
         ViewUtil.setBackground(fl_mode, mHeaderBackground);
         ViewCompat.setPaddingRelative(ll_repeat, mContentPadding, mActionOuterPadding, mContentPadding, mActionPadding);
 
-        mModeAdapter = new ModeAdapter();
+        ModeAdapter mModeAdapter = new ModeAdapter();
         mModeSpinner.setAdapter(mModeAdapter);
         mModeSpinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
             @Override
@@ -115,7 +113,7 @@ public class RecurringPickerDialog extends Dialog implements WeekView.OnDaySelec
             }
         });
 
-        mEndAdapter = new EndAdapter();
+        EndAdapter mEndAdapter = new EndAdapter();
         mEndSpinner.setAdapter(mEndAdapter);
         mEndSpinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
             @Override

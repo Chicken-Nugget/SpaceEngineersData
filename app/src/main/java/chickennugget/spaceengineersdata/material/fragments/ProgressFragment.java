@@ -39,8 +39,7 @@ public class ProgressFragment extends Fragment implements Callback {
     private Handler mHandler;
 
     public static ProgressFragment newInstance() {
-        ProgressFragment fragment = new ProgressFragment();
-        return fragment;
+        return new ProgressFragment();
     }
 
     @Override

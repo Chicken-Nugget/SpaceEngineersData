@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class TypefaceUtil {
 
-    private static final HashMap<String, Typeface> sCachedFonts = new HashMap<String, Typeface>();
+    private static final HashMap<String, Typeface> sCachedFonts = new HashMap<>();
     private static final String PREFIX_ASSET = "asset:";
 
     private TypefaceUtil() {

@@ -50,11 +50,7 @@ public class LineMorphingDrawable extends Drawable implements Animatable {
     private float mAnimProgress;
     private int mAnimDuration;
     private Interpolator mInterpolator;
-    private int mStrokeSize;
-    private int mStrokeColor;
     private boolean mClockwise;
-    private Paint.Cap mStrokeCap;
-    private Paint.Join mStrokeJoin;
     private boolean mIsRtl;
 
     private Path mPath;
@@ -78,10 +74,10 @@ public class LineMorphingDrawable extends Drawable implements Animatable {
 
         mAnimDuration = animDuration;
         mInterpolator = interpolator;
-        mStrokeSize = strokeSize;
-        mStrokeColor = strokeColor;
-        mStrokeCap = strokeCap;
-        mStrokeJoin = strokeJoin;
+        int mStrokeSize = strokeSize;
+        int mStrokeColor = strokeColor;
+        Paint.Cap mStrokeCap = strokeCap;
+        Paint.Join mStrokeJoin = strokeJoin;
         mClockwise = clockwise;
         mIsRtl = isRtl;
 

@@ -33,7 +33,7 @@ public class ThemeUtil {
                 else if (value.type == TypedValue.TYPE_STRING)
                     return context.getResources().getColor(value.resourceId);
             }
-        } catch (Exception ex) {
+        } catch (Exception ignored) {
         }
 
         return defaultValue;

@@ -15,9 +15,8 @@ import chickennugget.spaceengineersdata.material.widgets.FloatingActionButton;
 public class ButtonFragment extends Fragment {
 
     public static ButtonFragment newInstance() {
-        ButtonFragment fragment = new ButtonFragment();
 
-        return fragment;
+        return new ButtonFragment();
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)

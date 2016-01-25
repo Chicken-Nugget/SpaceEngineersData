@@ -158,7 +158,6 @@ public class ListPopupWindow {
     private Handler mHandler = new Handler();
     private Rect mTempRect = new Rect();
     private boolean mModal;
-    private int mLayoutDirection;
 
     /**
      * Create a new, empty popup window capable of displaying items from a ListAdapter.
@@ -221,7 +220,7 @@ public class ListPopupWindow {
 
         // Set the default layout direction to match the default locale one
         final Locale locale = mContext.getResources().getConfiguration().locale;
-        mLayoutDirection = TextUtilsCompat.getLayoutDirectionFromLocale(locale);
+        int mLayoutDirection = TextUtilsCompat.getLayoutDirectionFromLocale(locale);
     }
 
     private static boolean isConfirmKey(int keyCode) {

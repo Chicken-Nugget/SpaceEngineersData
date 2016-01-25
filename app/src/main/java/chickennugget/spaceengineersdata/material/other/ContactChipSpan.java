@@ -18,13 +18,11 @@ public class ContactChipSpan extends ReplacementSpan {
 
     private Paint mPaint;
     private int mPaddingLeft;
-    private int mPaddingRight;
     private int mBackgroundColor;
     private int mHeight;
     private int mWidth;
     private CharSequence mContactName;
     private BoringLayout mBoringLayout;
-    private TextPaint mTextPaint;
     private RectF mRect;
     private BitmapShader mBitmapShader;
     private Bitmap mBitmap;
@@ -36,16 +34,15 @@ public class ContactChipSpan extends ReplacementSpan {
         mPaint.setColor(textColor);
         mPaint.setTypeface(typeface);
         mPaint.setTextSize(textSize);
-        mTextPaint = new TextPaint(mPaint);
+        TextPaint mTextPaint = new TextPaint(mPaint);
         mRect = new RectF();
         mMatrix = new Matrix();
         mContactName = name;
         mPaddingLeft = paddingLeft;
-        mPaddingRight = paddingRight;
         mBackgroundColor = backgroundColor;
         mHeight = height;
         mWidth = Math.round(Math.min(maxWidth, mPaint.measureText(name, 0, name.length()) + paddingLeft + paddingRight + height));
-        int outerWidth = Math.max(0, mWidth - mPaddingLeft - mPaddingRight - mHeight);
+        int outerWidth = Math.max(0, mWidth - mPaddingLeft - paddingRight - mHeight);
         Paint.FontMetricsInt temp = mTextPaint.getFontMetricsInt();
         BoringLayout.Metrics mMetrics = new BoringLayout.Metrics();
         mMetrics.width = Math.round(mTextPaint.measureText(mContactName, 0, mContactName.length()) + 0.5f);

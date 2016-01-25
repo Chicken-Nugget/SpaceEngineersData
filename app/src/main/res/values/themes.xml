@@ -155,11 +155,6 @@
         <item>@style/DarkContactEditText</item>
     </array>
 
-    <array name="edittext_no_divider">
-        <item>@style/LightNoDividerEditText</item>
-        <item>@style/DarkNoDividerEditText</item>
-    </array>
-
     <array name="pv_circular">
         <item>@style/LightCircularProgressView</item>
         <item>@style/DarkCircularProgressView</item>

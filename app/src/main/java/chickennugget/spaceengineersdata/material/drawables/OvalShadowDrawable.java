@@ -32,7 +32,6 @@ public class OvalShadowDrawable extends Drawable implements Animatable {
         }
 
     };
-    private boolean mEnable = true;
     private boolean mInEditMode = false;
     private boolean mAnimEnable = true;
     private Paint mShadowPaint;
@@ -272,7 +271,7 @@ public class OvalShadowDrawable extends Drawable implements Animatable {
 
     @Override
     protected boolean onStateChange(int[] state) {
-        mEnable = ViewUtil.hasState(state, android.R.attr.state_enabled);
+        boolean mEnable = ViewUtil.hasState(state, android.R.attr.state_enabled);
         int color = mColorStateList.getColorForState(state, mCurColor);
 
         if (mCurColor != color) {

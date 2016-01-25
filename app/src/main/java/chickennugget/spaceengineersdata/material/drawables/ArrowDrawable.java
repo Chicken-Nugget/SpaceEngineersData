@@ -85,7 +85,7 @@ public class ArrowDrawable extends Drawable implements Animatable {
     public void setMode(int mode, boolean animation) {
         if (mMode != mode) {
             mMode = mode;
-            if (animation && mAnimDuration > 0)
+            if (true && mAnimDuration > 0)
                 start();
             else
                 invalidateSelf();

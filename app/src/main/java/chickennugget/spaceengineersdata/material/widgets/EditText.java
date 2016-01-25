@@ -1113,9 +1113,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * <p>Only work when autoComplete mode is {@link #AUTOCOMPLETE_MODE_SINGLE} or {@link #AUTOCOMPLETE_MODE_MULTI}</p>
      */
     public boolean enoughToFilter() {
-        if (mAutoCompleteMode == AUTOCOMPLETE_MODE_NONE)
-            return false;
-        return ((AutoCompleteTextView) mInputView).enoughToFilter();
+        return mAutoCompleteMode != AUTOCOMPLETE_MODE_NONE && ((AutoCompleteTextView) mInputView).enoughToFilter();
     }
 
     /**
@@ -1125,9 +1123,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * @return true if the popup menu is showing, false otherwise
      */
     public boolean isPopupShowing() {
-        if (mAutoCompleteMode == AUTOCOMPLETE_MODE_NONE)
-            return false;
-        return ((AutoCompleteTextView) mInputView).isPopupShowing();
+        return mAutoCompleteMode != AUTOCOMPLETE_MODE_NONE && ((AutoCompleteTextView) mInputView).isPopupShowing();
     }
 
     /**
@@ -1187,9 +1183,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
      * <p>Only work when autoComplete mode is {@link #AUTOCOMPLETE_MODE_SINGLE} or {@link #AUTOCOMPLETE_MODE_MULTI}</p>
      */
     public boolean isPerformingCompletion() {
-        if (mAutoCompleteMode == AUTOCOMPLETE_MODE_NONE)
-            return false;
-        return ((AutoCompleteTextView) mInputView).isPerformingCompletion();
+        return mAutoCompleteMode != AUTOCOMPLETE_MODE_NONE && ((AutoCompleteTextView) mInputView).isPerformingCompletion();
     }
 
     /**
@@ -1293,12 +1287,12 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
         return mInputView.getText();
     }
 
-    public final void setText(int resid) {
-        mInputView.setText(resid);
-    }
-
     public final void setText(CharSequence text) {
         mInputView.setText(text);
+    }
+
+    public final void setText(int resid) {
+        mInputView.setText(resid);
     }
 
     /**
@@ -1801,6 +1795,18 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
     }
 
     /**
+     * Sets the text to be displayed when the text of the TextView is empty,
+     * from a resource.
+     *
+     * @attr ref android.R.styleable#TextView_hint
+     */
+    public final void setHint(int resid) {
+        mInputView.setHint(resid);
+        if (mLabelView != null)
+            mLabelView.setText(resid);
+    }
+
+    /**
      * Sets the text to be displayed when the text of the TextView is empty.
      * Null means to use the normal empty text. The hint does not currently
      * participate in determining the size of the view.
@@ -1811,18 +1817,6 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
         mInputView.setHint(hint);
         if (mLabelView != null)
             mLabelView.setText(hint);
-    }
-
-    /**
-     * Sets the text to be displayed when the text of the TextView is empty,
-     * from a resource.
-     *
-     * @attr ref android.R.styleable#TextView_hint
-     */
-    public final void setHint(int resid) {
-        mInputView.setHint(resid);
-        if (mLabelView != null)
-            mLabelView.setText(resid);
     }
 
     /**
@@ -2377,8 +2371,7 @@ public class EditText extends FrameLayout implements ThemeManager.OnThemeChanged
     public int getOffsetForPosition(float x, float y) {
         if (getLayout() == null) return -1;
         final int line = getLineAtCoordinate(y);
-        final int offset = getOffsetAtCoordinate(line, x);
-        return offset;
+        return getOffsetAtCoordinate(line, x);
     }
 
     protected float convertToLocalHorizontalCoordinate(float x) {

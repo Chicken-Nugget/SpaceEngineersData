@@ -209,10 +209,8 @@ public class Recurring {
     }
 
     public boolean isEnabledWeekday(int weekday) {
-        if (mRepeatMode != REPEAT_WEEKLY)
-            return false;
+        return mRepeatMode == REPEAT_WEEKLY && (mRepeatSetting & WEEKDAY_MASK[weekday - 1]) != 0;
 
-        return (mRepeatSetting & WEEKDAY_MASK[weekday - 1]) != 0;
     }
 
     public int getMonthRepeatType() {

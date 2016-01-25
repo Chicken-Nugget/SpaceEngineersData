@@ -16,9 +16,8 @@ public class SliderFragment extends Fragment {
 
 
     public static SliderFragment newInstance() {
-        SliderFragment fragment = new SliderFragment();
 
-        return fragment;
+        return new SliderFragment();
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)

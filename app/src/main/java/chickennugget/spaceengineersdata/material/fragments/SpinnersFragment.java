@@ -20,9 +20,8 @@ public class SpinnersFragment extends Fragment {
     private int index = 0;
 
     public static SpinnersFragment newInstance() {
-        SpinnersFragment fragment = new SpinnersFragment();
 
-        return fragment;
+        return new SpinnersFragment();
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)

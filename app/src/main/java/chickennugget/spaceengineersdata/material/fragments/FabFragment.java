@@ -19,9 +19,8 @@ public class FabFragment extends Fragment {
     private int index = 0;
 
     public static FabFragment newInstance() {
-        FabFragment fragment = new FabFragment();
 
-        return fragment;
+        return new FabFragment();
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)

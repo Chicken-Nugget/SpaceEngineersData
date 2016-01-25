@@ -134,7 +134,9 @@ public class Dialog extends android.app.Dialog {
         elevation(ThemeUtil.dpToPx(context, 4));
         cornerRadius(ThemeUtil.dpToPx(context, 2));
         dimAmount(0.5f);
-        layoutDirection(View.LAYOUT_DIRECTION_LOCALE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            layoutDirection(View.LAYOUT_DIRECTION_LOCALE);
+        }
         titleTextAppearance(R.style.TextAppearance_AppCompat_Title);
         actionTextAppearance(R.style.TextAppearance_AppCompat_Button);
         dividerColor(0x1E000000);

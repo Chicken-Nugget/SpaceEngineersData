@@ -793,46 +793,43 @@ public class Slider extends View implements ThemeManager.OnThemeChangedListener 
             path.reset();
 
         float x1 = cx - radius;
-        float y1 = cy;
         float x2 = cx + radius;
-        float y2 = cy;
-        float x3 = cx;
         float y3 = cy + radius;
 
         float nCx = cx;
         float nCy = cy - radius * factor;
 
         // calculate first arc
-        float angle = (float) (Math.atan2(y2 - nCy, x2 - nCx) * 180 / Math.PI);
-        float nRadius = (float) distance(nCx, nCy, x1, y1);
+        float angle = (float) (Math.atan2(cy - nCy, x2 - nCx) * 180 / Math.PI);
+        float nRadius = (float) distance(nCx, nCy, x1, cy);
         mTempRect.set(nCx - nRadius, nCy - nRadius, nCx + nRadius, nCy + nRadius);
-        path.moveTo(x1, y1);
+        path.moveTo(x1, cy);
         path.arcTo(mTempRect, 180 - angle, 180 + angle * 2);
 
         if (factor > 0.9f)
-            path.lineTo(x3, y3);
+            path.lineTo(cx, y3);
         else {
             // find center point for second arc
-            float x4 = (x2 + x3) / 2;
-            float y4 = (y2 + y3) / 2;
+            float x4 = (x2 + cx) / 2;
+            float y4 = (cy + y3) / 2;
 
-            double d1 = distance(x2, y2, x4, y4);
+            double d1 = distance(x2, cy, x4, y4);
             double d2 = d1 / Math.tan(Math.PI * (1f - factor) / 4);
 
             nCx = (float) (x4 - Math.cos(Math.PI / 4) * d2);
             nCy = (float) (y4 - Math.sin(Math.PI / 4) * d2);
 
             // calculate second arc
-            angle = (float) (Math.atan2(y2 - nCy, x2 - nCx) * 180 / Math.PI);
-            float angle2 = (float) (Math.atan2(y3 - nCy, x3 - nCx) * 180 / Math.PI);
-            nRadius = (float) distance(nCx, nCy, x2, y2);
+            angle = (float) (Math.atan2(cy - nCy, x2 - nCx) * 180 / Math.PI);
+            float angle2 = (float) (Math.atan2(y3 - nCy, cx - nCx) * 180 / Math.PI);
+            nRadius = (float) distance(nCx, nCy, x2, cy);
             mTempRect.set(nCx - nRadius, nCy - nRadius, nCx + nRadius, nCy + nRadius);
             path.arcTo(mTempRect, angle, angle2 - angle);
 
             // calculate third arc
             nCx = cx * 2 - nCx;
-            angle = (float) (Math.atan2(y3 - nCy, x3 - nCx) * 180 / Math.PI);
-            angle2 = (float) (Math.atan2(y1 - nCy, x1 - nCx) * 180 / Math.PI);
+            angle = (float) (Math.atan2(y3 - nCy, cx - nCx) * 180 / Math.PI);
+            angle2 = (float) (Math.atan2(cy - nCy, x1 - nCx) * 180 / Math.PI);
             mTempRect.set(nCx - nRadius, nCy - nRadius, nCx + nRadius, nCy + nRadius);
             path.arcTo(mTempRect, angle + (float) Math.PI / 4, angle2 - angle);
         }

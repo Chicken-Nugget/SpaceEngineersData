@@ -118,7 +118,6 @@ public class TimePickerDialog extends Dialog {
      * Get the formatted string of selected time.
      *
      * @param formatter The DateFormat used to format the time.
-     * @return
      */
     public String getFormattedTime(DateFormat formatter) {
         return mTimePickerLayout.getFormattedTime(formatter);

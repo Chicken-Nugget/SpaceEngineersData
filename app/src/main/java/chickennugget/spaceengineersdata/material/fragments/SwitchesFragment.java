@@ -19,9 +19,8 @@ public class SwitchesFragment extends Fragment {
     RadioButton rb3;
 
     public static SwitchesFragment newInstance() {
-        SwitchesFragment fragment = new SwitchesFragment();
 
-        return fragment;
+        return new SwitchesFragment();
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)

@@ -222,9 +222,9 @@ public class ContactEditText extends EditText {
         RecipientSpan[] spans = getText().getSpans(off, off, RecipientSpan.class);
         if (spans.length > 0) {
             float x = convertToLocalHorizontalCoordinate(event.getX());
-            for (int i = 0; i < spans.length; i++)
-                if (spans[i].mX <= x && spans[i].mX + spans[i].mWidth >= x)
-                    return spans[i];
+            for (RecipientSpan span : spans)
+                if (span.mX <= x && span.mX + span.mWidth >= x)
+                    return span;
         }
         return null;
     }

@@ -50,7 +50,6 @@ public class TabIndicatorView extends RecyclerView implements ThemeManager.OnThe
     private boolean mIsRtl;
     private LayoutManager mLayoutManager;
     private Adapter mAdapter;
-    private TabIndicatorFactory mFactory;
     private Runnable mTabAnimSelector;
     private boolean mScrollingToCenter = false;
 
@@ -170,7 +169,7 @@ public class TabIndicatorView extends RecyclerView implements ThemeManager.OnThe
     }
 
     public void setTabIndicatorFactory(TabIndicatorFactory factory) {
-        mFactory = factory;
+        TabIndicatorFactory mFactory = factory;
         mAdapter.setFactory(factory);
     }
 

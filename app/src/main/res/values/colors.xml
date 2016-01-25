@@ -1,39 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Theme -->
-    <color name="colorPrimary">#F50057</color>
-    <color name="colorPrimaryDark">#C51162</color>
-    <color name="textColorPrimary">#FFFFFF</color>
-    <color name="windowBackground">#FFFFFF</color>
-    <color name="navigationBarColor">#000000</color>
-    <color name="colorAccent">#FF80AB</color>
+    <color name="colorPrimary">#ff6f00</color>
+    <color name="colorPrimaryDark">#d84315</color>
+    <color name="colorAccent">#ff9e80</color>
     <!-- Material -->
     <color name="body_text_1">#de000000</color>
-    <color name="body_text_2">#8a000000</color>
-    <color name="body_text_3">#60000000</color>
-    <color name="body_text_disabled">#44000000</color>
-    <color name="body_text_1_inverse">#deffffff</color>
-    <color name="body_text_2_inverse">#8affffff</color>
-    <color name="theme_accent_2">#e91e63</color>
-    <color name="navdrawer_background">#ffffffff</color>
-    <color name="navdrawer_text_color">@color/body_text_1</color>
-    <color name="navdrawer_icon_tint">#808080</color>
-    <color name="gray_background">#fff3f3f3</color>
-    <color name="navdrawer_scrim">#6000</color>
-    <color name="native_background">#ececec</color>
-    <color name="carddemo_googlenowbirth_title">@android:color/holo_blue_dark</color>
-    <color name="theme_accent_1_light">#8ad4fa</color>
-    <color name="demo_primary_color">#2196F3</color>
-    <color name="demo_colorPrimaryDark">#0288D1</color>
-    <color name="carddemo_halfcolored_color">#109D58</color>
-    <color name="carddemo_blackcolored_color">#272727</color>
-    <!-- Birth new-->
-    <color name="demo_card_header_birth_color">#707070</color>
-    <color name="demo_card_line_birth_color">#E5E5E5</color>
-    <!-- Stock -->
-    <color name="demo_card_stock_negative">#FF4646</color>
-    <color name="demo_card_stock_positive">#29A426</color>
-    <color name="theme_accent_1">@color/md_light_blue_900</color>
     <!-- Control -->
     <color name="colorControlNormal">#FF78909C</color>
     <color name="colorControlActivated">#FF03A9F4</color>
@@ -67,15 +39,8 @@
         <item>#3300E5FF</item>
         <item>#1900E5FF</item>
     </array>
-    <!-- Check Boxes -->
-    <color name="tpi_checked">#FFFFFFFF</color>
-    <color name="tpi_unchecked">#99FFFFFF</color>
-    <!-- Dividers -->
-    <color name="et_divider_focused">@color/colorControlActivated</color>
-    <color name="et_divider_not_focused">#FF6D6D6D</color>
-    <color name="et_divider_disable">#FFC1C1C1</color>
-    <color name="block_header_background">@color/md_indigo_100</color>
     <!-- F Fragment -->
+    <color name="block_header_background">#e1bee7</color>
     <color name="f_divider">#d4d4d4</color>
     <color name="f_component_tint">#98758f94</color>
     <color name="f_iron_tint">#98a3857a</color>
@@ -87,5 +52,4 @@
     <color name="f_silver_tint">#98a0c7c3</color>
     <color name="f_gold_tint">#98bbb97a</color>
     <color name="f_platinum_tint">#98e2e2e2</color>
-
 </resources>

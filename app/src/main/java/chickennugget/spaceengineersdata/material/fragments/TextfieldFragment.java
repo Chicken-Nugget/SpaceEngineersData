@@ -14,9 +14,8 @@ import chickennugget.spaceengineersdata.material.widgets.EditText;
 public class TextfieldFragment extends Fragment {
 
     public static TextfieldFragment newInstance() {
-        TextfieldFragment fragment = new TextfieldFragment();
 
-        return fragment;
+        return new TextfieldFragment();
     }
 
     @Override

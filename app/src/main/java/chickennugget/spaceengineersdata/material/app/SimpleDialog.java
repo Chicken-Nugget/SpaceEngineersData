@@ -132,7 +132,9 @@ public class SimpleDialog extends Dialog {
         mScrollView.setClipToPadding(false);
         mScrollView.setFillViewport(true);
         mScrollView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
-        ViewCompat.setLayoutDirection(mScrollView, View.LAYOUT_DIRECTION_INHERIT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            ViewCompat.setLayoutDirection(mScrollView, View.LAYOUT_DIRECTION_INHERIT);
+        }
     }
 
     private void initMessageView() {
@@ -555,7 +557,10 @@ public class SimpleDialog extends Dialog {
         }
 
         public void onRtlPropertiesChanged(int layoutDirection) {
-            boolean rtl = layoutDirection == LAYOUT_DIRECTION_RTL;
+            boolean rtl = false;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                rtl = layoutDirection == LAYOUT_DIRECTION_RTL;
+            }
             if (mIsRtl != rtl) {
                 mIsRtl = rtl;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
@@ -589,7 +594,10 @@ public class SimpleDialog extends Dialog {
         }
 
         public void onRtlPropertiesChanged(int layoutDirection) {
-            boolean rtl = layoutDirection == LAYOUT_DIRECTION_RTL;
+            boolean rtl = false;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                rtl = layoutDirection == LAYOUT_DIRECTION_RTL;
+            }
             if (mIsRtl != rtl) {
                 mIsRtl = rtl;
                 requestLayout();
