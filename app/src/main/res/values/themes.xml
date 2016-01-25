@@ -150,11 +150,6 @@
         <item>@style/DarkEditText</item>
     </array>
 
-    <array name="edittext_contact">
-        <item>@style/LightContactEditText</item>
-        <item>@style/DarkContactEditText</item>
-    </array>
-
     <array name="pv_circular">
         <item>@style/LightCircularProgressView</item>
         <item>@style/DarkCircularProgressView</item>
