@@ -2,9 +2,6 @@
     <!-- Default screen margins, per the Android Design guidelines -->
     <dimen name="drawer_width">240dp</dimen>
     <dimen name="text_size_medium">14sp</dimen>
-    <!-- Material -->
-    <dimen name="hd_button_elevation">2dp</dimen>
-    <dimen name="hd_button_press_elevation">4dp</dimen>
     <!-- Buttons -->
     <dimen name="bt_height">36dp</dimen>
     <!-- F Fragment -->

@@ -1,7 +1,7 @@
 <resources>
     <!-- App Name -->
     <string name="app_name">Space Engineers Data</string>
-    <!-- Material -->
+    <!-- Recurring Dialog -->
     <string name="rd_repeat">Repeat</string>
     <string name="rd_daily">Daily</string>
     <string name="rd_weekly">Weekly</string>
