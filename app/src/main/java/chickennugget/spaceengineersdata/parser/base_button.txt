@@ -1,0 +1,36 @@
+<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_INSERTID_l"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:drawableLeft="@drawable/se_INSERTID"
+                app:v_styleId="@array/button_raise_wave_color"
+                android:gravity="left"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_INSERTID_c"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="@string/block_data_INSERTID_large_title"
+                app:v_styleId="@array/button_raise_wave_color"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_INSERTID_s"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:drawableRight="@drawable/se_INSERTID"
+                app:v_styleId="@array/button_raise_wave_color"
+                android:gravity="right"/>
+
+        </LinearLayout>
