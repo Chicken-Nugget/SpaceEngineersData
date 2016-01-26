@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
@@ -118,7 +119,8 @@
                             android:layout_height="wrap_content"
                             android:gravity="end"
                             android:text="x"
-                            android:textSize="10sp"/>
+                            android:textSize="10sp"
+                            tools:ignore="HardcodedText,SmallSp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -153,7 +155,8 @@
                             android:layout_height="wrap_content"
                             android:gravity="end"
                             android:text="x"
-                            android:textSize="10sp"/>
+                            android:textSize="10sp"
+                            tools:ignore="HardcodedText,SmallSp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2812,7 +2815,8 @@
                                 android:id="@+id/textView240"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="+"/>
+                                android:text="+"
+                                tools:ignore="HardcodedText"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -2836,7 +2840,8 @@
                                 android:id="@+id/textView241"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="+"/>
+                                android:text="+"
+                                tools:ignore="HardcodedText"/>
                         </LinearLayout>
 
                         <LinearLayout

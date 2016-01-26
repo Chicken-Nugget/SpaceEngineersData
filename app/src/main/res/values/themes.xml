@@ -145,11 +145,6 @@
         <item>@style/DarkTabPageIndicator</item>
     </array>
 
-    <array name="edittext">
-        <item>@style/LightEditText</item>
-        <item>@style/DarkEditText</item>
-    </array>
-
     <array name="pv_circular">
         <item>@style/LightCircularProgressView</item>
         <item>@style/DarkCircularProgressView</item>
