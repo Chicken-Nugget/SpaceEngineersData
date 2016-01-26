@@ -2865,6 +2865,13 @@
                                 android:background="@drawable/se_refinery"
                                 android:backgroundTint="@color/f_component_tint"
                                 android:backgroundTintMode="src_atop"/>
+
+                            <TextView
+                                tools:ignore="HardcodedText"
+                                android:id="@+id/textView246"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="=" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -2872,7 +2879,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_weight="2"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:paddingBottom="@dimen/grid_text_pad"
@@ -5779,6 +5786,13 @@
                                 android:background="@drawable/se_refinery"
                                 android:backgroundTint="@color/f_component_tint"
                                 android:backgroundTintMode="src_atop"/>
+
+                            <TextView
+                                tools:ignore="HardcodedText"
+                                android:id="@+id/textView246"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="=" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -5786,7 +5800,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_weight="2"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:paddingBottom="@dimen/grid_text_pad"
