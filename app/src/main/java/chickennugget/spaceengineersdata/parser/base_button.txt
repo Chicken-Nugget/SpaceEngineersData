@@ -8,8 +8,8 @@
 
             <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/b_INSERTID_l"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
                 android:drawableLeft="@drawable/se_INSERTID"
                 app:v_styleId="@array/button_raise_wave_color"
                 android:gravity="left"/>
@@ -27,8 +27,8 @@
 
             <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/b_INSERTID_s"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
                 android:drawableRight="@drawable/se_INSERTID"
                 app:v_styleId="@array/button_raise_wave_color"
                 android:gravity="right"/>

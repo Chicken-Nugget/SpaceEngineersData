@@ -25,10 +25,16 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 import chickennugget.spaceengineersdata.R;
+import chickennugget.spaceengineersdata.fragments.ArmorFragment;
+import chickennugget.spaceengineersdata.fragments.ElectronicsFragment;
+import chickennugget.spaceengineersdata.fragments.IndustryFragment;
+import chickennugget.spaceengineersdata.fragments.InteriorFragment;
+import chickennugget.spaceengineersdata.fragments.MilitaryFragment;
+import chickennugget.spaceengineersdata.fragments.ShipFragment;
+import chickennugget.spaceengineersdata.fragments.StructureFragment;
 import chickennugget.spaceengineersdata.material.app.ThemeManager;
 import chickennugget.spaceengineersdata.material.app.ToolbarManager;
 import chickennugget.spaceengineersdata.material.drawables.ThemeDrawable;
-import chickennugget.spaceengineersdata.material.fragments.ShipFragment;
 import chickennugget.spaceengineersdata.material.other.CustomViewPager;
 import chickennugget.spaceengineersdata.material.utils.ThemeUtil;
 import chickennugget.spaceengineersdata.material.utils.ViewUtil;
@@ -52,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
             Tab.ELECTRONICS,
             Tab.INDUSTRY,
             Tab.MILITARY,
+            Tab.INTERIOR,
             Tab.STRUCTURE,
             Tab.ARMOR
     };
@@ -166,6 +173,7 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
         ELECTRONICS("Electronics"),
         INDUSTRY("Industry"),
         MILITARY("Military"),
+        INTERIOR("Interior"),
         STRUCTURE("Structure"),
         ARMOR("Armor");
         private final String name;
@@ -214,15 +222,17 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
                     for (Fragment fragment : mActive) {
                         if (fragment instanceof ShipFragment)
                             setFragment(Tab.SHIP, fragment);
-                        else if (fragment instanceof ShipFragment) //@TODO
+                        else if (fragment instanceof ElectronicsFragment)
                             setFragment(Tab.ELECTRONICS, fragment);
-                        else if (fragment instanceof ShipFragment) //@TODO
+                        else if (fragment instanceof IndustryFragment)
                             setFragment(Tab.INDUSTRY, fragment);
-                        else if (fragment instanceof ShipFragment) //@TODO
+                        else if (fragment instanceof MilitaryFragment)
                             setFragment(Tab.MILITARY, fragment);
-                        else if (fragment instanceof ShipFragment) //@TODO
+                        else if (fragment instanceof InteriorFragment)
+                            setFragment(Tab.INTERIOR, fragment);
+                        else if (fragment instanceof StructureFragment)
                             setFragment(Tab.STRUCTURE, fragment);
-                        else if (fragment instanceof ShipFragment) //@TODO
+                        else if (fragment instanceof ArmorFragment)
                             setFragment(Tab.ARMOR, fragment);
                     }
                 }
@@ -245,19 +255,22 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
                     mFragments[position] = ShipFragment.newInstance();
                     break;
                 case ELECTRONICS:
-                    mFragments[position] = ShipFragment.newInstance(); //@TODO
+                    mFragments[position] = ElectronicsFragment.newInstance();
                     break;
                 case INDUSTRY:
-                    mFragments[position] = ShipFragment.newInstance(); //@TODO
+                    mFragments[position] = IndustryFragment.newInstance();
                     break;
                 case MILITARY:
-                    mFragments[position] = ShipFragment.newInstance(); //@TODO
+                    mFragments[position] = MilitaryFragment.newInstance();
+                    break;
+                case INTERIOR:
+                    mFragments[position] = InteriorFragment.newInstance();
                     break;
                 case STRUCTURE:
-                    mFragments[position] = ShipFragment.newInstance(); //@TODO
+                    mFragments[position] = StructureFragment.newInstance();
                     break;
                 case ARMOR:
-                    mFragments[position] = ShipFragment.newInstance(); //@TODO
+                    mFragments[position] = ArmorFragment.newInstance();
                     break;
             }
 

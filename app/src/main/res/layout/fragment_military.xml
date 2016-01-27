@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbarStyle="outsideOverlay">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_gatling_turret_l"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableLeft="@drawable/se_gatling_turret"
+                android:gravity="left"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_gatling_turret_c"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/block_data_gatling_turret_large_title"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_gatling_turret_s"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableRight="@drawable/se_gatling_turret"
+                android:gravity="right"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_interior_turret_l"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableLeft="@drawable/se_interior_turret"
+                android:gravity="left"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_interior_turret_c"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/block_data_interior_turret_large_title"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_interior_turret_s"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableRight="@drawable/se_interior_turret"
+                android:gravity="right"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_missile_turret_l"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableLeft="@drawable/se_missile_turret"
+                android:gravity="left"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_missile_turret_c"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/block_data_missile_turret_large_title"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_missile_turret_s"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableRight="@drawable/se_missile_turret"
+                android:gravity="right"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_gatling_gun_l"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableLeft="@drawable/se_gatling_gun"
+                android:gravity="left"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_gatling_gun_c"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/block_data_gatling_gun_small_title"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_gatling_gun_s"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableRight="@drawable/se_gatling_gun"
+                android:gravity="right"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_rocket_launcher_l"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableLeft="@drawable/se_rocket_launcher"
+                android:gravity="left"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_rocket_launcher_c"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/block_data_rocket_launcher_large_title"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_rocket_launcher_s"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableRight="@drawable/se_rocket_launcher"
+                android:gravity="right"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_reloadable_rocket_launcher_l"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableLeft="@drawable/se_reloadable_rocket_launcher"
+                android:gravity="left"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_reloadable_rocket_launcher_c"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/block_data_reloadable_rocket_launcher_small_title"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_reloadable_rocket_launcher_s"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableRight="@drawable/se_reloadable_rocket_launcher"
+                android:gravity="right"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_warhead_l"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableLeft="@drawable/se_warhead"
+                android:gravity="left"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_warhead_c"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/block_data_warhead_large_title"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_warhead_s"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableRight="@drawable/se_warhead"
+                android:gravity="right"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp">
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_decoy_l"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableLeft="@drawable/se_decoy"
+                android:gravity="left"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_decoy_c"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/block_data_decoy_large_title"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_decoy_s"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableRight="@drawable/se_decoy"
+                android:gravity="right"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+
