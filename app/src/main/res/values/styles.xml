@@ -215,25 +215,25 @@
     </style>
 
     <style name="Material.Drawable.Ripple.Touch.Light" parent="Material.Drawable.Ripple.Touch">
-        <item name="rd_backgroundColor">#33999999</item>
-        <item name="rd_rippleColor">#33999999</item>
+        <item name="rd_backgroundColor">@color/colorAccent2</item>
+        <item name="rd_rippleColor">@color/colorAccent2</item>
     </style>
 
     <style name="Material.Drawable.Ripple.Touch.MatchView.Light" parent="Material.Drawable.Ripple.Touch">
         <item name="rd_maxRippleRadius">match_view</item>
-        <item name="rd_backgroundColor">#33999999</item>
-        <item name="rd_rippleColor">#33999999</item>
+        <item name="rd_backgroundColor">@color/colorAccent2</item>
+        <item name="rd_rippleColor">@color/colorAccent2</item>
     </style>
 
     <style name="Material.Drawable.Ripple.Wave" parent="Material.Drawable.Ripple">
         <item name="rd_maxRippleRadius">48dp</item>
-        <item name="rd_rippleColor">#3FCCCCCC</item>
+        <item name="rd_rippleColor">@color/colorAccent2</item>
         <item name="rd_rippleAnimDuration">200</item>
         <item name="rd_rippleType">wave</item>
     </style>
 
     <style name="Material.Drawable.Ripple.Wave.Light" parent="Material.Drawable.Ripple.Wave">
-        <item name="rd_rippleColor">#66999999</item>
+        <item name="rd_rippleColor">@color/colorAccent2</item>
     </style>
 
     <style name="Material.Drawable.NavigationDrawerIcon">
@@ -668,7 +668,7 @@
     </style>
 
     <style name="Material.Widget.Button">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="textAllCaps">true</item>
         <item name="android:textColor">?android:textColorPrimary</item>
     </style>

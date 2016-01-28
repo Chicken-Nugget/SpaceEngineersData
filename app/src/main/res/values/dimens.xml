@@ -5,7 +5,7 @@
     <!-- Buttons -->
     <dimen name="bt_height">36dp</dimen>
     <!-- F Fragment -->
-    <dimen name="f_header_size">30sp</dimen>
+    <dimen name="f_header_size">20sp</dimen>
     <dimen name="grid_text_pad">5dp</dimen>
     <dimen name="f_component_section">8sp</dimen>
     <dimen name="f_sub_section">12sp</dimen>

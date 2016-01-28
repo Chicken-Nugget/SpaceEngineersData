@@ -15,6 +15,11 @@
         <item>@drawable/bg_window_dark</item>
     </array>
 
+    <array name="bg_window_bottom">
+        <item>@drawable/bg_window_bottom</item>
+        <item>@drawable/bg_window_dark</item>
+    </array>
+
     <array name="bg_toolbar">
         <item>@drawable/bg_toolbar_light</item>
         <item>@drawable/bg_toolbar_dark</item>

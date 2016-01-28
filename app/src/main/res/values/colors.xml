@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Theme -->
-    <color name="colorPrimary">#ff6f00</color>
-    <color name="colorPrimaryDark">#d84315</color>
-    <color name="colorAccent">#ff9e80</color>
+    <color name="colorPrimary">#9C27B0</color>
+    <color name="colorPrimaryDark">#7B1FA2</color>
+    <color name="colorAccent">#BBDEFB</color>
+    <color name="colorAccent2">#E1BEE7</color>
+    <!-- Theme Old -->
+    <color name="colorPrimaryOld">#ff6f00</color>
+    <color name="colorPrimaryDarkOld">#d84315</color>
+    <color name="colorAccentOld">#ff9e80</color>
     <!-- Switches -->
     <color name="colorControlNormal">#FF78909C</color>
     <color name="colorControlActivated">#FF03A9F4</color>
@@ -40,7 +45,7 @@
     <!-- Other -->
     <color name="body_text_1">#de000000</color>
     <!-- F Fragment -->
-    <color name="block_header_background">#e1bee7</color>
+    <color name="block_header_background">@color/colorAccent</color>
     <color name="f_divider">#d4d4d4</color>
     <color name="f_component_tint">#98758f94</color>
     <color name="f_iron_tint">#98a3857a</color>

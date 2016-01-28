@@ -102,7 +102,7 @@ public class MilitaryFragment extends Fragment implements View.OnClickListener {
     private void showBottomSheet(int resID) {
         mBottomSheetDialog = new BottomSheetDialog(mActivity, R.style.Material_App_BottomSheetDialog);
         View v = LayoutInflater.from(mActivity).inflate(resID, null);
-        ViewUtil.setBackground(v, new ThemeDrawable(R.array.bg_window));
+        ViewUtil.setBackground(v, new ThemeDrawable(R.array.bg_window_bottom));
         mBottomSheetDialog.contentView(v).show();
     }
 
