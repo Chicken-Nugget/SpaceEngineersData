@@ -19,7 +19,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="4dp"
-            android:background="@drawable/se_door"/>
+            android:background="@drawable/se_block"/>
 
         <TextView
             android:id="@+id/textView"
@@ -28,7 +28,7 @@
             android:layout_marginLeft="4dp"
             android:gravity="center_vertical"
             android:singleLine="false"
-            android:text="@string/block_data_door_large_title"
+            android:text="Block Name"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="@dimen/f_header_size"
             android:textStyle="bold"/>
@@ -68,7 +68,7 @@
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/large_grid_section"
+                        android:text="Grid Size"
                         android:textAppearance="?android:attr/textAppearanceLarge"/>
 
                 </LinearLayout>
@@ -81,6 +81,22 @@
                     android:background="@color/f_divider">
 
                 </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView247"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Block Size in Grid Units (of its own grid size)"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="@dimen/f_component_section"/>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -104,7 +120,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
-                            android:text="@string/block_data_door_large_sizex"/>
+                            android:text="X"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -140,7 +156,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="@string/block_data_door_large_sizey"/>
+                            android:text="Y"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -176,7 +192,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="start"
-                            android:text="@string/block_data_door_large_sizez"/>
+                            android:text="Z"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -199,7 +215,7 @@
                         android:id="@+id/textView16"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/f_iron_section"
+                        android:text="Basic Components (Iron Only)"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textSize="@dimen/f_component_section"/>
                 </LinearLayout>
@@ -233,7 +249,7 @@
                             android:id="@+id/textView4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_steelplate"
+                            android:text="Steel Plates"
                             />
                     </LinearLayout>
 
@@ -260,7 +276,7 @@
                             android:id="@+id/textView5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_interiorplate"/>
+                            android:text="Interior Plates"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -286,7 +302,7 @@
                             android:id="@+id/textView6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_constructioncomponent"/>
+                            android:text="Construction Components"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -319,7 +335,7 @@
                             android:id="@+id/textView7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_smalltube"/>
+                            android:text="Small Steel Tubes"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -345,7 +361,7 @@
                             android:id="@+id/textView8"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_largetube"/>
+                            android:text="Large Steel Tubes"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -371,7 +387,7 @@
                             android:id="@+id/textView9"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_girder"/>
+                            android:text="Girders"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -386,7 +402,7 @@
                         android:id="@+id/textView17"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/f_adv_section"
+                        android:text="Advanced Components (Other Ore Required)"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textSize="@dimen/f_component_section"/>
                 </LinearLayout>
@@ -420,7 +436,7 @@
                             android:id="@+id/textView10"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_motor"/>
+                            android:text="Motors"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -446,7 +462,7 @@
                             android:id="@+id/textView11"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_computer"/>
+                            android:text="Computers"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -472,7 +488,7 @@
                             android:id="@+id/textView12"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_display"/>
+                            android:text="Displays"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -505,7 +521,7 @@
                             android:id="@+id/textView13"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_metalgrid"/>
+                            android:text="Metal Grids"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -532,7 +548,7 @@
                             android:id="@+id/textView14"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_glass"/>
+                            android:text="Bullet Proof Glass"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -558,8 +574,283 @@
                             android:id="@+id/textView15"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_explosive"/>
+                            android:text="Explosive Components"/>
                     </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Specialized Components (Used in only specific blocks. Hidden unless used)"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="@dimen/f_component_section"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/grid_text_pad"
+                        android:paddingTop="@dimen/grid_text_pad">
+
+                        <ImageView
+                            android:id="@+id/imageView14"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/se_solar_cell"
+                            android:backgroundTint="@color/f_component_tint"
+                            android:backgroundTintMode="src_atop"/>
+
+                        <TextView
+                            android:id="@+id/textView19"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Solar Cells"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/grid_text_pad"
+                        android:paddingTop="@dimen/grid_text_pad">
+
+                        <ImageView
+                            android:id="@+id/imageView15"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/se_power_cell"
+                            android:backgroundTint="@color/f_component_tint"
+                            android:backgroundTintMode="src_atop"/>
+
+                        <TextView
+                            android:id="@+id/textView20"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Power Cells"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/grid_text_pad"
+                        android:paddingTop="@dimen/grid_text_pad">
+
+                        <ImageView
+                            android:id="@+id/imageView16"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/se_reactor_component"
+                            android:backgroundTint="@color/f_component_tint"
+                            android:backgroundTintMode="src_atop"/>
+
+                        <TextView
+                            android:id="@+id/textView21"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Reactor Components"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/grid_text_pad"
+                        android:paddingTop="@dimen/grid_text_pad">
+
+                        <ImageView
+                            android:id="@+id/imageView17"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/se_thruster_component"
+                            android:backgroundTint="@color/f_component_tint"
+                            android:backgroundTintMode="src_atop"/>
+
+                        <TextView
+                            android:id="@+id/textView22"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Thruster Components"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/grid_text_pad"
+                        android:paddingTop="@dimen/grid_text_pad">
+
+                        <ImageView
+                            android:id="@+id/imageView18"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/se_superconductor_component"
+                            android:backgroundTint="@color/f_component_tint"
+                            android:backgroundTintMode="src_atop"
+                            android:baselineAlignBottom="false"/>
+
+                        <TextView
+                            android:id="@+id/textView23"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Superconductor Components"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/grid_text_pad"
+                        android:paddingTop="@dimen/grid_text_pad">
+
+                        <ImageView
+                            android:id="@+id/imageView19"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/se_gravity_component"
+                            android:backgroundTint="@color/f_component_tint"
+                            android:backgroundTintMode="src_atop"/>
+
+                        <TextView
+                            android:id="@+id/textView24"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Gravity Components"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/grid_text_pad"
+                        android:paddingTop="@dimen/grid_text_pad">
+
+                        <ImageView
+                            android:id="@+id/imageView20"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/se_radio_com_component"
+                            android:backgroundTint="@color/f_component_tint"
+                            android:backgroundTintMode="src_atop"/>
+
+                        <TextView
+                            android:id="@+id/textView25"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Radio-Com Components"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/grid_text_pad"
+                        android:paddingTop="@dimen/grid_text_pad">
+
+                        <ImageView
+                            android:id="@+id/imageView21"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/se_detector_component"
+                            android:backgroundTint="@color/f_component_tint"
+                            android:backgroundTintMode="src_atop"
+                            android:baselineAlignBottom="false"/>
+
+                        <TextView
+                            android:id="@+id/textView26"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Detector Components"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/grid_text_pad"
+                        android:paddingTop="@dimen/grid_text_pad">
+
+                        <ImageView
+                            android:id="@+id/imageView22"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/se_medical_component"
+                            android:backgroundTint="@color/f_component_tint"
+                            android:backgroundTintMode="src_atop"/>
+
+                        <TextView
+                            android:id="@+id/textView27"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Medical Components"/>
+                    </LinearLayout>
+
                 </LinearLayout>
 
                 <FrameLayout
@@ -570,6 +861,22 @@
                     android:layout_marginRight="5dp"
                     android:background="@color/f_divider">
                 </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView248"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="The Component Required for the Block to Function"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="@dimen/f_component_section"/>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -589,7 +896,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_marginLeft="10dp"
-                        android:background="@drawable/se_computer"
+                        android:background="@drawable/se_component"
                         android:backgroundTint="@color/f_component_tint"
                         android:backgroundTintMode="src_atop"
                         />
@@ -616,7 +923,7 @@
                         android:id="@+id/textView29"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/f_weldgrind_section"
+                        android:text="Weld/Grind Time (for a basic welder/grinder)"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textSize="@dimen/f_sub_section"/>
                 </LinearLayout>
@@ -651,7 +958,7 @@
                             android:id="@+id/textView30"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_weldtime"/>
+                            android:text="Time to Weld (Seconds)"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -678,9 +985,493 @@
                             android:id="@+id/textView31"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_grindtime"/>
+                            android:text="Time to Grind (Seconds)"/>
                     </LinearLayout>
 
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/f_divider"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView32"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/f_pwr_section"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="@dimen/f_sub_section"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/grid_text_pad"
+                        android:paddingTop="@dimen/grid_text_pad">
+
+                        <ImageView
+                            android:id="@+id/imageView26"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/se_decrease"
+                            android:backgroundTint="@color/f_component_tint"
+                            android:backgroundTintMode="screen"/>
+
+                        <TextView
+                            android:id="@+id/textView33"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Standby Power Usage (Watts)"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/grid_text_pad"
+                        android:paddingTop="@dimen/grid_text_pad">
+
+                        <ImageView
+                            android:id="@+id/imageView27"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/se_increase"
+                            android:backgroundTint="@color/f_component_tint"
+                            android:backgroundTintMode="screen"
+                            android:baselineAlignBottom="false"/>
+
+                        <TextView
+                            android:id="@+id/textView34"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Operational Power Usage/Output (KiloWatts)"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/f_divider"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView35"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/f_storage_section"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="@dimen/f_sub_section"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/grid_text_pad"
+                        android:paddingTop="@dimen/grid_text_pad">
+
+                        <ImageView
+                            android:id="@+id/imageView28"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/se_medium_cargo_container"
+                            android:backgroundTint="@color/f_component_tint"
+                            android:backgroundTintMode="src_atop"/>
+
+                        <TextView
+                            android:id="@+id/textView36"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Physical Storage (Litres)"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/grid_text_pad"
+                        android:paddingTop="@dimen/grid_text_pad">
+
+                        <ImageView
+                            android:id="@+id/imageView29"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/se_oxygen_bottle"
+                            android:backgroundTint="@color/f_component_tint"
+                            android:backgroundTintMode="src_atop"
+                            android:baselineAlignBottom="false"/>
+
+                        <TextView
+                            android:id="@+id/textView37"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Oxygen/Hydrogen Gas Storage (Litres)"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/grid_text_pad"
+                        android:paddingTop="@dimen/grid_text_pad">
+
+                        <ImageView
+                            android:id="@+id/imageView30"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/se_battery"
+                            android:backgroundTint="@color/f_component_tint"
+                            android:backgroundTintMode="src_atop"/>
+
+                        <TextView
+                            android:id="@+id/textView38"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Energy Storage (KiloWatt Hours)"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/f_divider"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView41"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/f_force_section"
+                        android:textSize="@dimen/f_attribute_section"/>
+
+                    <TextView
+                        android:id="@+id/textView42"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="Force or Thrust (KiloNewtons)"
+                        android:textSize="@dimen/f_attribute_section"/>
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/f_divider"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView39"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/f_virtualmass_section"
+                        android:textSize="@dimen/f_attribute_section"/>
+
+                    <TextView
+                        android:id="@+id/textView40"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="Emulated Mass (Kilograms)"
+                        android:textSize="@dimen/f_attribute_section"/>
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/f_divider"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView43"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/f_range_section"
+                        android:textSize="@dimen/f_attribute_section"/>
+
+                    <TextView
+                        android:id="@+id/textView44"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="Maximum Range or Radius (Meters/Kilometers)"
+                        android:textSize="@dimen/f_attribute_section"/>
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/f_divider"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView45"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/f_moduleratio_section"
+                        android:textSize="@dimen/f_attribute_section"/>
+
+                    <TextView
+                        android:id="@+id/textView46"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="Added or Multiplied to Specific Attribute"
+                        android:textSize="@dimen/f_attribute_section"/>
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/f_divider"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView47"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/f_firerate_section"
+                        android:textSize="@dimen/f_attribute_section"/>
+
+                    <TextView
+                        android:id="@+id/textView48"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="Rounds per Minute"
+                        android:textSize="@dimen/f_attribute_section"/>
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/f_divider"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView49"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/f_explosiondmg_section"
+                        android:textSize="@dimen/f_attribute_section"/>
+
+                    <TextView
+                        android:id="@+id/textView50"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="Integrity Damage"
+                        android:textSize="@dimen/f_attribute_section"/>
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/f_divider">
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView55"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:text="@string/f_seatdata_section"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="@dimen/f_sub_section"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView51"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/f_sd_fp_section"
+                            android:textSize="@dimen/f_attribute_section"/>
+
+                        <TextView
+                            android:id="@+id/textView52"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="Can you use first person? Yes/No"
+                            android:textSize="@dimen/f_attribute_section"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView53"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/f_sd_ctrl_section"
+                            android:textSize="@dimen/f_attribute_section"/>
+
+                        <TextView
+                            android:id="@+id/textView54"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="Can you control the ship? Yes/No"
+                            android:textSize="@dimen/f_attribute_section"/>
+                    </LinearLayout>
                 </LinearLayout>
 
                 <FrameLayout
@@ -739,7 +1530,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_door_large_mass"
+                            android:text="Kilograms. Based on Components"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -764,7 +1555,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_door_large_integrity"
+                            android:text="Essentially Health. Based on Components"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -799,7 +1590,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_door_large_volume"
+                            android:text="Volume of Block Bounds (Grid Space) in Cubic Meters"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -824,7 +1615,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_door_large_density"
+                            android:text="Kilograms per Volume"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -859,7 +1650,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_door_large_wlnperkg"
+                            android:text="Watts/Litres/Newtons per Kilogram"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -884,7 +1675,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_door_large_integrityperkg"
+                            android:text="Integrity per Weight"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -919,7 +1710,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_door_large_integritypervolume"
+                            android:text="Integrity per Volume"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
 
@@ -944,7 +1735,7 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="@string/block_data_door_large_integrityperdensity"
+                            android:text="Integrity per Density"
                             android:textSize="@dimen/f_attribute_section"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -1005,7 +1796,7 @@
                             android:id="@+id/textView74"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_assembletime"/>
+                            android:text="Time to Assemble all Components (Seconds)"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1032,7 +1823,7 @@
                             android:id="@+id/textView75"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_componentvolume"/>
+                            android:text="Volume of Assembled Components (Litres)"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1066,7 +1857,7 @@
                             android:id="@+id/textView76"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_assemblepower"/>
+                            android:text="Power to Assemble Components (KiloWatt Hours)"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1093,7 +1884,7 @@
                             android:id="@+id/textView77"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_assembleuranium"/>
+                            android:text="Uranium to Assemble Components (Kilograms)"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1117,7 +1908,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="2dp"
-                        android:text="@string/f_calculatedingotcost_section"
+                        android:text="Calculated Ingot Cost in Kilograms (Total Ingots to make the Block)"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textSize="@dimen/f_sub_section"/>
                 </LinearLayout>
@@ -1133,7 +1924,7 @@
                         android:id="@+id/textView88"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/f_commonmetals_section"
+                        android:text="Common Metals (Can be refined by Arc Furnace)"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textSize="@dimen/f_component_section"/>
                 </LinearLayout>
@@ -1167,7 +1958,7 @@
                             android:id="@+id/textView79"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_ironi"/>
+                            android:text="Iron (Fe)"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1193,7 +1984,7 @@
                             android:id="@+id/textView80"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_nicklei"/>
+                            android:text="Nickel (Ni)"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1219,7 +2010,7 @@
                             android:id="@+id/textView81"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_cobalti"/>
+                            android:text="Cobalt (Co)"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1234,7 +2025,7 @@
                         android:id="@+id/textView89"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/f_noncommonmetals_section"
+                        android:text="Non-Common Metals / Non-Metals (Must be refined by Refinery)"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textSize="@dimen/f_component_section"/>
                 </LinearLayout>
@@ -1268,7 +2059,7 @@
                             android:id="@+id/textView82"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_magnesiumi"/>
+                            android:text="Magnesium (Mg)"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1295,7 +2086,7 @@
                             android:id="@+id/textView83"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_siliconi"/>
+                            android:text="Silicon (Si)"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1321,7 +2112,7 @@
                             android:id="@+id/textView84"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_stonei"/>
+                            android:text="Gravel"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1354,7 +2145,7 @@
                             android:id="@+id/textView85"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_silveri"/>
+                            android:text="Silver (Ag)"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1381,7 +2172,7 @@
                             android:id="@+id/textView86"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_goldi"/>
+                            android:text="Gold (Au)"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1407,7 +2198,7 @@
                             android:id="@+id/textView87"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_platinumi"/>
+                            android:text="Platinum (Pt)"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1431,7 +2222,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="2dp"
-                        android:text="@string/f_calculatedorecost_section"
+                        android:text="Calculated Ore Cost in Kilograms (Total Ore to make the Block)"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textSize="@dimen/f_sub_section"/>
                 </LinearLayout>
@@ -1481,7 +2272,7 @@
                             android:id="@+id/textView92"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_irono"/>
+                            android:text="@string/block_data_collector_large_irono"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1507,7 +2298,7 @@
                             android:id="@+id/textView93"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_nickelo"/>
+                            android:text="@string/block_data_collector_large_nickelo"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1533,7 +2324,7 @@
                             android:id="@+id/textView94"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_cobalto"/>
+                            android:text="@string/block_data_collector_large_cobalto"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1582,7 +2373,7 @@
                             android:id="@+id/textView96"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_magnesiumo"/>
+                            android:text="@string/block_data_collector_large_magnesiumo"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1609,7 +2400,7 @@
                             android:id="@+id/textView97"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_silicono"/>
+                            android:text="@string/block_data_collector_large_silicono"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1635,7 +2426,7 @@
                             android:id="@+id/textView98"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_stoneo"/>
+                            android:text="@string/block_data_collector_large_stoneo"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1668,7 +2459,7 @@
                             android:id="@+id/textView99"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_silvero"/>
+                            android:text="@string/block_data_collector_large_silvero"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1695,7 +2486,7 @@
                             android:id="@+id/textView101"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_goldo"/>
+                            android:text="@string/block_data_collector_large_goldo"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1721,7 +2512,7 @@
                             android:id="@+id/textView102"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_platinumo"/>
+                            android:text="@string/block_data_collector_large_platinumo"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1779,7 +2570,7 @@
                             android:id="@+id/textView104"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_refinetime"/>
+                            android:text="@string/block_data_collector_large_refinetime"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1805,7 +2596,7 @@
                             android:id="@+id/textView105"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_refinepower"/>
+                            android:text="@string/block_data_collector_large_refinepower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1832,7 +2623,7 @@
                             android:id="@+id/textView106"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_refineuranium"/>
+                            android:text="@string/block_data_collector_large_refineuranium"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1883,7 +2674,7 @@
                             android:id="@+id/textView108"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_totalingotmass"/>
+                            android:text="@string/block_data_collector_large_totalingotmass"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1909,7 +2700,7 @@
                             android:id="@+id/textView109"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_totaloremass"/>
+                            android:text="@string/block_data_collector_large_totaloremass"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1958,7 +2749,7 @@
                             android:id="@+id/textView111"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_totalingotvolume"/>
+                            android:text="@string/block_data_collector_large_totalingotvolume"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1984,7 +2775,7 @@
                             android:id="@+id/textView112"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_totalorevolume"/>
+                            android:text="@string/block_data_collector_large_totalorevolume"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2135,7 +2926,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="@string/block_data_door_large_totaltime"/>
+                            android:text="@string/block_data_collector_large_totaltime"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -2186,7 +2977,7 @@
                             android:id="@+id/textView123"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_totalpower"/>
+                            android:text="@string/block_data_collector_large_totalpower"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -2213,7 +3004,7 @@
                             android:id="@+id/textView124"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/block_data_door_large_totaluranium"/>
+                            android:text="@string/block_data_collector_large_totaluranium"/>
                     </LinearLayout>
                 </LinearLayout>
 

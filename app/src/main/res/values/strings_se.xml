@@ -11172,7 +11172,7 @@
     <string name="block_data_gravity_generator_large_powerstorage"> kWh</string>
     <string name="block_data_gravity_generator_large_force"> kN</string>
     <string name="block_data_gravity_generator_large_virtualmass"> kg</string>
-    <string name="block_data_gravity_generator_large_range">150 km</string>
+    <string name="block_data_gravity_generator_large_range">150 m</string>
     <string name="block_data_gravity_generator_large_moduleratio"/>
     <string name="block_data_gravity_generator_large_firerate"> rpm</string>
     <string name="block_data_gravity_generator_large_explosiondamage"/>
@@ -11251,7 +11251,7 @@
     <string name="block_data_gravity_generator_sphere_large_powerstorage"> kWh</string>
     <string name="block_data_gravity_generator_sphere_large_force"> kN</string>
     <string name="block_data_gravity_generator_sphere_large_virtualmass"> kg</string>
-    <string name="block_data_gravity_generator_sphere_large_range">400 km</string>
+    <string name="block_data_gravity_generator_sphere_large_range">400 m</string>
     <string name="block_data_gravity_generator_sphere_large_moduleratio"/>
     <string name="block_data_gravity_generator_sphere_large_firerate"> rpm</string>
     <string name="block_data_gravity_generator_sphere_large_explosiondamage"/>

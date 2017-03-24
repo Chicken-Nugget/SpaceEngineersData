@@ -10,5 +10,6 @@
     <dimen name="f_component_section">8sp</dimen>
     <dimen name="f_sub_section">12sp</dimen>
     <dimen name="f_critcomp_section">16sp</dimen>
+    <dimen name="f_main_attribute_section">16sp</dimen>
     <dimen name="f_attribute_section">10sp</dimen>
 </resources>

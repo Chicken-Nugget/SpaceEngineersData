@@ -1,0 +1,141 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:paddingBottom="52dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/block_header_background"
+        android:elevation="6dp"
+        android:orientation="horizontal"
+        android:outlineProvider="background"
+        >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/se_assembler"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="4dp"
+            android:gravity="center_vertical"
+            android:singleLine="false"
+            android:text="@string/block_data_assembler_large_title"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/f_header_size"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <ScrollView android:id="@+id/scrollView5"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:scrollbarStyle="outsideOverlay">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="20sp"
+            android:paddingRight="20sp"
+            android:paddingTop="10sp">
+
+            <TextView
+                android:id="@+id/textView291"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5sp"
+                android:paddingTop="10sp"
+                android:text="Overview"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/textView292"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10sp"
+                android:text="The Assembler&apos;s function is to fabricate Components and Tools, using refined ingots. It can also be switched to a disassemble mode, where it will destroy components to reclaim the ingots used. The Assembler is one of the most important blocks in Space Engineers. Alongside the Refinery and the Medical Room (and, arguably, a Reactor to power them), it is one of the essential parts of a successful Survival Mode game."
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <TextView
+                android:id="@+id/textView293"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5sp"
+                android:paddingTop="10sp"
+                android:text="Usage"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            <TextView
+                android:id="@+id/textView294"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10sp"
+                android:text="Before telling the assembler to make anything, you first need to ensure that the required materials are available. The items required can be supplied to the assembler in two main ways; you can either place them into it manually, or you can connect it to another block which contains the required materials (a refinery, for example) using the Conveyor system and it will automatically pull through the materials as required.\n\nGiving instructions to the assembler is done via the &quot;Production&quot; tab of the Control Panel. When in the Production view, there are 6 main areas to look at: the assembler select, component selection, cost display, mode buttons, build queue and component inventory.\n\nAssemblers can be selected with the drop-down box in the top-left of the Production Panel. This box lists all of the assemblers attached to the ship/station you are interacting with. Ff the ship/station has multiple assemblers, this is where you would switch between them to give each of them different orders.\n\nBelow the assembler selection is blueprint selection. This is where you will see icons for various components that can be built. There are also 4 buttons at the top of this area, which switch between large ship blocks, small ship blocks, tools, and components. If you click one of the components or tools, they will be added to the build queue. If you click one of the ship blocks, the components required to build that block will be added to the build queue. If the resources required to make the component are not available in the system, the icons will be red. You can still queue components if they do not have the resources required to construct them, but the Assembler will stall until it has the resources to complete the task.\n\nIn the center of the panel you can view the cost in ingots required to complete the current Assembler queue. If there are not enough ingots available to assemble the component, the number of what is missing will appear in red. Note that the assembler only counts resources available stored in itself. Although it will automatically pull the resources required to construct an item to itself, it is possible that it could state that it is missing a resources simply because its inventory has been completely filled and it is unable to pull the required resources to use them."
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <TextView
+                android:id="@+id/textView295"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5sp"
+                android:paddingTop="10sp"
+                android:text="Modes"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            <TextView
+                android:id="@+id/textView296"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10sp"
+                android:text="In addition to assembling (the default mode) you can also disassemble components. Above the assembly queue you can switch to Disassembling. When in this mode, any components added to the assembler will automatically be deconstructed into their base ingots (at no loss) and any components added to the queue will be taken from the system and disassembled."
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <TextView
+                android:id="@+id/textView297"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5sp"
+                android:paddingTop="10sp"
+                android:text="Cooperative Mode"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            <TextView
+                android:id="@+id/textView298"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10sp"
+                android:text="Each assembler has an option to run in &quot;Cooperative Mode&quot;, both on the Assembler&apos;s &quot;Control Panel&quot; page and the &quot;Production&quot; tab. When setup properly, this allows assemblers to share workload, in &quot;Assembly&quot; mode.  To setup a group of Assemblers to operate cooperatively, they must first be attached directly to each other, via their conveyor ports. This does not mean that you can connect them with conveyors and conveyor tubes. Only assemblers that are directly attached to each other will operate cooperatively. Once the group is built, one assembler in the group must be designated as the master, and all others in the group should have their &quot;Cooperative Mode&quot; selector enabled.  Once this setup is complete, you can begin building components cooperatively by adding the desired components to the Build Queue of the master Assembler (the one without &quot;Cooperative Mode&quot; selected). The slave Assemblers will see these items and add a few of them to their queues, while removing that number of items from the master&apos;s queue."
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <TextView
+                android:id="@+id/textView299"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5sp"
+                android:paddingTop="10sp"
+                android:text="Repeat Mode"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            <TextView
+                android:id="@+id/textView300"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10sp"
+                android:text="By pressing the looping arrows symbol on the right side of the interface, you can have an assembler repeat its current queue indefinately. Each component created will be added back to the queue."
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

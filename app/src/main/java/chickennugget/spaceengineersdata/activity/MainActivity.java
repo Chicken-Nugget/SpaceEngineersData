@@ -64,7 +64,15 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
     };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
+
+//      ProgressDialog dialog=new ProgressDialog(this);
+//      dialog.setMessage("Loading");
+//      dialog.setCancelable(false);
+//      dialog.setInverseBackgroundForced(false);
+//      dialog.show();
+//      dialog.hide();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         dl_navigator = (DrawerLayout) findViewById(R.id.main_dl);
@@ -127,6 +135,7 @@ public class MainActivity extends AppCompatActivity implements ToolbarManager.On
         ViewUtil.setBackground(getWindow().getDecorView(), new ThemeDrawable(R.array.bg_window));
         ViewUtil.setBackground(mToolbar, new ThemeDrawable(R.array.bg_toolbar));
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

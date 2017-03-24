@@ -21,21 +21,14 @@
             android:paddingTop="4dp">
 
             <chickennugget.spaceengineersdata.material.widgets.Button
-                android:id="@+id/b_gatling_turret_l"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:drawableLeft="@drawable/se_gatling_turret"
-                android:gravity="left"
-                app:v_styleId="@array/button_raise_wave_color"/>
-
-            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/b_gatling_turret_c"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:drawableLeft="@drawable/se_gatling_turret"
                 android:gravity="center"
+                android:paddingEnd="5dp"
                 android:text="@string/block_data_gatling_turret_large_title"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
@@ -43,8 +36,17 @@
                 android:id="@+id/b_gatling_turret_s"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:drawableRight="@drawable/se_gatling_turret"
-                android:gravity="right"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:text="@string/small_block_button"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_gatling_turret_l"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:gravity="center"
+                android:text="@string/large_block_button"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
         </LinearLayout>
@@ -58,21 +60,14 @@
             android:paddingTop="4dp">
 
             <chickennugget.spaceengineersdata.material.widgets.Button
-                android:id="@+id/b_interior_turret_l"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:drawableLeft="@drawable/se_interior_turret"
-                android:gravity="left"
-                app:v_styleId="@array/button_raise_wave_color"/>
-
-            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/b_interior_turret_c"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:drawableLeft="@drawable/se_interior_turret"
                 android:gravity="center"
+                android:paddingEnd="5dp"
                 android:text="@string/block_data_interior_turret_large_title"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
@@ -80,8 +75,17 @@
                 android:id="@+id/b_interior_turret_s"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:drawableRight="@drawable/se_interior_turret"
-                android:gravity="right"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:text="@string/small_block_button"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_interior_turret_l"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:gravity="center"
+                android:text="@string/large_block_button"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
         </LinearLayout>
@@ -95,21 +99,14 @@
             android:paddingTop="4dp">
 
             <chickennugget.spaceengineersdata.material.widgets.Button
-                android:id="@+id/b_missile_turret_l"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:drawableLeft="@drawable/se_missile_turret"
-                android:gravity="left"
-                app:v_styleId="@array/button_raise_wave_color"/>
-
-            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/b_missile_turret_c"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:drawableLeft="@drawable/se_missile_turret"
                 android:gravity="center"
+                android:paddingEnd="5dp"
                 android:text="@string/block_data_missile_turret_large_title"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
@@ -117,8 +114,17 @@
                 android:id="@+id/b_missile_turret_s"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:drawableRight="@drawable/se_missile_turret"
-                android:gravity="right"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:text="@string/small_block_button"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_missile_turret_l"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:gravity="center"
+                android:text="@string/large_block_button"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
         </LinearLayout>
@@ -132,21 +138,14 @@
             android:paddingTop="4dp">
 
             <chickennugget.spaceengineersdata.material.widgets.Button
-                android:id="@+id/b_gatling_gun_l"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:drawableLeft="@drawable/se_gatling_gun"
-                android:gravity="left"
-                app:v_styleId="@array/button_raise_wave_color"/>
-
-            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/b_gatling_gun_c"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:drawableLeft="@drawable/se_gatling_gun"
                 android:gravity="center"
+                android:paddingEnd="5dp"
                 android:text="@string/block_data_gatling_gun_small_title"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
@@ -154,8 +153,17 @@
                 android:id="@+id/b_gatling_gun_s"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:drawableRight="@drawable/se_gatling_gun"
-                android:gravity="right"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:text="@string/small_block_button"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_gatling_gun_l"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:gravity="center"
+                android:text="@string/large_block_button"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
         </LinearLayout>
@@ -169,21 +177,14 @@
             android:paddingTop="4dp">
 
             <chickennugget.spaceengineersdata.material.widgets.Button
-                android:id="@+id/b_rocket_launcher_l"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:drawableLeft="@drawable/se_rocket_launcher"
-                android:gravity="left"
-                app:v_styleId="@array/button_raise_wave_color"/>
-
-            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/b_rocket_launcher_c"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:drawableLeft="@drawable/se_rocket_launcher"
                 android:gravity="center"
+                android:paddingEnd="5dp"
                 android:text="@string/block_data_rocket_launcher_large_title"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
@@ -191,8 +192,17 @@
                 android:id="@+id/b_rocket_launcher_s"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:drawableRight="@drawable/se_rocket_launcher"
-                android:gravity="right"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:text="@string/small_block_button"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_rocket_launcher_l"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:gravity="center"
+                android:text="@string/large_block_button"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
         </LinearLayout>
@@ -206,21 +216,14 @@
             android:paddingTop="4dp">
 
             <chickennugget.spaceengineersdata.material.widgets.Button
-                android:id="@+id/b_reloadable_rocket_launcher_l"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:drawableLeft="@drawable/se_reloadable_rocket_launcher"
-                android:gravity="left"
-                app:v_styleId="@array/button_raise_wave_color"/>
-
-            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/b_reloadable_rocket_launcher_c"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:drawableLeft="@drawable/se_reloadable_rocket_launcher"
                 android:gravity="center"
+                android:paddingEnd="5dp"
                 android:text="@string/block_data_reloadable_rocket_launcher_small_title"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
@@ -228,8 +231,17 @@
                 android:id="@+id/b_reloadable_rocket_launcher_s"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:drawableRight="@drawable/se_reloadable_rocket_launcher"
-                android:gravity="right"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:text="@string/small_block_button"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_reloadable_rocket_launcher_l"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:gravity="center"
+                android:text="@string/large_block_button"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
         </LinearLayout>
@@ -243,21 +255,14 @@
             android:paddingTop="4dp">
 
             <chickennugget.spaceengineersdata.material.widgets.Button
-                android:id="@+id/b_warhead_l"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:drawableLeft="@drawable/se_warhead"
-                android:gravity="left"
-                app:v_styleId="@array/button_raise_wave_color"/>
-
-            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/b_warhead_c"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:drawableLeft="@drawable/se_warhead"
                 android:gravity="center"
+                android:paddingEnd="5dp"
                 android:text="@string/block_data_warhead_large_title"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
@@ -265,8 +270,17 @@
                 android:id="@+id/b_warhead_s"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:drawableRight="@drawable/se_warhead"
-                android:gravity="right"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:text="@string/small_block_button"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_warhead_l"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:gravity="center"
+                android:text="@string/large_block_button"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
         </LinearLayout>
@@ -280,21 +294,14 @@
             android:paddingTop="4dp">
 
             <chickennugget.spaceengineersdata.material.widgets.Button
-                android:id="@+id/b_decoy_l"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:drawableLeft="@drawable/se_decoy"
-                android:gravity="left"
-                app:v_styleId="@array/button_raise_wave_color"/>
-
-            <chickennugget.spaceengineersdata.material.widgets.Button
                 android:id="@+id/b_decoy_c"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:drawableLeft="@drawable/se_decoy"
                 android:gravity="center"
+                android:paddingEnd="5dp"
                 android:text="@string/block_data_decoy_large_title"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
@@ -302,8 +309,17 @@
                 android:id="@+id/b_decoy_s"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:drawableRight="@drawable/se_decoy"
-                android:gravity="right"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:text="@string/small_block_button"
+                app:v_styleId="@array/button_raise_wave_color"/>
+
+            <chickennugget.spaceengineersdata.material.widgets.Button
+                android:id="@+id/b_decoy_l"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:gravity="center"
+                android:text="@string/large_block_button"
                 app:v_styleId="@array/button_raise_wave_color"/>
 
         </LinearLayout>

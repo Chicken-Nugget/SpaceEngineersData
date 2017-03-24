@@ -18,7 +18,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="4dp"
-            android:background="@drawable/se_artificial_mass"/>
+            android:background="@drawable/se_arc_furnace"/>
 
         <TextView
             android:id="@+id/textView"
@@ -27,14 +27,14 @@
             android:layout_marginLeft="4dp"
             android:gravity="center_vertical"
             android:singleLine="false"
-            android:text="@string/block_data_artificial_mass_large_title"
+            android:text="@string/block_data_arc_furnace_large_title"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="@dimen/f_header_size"
             android:textStyle="bold"/>
 
     </LinearLayout>
 
-    <ScrollView android:id="@+id/scrollView4"
+    <ScrollView android:id="@+id/scrollView3"
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -50,7 +50,7 @@
             android:paddingTop="10sp">
 
             <TextView
-                android:id="@+id/textView285"
+                android:id="@+id/textView281"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5sp"
@@ -60,15 +60,15 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/textView286"
+                android:id="@+id/textView282"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10sp"
-                android:text="The Artificial Mass block creates virtual mass that is affected by the artificial gravity created by Gravity Generators. Only the artificial mass is used when calculating the force applied to a ship by artificial gravity. If a ship has 50,000kg of virtual mass yet the ship weights 1,000,000kg, only the force applied to the 50,000kg will affect the ship, causing large ships to accelerate under artificial mass much more slowly. This can be countered by simply adding additional Artifical Mass blocks, for their virtual mass will combine to a total sum. Note that the artificial mass generated does not actually add to the mass of the ship when calculating thrust, only the mass of the Artificial Mass block."
+                android:text="The Arc Furnace is similar to its larger counterpart the Refinery in that it refines Ores into Ingots. However, it is limited to only refining Iron Ore, Nickel Ore, and Cobalt Ore. The Arc Furnace is 8x smaller, is slightly more efficient in refining these ores, requires far fewer components to build, refines at 1.2x the speed, and requries 40% less power to use. Unlike the larger and more expensive Refinery, it has no attachment ports allowing it to be upgraded. Despite its inherent speed benefits, a fully specialized Refinery is superior to the Arc Furnace for all specializations except physical space and resources to construct."
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <TextView
-                android:id="@+id/textView287"
+                android:id="@+id/textView283"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5sp"
@@ -77,28 +77,11 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <TextView
-                android:id="@+id/textView288"
+                android:id="@+id/textView284"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10sp"
-                android:text="The artificial mass block can be used to add gravity to ships and other objects. While it can be used to create realistic vessels that obey the laws of gravity, it is also useful for creating vehicles that require an anchor or stabilizing force, such as trams/rail vehicles or cars and rovers. The amount of possibilities are endless. Uses vary from gravity applied thrust for ships, to player-made torpedoes."
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-            <TextView
-                android:id="@+id/textView289"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="5sp"
-                android:paddingTop="10sp"
-                android:text="Gravity Drive"
-                android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-            <TextView
-                android:id="@+id/textView290"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10sp"
-                android:text="Artificial Mass blocks can be used in conjunction with Gravity Generators to break Newton&apos;s third law. In Newton&apos;s third law, every action must have an equal and opposite reaction. However, Gravity Generators do not experience a force after exerting a force on an object, thus breaking Newton&apos;s third law. This can be exploited to create powerful amounts of thrust by attaching both Gravity Generator and Artificial Mass blocks to a ship, and having the gravity generators &quot;pull&quot; the ship forward. This mechanism is usually referred to as a gravity drive.\n\nSmall ships, which can not Gravity Generators, can use a similar concept by constructing a gateway containing gravity generators to give the ship an initial boost."
+                android:text="Each ore once mined from an ore vein from an Asteroid, Moon, or Planet is in a very impure form that is mixed up with other elements and contaminated with impurities not suited for fashioning into useful components. The Arc Furnace, like the Refinery, Refines the ores into their pure forms much like Smelting. Since the Ores are riddled with impurities most of the Ore will be processed away leaving behind only the base element. Each type of ore has their own ratio of impurities and the time necessary to remove. The impurities removed in the refining process cause no byproduct. Refining ores into ingots reduces mass and saves storage space."
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
 
         </LinearLayout>
